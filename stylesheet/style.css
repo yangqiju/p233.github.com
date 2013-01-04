@@ -225,6 +225,8 @@ nav a {
     width: 1em;
     height: 1em;
     font-size: 2em; }
+  #post p.noindent {
+    margin-left: -2em; }
 
 @-moz-document url-prefix() {
   #post p:nth-of-type(2):first-letter {
