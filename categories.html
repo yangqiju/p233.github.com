@@ -1,0 +1,26 @@
+---
+layout: default
+title: 文章分类
+---
+<div id="cate" class="inner">
+	<h2 id="css">Css 技术</h2>
+	{% for post in site.categories.Css %}
+	<p class="entry">
+		<span>{{ post.date | date_to_string }}</span><a href="{{ post.url }}">{{ post.title }}</a>
+	</p>
+	{% endfor %}
+
+	<h2 id="mac">软件与系统</h2>
+	{% for post in site.categories.Mac_OS %}
+	<p class="entry">
+		<span>{{ post.date | date_to_string }}</span><a href="{{ post.url }}">{{ post.title }}</a>
+	</p>
+	{% endfor %}
+
+	<h2 id="unc">未分类</h2>
+	{% for post in site.categories.Uncategorised %}
+	<p class="entry">
+		<span>{{ post.date | date_to_string }}</span><a href="{{ post.url }}">{{ post.title }}</a>
+	</p>
+	{% endfor %}
+</div>
