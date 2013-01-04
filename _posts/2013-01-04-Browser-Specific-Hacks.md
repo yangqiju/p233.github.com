@@ -7,7 +7,7 @@ title: CSS 判断浏览器方法整理
 
 ### Conditional Comments
 
-{% highlight markup %}
+{% prism markup %}
 <!--[if IE]>
   According to the conditional comment this is IE
 <![endif]-->
@@ -47,12 +47,12 @@ title: CSS 判断浏览器方法整理
 <!--[if !IE]> -->
   According to the conditional comment this is not IE
 <!-- <![endif]-->
-{% endhighlight %}
+{% endprism %}
 <p class="noindent">Source: <a href="http://www.quirksmode.org/css/condcom.html" target="_blank">http://www.quirksmode.org/css/condcom.html</a></p>
 
 ### Target IE
 
-{% highlight css %}
+{% prism css %}
 p {
   color: red; /* All browsers */
   color: red\9; /* IE8 and below */
@@ -66,32 +66,32 @@ p {
     color: red;
   }
 }
-{% endhighlight %}
+{% endprism %}
 
 ### Target Safari and Chrome
 
-{% highlight css %}
+{% prism css %}
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   p {
     color: red;
   }
 }
-{% endhighlight %}
+{% endprism %}
 
 ### Target Firefox
 
-{% highlight css %}
+{% prism css %}
 @-moz-document url-prefix() {
   p {
     color: red;
   }
 }
-{% endhighlight %}
+{% endprism %}
 
 ### Target Opera
 
-{% highlight css %}
+{% prism css %}
 x:-o-prefocus, p {
   color: red;
 }
-{% endhighlight %}
+{% endprism %}
