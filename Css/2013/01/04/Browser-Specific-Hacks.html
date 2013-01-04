@@ -4,7 +4,7 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="">
 		<meta name="keywords" content="">
-		<title>My Github | Peter's Playground</title>
+		<title>CSS 判断浏览器方法整理 | Peter's Playground</title>
 		<!--[if lt IE 8]><meta http-equiv="refresh" content="0;url=/ie.html"><![endif]-->
 		<!--[if lt IE 9]><script src="/js/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Overlock">
@@ -37,24 +37,91 @@
 		</header>
 		<div id="arrow"></div>
 		<div id="container">
-			<div id="github" class="inner">
-	<h2><a href="http://p233.github.com/Blank-Color-Scheme/" target="_blank">Blank Color Scheme</a></h2>
-	<p>Blank Color Scheme is a framework for easily and rapidly creating a new color scheme for Textmate / Sublime Text 2.</p>
+			<div id="post" class="inner">
+	<p id="date"><span>04 January 2013</span></p>
+	<h2>CSS 判断浏览器方法整理</h2>
+	<p>整理几个常用的判断浏览器的方法，记录在这里方便查阅。不算全面，以后遇到问题了再来更新。</p>
 
-	<h2><a href="https://github.com/P233/Emmet-Css-Snippets-for-Sublime-Text-2" target="_blank">Emmet Css Snippets for Sublime Text 2</a></h2>
-	<p>Emmet Css Snippets for Sublime Text 2. Works with Css, Less, Scss and Sass.</p>
+<h3 id='conditional_comments'>Conditional Comments</h3>
+<div>
+  <pre data-line=''><code class='language-markup'>&lt;!--[if IE]&gt;
+  According to the conditional comment this is IE
+&lt;![endif]--&gt;
 
-	<h2><a href="http://epub-cn.tk" target="_blank">epub-cn 框架</a></h2>
-	<p>中文 epub 制作框架</p>
+&lt;!--[if IE 6]&gt;
+  According to the conditional comment this is IE 6
+&lt;![endif]--&gt;
 
-	<h2><a href="https://github.com/P233/Jade-Snippets-for-Sublime-Text-2" target="_blank">Jade Snippets for Sublime Text 2</a></h2>
-	<p>Jade Snippets for Sublime Text 2</p>
-	
-	<h2><a href="/download/New_Jekyll_Post.alfredextension">New Jekyll Post</a></h2>
-	<p>An <a href="http://www.alfredapp.com" target="_blank">Alfred</a> extension helps you to create a new jekyll post named as Today's-date-Title-as-you-type.md. You need to manually add your _posts folder path in the new_post.rb file before start using this extension. When you typing the title, please use '-' instead of 'space'.</p>
+&lt;!--[if IE 7]&gt;
+  According to the conditional comment this is IE 7
+&lt;![endif]--&gt;
 
-	<h2><a href="http://stayfocused.tk" target="_blank">Stay Focused</a></h2>
-	<p>A web page helps you to finish your tasks with a countdown timer.</p>
+&lt;!--[if IE 8]&gt;
+  According to the conditional comment this is IE 8
+&lt;![endif]--&gt;
+
+&lt;!--[if IE 9]&gt;
+  According to the conditional comment this is IE 9
+&lt;![endif]--&gt;
+
+&lt;!--[if gte IE 8]&gt;
+  According to the conditional comment this is IE 8 or higher
+&lt;![endif]--&gt;
+
+&lt;!--[if lt IE 9]&gt;
+  According to the conditional comment this is IE lower than 9
+&lt;![endif]--&gt;
+
+&lt;!--[if lte IE 7]&gt;
+  According to the conditional comment this is IE lower or equal to 7
+&lt;![endif]--&gt;
+
+&lt;!--[if gt IE 6]&gt;
+  According to the conditional comment this is IE greater than 6
+&lt;![endif]--&gt;
+
+&lt;!--[if !IE]&gt; --&gt;
+  According to the conditional comment this is not IE
+&lt;!-- &lt;![endif]--&gt;</code></pre>
+</div><p class='noindent'>Source: <a target='_blank' href='http://www.quirksmode.org/css/condcom.html'>http://www.quirksmode.org/css/condcom.html</a></p>
+<h3 id='target_ie'>Target IE</h3>
+<div>
+  <pre data-line=''><code class='language-css'>p {
+  color: red; /* All browsers */
+  color: red\9; /* IE8 and below */
+  *color: red; /* IE7 and below */
+  _color: red; /* IE6 */  
+}
+
+/* Target IE 10 */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  p {
+    color: red;
+  }
+}</code></pre>
+</div>
+<h3 id='target_safari_and_chrome'>Target Safari and Chrome</h3>
+<div>
+  <pre data-line=''><code class='language-css'>@media screen and (-webkit-min-device-pixel-ratio:0) {
+  p {
+    color: red;
+  }
+}</code></pre>
+</div>
+<h3 id='target_firefox'>Target Firefox</h3>
+<div>
+  <pre data-line=''><code class='language-css'>@-moz-document url-prefix() {
+  p {
+    color: red;
+  }
+}</code></pre>
+</div>
+<h3 id='target_opera'>Target Opera</h3>
+<div>
+  <pre data-line=''><code class='language-css'>x:-o-prefocus, p {
+  color: red;
+}</code></pre>
+</div>
 
 	<div id="disqus_thread"></div>
 	<script type="text/javascript">
