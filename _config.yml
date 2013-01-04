@@ -1,1 +1,2 @@
-safe: true
+safe:     false
+pygments: true
