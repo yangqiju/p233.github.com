@@ -56,7 +56,7 @@
 <li>在第二台机器上，关闭 Sublime Text 2，找到 packages 文件夹并将其删除，然后重复步骤 3 中的命令。</li>
 </ol>
 
-<h3 id='id23'>同步其他软件</h3>
+<h3 id='id849'>同步其他软件</h3>
 
 <p>Mac OS 下软件的设置文件都会以 .plist 的格式保存在 <code>~/Library/Preferences/</code> 下，只要给这些文件创建 symlink 就可以完成同步。有些软件除了 .plist 外，还会在 <code>~/Libray/Application Support/</code> 下创建文件夹存储额外的设置，比如 Alfred 会创建一个文件夹存储 extensions，TextMate 会创建一个文件夹存储 Bundles 与 Themes，给这些文件夹创建 symlink 可以完成更彻底的同步。<em>但是，并不是所有的软件都允许同步这些文件夹</em>，有些软件会删除 symlink 重新写入文件，而不是按照 symlink 找到位于 Dropbox 下的文件。已经同步的软件如果更新，则不会影响到 symlink。</p>
 
@@ -67,7 +67,7 @@
 <p>同步方法：将 <code>~/Library/Keychains/</code> 下的 login.keychain 文件移动到 Dropbox 文件夹下；启动 Keychain Access，选择 File &gt; Add Keychain…，然后添加位于 Dropbox 下的 login.keychain 文件；在第二台电脑上删除本地的 login.keychain 文件，然后重复 File &gt; Add Keychain…。同步 Keychain 后，重启电脑偶尔会被要求输入密码，验证 Keychain 的管理权限。</p>
 
 <p><strong>最后，不要在两台电脑上同时运行同步的软件，会因为文件冲而突丢失设置。</strong></p>
-
+	<p class="noindent"><strong>全文完</strong></p>
 	<div id="disqus_thread"></div>
 	<script type="text/javascript">
 		/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */

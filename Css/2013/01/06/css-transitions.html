@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<title>关于 Css Transition 的一切 | Peter's Playground</title>
+		<!--[if lt IE 8]><meta http-equiv="refresh" content="0;url=/ie.html"><![endif]-->
+		<!--[if lt IE 9]><script src="/js/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Overlock">
+		<link rel="stylesheet" type="text/css" href="/stylesheet/style.css">
+		<script type="text/javascript">
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-37405656-1']);
+		  _gaq.push(['_trackPageview']);
+		  (function() {
+		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+		</script>
+	</head>
+	<body>
+		<header>
+			<h1>Peter's Playground</h1>
+			<nav>
+				<a href="/index.html">首页</a>
+				<a href="/categories.html">文章分类</a>
+					<div id="sub_nav">
+						<a href="/categories.html#css">Css 技术</a>
+						<a href="/categories.html#mac">软件与系统</a>
+						<a href="/categories.html#unc">未分类</a>
+					</div>
+				<a href="/github.html">My Github</a>
+			</nav>
+			<a id="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank"><img src="/images/cc.png" alt="creative commons"/></a>
+		</header>
+		<div id="arrow"></div>
+		<div id="container">
+			<div id="post" class="inner">
+	<p id="date"><span>06 January 2013</span></p>
+	<h2>关于 Css Transition 的一切</h2>
+	<p>刚刚读到的文章，非常不错，翻译出来与大家分享。原文 <a href='http://blog.alexmaccaw.com/css-transitions' target='_blank'>All you need to know about Css Transitions</a> 由 Alex Maccaw 发表于 2013 年 1 月 3 日。不想花太多时间纠结于字面翻译，只专注最核心的信息，Javascript 入门水品，因此后半部分理解不深入，详细信息还请读原文，翻译不当的地方请大家指正。</p>
+
+<h3 id='id850'>浏览器支持</h3>
+
+<p>几乎所有版本的 Firefox, Safari, Chrome 以及最新的 IE10 都支持 transition 属性。动画与渐变特效在 Safari 和 Chrome 下仍然需要添加 <code>-webkit</code> 前缀，不过很快也会不需要了。</p>
+
+<h3 id='_transition_'>使用 transition 属性</h3>
+
+<p>Transition 属性使用最多的地方要数 css 伪类了，比如 <code>:hover</code>。使用时指定变化的属性名，变化时间，以及变化样式。例如</p>
+<div>
+  <pre data-line=''><code class='language-css'>.element {
+  height: 100px;
+  transition: height 2s linear;
+}
+
+.element:hover {
+  height: 200px;
+}</code></pre>
+</div>
+<p>当 <code>:hover</code> 伪类被激活时，<code>.element</code> 的高度在 2 秒钟的时间内从 <code>100px</code> 线性（linear）变化为 <code>200px</code>。</p>
+
+<p>浏览器默认变化属性为 <code>all</code> （全部属性），变化样式为 <code>ease</code>，因此如果没特殊要求，只需定义变化的时间。</p>
+
+<p>使用 js 添加、移除 class 要比使用伪类更方便，因为后者必须用户激活后才能触发。下面的例子里用到了两个变化效果，都是通过 js 触发的。</p>
+<div>
+  <pre data-line=''><code class='language-css'>.element {
+  opacity: 0.0;
+  transform: scale(0.95) translate3d(0,100%,0);
+  transition: transform 400ms ease, opacity 400ms ease;
+}
+
+.element.active {
+  opacity: 1.0;
+  transform: scale(1.0) translate3d(0,0,0);
+}
+
+.element.inactive {
+  opacity: 0.0;
+  transform: scale(1) translate3d(0,0,0);
+}</code></pre>
+</div><div>
+  <pre data-line=''><code class='language-javascript'>var active = function(){
+  $('.element').removeClass('inactive').addClass('active');
+};
+
+var inactive = function(){
+  $('.element').removeClass('active').addClass('inactive');
+};</code></pre>
+</div>
+<h3 id='id851'>渐变背景的变化</h3>
+
+<p>不是所有的 css 属性都可以变化，而且只能从一个绝对值变化到另一个绝对值。比如，<code>height</code> 不能从 <code>0px</code> 变化到 <code>auto</code>（补充：不同单位之间也可以变化，比如从 <code>0px</code> 变化到 <code>10em</code>，但不可以从 <code>0px</code> 变化到 <code>10%</code>），可变化的属性列表请参考<a href='http://oli.jp/2010/css-animatable-properties/' target='_blank'>这里</a>。</p>
+
+<p>还有，只有纯色背景可以变化，带有渐变效果的背景却不可以，没有任何技术原因不支持，只是浏览器还需要些时间支持这些特效。不过，还是有几种变通办法的：</p>
+
+<p>第一种，渐变颜色采用有透明度的 rgba，然后变化 <code>background-color</code> 背景颜色，如下：</p>
+<div>
+  <pre data-line=''><code class='language-css'>.panel {
+  background-color: #000;
+  background-image: linear-gradient(rgba(255, 255, 0, 0.4), #FAFAFA);
+  transition: background-color 400ms ease;
+}
+
+.panel:hover {
+  background-color: #DDD;
+}</code></pre>
+</div>
+<p>如果渐变样式是连续的，还可以通过 <code>background-position</code> 属性移动它，<a href='http://sapphion.com/2011/10/css3-gradient-transition-with-background-position/' target='_blank'>例子</a>。或者，创建两个元素叠加，控制上面一层的透明度。如下：</p>
+<div>
+  <pre data-line=''><code class='language-css'>.element {  
+  width: 100px;  
+  height: 100px;  
+  position: relative;
+  background: linear-gradient(#C7D3DC,#5B798E);    
+}  
+
+.element .inner { 
+  content: '';
+  position: absolute;
+  left: 0; top: 0; right: 0; bottom: 0;
+  background: linear-gradient(#DDD, #FAFAFA);          
+  opacity: 0;
+  transition: opacity 1s linear;
+}
+
+.element:hover .inner {
+  opacity: 1;
+}</code></pre>
+</div>
+<p>但是，这样需要额外的标签，上一层的元素也会获取鼠标事件。所以，如果这里能用 <code>:before</code>，<code>:after</code> 伪类是最理想的，可惜目前只有 Firefox 支持伪类变化。Eliott Sprehn 正在努力让 webkit 也支持伪类变化，这一功能很快也会在 Safari Chrome 上实现。</p>
+
+<h3 id='id852'>硬件加速</h3>
+
+<p>变化某些属性，比如 <code>left</code> ，<code>margin</code>，<em>浏览器会重新计算每一帧的显示效果</em>，这严重影响速度，尤其是在移动设备上。解决办法就是让 GPU 来做这些运算，简单的说，就是将元素转化为图片再制作变化效果，而不是重新计算每一帧的 css 样式。最简单的一个使用硬件加速的办法就是用 <code>transform: translate3d(0,0,0);</code> 属性。</p>
+
+<p>不过，这并不是个完美解决方法，同时会带来一些弊端，所以要有选择的使用硬件加速，不要用的太多。其中一项弊端是，字体在变化时会 lose weight （大家应该感觉到了，变化过程中字体很细，变化完毕后突然加粗，即便没有使用粗体），原因就是硬件加速过程中不会对字体启用抗锯齿特效，避免这个问题只能禁用 <code>font-smoothing: antialiased;</code>。</p>
+
+<p>此外，不用的浏览器使用不同的硬件加速库，有浏览器差异。如果遇到不同浏览器中显示的变化效果不同，不要使用通用的 <code>transform3d()</code> 设置，给不同浏览器不同的变化效果。</p>
+
+<h3 id='clipping'>Clipping</h3>
+
+<p>为了让 GPU 更好的运算变化效果，要避免使用像 <code>width</code> 这样需要重新计算每一帧样式的属性，而用 clipping （修剪）。下面的例子将一个搜索框拉宽，使用 <code>translate3d</code> 属性令元素在 X 轴上拉长，而不是用 <code>width</code>，这样每一帧都不会重新计算元素的宽度，速度更快，效果更流畅：</p>
+<div>
+  <pre data-line=''><code class='language-css'>.clipped {
+  overflow: hidden;
+  position: relative;
+}
+
+.clipped .clip {
+  right: 0px;
+  width: 45px;
+  height: 45px;
+  background: url(/images/clip.png) no-repeat
+}
+
+input:focus {
+  -webkit-transform: translate3d(-50px, 0, 0);
+}</code></pre>
+</div>
+<h3 id='id853'>时间函数</h3>
+
+<p>现在浏览器内置的时间函数包括 <code>linear, ease, ease-in, ease-out and ease-in-out</code>，复杂一点，可以用 cubic-bezier 曲线自定义时间函数，比如 <code>transition: -webkit-transform 1s cubic-bezier(.17,.67,.69,1.33);</code> 。两个帮你选择时间函数的工具 <a href='http://easings.net' target='_blank'>Pre-defined Curves</a> 和 <a href='http://cubic-bezier.com/#.17,.67,.83,.67' target='_blank'>Graphing Tool</a>。</p>
+
+<h3 id='id854'>用程序控制变化效果</h3>
+
+<p>借助 js 可以更有效的控制变化的效果，例如将连续的变化做成动画。变化属性为 <code>all</code> 时意味着元素的所有属性都可以同时发生变化，请看下面的例子</p>
+<div>
+  <pre data-line=''><code class='language-javascript'>var defaults = {
+  duration: 400,
+  easing: ''
+};
+
+$.fn.transition = function (properties, options) {
+  options = $.extend({}, defaults, options);
+  properties['webkitTransition'] = 'all ' + options.duration + 'ms ' + options.easing;
+  $(this).css(properties);
+};</code></pre>
+</div>
+<p>然后用 jQuery 函数 <code>$.fn.transition</code> 调用变化样式</p>
+<div>
+  <pre data-line=''><code class='language-javascript'>$('.element').transition({background: 'red'});</code></pre>
+</div>
+<h3 id='_callback'>获取变化结束的 callback</h3>
+
+<p>组合多个 transitions 首先要知道变化在什么时间结束，webkit 浏览器中可以监视 <code>webkitTransitionEnd</code> 事件，其他浏览器需要先用 <a href='https://gist.github.com/4414792' target='_blank'>这个</a> 找出事件名称。</p>
+<div>
+  <pre data-line=''><code class='language-javascript'>var callback = function () {
+  // ...
+}
+
+$(this).one('webkitTransitionEnd', callback)
+$(this).css(properties);</code></pre>
+</div>
+<p>有时也许不会正常工作，比如属性没有变化，或者没有被激活，确保每次都能得到一个 callback，要设定 timeout 手动激活事件。</p>
+<div>
+  <pre data-line=''><code class='language-javascript'>$.fn.emulateTransitionEnd = function(duration) {
+  var called = false, $el = this;
+  $(this).one('webkitTransitionEnd', function() { called = true; });
+  var callback = function() { if (!called) $($el).trigger('webkitTransitionEnd'); };
+  setTimeout(callback, duration);
+};</code></pre>
+</div>
+<p>现在可以调用 <code>$.fn.emulateTransitionEnd()</code> 确保变化结束的 callback 被激活。</p>
+
+<h3 id='id855'>连续的变化</h3>
+
+<p>熟悉了用 js 调用变化与获取变化结束的 callback，可以进一步将变化进行排列，做成连续的动画。jQuery 提供了两个对列相关的函数 <code>$.fn.queue(callback)</code> 与 <code>$.fn.dequeue()</code>。先将 css 变化样式写入 <code>$.fn.queue</code> callback 中，变化结束后调用 <code>$.fn.dequeue</code>。</p>
+<div>
+  <pre data-line=''><code class='language-javascript'>var $el = $(this);
+$el.queue(function(){
+  $el.one('webkitTransitionEnd', function(){
+    $el.dequeue();
+  });
+  $el.css(properties);
+});</code></pre>
+</div>
+<p>这个例子很简单，再复杂一点，用 <code>delay()</code> 函数做成一个连续在一起的动画效果。</p>
+<div>
+  <pre data-line=''><code class='language-javascript'>$('.element').transition({left: '20px'})
+             .delay(200)
+             .transition({background: 'red'});</code></pre>
+</div>
+<h3 id='id856'>重绘</h3>
+
+<p>在使用 <code>transition</code> 属性时，要写两套 css 属性，初始样式与结束样式。</p>
+<div>
+  <pre data-line=''><code class='language-javascript'>$('.element').css({left: '10px'})
+             .transition({left: '20px'});</code></pre>
+</div>
+<p>然而，如果同时设定了两套样式，紧连在一起，浏览器试着完善属性之间的变化，却会忽略初始样式并放弃变化。在后台，浏览器其实是分批更新变化样式的，这样会加快速度，但有时也有不利的影响（注，这一段没有经验，不保证翻译的准确度）。</p>
+
+<p>解决办法是利用 DOM 元素的 <code>offsetHeight</code> 属性让浏览器在两套样式之间重绘元素，例如：</p>
+<div>
+  <pre data-line=''><code class='language-javascript'>$.fn.redraw = function(){
+  $(this).each(function(){
+    var redraw = this.offsetHeight;
+  });
+};</code></pre>
+</div>
+<p>这个方法在大多数浏览器下都工作正常，但 Android 下还不够，使用 timeout 或者激活一个 class。</p>
+<div>
+  <pre data-line=''><code class='language-javascript'>$('.element').css({left: '10px'})
+             .redraw()
+             .transition({left: '20px'});</code></pre>
+</div>
+<h3 id='transition_'>Transition 的未来</h3>
+
+<p>未来，<a href='https://dvcs.w3.org/hg/FXTF/raw-file/tip/web-anim/index.html' target='_blank'>W3C 的新草案</a> 将包含新的 javascript API 解决现在的局限性，给开发者更灵活的空间。根据新的 API，可以同步动画，自定义时间函数，获取完成后的 callbacks，实在是令人期待的新功能。</p>
+<div>
+  <pre data-line=''><code class='language-javascript'>var anim = new Animation(elem, { left: '100px' }, 3);
+anim.play();</code></pre>
+</div>
+<p>另外，作者还提到了未来的 Web Animations，请看<a href='https://github.com/web-animations/web-animations-js' target='_blank'>这里</a>。</p>
+
+<h3 id='id857'>结尾</h3>
+
+<p>目前为止，希望你已经深入的了解了 css 的 transition 属性，以及如何组合简单的 API 制作丰富的动画效果。本文大多数 js 例子来源于 <a href='https://github.com/maccman/gfx' target='_blank'>GFX</a>，这是作者写的一个 jQuery css transition 库。</p>
+	<p class="noindent"><strong>全文完</strong></p>
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+		/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+		var disqus_shortname = 'p233'; // required: replace example with your forum shortname
+
+		/* * * DON'T EDIT BELOW THIS LINE * * */
+		(function() {
+			var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+			dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+			(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		})();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+		</div>
+		<script type="text/javascript" src="/js/meny.min.js"></script>
+		<script type="text/javascript" src="/js/prism.min.js"></script>
+		<script type="text/javascript">
+			var meny = Meny.create({
+				menuElement: document.querySelector( 'header' ),
+				contentsElement: document.querySelector( '#container' ),
+				position: Meny.getQuery().p || 'left',
+				height: 200,
+				width: 250,
+				threshold: 40
+			});
+		</script>
+	</body>
+</html>
