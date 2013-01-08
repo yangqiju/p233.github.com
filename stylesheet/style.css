@@ -157,7 +157,7 @@ nav a {
 #index {
   width: 500px; }
 #welcome {
-  margin-bottom: 135px; }
+  margin-bottom: 120px; }
   #welcome h2 {
     margin-bottom: 10px;
     font-size: 42px;
@@ -176,9 +176,11 @@ nav a {
   #recent h2:after {
     content: "\00a0\00a0===";
     color: #acacac; }
+#recent p{
+  padding-left: 60px; }
 
 #attribution {
-  padding: 130px 0 20px;
+  padding: 120px 30px 20px;
   font-size: 16px;
   line-height: 1.5;
   text-align: center; }

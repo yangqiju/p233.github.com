@@ -40,11 +40,11 @@
 			<div id="post" class="inner">
 	<p id="date"><span>05 January 2013</span></p>
 	<h2>关注 Css 性能 (一)</h2>
-	<p>虽然我只会写最简单的页面，但本着“取法乎上，得乎其中”的原则，一直关注 Css 性能，读过几篇相关文章，准备逐步翻译出来当做总结与积累。第一篇 <a href='http://boagworld.com/dev/why-you-should-care-about-css-page-performance/' target='_blank'>Why you should care about CSS page performance</a> 由 Doug Stewart 发表于 2012 年 5 月。只记录下几点重要的信息，没有直接翻译，理解不当的地方还请大家指正。</p>
+	<p>虽然我只会写最简单的页面，但本着“取法乎上，得乎其中”的原则，一直关注 Css 性能，读过几篇相关文章，准备逐步翻译出来当做总结与积累。第一篇 <a target='_blank' href='http://boagworld.com/dev/why-you-should-care-about-css-page-performance/'>Why you should care about CSS page performance</a> 由 Doug Stewart 发表于 2012 年 5 月。只记录下几点重要的信息，没有直接翻译，理解不当的地方还请大家指正。</p>
 
 <p>Doug 介绍了自己测试 css 性能的两个方法：缩放浏览器窗口与上下滚动页面。浏览器重绘页面可以反映很多关于性能的问题，未添加 css 的页面反应速度肯定是最快的。一般来说，<em>如果页面缩放时有明显延时，很可能是布局问题，比如浮动、流体宽度等等，而如果页面滚动时有明显延时，则可能是特效问题，比如说阴影与渐变。</em></p>
 
-<p>优化 css 性能，自然要先找到问题出在哪里。作者介绍了三款衡量页面性能的工具：<a href='https://github.com/andyedinborough/stress-css' target='_blank'>Css Stress Test</a>，Chrome Developer Tools 的 Profiles 与 Timeline。就不一一介绍这些工具了，原则上是要找出最耗时间的地方，然后将其优化。</p>
+<p>优化 css 性能，自然要先找到问题出在哪里。作者介绍了三款衡量页面性能的工具：<a target='_blank' href='https://github.com/andyedinborough/stress-css'>Css Stress Test</a>，Chrome Developer Tools 的 Profiles 与 Timeline。就不一一介绍这些工具了，原则上是要找出最耗时间的地方，然后将其优化。</p>
 <p class='noindent'>几点关于 Css 性能的小提示</p>
 <ol>
 <li>大家都知道 id 选择器的表现效果要优于 class，事实虽然也如此，但仅仅是非常微小的差别，几乎可以不予考虑；</li>
