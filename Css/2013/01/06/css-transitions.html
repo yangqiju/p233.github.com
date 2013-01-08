@@ -40,9 +40,9 @@
 			<div id="post" class="inner">
 	<p id="date"><span>06 January 2013</span></p>
 	<h2>关于 Css Transition 的一切</h2>
-	<p>刚刚读到的文章，非常不错，翻译出来与大家分享。原文 <a href='http://blog.alexmaccaw.com/css-transitions' target='_blank'>All you need to know about Css Transitions</a> 由 Alex Maccaw 发表于 2013 年 1 月 3 日。不想花太多时间纠结于字面翻译，只专注最核心的信息，Javascript 入门水品，因此后半部分理解不深入，详细信息还请读原文，翻译不当的地方请大家指正。</p>
+	<p>刚刚读到的文章，非常不错，翻译出来与大家分享。原文 <a href='http://blog.alexmaccaw.com/css-transitions' target='_blank'>All you need to know about Css Transitions</a> 由 Alex Maccaw 发表于 2013 年 1 月 3 日。不想花太多时间纠结于字面翻译，只专注最核心的信息，Javascript 入门水平，因此后半部分理解不深入，详细信息还请读原文，翻译不当的地方请大家指正。</p>
 
-<h3 id='id850'>浏览器支持</h3>
+<h3 id='id236'>浏览器支持</h3>
 
 <p>几乎所有版本的 Firefox, Safari, Chrome 以及最新的 IE10 都支持 transition 属性。动画与渐变特效在 Safari 和 Chrome 下仍然需要添加 <code>-webkit</code> 前缀，不过很快也会不需要了。</p>
 
@@ -89,7 +89,7 @@ var inactive = function(){
   $('.element').removeClass('active').addClass('inactive');
 };</code></pre>
 </div>
-<h3 id='id851'>渐变背景的变化</h3>
+<h3 id='id237'>渐变背景的变化</h3>
 
 <p>不是所有的 css 属性都可以变化，而且只能从一个绝对值变化到另一个绝对值。比如，<code>height</code> 不能从 <code>0px</code> 变化到 <code>auto</code>（补充：不同单位之间也可以变化，比如从 <code>0px</code> 变化到 <code>10em</code>，但不可以从 <code>0px</code> 变化到 <code>10%</code>），可变化的属性列表请参考<a href='http://oli.jp/2010/css-animatable-properties/' target='_blank'>这里</a>。</p>
 
@@ -129,19 +129,24 @@ var inactive = function(){
   opacity: 1;
 }</code></pre>
 </div>
-<p>但是，这样需要额外的标签，上一层的元素也会获取鼠标事件。所以，如果这里能用 <code>:before</code>，<code>:after</code> 伪类是最理想的，可惜目前只有 Firefox 支持伪类变化。Eliott Sprehn 正在努力让 webkit 也支持伪类变化，这一功能很快也会在 Safari Chrome 上实现。</p>
+<p>但是，这样需要额外的标签，上一层的元素也会获取鼠标事件。所以，如果这里能用 <code>:before</code>，<code>:after</code> 伪类是最理想的，可惜目前只有 Firefox 支持伪类变化。Eliott Sprehn 正在努力让 webkit 也支持伪类变化，这一功能很快也会在 Safari Chrome 上实现。<strong>更新：</strong>这个问题现在已经解决，目前 Firefox，Chrome 支持伪类变化，Safari 会在下一个版本中更新，Opera 目前还不支持，IE10 也支持，但有点奇特，要用下面的方式 (Source: <a href='http://css-tricks.com/pseudo-element-animationstransitions-bug-fixed-in-webkit/' target='_blank'>CSS-Tricks</a>)</p>
+<div>
+  <pre data-line=''><code class='language-css'>.x:hover:before { /* By itself, doesn't work */ }
 
-<h3 id='id852'>硬件加速</h3>
+.x:hover {} 
+.x:hover:before { /* This works (needs :hover declared) */ }</code></pre>
+</div>
+<h3 id='id238'>硬件加速</h3>
 
 <p>变化某些属性，比如 <code>left</code> ，<code>margin</code>，<em>浏览器会重新计算每一帧的显示效果</em>，这严重影响速度，尤其是在移动设备上。解决办法就是让 GPU 来做这些运算，简单的说，就是将元素转化为图片再制作变化效果，而不是重新计算每一帧的 css 样式。最简单的一个使用硬件加速的办法就是用 <code>transform: translate3d(0,0,0);</code> 属性。</p>
 
 <p>不过，这并不是个完美解决方法，同时会带来一些弊端，所以要有选择的使用硬件加速，不要用的太多。其中一项弊端是，字体在变化时会 lose weight （大家应该感觉到了，变化过程中字体很细，变化完毕后突然加粗，即便没有使用粗体），原因就是硬件加速过程中不会对字体启用抗锯齿特效，避免这个问题只能禁用 <code>font-smoothing: antialiased;</code>。</p>
 
-<p>此外，不用的浏览器使用不同的硬件加速库，有浏览器差异。如果遇到不同浏览器中显示的变化效果不同，不要使用通用的 <code>transform3d()</code> 设置，给不同浏览器不同的变化效果。</p>
+<p>此外，不用的浏览器使用不同的硬件加速库，有浏览器差异。如果遇到不同浏览器中显示的变化效果不同，不要使用通用的 <code>transform3d()</code> 设置，给不同浏览器不同的变化参数。</p>
 
 <h3 id='clipping'>Clipping</h3>
 
-<p>为了让 GPU 更好的运算变化效果，要避免使用像 <code>width</code> 这样需要重新计算每一帧样式的属性，而用 clipping （修剪）。下面的例子将一个搜索框拉宽，使用 <code>translate3d</code> 属性令元素在 X 轴上拉长，而不是用 <code>width</code>，这样每一帧都不会重新计算元素的宽度，速度更快，效果更流畅：</p>
+<p>为了让 GPU 更好的运算变化效果，要避免使用像 <code>width</code> 这样需要重新计算每一帧样式的属性，而用 clipping（术语，only drawing things that will be visible to the viewer）。下面的例子将一个搜索框拉宽，使用 <code>translate3d</code> 属性令元素在 X 轴上拉长，而不是用 <code>width</code>，这样每一帧都不会重新计算元素的宽度，速度更快，效果更流畅：</p>
 <div>
   <pre data-line=''><code class='language-css'>.clipped {
   overflow: hidden;
@@ -159,11 +164,11 @@ input:focus {
   -webkit-transform: translate3d(-50px, 0, 0);
 }</code></pre>
 </div>
-<h3 id='id853'>时间函数</h3>
+<h3 id='id239'>时间函数</h3>
 
-<p>现在浏览器内置的时间函数包括 <code>linear, ease, ease-in, ease-out and ease-in-out</code>，复杂一点，可以用 cubic-bezier 曲线自定义时间函数，比如 <code>transition: -webkit-transform 1s cubic-bezier(.17,.67,.69,1.33);</code> 。两个帮你选择时间函数的工具 <a href='http://easings.net' target='_blank'>Pre-defined Curves</a> 和 <a href='http://cubic-bezier.com/#.17,.67,.83,.67' target='_blank'>Graphing Tool</a>。</p>
+<p>浏览器内置的时间函数包括 <code>linear, ease, ease-in, ease-out and ease-in-out</code>，复杂一点，可以用 cubic-bezier 曲线自定义时间函数，比如 <code>transition: -webkit-transform 1s cubic-bezier(.17,.67,.69,1.33);</code> 。两个帮你选择时间函数的工具 <a href='http://easings.net' target='_blank'>Pre-defined Curves</a> 和 <a href='http://cubic-bezier.com/#.17,.67,.83,.67' target='_blank'>Graphing Tool</a>。</p>
 
-<h3 id='id854'>用程序控制变化效果</h3>
+<h3 id='id240'>用程序控制变化效果</h3>
 
 <p>借助 js 可以更有效的控制变化的效果，例如将连续的变化做成动画。变化属性为 <code>all</code> 时意味着元素的所有属性都可以同时发生变化，请看下面的例子</p>
 <div>
@@ -193,7 +198,7 @@ $.fn.transition = function (properties, options) {
 $(this).one('webkitTransitionEnd', callback)
 $(this).css(properties);</code></pre>
 </div>
-<p>有时也许不会正常工作，比如属性没有变化，或者没有被激活，确保每次都能得到一个 callback，要设定 timeout 手动激活事件。</p>
+<p>有时也许不工作，比如属性没有变化，或者没有被激活，确保每次都能得到一个 callback，要设定 timeout 手动激活事件。</p>
 <div>
   <pre data-line=''><code class='language-javascript'>$.fn.emulateTransitionEnd = function(duration) {
   var called = false, $el = this;
@@ -204,9 +209,9 @@ $(this).css(properties);</code></pre>
 </div>
 <p>现在可以调用 <code>$.fn.emulateTransitionEnd()</code> 确保变化结束的 callback 被激活。</p>
 
-<h3 id='id855'>连续的变化</h3>
+<h3 id='id241'>连续的变化</h3>
 
-<p>熟悉了用 js 调用变化与获取变化结束的 callback，可以进一步将变化进行排列，做成连续的动画。jQuery 提供了两个对列相关的函数 <code>$.fn.queue(callback)</code> 与 <code>$.fn.dequeue()</code>。先将 css 变化样式写入 <code>$.fn.queue</code> callback 中，变化结束后调用 <code>$.fn.dequeue</code>。</p>
+<p>熟悉用 js 调用变化，与获取变化结束的 callback 后，可以进一步将变化进行排列，做成连续的动画。jQuery 提供了两个对列相关的函数 <code>$.fn.queue(callback)</code> 与 <code>$.fn.dequeue()</code>。先将 css 变化样式写入 <code>$.fn.queue</code> callback 中，变化结束后调用 <code>$.fn.dequeue</code>。</p>
 <div>
   <pre data-line=''><code class='language-javascript'>var $el = $(this);
 $el.queue(function(){
@@ -222,7 +227,7 @@ $el.queue(function(){
              .delay(200)
              .transition({background: 'red'});</code></pre>
 </div>
-<h3 id='id856'>重绘</h3>
+<h3 id='id242'>重绘</h3>
 
 <p>在使用 <code>transition</code> 属性时，要写两套 css 属性，初始样式与结束样式。</p>
 <div>
@@ -239,7 +244,7 @@ $el.queue(function(){
   });
 };</code></pre>
 </div>
-<p>这个方法在大多数浏览器下都工作正常，但 Android 下还不够，使用 timeout 或者激活一个 class。</p>
+<p>这个方法在大多数浏览器下都工作正常，但在 Android 下还不够，使用 timeout 或者激活一个 class。</p>
 <div>
   <pre data-line=''><code class='language-javascript'>$('.element').css({left: '10px'})
              .redraw()
@@ -247,16 +252,16 @@ $el.queue(function(){
 </div>
 <h3 id='transition_'>Transition 的未来</h3>
 
-<p>未来，<a href='https://dvcs.w3.org/hg/FXTF/raw-file/tip/web-anim/index.html' target='_blank'>W3C 的新草案</a> 将包含新的 javascript API 解决现在的局限性，给开发者更灵活的空间。根据新的 API，可以同步动画，自定义时间函数，获取完成后的 callbacks，实在是令人期待的新功能。</p>
+<p>W3C 的 <a href='https://dvcs.w3.org/hg/FXTF/raw-file/tip/web-anim/index.html' target='_blank'>新草案</a> 包含新的 Javascript API 应对现在的局限性，给开发者更灵活的空间。根据新的 API，可以同步动画，自定义时间函数，获取 callbacks，实在是令人期待的新功能。</p>
 <div>
   <pre data-line=''><code class='language-javascript'>var anim = new Animation(elem, { left: '100px' }, 3);
 anim.play();</code></pre>
 </div>
-<p>另外，作者还提到了未来的 Web Animations，请看<a href='https://github.com/web-animations/web-animations-js' target='_blank'>这里</a>。</p>
+<p>另外，可以在 <a href='https://github.com/web-animations/web-animations-js' target='_blank'>这里</a> 找到一些实现新 API 的变通法子。</p>
 
-<h3 id='id857'>结尾</h3>
+<h3 id='id243'>结尾</h3>
 
-<p>目前为止，希望你已经深入的了解了 css 的 transition 属性，以及如何组合简单的 API 制作丰富的动画效果。本文大多数 js 例子来源于 <a href='https://github.com/maccman/gfx' target='_blank'>GFX</a>，这是作者写的一个 jQuery css transition 库。</p>
+<p>目前为止，希望你已经深入的了解了 css 的 transition 属性，以及如何组合简单的 API 制作丰富的动画效果。文中大多数 js 例子来源于 <a href='https://github.com/maccman/gfx' target='_blank'>GFX</a>，这也是本文作者 Alex 写的一个 jQuery Css transition 库。</p>
 	<p class="noindent"><strong>全文完</strong></p>
 	<div id="disqus_thread"></div>
 	<script type="text/javascript">
