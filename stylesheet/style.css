@@ -61,11 +61,11 @@ x:-o-prefocus, body {
 a {
   color: inherit;
   text-decoration: none; 
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  -ms-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -ms-transition: 0.3s;
+  transition: 0.3s;
   }
   a:hover {
     color: #d83e20; }
@@ -75,12 +75,12 @@ h2 {
   text-shadow: 0 1px white, 0 1px 1px rgba(119, 119, 199, 0.3); }
 
 ::-moz-selection {
-  color: #f5f5ed;
+  color: #f8f8f3;
   background: #f25b5a;
   text-shadow: none; }
 
 ::selection {
-  color: #f5f5ed;
+  color: #f8f8f3;
   background: #f25b5a;
   text-shadow: none; }
 
@@ -118,6 +118,21 @@ nav a {
   left: 30px;
   bottom: 10px; }
 
+#rss {
+  position: absolute;
+  left: 135px;
+  bottom: 11px;
+  filter: gray;
+  -webkit-filter: grayscale(80%);
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  -ms-transition: none;
+  transition: none; }
+  #rss:hover {
+    filter: none;
+    -webkit-filter: grayscale(0); }
+
 /*------- arrow ------- */
 #arrow {
   margin-top: -16px;
@@ -145,7 +160,7 @@ nav a {
 #container {
   height: 100%;
   color: #252525;
-  background: #f5f5ed url("../images/noise.png") fixed repeat;
+  background: #f8f8f3 url("../images/noise.png") fixed repeat;
   overflow-y: auto; }
 
 .inner {
@@ -253,6 +268,9 @@ em {
   font-style: italic; }
 
 #post p code, #post li code {
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  padding: 3px 5px 0;
   font: 18px Consolas, Monaco, "Andale Mono", monospace;
   background: rgba(255, 255, 255, 0.4); }
 
@@ -292,7 +310,7 @@ pre[class*="language-"] {
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-  background: #f2f2e8 url("../images/noise.png") fixed repeat left top;
+  background: #f6f6ee url("../images/noise.png") fixed repeat left top;
   border-radius: 0.2em;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.3); }
 
