@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<title>Jekyll Alfred Extensions | Peter's Playground</title>
+		<!--[if lt IE 8]><meta http-equiv="refresh" content="0;url=/ie.html"><![endif]-->
+		<!--[if lt IE 9]><script src="/js/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Overlock">
+		<link rel="stylesheet" type="text/css" href="/stylesheet/style.css">
+		<script type="text/javascript">
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-37405656-1']);
+		  _gaq.push(['_trackPageview']);
+		  (function() {
+		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+		</script>
+	</head>
+	<body>
+		<header>
+			<h1>Peter's Playground</h1>
+			<nav>
+				<a href="/index.html">首页</a>
+				<a href="/categories.html">文章分类</a>
+					<div id="sub_nav">
+						<a href="/categories.html#css">Css 技术</a>
+						<a href="/categories.html#mac">软件与系统</a>
+						<a href="/categories.html#unc">未分类</a>
+					</div>
+				<a href="/github.html">My Github</a>
+			</nav>
+			<a id="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank"><img src="/images/cc.png" alt="creative commons"/></a>
+		</header>
+		<div id="arrow"></div>
+		<div id="container">
+			<div id="post" class="inner">
+	<p id="date"><span>08 January 2013</span></p>
+	<h2>Jekyll Alfred Extensions</h2>
+	<p>三个 Alfred Extensions 让 Jekyll 用起来更方便：Create a Jekyll Post, Generate Jekyll site, 以及 Push Jekyll post to Github。可以直接在 <a target='_blank' href='https://github.com/P233/Jekyll-Alfred-Extensions'>这里</a> 下载，或者根据下方的代码自己创建。</p>
+
+<h3 id='create_a_jekyll_post'>Create a Jekyll Post</h3>
+
+<p>快速创建一篇 Jekyll 文章。下载后双击安装，在 Alfred 管理面板中右键选择 “Show in Finder”，打开 new_post.rb 文件，然后添加你自己的 _posts 文件夹路径，格式必须以 <code>/Users/user_name/</code> 开头。创建新文章时，在 Alfred 中输入 <code>post</code> 与文件名，文件名中的空格请用 <code>-</code> 代替。以下是 ruby 源码：</p>
+<div>
+  <pre data-line=''><code class='language-markup'># Please replace your own _posts folder path in the next line. The format should start with /Users/user_name/
+Dir.chdir &quot;/Users/lpw/Dropbox/Websites/Jekyll/_posts/&quot;
+
+today = Time.now.strftime('%Y-%m-%d')
+input = ARGV[0]
+
+filename = [today, input].join('-')
+extension = 'md'
+	
+file = [filename, extension].join('.')
+
+system(%[touch &quot;#{file}&quot;])
+system(%[open &quot;#{file}&quot;])</code></pre>
+</div>
+<h3 id='generate_jekyll_site'>Generate Jekyll site</h3>
+
+<p>通过 AppleScript 在 Terminal 中自动运行 <code>cd</code> 与 <code>jekyll --server --auto</code> 两个命令，然后在浏览器中访问网站，不要忘记替换成自己的 Jekyll 文件夹的路径。</p>
+<div>
+  <pre data-line=''><code class='language-markup'>tell application &quot;Terminal&quot;
+    activate
+    if (count of windows) is 0 then
+        set currentTab to do script &quot;cd ~/dropbox/websites/jekyll/&quot;
+    else
+        do script &quot;cd ~/dropbox/websites/jekyll/&quot; in window 1
+    end if
+    do script &quot;jekyll --server --auto&quot; in window 1
+    delay 2
+    do shell script &quot;open http://0.0.0.0:4000&quot;
+end tell</code></pre>
+</div>
+<h3 id='push_jekyll_post_to_github'>Push Jekyll post to Github</h3>
+
+<p>通过 AppleScript 在 Terminal 中将生成的网站复制到新地址，并将新地址下的内容上传到 Github。之所以复制是因为 Github Pages 不支持插件，只能上传生成的网站，如果你不需要这个步骤，将下面的 <code>if</code> 语句删除即可。同样需要替换成自己的 Jekyll 文件夹路径。</p>
+<div>
+  <pre data-line=''><code class='language-markup'>on alfred_script(message)
+  tell application &quot;Terminal&quot;
+    activate
+
+    if (count of windows) is 0 then
+        set currentTab to do script &quot;cp -a ~/dropbox/websites/jekyll/_site/. ~/dropbox/websites/p233.github.com/&quot;
+    else
+        do script &quot;cp -a ~/dropbox/websites/jekyll/_site/. ~/dropbox/websites/p233.github.com/&quot; in window 1
+    end if
+    
+    do script &quot;cd ~/dropbox/websites/p233.github.com/&quot; in window 1
+    do script &quot;git add .&quot; in window 1
+    do script &quot;git commit -am '&quot; &amp; message &amp; &quot;'&quot; in window 1
+    do script &quot;git push&quot; in window 1
+end tell
+end alfred_script</code></pre>
+</div>
+	<p class="noindent"><strong>全文完</strong></p>
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+		/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+		var disqus_shortname = 'p233'; // required: replace example with your forum shortname
+
+		/* * * DON'T EDIT BELOW THIS LINE * * */
+		(function() {
+			var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+			dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+			(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		})();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+		</div>
+		<script type="text/javascript" src="/js/meny.min.js"></script>
+		<script type="text/javascript" src="/js/prism.min.js"></script>
+		<script type="text/javascript">
+			var meny = Meny.create({
+				menuElement: document.querySelector( 'header' ),
+				contentsElement: document.querySelector( '#container' ),
+				position: Meny.getQuery().p || 'left',
+				height: 200,
+				width: 250,
+				threshold: 40
+			});
+		</script>
+	</body>
+</html>
