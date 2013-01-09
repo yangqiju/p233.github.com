@@ -53,10 +53,10 @@ body {
   background: #252525;
   text-shadow: 0 1px white;
   -webkit-font-smoothing: subpixel-antialiased;
-  font: 20px/1.5 Overlock, Kai, KaiTi, sans-serif; }
+  font: 20px/1.5 Overlock, Kai, 宋体, sans-serif; }
 
 x:-o-prefocus, body {
-  font-family: Kai, KaiTi, sans-serif; }
+  font-family: Kai, 宋体, sans-serif; }
 
 a {
   color: inherit;

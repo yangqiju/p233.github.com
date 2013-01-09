@@ -84,7 +84,7 @@
 &lt;!--[if !IE]&gt; --&gt;
   According to the conditional comment this is not IE
 &lt;!-- &lt;![endif]--&gt;</code></pre>
-</div><p class='noindent'>Source: <a target='_blank' href='http://www.quirksmode.org/css/condcom.html'>http://www.quirksmode.org/css/condcom.html</a></p>
+</div><p class='noindent'>Source: <a href='http://www.quirksmode.org/css/condcom.html' target='_blank'>http://www.quirksmode.org/css/condcom.html</a></p>
 <h3 id='target_ie'>Target IE</h3>
 <div>
   <pre data-line=''><code class='language-css'>p {
@@ -143,6 +143,8 @@
 		<script type="text/javascript" src="/js/meny.min.js"></script>
 		<script type="text/javascript" src="/js/prism.min.js"></script>
 		<script type="text/javascript">
+			if (navigator.appVersion.indexOf("Win")!=-1) document.getElementById('post').style.fontSize = '16px';
+
 			var meny = Meny.create({
 				menuElement: document.querySelector( 'header' ),
 				contentsElement: document.querySelector( '#container' ),
