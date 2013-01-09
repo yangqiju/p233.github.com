@@ -6,8 +6,8 @@
     <atom:link href="http://p233.github.com/rss.xml" rel="self" type="application/rss+xml" />
     <description>关于前端方面的资讯分享，经验总结，与深度思考</description>
     <language>zh_CN</language>
-    <pubDate>Wed, 09 Jan 2013 15:42:48 +0000</pubDate>
-    <lastBuildDate>Wed, 09 Jan 2013 15:42:48 +0000</lastBuildDate>
+    <pubDate>Wed, 09 Jan 2013 20:12:07 +0000</pubDate>
+    <lastBuildDate>Wed, 09 Jan 2013 20:12:07 +0000</lastBuildDate>
 
     
     <item>
@@ -16,7 +16,7 @@
       <pubDate>08 Jan 2013</pubDate>
       <author>40132147@qq.com (Peter)</author>
       <guid>http://p233.github.com/Mac_OS/2013/01/08/jekyll-alfred-extensions</guid>
-      <description>&lt;p&gt;三个 Alfred Extensions 让 Jekyll 用起来更方便：Create a Jekyll Post, Generate Jekyll site, 以及 Push Jekyll post to Github。可以直接从 &lt;a href='https://github.com/P233/Jekyll-Alfred-Extensions' target='_blank'&gt;Github&lt;/a&gt; 下载，或者根据下面的代码自己创建。&lt;/p&gt;
+      <description>&lt;p&gt;三个 Alfred Extensions 让 Jekyll 用起来更方便：Create a Jekyll Post, Generate Jekyll site, 以及 Push Jekyll post to Github。可以直接从 &lt;a target='_blank' href='https://github.com/P233/Jekyll-Alfred-Extensions'&gt;Github&lt;/a&gt; 下载，或者根据下面的代码自己创建。&lt;/p&gt;
 
 &lt;h3 id='create_a_jekyll_post'&gt;Create a Jekyll Post&lt;/h3&gt;
 
@@ -81,9 +81,9 @@ end alfred_script&lt;/code&gt;&lt;/pre&gt;
       <pubDate>06 Jan 2013</pubDate>
       <author>40132147@qq.com (Peter)</author>
       <guid>http://p233.github.com/Css/2013/01/06/css-transitions</guid>
-      <description>&lt;p&gt;刚刚读到的文章，非常不错，翻译出来与大家分享。原文 &lt;a href='http://blog.alexmaccaw.com/css-transitions' target='_blank'&gt;All you need to know about Css Transitions&lt;/a&gt; 由 Alex Maccaw 发表于 2013 年 1 月 3 日。不想花太多时间纠结于字面翻译，只专注最核心的信息，Javascript 入门水平，因此后半部分理解不深入，详细信息还请读原文，翻译不当的地方请大家指正。&lt;/p&gt;
+      <description>&lt;p&gt;刚刚读到的文章，非常不错，翻译出来与大家分享。原文 &lt;a target='_blank' href='http://blog.alexmaccaw.com/css-transitions'&gt;All you need to know about Css Transitions&lt;/a&gt; 由 Alex Maccaw 发表于 2013 年 1 月 3 日。不想花太多时间纠结于字面翻译，只专注最核心的信息，Javascript 入门水平，因此后半部分理解不深入，详细信息还请读原文，翻译不当的地方请大家指正。&lt;/p&gt;
 
-&lt;h3 id='id2'&gt;浏览器支持&lt;/h3&gt;
+&lt;h3 id='id470'&gt;浏览器支持&lt;/h3&gt;
 
 &lt;p&gt;几乎所有版本的 Firefox, Safari, Chrome 以及最新的 IE10 都支持 transition 属性。动画与渐变特效在 Safari 和 Chrome 下仍然需要添加 &lt;code&gt;-webkit&lt;/code&gt; 前缀，不过很快也会不需要了。&lt;/p&gt;
 
@@ -130,9 +130,9 @@ var inactive = function(){
   $('.element').removeClass('active').addClass('inactive');
 };&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;h3 id='id3'&gt;渐变背景的变化&lt;/h3&gt;
+&lt;h3 id='id471'&gt;渐变背景的变化&lt;/h3&gt;
 
-&lt;p&gt;不是所有的 css 属性都可以变化，而且只能从一个绝对值变化到另一个绝对值。比如，&lt;code&gt;height&lt;/code&gt; 不能从 &lt;code&gt;0px&lt;/code&gt; 变化到 &lt;code&gt;auto&lt;/code&gt;（补充：不同单位之间也可以变化，比如从 &lt;code&gt;0px&lt;/code&gt; 变化到 &lt;code&gt;10em&lt;/code&gt;，但不可以从 &lt;code&gt;0px&lt;/code&gt; 变化到 &lt;code&gt;10%&lt;/code&gt;），可变化的属性列表请参考&lt;a href='http://oli.jp/2010/css-animatable-properties/' target='_blank'&gt;这里&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;不是所有的 css 属性都可以变化，而且只能从一个绝对值变化到另一个绝对值。比如，&lt;code&gt;height&lt;/code&gt; 不能从 &lt;code&gt;0px&lt;/code&gt; 变化到 &lt;code&gt;auto&lt;/code&gt;（补充：不同单位之间也可以变化，比如从 &lt;code&gt;0px&lt;/code&gt; 变化到 &lt;code&gt;10em&lt;/code&gt;，但不可以从 &lt;code&gt;0px&lt;/code&gt; 变化到 &lt;code&gt;10%&lt;/code&gt;），可变化的属性列表请参考&lt;a target='_blank' href='http://oli.jp/2010/css-animatable-properties/'&gt;这里&lt;/a&gt;。&lt;/p&gt;
 
 &lt;p&gt;还有，只有纯色背景可以变化，带有渐变效果的背景却不可以，没有任何技术原因不支持，只是浏览器还需要些时间支持这些特效。不过，还是有几种变通办法的：&lt;/p&gt;
 
@@ -148,7 +148,7 @@ var inactive = function(){
   background-color: #DDD;
 }&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;p&gt;如果渐变样式是连续的，还可以通过 &lt;code&gt;background-position&lt;/code&gt; 属性移动它，&lt;a href='http://sapphion.com/2011/10/css3-gradient-transition-with-background-position/' target='_blank'&gt;例子&lt;/a&gt;。或者，创建两个元素叠加，控制上面一层的透明度。如下：&lt;/p&gt;
+&lt;p&gt;如果渐变样式是连续的，还可以通过 &lt;code&gt;background-position&lt;/code&gt; 属性移动它，&lt;a target='_blank' href='http://sapphion.com/2011/10/css3-gradient-transition-with-background-position/'&gt;例子&lt;/a&gt;。或者，创建两个元素叠加，控制上面一层的透明度。如下：&lt;/p&gt;
 &lt;div&gt;
   &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;.element {  
   width: 100px;  
@@ -170,14 +170,14 @@ var inactive = function(){
   opacity: 1;
 }&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;p&gt;但是，这样需要额外的标签，上一层的元素也会获取鼠标事件。所以，如果这里能用 &lt;code&gt;:before&lt;/code&gt;，&lt;code&gt;:after&lt;/code&gt; 伪类是最理想的，可惜目前只有 Firefox 支持伪类变化。Eliott Sprehn 正在努力让 webkit 也支持伪类变化，这一功能很快也会在 Safari Chrome 上实现。&lt;strong&gt;更新：&lt;/strong&gt;这个问题现在已经解决，目前 Firefox，Chrome 支持伪类变化，Safari 会在下一个版本中更新，Opera 目前还不支持，IE10 也支持，但有点奇特，要用下面的方式 (Source: &lt;a href='http://css-tricks.com/pseudo-element-animationstransitions-bug-fixed-in-webkit/' target='_blank'&gt;CSS-Tricks&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;但是，这样需要额外的标签，上一层的元素也会获取鼠标事件。所以，如果这里能用 &lt;code&gt;:before&lt;/code&gt;，&lt;code&gt;:after&lt;/code&gt; 伪类是最理想的，可惜目前只有 Firefox 支持伪类变化。Eliott Sprehn 正在努力让 webkit 也支持伪类变化，这一功能很快也会在 Safari Chrome 上实现。&lt;strong&gt;更新：&lt;/strong&gt;这个问题现在已经解决，目前 Firefox，Chrome 支持伪类变化，Safari 会在下一个版本中更新，Opera 目前还不支持，IE10 也支持，但有点奇特，要用下面的方式 (Source: &lt;a target='_blank' href='http://css-tricks.com/pseudo-element-animationstransitions-bug-fixed-in-webkit/'&gt;CSS-Tricks&lt;/a&gt;)&lt;/p&gt;
 &lt;div&gt;
   &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;.x:hover:before { /* By itself, doesn't work */ }
 
 .x:hover {} 
 .x:hover:before { /* This works (needs :hover declared) */ }&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;h3 id='id4'&gt;硬件加速&lt;/h3&gt;
+&lt;h3 id='id472'&gt;硬件加速&lt;/h3&gt;
 
 &lt;p&gt;变化某些属性，比如 &lt;code&gt;left&lt;/code&gt; ，&lt;code&gt;margin&lt;/code&gt;，&lt;em&gt;浏览器会重新计算每一帧的显示效果&lt;/em&gt;，这严重影响速度，尤其是在移动设备上。解决办法就是让 GPU 来做这些运算，简单的说，就是将元素转化为图片再制作变化效果，而不是重新计算每一帧的 css 样式。最简单的一个使用硬件加速的办法就是用 &lt;code&gt;transform: translate3d(0,0,0);&lt;/code&gt; 属性。&lt;/p&gt;
 
@@ -205,11 +205,11 @@ input:focus {
   -webkit-transform: translate3d(-50px, 0, 0);
 }&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;h3 id='id5'&gt;时间函数&lt;/h3&gt;
+&lt;h3 id='id473'&gt;时间函数&lt;/h3&gt;
 
-&lt;p&gt;浏览器内置的时间函数包括 &lt;code&gt;linear, ease, ease-in, ease-out and ease-in-out&lt;/code&gt;，复杂一点，可以用 cubic-bezier 曲线自定义时间函数，比如 &lt;code&gt;transition: -webkit-transform 1s cubic-bezier(.17,.67,.69,1.33);&lt;/code&gt; 。两个帮你选择时间函数的工具 &lt;a href='http://easings.net' target='_blank'&gt;Pre-defined Curves&lt;/a&gt; 和 &lt;a href='http://cubic-bezier.com/#.17,.67,.83,.67' target='_blank'&gt;Graphing Tool&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;浏览器内置的时间函数包括 &lt;code&gt;linear, ease, ease-in, ease-out and ease-in-out&lt;/code&gt;，复杂一点，可以用 cubic-bezier 曲线自定义时间函数，比如 &lt;code&gt;transition: -webkit-transform 1s cubic-bezier(.17,.67,.69,1.33);&lt;/code&gt; 。两个帮你选择时间函数的工具 &lt;a target='_blank' href='http://easings.net'&gt;Pre-defined Curves&lt;/a&gt; 和 &lt;a target='_blank' href='http://cubic-bezier.com/#.17,.67,.83,.67'&gt;Graphing Tool&lt;/a&gt;。&lt;/p&gt;
 
-&lt;h3 id='id6'&gt;用程序控制变化效果&lt;/h3&gt;
+&lt;h3 id='id474'&gt;用程序控制变化效果&lt;/h3&gt;
 
 &lt;p&gt;借助 js 可以更有效的控制变化的效果，例如将连续的变化做成动画。变化属性为 &lt;code&gt;all&lt;/code&gt; 时意味着元素的所有属性都可以同时发生变化，请看下面的例子&lt;/p&gt;
 &lt;div&gt;
@@ -230,7 +230,7 @@ $.fn.transition = function (properties, options) {
 &lt;/div&gt;
 &lt;h3 id='_callback'&gt;获取变化结束的 callback&lt;/h3&gt;
 
-&lt;p&gt;组合多个 transitions 首先要知道变化在什么时间结束，webkit 浏览器中可以监视 &lt;code&gt;webkitTransitionEnd&lt;/code&gt; 事件，其他浏览器需要先用 &lt;a href='https://gist.github.com/4414792' target='_blank'&gt;这个&lt;/a&gt; 找出事件名称。&lt;/p&gt;
+&lt;p&gt;组合多个 transitions 首先要知道变化在什么时间结束，webkit 浏览器中可以监视 &lt;code&gt;webkitTransitionEnd&lt;/code&gt; 事件，其他浏览器需要先用 &lt;a target='_blank' href='https://gist.github.com/4414792'&gt;这个&lt;/a&gt; 找出事件名称。&lt;/p&gt;
 &lt;div&gt;
   &lt;pre data-line=''&gt;&lt;code class='language-javascript'&gt;var callback = function () {
   // ...
@@ -250,7 +250,7 @@ $(this).css(properties);&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;现在可以调用 &lt;code&gt;$.fn.emulateTransitionEnd()&lt;/code&gt; 确保变化结束的 callback 被激活。&lt;/p&gt;
 
-&lt;h3 id='id7'&gt;连续的变化&lt;/h3&gt;
+&lt;h3 id='id475'&gt;连续的变化&lt;/h3&gt;
 
 &lt;p&gt;熟悉用 js 调用变化，与获取变化结束的 callback 后，可以进一步将变化进行排列，做成连续的动画。jQuery 提供了两个对列相关的函数 &lt;code&gt;$.fn.queue(callback)&lt;/code&gt; 与 &lt;code&gt;$.fn.dequeue()&lt;/code&gt;。先将 css 变化样式写入 &lt;code&gt;$.fn.queue&lt;/code&gt; callback 中，变化结束后调用 &lt;code&gt;$.fn.dequeue&lt;/code&gt;。&lt;/p&gt;
 &lt;div&gt;
@@ -268,7 +268,7 @@ $el.queue(function(){
              .delay(200)
              .transition({background: 'red'});&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;h3 id='id8'&gt;重绘&lt;/h3&gt;
+&lt;h3 id='id476'&gt;重绘&lt;/h3&gt;
 
 &lt;p&gt;在使用 &lt;code&gt;transition&lt;/code&gt; 属性时，要写两套 css 属性，初始样式与结束样式。&lt;/p&gt;
 &lt;div&gt;
@@ -293,16 +293,16 @@ $el.queue(function(){
 &lt;/div&gt;
 &lt;h3 id='transition_'&gt;Transition 的未来&lt;/h3&gt;
 
-&lt;p&gt;W3C 的 &lt;a href='https://dvcs.w3.org/hg/FXTF/raw-file/tip/web-anim/index.html' target='_blank'&gt;新草案&lt;/a&gt; 包含新的 Javascript API 应对现在的局限性，给开发者更灵活的空间。根据新的 API，可以同步动画，自定义时间函数，获取 callbacks，实在是令人期待的新功能。&lt;/p&gt;
+&lt;p&gt;W3C 的 &lt;a target='_blank' href='https://dvcs.w3.org/hg/FXTF/raw-file/tip/web-anim/index.html'&gt;新草案&lt;/a&gt; 包含新的 Javascript API 应对现在的局限性，给开发者更灵活的空间。根据新的 API，可以同步动画，自定义时间函数，获取 callbacks，实在是令人期待的新功能。&lt;/p&gt;
 &lt;div&gt;
   &lt;pre data-line=''&gt;&lt;code class='language-javascript'&gt;var anim = new Animation(elem, { left: '100px' }, 3);
 anim.play();&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;p&gt;另外，可以在 &lt;a href='https://github.com/web-animations/web-animations-js' target='_blank'&gt;这里&lt;/a&gt; 找到一些实现新 API 的变通法子。&lt;/p&gt;
+&lt;p&gt;另外，可以在 &lt;a target='_blank' href='https://github.com/web-animations/web-animations-js'&gt;这里&lt;/a&gt; 找到一些实现新 API 的变通法子。&lt;/p&gt;
 
-&lt;h3 id='id9'&gt;结尾&lt;/h3&gt;
+&lt;h3 id='id477'&gt;结尾&lt;/h3&gt;
 
-&lt;p&gt;目前为止，希望你已经深入的了解了 css 的 transition 属性，以及如何组合简单的 API 制作丰富的动画效果。文中大多数 js 例子来源于 &lt;a href='https://github.com/maccman/gfx' target='_blank'&gt;GFX&lt;/a&gt;，这也是本文作者 Alex 写的一个 jQuery Css transition 库。&lt;/p&gt;</description>
+&lt;p&gt;目前为止，希望你已经深入的了解了 css 的 transition 属性，以及如何组合简单的 API 制作丰富的动画效果。文中大多数 js 例子来源于 &lt;a target='_blank' href='https://github.com/maccman/gfx'&gt;GFX&lt;/a&gt;，这也是本文作者 Alex 写的一个 jQuery Css transition 库。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -311,11 +311,11 @@ anim.play();&lt;/code&gt;&lt;/pre&gt;
       <pubDate>05 Jan 2013</pubDate>
       <author>40132147@qq.com (Peter)</author>
       <guid>http://p233.github.com/Css/2013/01/05/css-performance</guid>
-      <description>&lt;p&gt;虽然我只会写最简单的页面，但本着“取法乎上，得乎其中”的原则，一直关注 Css 性能，读过几篇相关文章，准备逐步翻译出来当做总结与积累。第一篇 &lt;a href='http://boagworld.com/dev/why-you-should-care-about-css-page-performance/' target='_blank'&gt;Why you should care about CSS page performance&lt;/a&gt; 由 Doug Stewart 发表于 2012 年 5 月。只记录下几点重要的信息，没有直接翻译，理解不当的地方还请大家指正。&lt;/p&gt;
+      <description>&lt;p&gt;虽然我只会写最简单的页面，但本着“取法乎上，得乎其中”的原则，一直关注 Css 性能，读过几篇相关文章，准备逐步翻译出来当做总结与积累。第一篇 &lt;a target='_blank' href='http://boagworld.com/dev/why-you-should-care-about-css-page-performance/'&gt;Why you should care about CSS page performance&lt;/a&gt; 由 Doug Stewart 发表于 2012 年 5 月。只记录下几点重要的信息，没有直接翻译，理解不当的地方还请大家指正。&lt;/p&gt;
 
 &lt;p&gt;Doug 介绍了自己测试 css 性能的两个方法：缩放浏览器窗口与上下滚动页面。浏览器重绘页面可以反映很多关于性能的问题，未添加 css 的页面反应速度肯定是最快的。一般来说，&lt;em&gt;如果页面缩放时有明显延时，很可能是布局问题，比如浮动、流体宽度等等，而如果页面滚动时有明显延时，则可能是特效问题，比如说阴影与渐变。&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;优化 css 性能，自然要先找到问题出在哪里。作者介绍了三款衡量页面性能的工具：&lt;a href='https://github.com/andyedinborough/stress-css' target='_blank'&gt;Css Stress Test&lt;/a&gt;，Chrome Developer Tools 的 Profiles 与 Timeline。就不一一介绍这些工具了，原则上是要找出最耗时间的地方，然后将其优化。&lt;/p&gt;
+&lt;p&gt;优化 css 性能，自然要先找到问题出在哪里。作者介绍了三款衡量页面性能的工具：&lt;a target='_blank' href='https://github.com/andyedinborough/stress-css'&gt;Css Stress Test&lt;/a&gt;，Chrome Developer Tools 的 Profiles 与 Timeline。就不一一介绍这些工具了，原则上是要找出最耗时间的地方，然后将其优化。&lt;/p&gt;
 &lt;p class='noindent'&gt;几点关于 Css 性能的小提示&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;大家都知道 id 选择器的表现效果要优于 class，事实虽然也如此，但仅仅是非常微小的差别，几乎可以不予考虑；&lt;/li&gt;
@@ -381,7 +381,7 @@ anim.play();&lt;/code&gt;&lt;/pre&gt;
 &amp;lt;!--[if !IE]&amp;gt; --&amp;gt;
   According to the conditional comment this is not IE
 &amp;lt;!-- &amp;lt;![endif]--&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;&lt;p class='noindent'&gt;Source: &lt;a href='http://www.quirksmode.org/css/condcom.html' target='_blank'&gt;http://www.quirksmode.org/css/condcom.html&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;p class='noindent'&gt;Source: &lt;a target='_blank' href='http://www.quirksmode.org/css/condcom.html'&gt;http://www.quirksmode.org/css/condcom.html&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id='target_ie'&gt;Target IE&lt;/h3&gt;
 &lt;div&gt;
   &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;p {
@@ -428,7 +428,7 @@ anim.play();&lt;/code&gt;&lt;/pre&gt;
       <pubDate>03 Jan 2013</pubDate>
       <author>40132147@qq.com (Peter)</author>
       <guid>http://p233.github.com/Mac_OS/2013/01/03/sync-application-preferences</guid>
-      <description>&lt;p&gt;常常在台式机与笔记本电脑之间切换着工作，通过 Dropbox 同步文件很方便，偶尔会想到如果软件设置也可以同步就更美妙了。某个周末花了些时间搜集、整理了一些方法，在此分享出来。不必非用 Dropbox 不可，Google Drive 等类似服务应该也可以，只是一直使用 Dropbox 比较熟悉。如果不想麻烦，可以试试 &lt;a href='http://joeworkman.net/blog/post-9591023714' target='_blank'&gt;DropboxAppSync&lt;/a&gt; 这款软件，和下面介绍到的原理是一样的，都是通过创建 symlink 将设置文件链接到 Dropbox。&lt;/p&gt;
+      <description>&lt;p&gt;常常在台式机与笔记本电脑之间切换着工作，通过 Dropbox 同步文件很方便，偶尔会想到如果软件设置也可以同步就更美妙了。某个周末花了些时间搜集、整理了一些方法，在此分享出来。不必非用 Dropbox 不可，Google Drive 等类似服务应该也可以，只是一直使用 Dropbox 比较熟悉。如果不想麻烦，可以试试 &lt;a target='_blank' href='http://joeworkman.net/blog/post-9591023714'&gt;DropboxAppSync&lt;/a&gt; 这款软件，和下面介绍到的原理是一样的，都是通过创建 symlink 将设置文件链接到 Dropbox。&lt;/p&gt;
 
 &lt;h3 id='_sublime_text_2'&gt;同步 Sublime Text 2&lt;/h3&gt;
 
@@ -439,12 +439,12 @@ anim.play();&lt;/code&gt;&lt;/pre&gt;
 
 &lt;li&gt;在要同步的主机上找到 Sublime Text 2 的 packages 文件夹（路径：&lt;code&gt;~/Library/Application Support/Sublime Text 2/&lt;/code&gt;），将其移动到 Dropbox 文件夹内，例如 &lt;code&gt;~/Dropbox/Sync/Packages&lt;/code&gt;；&lt;/li&gt;
 
-&lt;li&gt;启动 Terminal，输入 &lt;code&gt;cd ~/Library/Application\ Support/Sublime\ Text\ 2/&lt;/code&gt; 打开目标文件夹（空格前要加 &lt;code&gt;\&lt;/code&gt;），然后输入 &lt;code&gt;ln -s ~/Dropbox/Sync/Packages&lt;/code&gt; 创建一个 symlink 将 Dropbox 下的 Packages 文件夹链接到当前目录，Windows 下创建 symlink 的命令请看&lt;a href='http://technet.microsoft.com/en-us/library/cc753194(v=ws.10).aspx' target='_blank'&gt;这里&lt;/a&gt;；&lt;/li&gt;
+&lt;li&gt;启动 Terminal，输入 &lt;code&gt;cd ~/Library/Application\ Support/Sublime\ Text\ 2/&lt;/code&gt; 打开目标文件夹（空格前要加 &lt;code&gt;\&lt;/code&gt;），然后输入 &lt;code&gt;ln -s ~/Dropbox/Sync/Packages&lt;/code&gt; 创建一个 symlink 将 Dropbox 下的 Packages 文件夹链接到当前目录，Windows 下创建 symlink 的命令请看&lt;a target='_blank' href='http://technet.microsoft.com/en-us/library/cc753194(v=ws.10).aspx'&gt;这里&lt;/a&gt;；&lt;/li&gt;
 
 &lt;li&gt;在第二台机器上，关闭 Sublime Text 2，找到 packages 文件夹并将其删除，然后重复步骤 3 中的命令。&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h3 id='id1'&gt;同步其他软件&lt;/h3&gt;
+&lt;h3 id='id469'&gt;同步其他软件&lt;/h3&gt;
 
 &lt;p&gt;Mac OS 下软件的设置文件都会以 .plist 的格式保存在 &lt;code&gt;~/Library/Preferences/&lt;/code&gt; 下，只要给这些文件创建 symlink 就可以完成同步。有些软件除了 .plist 外，还会在 &lt;code&gt;~/Libray/Application Support/&lt;/code&gt; 下创建文件夹存储额外的设置，比如 Alfred 会创建一个文件夹存储 extensions，TextMate 会创建一个文件夹存储 Bundles 与 Themes，给这些文件夹创建 symlink 可以完成更彻底的同步。&lt;em&gt;但是，并不是所有的软件都允许同步这些文件夹&lt;/em&gt;，有些软件会删除 symlink 重新写入文件，而不是按照 symlink 找到位于 Dropbox 下的文件。已经同步的软件如果更新，则不会影响到 symlink。&lt;/p&gt;
 
@@ -470,15 +470,15 @@ anim.play();&lt;/code&gt;&lt;/pre&gt;
 &lt;ol&gt;
 &lt;li&gt;门槛：需要理解 Github 的工作方式，熟悉 Github 客户端，熟悉 Html 与 Css；&lt;/li&gt;
 
-&lt;li&gt;不妨一边写静态模板，一边了解 Jekyll 布局所用到的 &lt;a href='https://github.com/mojombo/jekyll/wiki/Liquid-Extensions' target='_blank'&gt;Liquid Tag&lt;/a&gt;，磨刀不误砍柴工；&lt;/li&gt;
+&lt;li&gt;不妨一边写静态模板，一边了解 Jekyll 布局所用到的 &lt;a target='_blank' href='https://github.com/mojombo/jekyll/wiki/Liquid-Extensions'&gt;Liquid Tag&lt;/a&gt;，磨刀不误砍柴工；&lt;/li&gt;
 
-&lt;li&gt;Jekyll 博客，其实是一套文件结构，然后通过 Jekyll 程序（无图形操作界面）编译成静态网站。如果不熟悉命令，完全可以不安装 Jekyll，只需按照&lt;a href='https://github.com/mojombo/jekyll/wiki/usage' target='_blank'&gt;要求的格式&lt;/a&gt;创建文件后再上传到 Github，访问主页就可以了，因为 Github Pages 便是由 Jekyll 驱动的，或者直接使用 &lt;a href='http://jekyllbootstrap.com' target='_blank'&gt;Jekyll-Bootstrap&lt;/a&gt; 的结构；&lt;/li&gt;
+&lt;li&gt;Jekyll 博客，其实是一套文件结构，然后通过 Jekyll 程序（无图形操作界面）编译成静态网站。如果不熟悉命令，完全可以不安装 Jekyll，只需按照&lt;a target='_blank' href='https://github.com/mojombo/jekyll/wiki/usage'&gt;要求的格式&lt;/a&gt;创建文件后再上传到 Github，访问主页就可以了，因为 Github Pages 便是由 Jekyll 驱动的，或者直接使用 &lt;a target='_blank' href='http://jekyllbootstrap.com'&gt;Jekyll-Bootstrap&lt;/a&gt; 的结构；&lt;/li&gt;
 
 &lt;li&gt;Jekyll 的文件结构大概可以这样分：配置文件（_config.yml），布局文件（_layouts），模块文件（_includes），插件（_plugin），文章（_posts），其他文件（不以&lt;em&gt;下划线&lt;/em&gt;开头的文件及文件夹都会完整的拷贝到生成的静态网站中，比如 css 文件、图片等），以及生成的网站（_site）；&lt;/li&gt;
 
 &lt;li&gt;Jekyll 命令的用法很简单，先通过 &lt;code&gt;cd&lt;/code&gt; 命令打开目标文件夹，然后输入 &lt;code&gt;jekyll --server&lt;/code&gt; 生成网站，浏览器中输入 &lt;code&gt;0.0.0.0:4000&lt;/code&gt; 访问生成的静态网站，&lt;code&gt;jekyll --server --auto&lt;/code&gt; 命令开启实时更新，修改文件后在浏览器中刷新就可看到效果，对本地调试很有帮助；&lt;/li&gt;
 
-&lt;li&gt;Github Pages 禁用所有插件，需要使用插件功能，只能上传生成的网站文件夹（_site），熟悉命令也可以试试&lt;a href='http://edhedges.com/blog/2012/07/30/jekyll-with-plugins-hosted-on-github-pages/' target='_blank'&gt;这个办法&lt;/a&gt; ;&lt;/li&gt;
+&lt;li&gt;Github Pages 禁用所有插件，需要使用插件功能，只能上传生成的网站文件夹（_site），熟悉命令也可以试试&lt;a target='_blank' href='http://edhedges.com/blog/2012/07/30/jekyll-with-plugins-hosted-on-github-pages/'&gt;这个办法&lt;/a&gt; ;&lt;/li&gt;
 
 &lt;li&gt;想写草稿不想被编译？创建一个以下划线开头文件夹就会被忽略，例如在 _posts 下创建 _drafts 存储草稿。&lt;/li&gt;
 &lt;/ol&gt;

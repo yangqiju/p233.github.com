@@ -48,15 +48,15 @@
 <ol>
 <li>门槛：需要理解 Github 的工作方式，熟悉 Github 客户端，熟悉 Html 与 Css；</li>
 
-<li>不妨一边写静态模板，一边了解 Jekyll 布局所用到的 <a href='https://github.com/mojombo/jekyll/wiki/Liquid-Extensions' target='_blank'>Liquid Tag</a>，磨刀不误砍柴工；</li>
+<li>不妨一边写静态模板，一边了解 Jekyll 布局所用到的 <a target='_blank' href='https://github.com/mojombo/jekyll/wiki/Liquid-Extensions'>Liquid Tag</a>，磨刀不误砍柴工；</li>
 
-<li>Jekyll 博客，其实是一套文件结构，然后通过 Jekyll 程序（无图形操作界面）编译成静态网站。如果不熟悉命令，完全可以不安装 Jekyll，只需按照<a href='https://github.com/mojombo/jekyll/wiki/usage' target='_blank'>要求的格式</a>创建文件后再上传到 Github，访问主页就可以了，因为 Github Pages 便是由 Jekyll 驱动的，或者直接使用 <a href='http://jekyllbootstrap.com' target='_blank'>Jekyll-Bootstrap</a> 的结构；</li>
+<li>Jekyll 博客，其实是一套文件结构，然后通过 Jekyll 程序（无图形操作界面）编译成静态网站。如果不熟悉命令，完全可以不安装 Jekyll，只需按照<a target='_blank' href='https://github.com/mojombo/jekyll/wiki/usage'>要求的格式</a>创建文件后再上传到 Github，访问主页就可以了，因为 Github Pages 便是由 Jekyll 驱动的，或者直接使用 <a target='_blank' href='http://jekyllbootstrap.com'>Jekyll-Bootstrap</a> 的结构；</li>
 
 <li>Jekyll 的文件结构大概可以这样分：配置文件（_config.yml），布局文件（_layouts），模块文件（_includes），插件（_plugin），文章（_posts），其他文件（不以<em>下划线</em>开头的文件及文件夹都会完整的拷贝到生成的静态网站中，比如 css 文件、图片等），以及生成的网站（_site）；</li>
 
 <li>Jekyll 命令的用法很简单，先通过 <code>cd</code> 命令打开目标文件夹，然后输入 <code>jekyll --server</code> 生成网站，浏览器中输入 <code>0.0.0.0:4000</code> 访问生成的静态网站，<code>jekyll --server --auto</code> 命令开启实时更新，修改文件后在浏览器中刷新就可看到效果，对本地调试很有帮助；</li>
 
-<li>Github Pages 禁用所有插件，需要使用插件功能，只能上传生成的网站文件夹（_site），熟悉命令也可以试试<a href='http://edhedges.com/blog/2012/07/30/jekyll-with-plugins-hosted-on-github-pages/' target='_blank'>这个办法</a> ;</li>
+<li>Github Pages 禁用所有插件，需要使用插件功能，只能上传生成的网站文件夹（_site），熟悉命令也可以试试<a target='_blank' href='http://edhedges.com/blog/2012/07/30/jekyll-with-plugins-hosted-on-github-pages/'>这个办法</a> ;</li>
 
 <li>想写草稿不想被编译？创建一个以下划线开头文件夹就会被忽略，例如在 _posts 下创建 _drafts 存储草稿。</li>
 </ol>
@@ -84,7 +84,7 @@
 		<script type="text/javascript" src="/js/meny.min.js"></script>
 		<script type="text/javascript" src="/js/prism.min.js"></script>
 		<script type="text/javascript">
-			if (navigator.appVersion.indexOf("Win")!=-1) document.getElementById('post').style.fontSize = '18px';
+			if (navigator.appVersion.indexOf("Win")!=-1) document.body.style.fontSize = '18px';
 
 			var meny = Meny.create({
 				menuElement: document.querySelector( 'header' ),

@@ -41,7 +41,7 @@
 			<div id="post" class="inner">
 	<p id="date"><span>03 January 2013</span></p>
 	<h2>用 Dropbox 同步 Mac 软件设置</h2>
-	<p>常常在台式机与笔记本电脑之间切换着工作，通过 Dropbox 同步文件很方便，偶尔会想到如果软件设置也可以同步就更美妙了。某个周末花了些时间搜集、整理了一些方法，在此分享出来。不必非用 Dropbox 不可，Google Drive 等类似服务应该也可以，只是一直使用 Dropbox 比较熟悉。如果不想麻烦，可以试试 <a href='http://joeworkman.net/blog/post-9591023714' target='_blank'>DropboxAppSync</a> 这款软件，和下面介绍到的原理是一样的，都是通过创建 symlink 将设置文件链接到 Dropbox。</p>
+	<p>常常在台式机与笔记本电脑之间切换着工作，通过 Dropbox 同步文件很方便，偶尔会想到如果软件设置也可以同步就更美妙了。某个周末花了些时间搜集、整理了一些方法，在此分享出来。不必非用 Dropbox 不可，Google Drive 等类似服务应该也可以，只是一直使用 Dropbox 比较熟悉。如果不想麻烦，可以试试 <a target='_blank' href='http://joeworkman.net/blog/post-9591023714'>DropboxAppSync</a> 这款软件，和下面介绍到的原理是一样的，都是通过创建 symlink 将设置文件链接到 Dropbox。</p>
 
 <h3 id='_sublime_text_2'>同步 Sublime Text 2</h3>
 
@@ -52,12 +52,12 @@
 
 <li>在要同步的主机上找到 Sublime Text 2 的 packages 文件夹（路径：<code>~/Library/Application Support/Sublime Text 2/</code>），将其移动到 Dropbox 文件夹内，例如 <code>~/Dropbox/Sync/Packages</code>；</li>
 
-<li>启动 Terminal，输入 <code>cd ~/Library/Application\ Support/Sublime\ Text\ 2/</code> 打开目标文件夹（空格前要加 <code>\</code>），然后输入 <code>ln -s ~/Dropbox/Sync/Packages</code> 创建一个 symlink 将 Dropbox 下的 Packages 文件夹链接到当前目录，Windows 下创建 symlink 的命令请看<a href='http://technet.microsoft.com/en-us/library/cc753194(v=ws.10).aspx' target='_blank'>这里</a>；</li>
+<li>启动 Terminal，输入 <code>cd ~/Library/Application\ Support/Sublime\ Text\ 2/</code> 打开目标文件夹（空格前要加 <code>\</code>），然后输入 <code>ln -s ~/Dropbox/Sync/Packages</code> 创建一个 symlink 将 Dropbox 下的 Packages 文件夹链接到当前目录，Windows 下创建 symlink 的命令请看<a target='_blank' href='http://technet.microsoft.com/en-us/library/cc753194(v=ws.10).aspx'>这里</a>；</li>
 
 <li>在第二台机器上，关闭 Sublime Text 2，找到 packages 文件夹并将其删除，然后重复步骤 3 中的命令。</li>
 </ol>
 
-<h3 id='id1'>同步其他软件</h3>
+<h3 id='id469'>同步其他软件</h3>
 
 <p>Mac OS 下软件的设置文件都会以 .plist 的格式保存在 <code>~/Library/Preferences/</code> 下，只要给这些文件创建 symlink 就可以完成同步。有些软件除了 .plist 外，还会在 <code>~/Libray/Application Support/</code> 下创建文件夹存储额外的设置，比如 Alfred 会创建一个文件夹存储 extensions，TextMate 会创建一个文件夹存储 Bundles 与 Themes，给这些文件夹创建 symlink 可以完成更彻底的同步。<em>但是，并不是所有的软件都允许同步这些文件夹</em>，有些软件会删除 symlink 重新写入文件，而不是按照 symlink 找到位于 Dropbox 下的文件。已经同步的软件如果更新，则不会影响到 symlink。</p>
 
@@ -88,7 +88,7 @@
 		<script type="text/javascript" src="/js/meny.min.js"></script>
 		<script type="text/javascript" src="/js/prism.min.js"></script>
 		<script type="text/javascript">
-			if (navigator.appVersion.indexOf("Win")!=-1) document.getElementById('post').style.fontSize = '18px';
+			if (navigator.appVersion.indexOf("Win")!=-1) document.body.style.fontSize = '18px';
 
 			var meny = Meny.create({
 				menuElement: document.querySelector( 'header' ),
