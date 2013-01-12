@@ -164,7 +164,7 @@ nav a {
   overflow-y: auto; }
 
 .inner {
-  width: 680px;
+  width: 700px;
   margin: 0 auto;
   padding-top: 135px; }
 
@@ -243,7 +243,7 @@ nav a {
     height: 1em;
     font-size: 2em; }
   #post p.noindent {
-    margin: 0 0 10px -2em; }
+    text-indent: 0; }
 
 @-moz-document url-prefix() {
   #post p:nth-of-type(2):first-letter {
@@ -280,6 +280,16 @@ ol, ul {
 li {
   margin-bottom: 15px; }
 
+blockquote {
+  margin: 0 0 20px 2.5em;
+  padding: 0.3em 0.5em 0.2em;
+  font-size: 0.9em;
+  background: rgba(255, 255, 255, 0.4);
+  border-left: 5px solid #353535; }
+  #post blockquote p {
+    text-indent: 0;
+    margin: 0; }
+
 /*
  * prism.js default theme for JavaScript, CSS and HTML
  * Based on dabblet (http://dabblet.com)
@@ -289,7 +299,7 @@ code[class*="language-"],
 pre[class*="language-"] {
   color: black;
   text-shadow: 0 1px white;
-  font: 0.95em/1.5 Consolas, Monaco, "Andale Mono", monospace;
+  font: 0.925em/1.4 Consolas, Monaco, "Andale Mono", monospace;
   direction: ltr;
   text-align: left;
   white-space: pre;
