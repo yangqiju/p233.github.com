@@ -53,10 +53,10 @@ body {
   background: #252525;
   text-shadow: 0 1px white;
   -webkit-font-smoothing: subpixel-antialiased;
-  font: 20px/1.5 Overlock, Kai, 宋体, sans-serif; }
+  font: 20px/1.5 Overlock, Kaiti SC, 宋体, sans-serif; }
 
 x:-o-prefocus, body {
-  font-family: Kai, 宋体, sans-serif; }
+  font-family: Kaiti SC, 宋体, sans-serif; }
 
 a {
   color: inherit;
@@ -65,8 +65,7 @@ a {
   -moz-transition: 0.3s;
   -o-transition: 0.3s;
   -ms-transition: 0.3s;
-  transition: 0.3s;
-  }
+  transition: 0.3s; }
   a:hover {
     color: #d83e20; }
 
@@ -257,17 +256,33 @@ p#date {
   p#date span {
     padding-left: 20px; }
 
+h4 {
+  font-size: 1.1em;
+  margin-bottom: 10px; }
+
+h5 {
+  font-weight: bold;
+  margin-bottom: 10px; }
+
+.img {
+  width: 700px; }
+  .img img {
+    max-width: 100%;
+    margin-bottom: 20px;
+    border-radius: 0.2em;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.3); }
+
 /*------- markdown style ------- */
 #post a {
   text-decoration: underline; }
 
 strong {
-  font-weight: 600; }
+  font-weight: bold; }
 
 em {
   font-style: italic; }
 
-#post p code, #post li code {
+#post p code, #post li code, h3 code, h4 code {
   border: 1px solid #dddddd;
   border-radius: 3px;
   padding: 3px 5px 0;
@@ -275,9 +290,9 @@ em {
   background: rgba(255, 255, 255, 0.4); }
 
 ol, ul {
-  padding-left: 3em; }
+  padding: 0 0 20px 3em; }
 
-li {
+ol li {
   margin-bottom: 15px; }
 
 blockquote {
@@ -289,6 +304,12 @@ blockquote {
   #post blockquote p {
     text-indent: 0;
     margin: 0; }
+
+/*------- contents -------*/
+
+#contents a {
+  display: block;
+}
 
 /*
  * prism.js default theme for JavaScript, CSS and HTML
@@ -315,7 +336,7 @@ pre[class*="language-"] {
 /* Code blocks */
 pre[class*="language-"] {
   padding: 1em;
-  margin: 0.5em 0;
+  margin: 0 0 20px;
   overflow: auto; }
 
 :not(pre) > code[class*="language-"],
