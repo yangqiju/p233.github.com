@@ -1,47 +1,49 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://p233.github.com/Uncategorised/2013/01/02/blogging-with-jekyll.html</loc>
-        <lastmod>2013-01-20T01:06:43+00:00</lastmod>
+        <loc>http://peters-playground.com/Uncategorised/2013/01/02/blogging-with-jekyll.html</loc>
+        <lastmod>2013-01-20T16:26:19+00:00</lastmod>
     </url>
     <url>
-        <loc>http://p233.github.com/Mac_OS/2013/01/03/sync-application-preferences.html</loc>
-        <lastmod>2013-01-20T01:06:43+00:00</lastmod>
+        <loc>
+            http://peters-playground.com/Mac_OS/2013/01/03/sync-application-preferences.html
+        </loc>
+        <lastmod>2013-01-20T16:26:19+00:00</lastmod>
     </url>
     <url>
-        <loc>http://p233.github.com/Css/2013/01/04/Browser-Specific-Hacks.html</loc>
-        <lastmod>2013-01-20T01:06:43+00:00</lastmod>
+        <loc>http://peters-playground.com/Css/2013/01/04/Browser-Specific-Hacks.html</loc>
+        <lastmod>2013-01-20T16:26:19+00:00</lastmod>
     </url>
     <url>
-        <loc>http://p233.github.com/Css/2013/01/05/css-performance.html</loc>
-        <lastmod>2013-01-20T01:06:43+00:00</lastmod>
+        <loc>http://peters-playground.com/Css/2013/01/05/css-performance.html</loc>
+        <lastmod>2013-01-20T16:26:19+00:00</lastmod>
     </url>
     <url>
-        <loc>http://p233.github.com/Css/2013/01/06/css-transitions.html</loc>
-        <lastmod>2013-01-20T01:06:43+00:00</lastmod>
+        <loc>http://peters-playground.com/Css/2013/01/06/css-transitions.html</loc>
+        <lastmod>2013-01-20T16:26:19+00:00</lastmod>
     </url>
     <url>
-        <loc>http://p233.github.com/Mac_OS/2013/01/08/jekyll-alfred-extensions.html</loc>
-        <lastmod>2013-01-20T01:06:43+00:00</lastmod>
+        <loc>http://peters-playground.com/Mac_OS/2013/01/08/jekyll-alfred-extensions.html</loc>
+        <lastmod>2013-01-20T16:26:19+00:00</lastmod>
     </url>
     <url>
-        <loc>http://p233.github.com/Mac_OS/2013/01/19/dropbox-diff.html</loc>
-        <lastmod>2013-01-20T01:06:43+00:00</lastmod>
+        <loc>http://peters-playground.com/Mac_OS/2013/01/19/dropbox-diff.html</loc>
+        <lastmod>2013-01-20T16:26:19+00:00</lastmod>
     </url>
     <url>
-        <loc>http://p233.github.com/categories.html</loc>
+        <loc>http://peters-playground.com/categories.html</loc>
         <lastmod>2013-01-11T20:57:45+00:00</lastmod>
     </url>
     <url>
-        <loc>http://p233.github.com/github.html</loc>
+        <loc>http://peters-playground.com/github.html</loc>
         <lastmod>2013-01-11T20:57:45+00:00</lastmod>
     </url>
     <url>
-        <loc>http://p233.github.com/</loc>
-        <lastmod>2013-01-20T00:23:20+00:00</lastmod>
+        <loc>http://peters-playground.com/</loc>
+        <lastmod>2013-01-20T11:56:30+00:00</lastmod>
     </url>
     <url>
-        <loc>http://p233.github.com/rss.xml</loc>
+        <loc>http://peters-playground.com/rss.xml</loc>
         <lastmod>2013-01-09T10:20:34+00:00</lastmod>
     </url>
 </urlset>

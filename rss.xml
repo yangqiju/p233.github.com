@@ -6,8 +6,8 @@
     <atom:link href="http://p233.github.com/rss.xml" rel="self" type="application/rss+xml" />
     <description>关于前端方面的资讯分享，经验总结，与深度思考</description>
     <language>zh_CN</language>
-    <pubDate>Sun, 20 Jan 2013 01:07:33 +0000</pubDate>
-    <lastBuildDate>Sun, 20 Jan 2013 01:07:33 +0000</lastBuildDate>
+    <pubDate>Sun, 20 Jan 2013 16:27:24 +0000</pubDate>
+    <lastBuildDate>Sun, 20 Jan 2013 16:27:24 +0000</lastBuildDate>
 
     
     <item>
@@ -22,7 +22,7 @@
 &lt;a href='/images/dropboxdiff/img1.png' target='_blank' class='img'&gt;&lt;img alt='dropboxdiff' src='/images/dropboxdiff/img1.png' /&gt;&lt;/a&gt;
 &lt;p&gt;第一次使用时，需要先设置对比软件 (diff tool)，比如作者推荐的 &lt;a href='http://kdiff3.sourceforge.net/' target='_blank'&gt;kdiff3&lt;/a&gt;，Xcode 自带的 FileMerge，或者其他可用命令行操作的软件（好像不支持 Kaleidoscope ?），输入执行命令，再保存即可。&lt;/p&gt;
 &lt;a href='/images/dropboxdiff/img2.png' target='_blank' class='img'&gt;&lt;img alt='dropboxdiff setting' src='/images/dropboxdiff/img2.png' /&gt;&lt;/a&gt;
-&lt;p&gt;FileMerge 的命令是 &lt;code&gt;opendiff file1 file2&lt;/code&gt;，Xcode 4.3 版之后修改了路径，所以要先做一点调整：&lt;/p&gt;
+&lt;p&gt;FileMerge 的命令是 &lt;code&gt;opendiff file1 file2&lt;/code&gt;，如果在使用时遇到了路径错误，试试下面的解决办法：&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;引用 &lt;a href='http://stackoverflow.com/questions/9300748/opendiff-does-not-start-anymore' target='_blank'&gt;StackOverflow&lt;/a&gt; 上 Valexa 的解释：That is because with 4.3 /Developer/ moved to /Applications/Xcode.app/Contents/Developer/ . The proper setting for the new path is: &lt;code&gt;sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer/&lt;/code&gt;&lt;/p&gt;
@@ -32,7 +32,7 @@
 &lt;p&gt;这是我的 Dropbox 推广链接 &lt;a href='http://db.tt/dKXdR3gf' target='_blank'&gt;http://db.tt/dKXdR3gf&lt;/a&gt;，通过这个链接注册 Dropbox 账户，我们每个人都可以获得额外的 500MB 空间 :)&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;strong&gt;PS:&lt;/strong&gt; Sublime Text 2 用户也可以尝试下 &lt;a href='https://github.com/vishr/local-history' target='_blank'&gt;Local History&lt;/a&gt; 插件，在本地保存、管理文件的历史记录。&lt;/p&gt;</description>
+&lt;p&gt;&lt;strong&gt;PS:&lt;/strong&gt; Sublime Text 2 用户也可以试试 &lt;a href='https://github.com/vishr/local-history' target='_blank'&gt;Local History&lt;/a&gt; 插件，在本地保存、管理文件的历史记录。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -108,7 +108,7 @@ end alfred_script&lt;/code&gt;&lt;/pre&gt;
       <guid>http://p233.github.com/Css/2013/01/06/css-transitions</guid>
       <description>&lt;p&gt;刚刚读到的文章，非常不错，翻译出来与大家分享。原文 &lt;a href='http://blog.alexmaccaw.com/css-transitions' target='_blank'&gt;All you need to know about Css Transitions&lt;/a&gt; 由 Alex Maccaw 发表于 2013 年 1 月 3 日。不想花太多时间纠结于字面翻译，只专注最核心的信息，Javascript 入门水平，因此后半部分理解不深入，详细信息还请读原文，翻译不当的地方请大家指正。&lt;/p&gt;
 
-&lt;h3 id='id38'&gt;浏览器支持&lt;/h3&gt;
+&lt;h3 id='id2'&gt;浏览器支持&lt;/h3&gt;
 
 &lt;p&gt;几乎所有版本的 Firefox, Safari, Chrome 以及最新的 IE10 都支持 transition 属性。动画与渐变特效在 Safari 和 Chrome 下仍然需要添加 &lt;code&gt;-webkit&lt;/code&gt; 前缀，不过很快也会不需要了。&lt;/p&gt;
 
@@ -155,7 +155,7 @@ var inactive = function(){
   $('.element').removeClass('active').addClass('inactive');
 };&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;h3 id='id39'&gt;渐变背景的变化&lt;/h3&gt;
+&lt;h3 id='id3'&gt;渐变背景的变化&lt;/h3&gt;
 
 &lt;p&gt;不是所有的 css 属性都可以变化，而且只能从一个绝对值变化到另一个绝对值。比如，&lt;code&gt;height&lt;/code&gt; 不能从 &lt;code&gt;0px&lt;/code&gt; 变化到 &lt;code&gt;auto&lt;/code&gt;（补充：不同单位之间也可以变化，比如从 &lt;code&gt;0px&lt;/code&gt; 变化到 &lt;code&gt;10em&lt;/code&gt;，但不可以从 &lt;code&gt;0px&lt;/code&gt; 变化到 &lt;code&gt;10%&lt;/code&gt;），可变化的属性列表请参考&lt;a href='http://oli.jp/2010/css-animatable-properties/' target='_blank'&gt;这里&lt;/a&gt;。&lt;/p&gt;
 
@@ -206,7 +206,7 @@ var inactive = function(){
 .x:hover {} 
 .x:hover:before { /* This works (needs :hover declared) */ }&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;h3 id='id40'&gt;硬件加速&lt;/h3&gt;
+&lt;h3 id='id4'&gt;硬件加速&lt;/h3&gt;
 
 &lt;p&gt;变化某些属性，比如 &lt;code&gt;left&lt;/code&gt; ，&lt;code&gt;margin&lt;/code&gt;，&lt;em&gt;浏览器会重新计算每一帧的显示效果&lt;/em&gt;，这严重影响速度，尤其是在移动设备上。解决办法就是让 GPU 来做这些运算，简单的说，就是将元素转化为图片再制作变化效果，而不是重新计算每一帧的 css 样式。最简单的一个使用硬件加速的办法就是用 &lt;code&gt;transform: translate3d(0,0,0);&lt;/code&gt; 属性。&lt;/p&gt;
 
@@ -234,11 +234,11 @@ input:focus {
   -webkit-transform: translate3d(-50px, 0, 0);
 }&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;h3 id='id41'&gt;时间函数&lt;/h3&gt;
+&lt;h3 id='id5'&gt;时间函数&lt;/h3&gt;
 
 &lt;p&gt;浏览器内置的时间函数包括 &lt;code&gt;linear, ease, ease-in, ease-out and ease-in-out&lt;/code&gt;，复杂一点，可以用 cubic-bezier 曲线自定义时间函数，比如 &lt;code&gt;transition: -webkit-transform 1s cubic-bezier(.17,.67,.69,1.33);&lt;/code&gt; 。两个帮你选择时间函数的工具 &lt;a href='http://easings.net' target='_blank'&gt;Pre-defined Curves&lt;/a&gt; 和 &lt;a href='http://cubic-bezier.com/#.17,.67,.83,.67' target='_blank'&gt;Graphing Tool&lt;/a&gt;。&lt;/p&gt;
 
-&lt;h3 id='id42'&gt;用程序控制变化效果&lt;/h3&gt;
+&lt;h3 id='id6'&gt;用程序控制变化效果&lt;/h3&gt;
 
 &lt;p&gt;借助 js 可以更有效的控制变化的效果，例如将连续的变化做成动画。变化属性为 &lt;code&gt;all&lt;/code&gt; 时意味着元素的所有属性都可以同时发生变化，请看下面的例子&lt;/p&gt;
 &lt;div&gt;
@@ -279,7 +279,7 @@ $(this).css(properties);&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;现在可以调用 &lt;code&gt;$.fn.emulateTransitionEnd()&lt;/code&gt; 确保变化结束的 callback 被激活。&lt;/p&gt;
 
-&lt;h3 id='id43'&gt;连续的变化&lt;/h3&gt;
+&lt;h3 id='id7'&gt;连续的变化&lt;/h3&gt;
 
 &lt;p&gt;熟悉用 js 调用变化，与获取变化结束的 callback 后，可以进一步将变化进行排列，做成连续的动画。jQuery 提供了两个对列相关的函数 &lt;code&gt;$.fn.queue(callback)&lt;/code&gt; 与 &lt;code&gt;$.fn.dequeue()&lt;/code&gt;。先将 css 变化样式写入 &lt;code&gt;$.fn.queue&lt;/code&gt; callback 中，变化结束后调用 &lt;code&gt;$.fn.dequeue&lt;/code&gt;。&lt;/p&gt;
 &lt;div&gt;
@@ -297,7 +297,7 @@ $el.queue(function(){
              .delay(200)
              .transition({background: 'red'});&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;h3 id='id44'&gt;重绘&lt;/h3&gt;
+&lt;h3 id='id8'&gt;重绘&lt;/h3&gt;
 
 &lt;p&gt;在使用 &lt;code&gt;transition&lt;/code&gt; 属性时，要写两套 css 属性，初始样式与结束样式。&lt;/p&gt;
 &lt;div&gt;
@@ -329,7 +329,7 @@ anim.play();&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;另外，可以在 &lt;a href='https://github.com/web-animations/web-animations-js' target='_blank'&gt;这里&lt;/a&gt; 找到一些实现新 API 的变通法子。&lt;/p&gt;
 
-&lt;h3 id='id45'&gt;结尾&lt;/h3&gt;
+&lt;h3 id='id9'&gt;结尾&lt;/h3&gt;
 
 &lt;p&gt;目前为止，希望你已经深入的了解了 css 的 transition 属性，以及如何组合简单的 API 制作丰富的动画效果。文中大多数 js 例子来源于 &lt;a href='https://github.com/maccman/gfx' target='_blank'&gt;GFX&lt;/a&gt;，这也是本文作者 Alex 写的一个 jQuery Css transition 库。&lt;/p&gt;</description>
     </item>
@@ -473,7 +473,7 @@ anim.play();&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;在第二台机器上，关闭 Sublime Text 2，找到 packages 文件夹并将其删除，然后重复步骤 3 中的命令。&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h3 id='id37'&gt;同步其他软件&lt;/h3&gt;
+&lt;h3 id='id1'&gt;同步其他软件&lt;/h3&gt;
 
 &lt;p&gt;Mac OS 下软件的设置文件都会以 .plist 的格式保存在 &lt;code&gt;~/Library/Preferences/&lt;/code&gt; 下，只要给这些文件创建 symlink 就可以完成同步。有些软件除了 .plist 外，还会在 &lt;code&gt;~/Libray/Application Support/&lt;/code&gt; 下创建文件夹存储额外的设置，比如 Alfred 会创建一个文件夹存储 extensions，TextMate 会创建一个文件夹存储 Bundles 与 Themes，给这些文件夹创建 symlink 可以完成更彻底的同步。&lt;em&gt;但是，并不是所有的软件都允许同步这些文件夹&lt;/em&gt;，有些软件会删除 symlink 重新写入文件，而不是按照 symlink 找到位于 Dropbox 下的文件。已经同步的软件如果更新，则不会影响到 symlink。&lt;/p&gt;
 
