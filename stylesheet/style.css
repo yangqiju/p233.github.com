@@ -268,7 +268,7 @@ h5 {
   width: 700px; }
   .img img {
     max-width: 100%;
-    margin: 30px 0 50px;
+    margin: 20px 0 40px;
     border-radius: 0.2em;
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.3); }
 
@@ -400,6 +400,6 @@ pre[class*="language-"] {
 /*------- disqus_thread -------*/
 
 #disqus_thread {
-  margin-top: 100px;
-  padding-top: 40px;
+  margin-top: 60px;
+  padding-top: 30px;
   border-top: 1px dashed #dddddd; }
