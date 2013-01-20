@@ -2,32 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Peter's Playground</title>
-    <link>http://p233.github.com/</link>
-    <atom:link href="http://p233.github.com/rss.xml" rel="self" type="application/rss+xml" />
+    <link>http://peters-playground.com/</link>
+    <atom:link href="http://peters-playground.com/rss.xml" rel="self" type="application/rss+xml" />
     <description>关于前端方面的资讯分享，经验总结，与深度思考</description>
     <language>zh_CN</language>
-    <pubDate>Sun, 20 Jan 2013 16:27:24 +0000</pubDate>
-    <lastBuildDate>Sun, 20 Jan 2013 16:27:24 +0000</lastBuildDate>
+    <pubDate>Sun, 20 Jan 2013 19:31:58 +0000</pubDate>
+    <lastBuildDate>Sun, 20 Jan 2013 19:31:58 +0000</lastBuildDate>
 
     
     <item>
       <title>DropboxDiff，对比文件的历史版本</title>
-      <link>http://p233.github.com/Mac_OS/2013/01/19/dropbox-diff.html</link>
+      <link>http://peters-playground.com/Mac_OS/2013/01/19/dropbox-diff.html</link>
       <pubDate>19 Jan 2013</pubDate>
-      <author>40132147@qq.com (Peter)</author>
-      <guid>http://p233.github.com/Mac_OS/2013/01/19/dropbox-diff</guid>
+      <author>Peter</author>
+      <guid>http://peters-playground.com/Mac_OS/2013/01/19/dropbox-diff</guid>
       <description>&lt;p&gt;写 HTML, CSS, Javascript，当修改幅度比较大时，偶尔会想查看之前的版本，使用版本控制系统 (SVN) 好像有点大材小用，毕竟不是多人协作，也不是太复杂的项目。所以，我一般将文件存放在 Dropbox 下，保存文件时 Dropbox 会自动备份历史版本，需要恢复或对比的时候，就可以在 Dropbox 网站查看历史记录。但是，仅仅这样还不够方便，借助 &lt;a href='http://blog.vicshih.com/2011/09/dropboxdiff-chrome-extension.html' target='_blank'&gt;DropboxDiff&lt;/a&gt; 这款 Chrome 插件，我们可以直接对比两个文件的具体区别，好像版本控制软件那样。&lt;/p&gt;
 
 &lt;p&gt;Chrome Web Store 中搜索 &lt;code&gt;DropboxDiff&lt;/code&gt; (Extensions) 并安装，之后，查看历史版本的时候，每个条目的后面会自动添加两个单选框。选择需要对比的文件，然后按下 “Diff” 按钮就可以启用预设的软件对比两个文件。&lt;/p&gt;
-&lt;a href='/images/dropboxdiff/img1.png' target='_blank' class='img'&gt;&lt;img alt='dropboxdiff' src='/images/dropboxdiff/img1.png' /&gt;&lt;/a&gt;
+&lt;a href='/images/dropboxdiff/img1.png' target='_blank' class='img'&gt;&lt;img src='/images/dropboxdiff/img1.png' alt='dropboxdiff' /&gt;&lt;/a&gt;
 &lt;p&gt;第一次使用时，需要先设置对比软件 (diff tool)，比如作者推荐的 &lt;a href='http://kdiff3.sourceforge.net/' target='_blank'&gt;kdiff3&lt;/a&gt;，Xcode 自带的 FileMerge，或者其他可用命令行操作的软件（好像不支持 Kaleidoscope ?），输入执行命令，再保存即可。&lt;/p&gt;
-&lt;a href='/images/dropboxdiff/img2.png' target='_blank' class='img'&gt;&lt;img alt='dropboxdiff setting' src='/images/dropboxdiff/img2.png' /&gt;&lt;/a&gt;
+&lt;a href='/images/dropboxdiff/img2.png' target='_blank' class='img'&gt;&lt;img src='/images/dropboxdiff/img2.png' alt='dropboxdiff setting' /&gt;&lt;/a&gt;
 &lt;p&gt;FileMerge 的命令是 &lt;code&gt;opendiff file1 file2&lt;/code&gt;，如果在使用时遇到了路径错误，试试下面的解决办法：&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;引用 &lt;a href='http://stackoverflow.com/questions/9300748/opendiff-does-not-start-anymore' target='_blank'&gt;StackOverflow&lt;/a&gt; 上 Valexa 的解释：That is because with 4.3 /Developer/ moved to /Applications/Xcode.app/Contents/Developer/ . The proper setting for the new path is: &lt;code&gt;sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer/&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;a href='/images/dropboxdiff/img3.png' target='_blank' class='img'&gt;&lt;img alt='FileMerge' src='/images/dropboxdiff/img3.png' /&gt;&lt;/a&gt;
+&lt;a href='/images/dropboxdiff/img3.png' target='_blank' class='img'&gt;&lt;img src='/images/dropboxdiff/img3.png' alt='FileMerge' /&gt;&lt;/a&gt;
 &lt;blockquote&gt;
 &lt;p&gt;这是我的 Dropbox 推广链接 &lt;a href='http://db.tt/dKXdR3gf' target='_blank'&gt;http://db.tt/dKXdR3gf&lt;/a&gt;，通过这个链接注册 Dropbox 账户，我们每个人都可以获得额外的 500MB 空间 :)&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -37,10 +37,10 @@
     
     <item>
       <title>Jekyll Alfred Extensions</title>
-      <link>http://p233.github.com/Mac_OS/2013/01/08/jekyll-alfred-extensions.html</link>
+      <link>http://peters-playground.com/Mac_OS/2013/01/08/jekyll-alfred-extensions.html</link>
       <pubDate>08 Jan 2013</pubDate>
-      <author>40132147@qq.com (Peter)</author>
-      <guid>http://p233.github.com/Mac_OS/2013/01/08/jekyll-alfred-extensions</guid>
+      <author>Peter</author>
+      <guid>http://peters-playground.com/Mac_OS/2013/01/08/jekyll-alfred-extensions</guid>
       <description>&lt;p&gt;三个 Alfred Extensions 让 Jekyll 用起来更方便：Create a Jekyll Post, Generate Jekyll site, 以及 Push Jekyll post to Github。可以直接从 &lt;a href='https://github.com/P233/Jekyll-Alfred-Extensions' target='_blank'&gt;Github&lt;/a&gt; 下载，或者根据下面的代码自己创建。&lt;/p&gt;
 
 &lt;h3 id='create_a_jekyll_post'&gt;Create a Jekyll Post&lt;/h3&gt;
@@ -102,10 +102,10 @@ end alfred_script&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>关于 Css Transition 的一切</title>
-      <link>http://p233.github.com/Css/2013/01/06/css-transitions.html</link>
+      <link>http://peters-playground.com/Css/2013/01/06/css-transitions.html</link>
       <pubDate>06 Jan 2013</pubDate>
-      <author>40132147@qq.com (Peter)</author>
-      <guid>http://p233.github.com/Css/2013/01/06/css-transitions</guid>
+      <author>Peter</author>
+      <guid>http://peters-playground.com/Css/2013/01/06/css-transitions</guid>
       <description>&lt;p&gt;刚刚读到的文章，非常不错，翻译出来与大家分享。原文 &lt;a href='http://blog.alexmaccaw.com/css-transitions' target='_blank'&gt;All you need to know about Css Transitions&lt;/a&gt; 由 Alex Maccaw 发表于 2013 年 1 月 3 日。不想花太多时间纠结于字面翻译，只专注最核心的信息，Javascript 入门水平，因此后半部分理解不深入，详细信息还请读原文，翻译不当的地方请大家指正。&lt;/p&gt;
 
 &lt;h3 id='id2'&gt;浏览器支持&lt;/h3&gt;
@@ -336,10 +336,10 @@ anim.play();&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>关注 Css 性能 (一)</title>
-      <link>http://p233.github.com/Css/2013/01/05/css-performance.html</link>
+      <link>http://peters-playground.com/Css/2013/01/05/css-performance.html</link>
       <pubDate>05 Jan 2013</pubDate>
-      <author>40132147@qq.com (Peter)</author>
-      <guid>http://p233.github.com/Css/2013/01/05/css-performance</guid>
+      <author>Peter</author>
+      <guid>http://peters-playground.com/Css/2013/01/05/css-performance</guid>
       <description>&lt;p&gt;虽然我只会写最简单的页面，但本着“取法乎上，得乎其中”的原则，一直关注 Css 性能，读过几篇相关文章，准备逐步翻译出来当做总结与积累。第一篇 &lt;a href='http://boagworld.com/dev/why-you-should-care-about-css-page-performance/' target='_blank'&gt;Why you should care about CSS page performance&lt;/a&gt; 由 Doug Stewart 发表于 2012 年 5 月。只记录下几点重要的信息，没有直接翻译，理解不当的地方还请大家指正。&lt;/p&gt;
 
 &lt;p&gt;Doug 介绍了自己测试 css 性能的两个方法：缩放浏览器窗口与上下滚动页面。浏览器重绘页面可以反映很多关于性能的问题，未添加 css 的页面反应速度肯定是最快的。一般来说，&lt;em&gt;如果页面缩放时有明显延时，很可能是布局问题，比如浮动、流体宽度等等，而如果页面滚动时有明显延时，则可能是特效问题，比如说阴影与渐变。&lt;/em&gt;&lt;/p&gt;
@@ -363,10 +363,10 @@ anim.play();&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>CSS 判断浏览器方法整理</title>
-      <link>http://p233.github.com/Css/2013/01/04/Browser-Specific-Hacks.html</link>
+      <link>http://peters-playground.com/Css/2013/01/04/Browser-Specific-Hacks.html</link>
       <pubDate>04 Jan 2013</pubDate>
-      <author>40132147@qq.com (Peter)</author>
-      <guid>http://p233.github.com/Css/2013/01/04/Browser-Specific-Hacks</guid>
+      <author>Peter</author>
+      <guid>http://peters-playground.com/Css/2013/01/04/Browser-Specific-Hacks</guid>
       <description>&lt;p&gt;整理几个常用的判断浏览器的方法，记录在这里方便查阅。不算全面，以后遇到问题了再来更新。&lt;/p&gt;
 
 &lt;h3 id='conditional_comments'&gt;Conditional Comments&lt;/h3&gt;
@@ -453,10 +453,10 @@ anim.play();&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>用 Dropbox 同步 Mac 软件设置</title>
-      <link>http://p233.github.com/Mac_OS/2013/01/03/sync-application-preferences.html</link>
+      <link>http://peters-playground.com/Mac_OS/2013/01/03/sync-application-preferences.html</link>
       <pubDate>03 Jan 2013</pubDate>
-      <author>40132147@qq.com (Peter)</author>
-      <guid>http://p233.github.com/Mac_OS/2013/01/03/sync-application-preferences</guid>
+      <author>Peter</author>
+      <guid>http://peters-playground.com/Mac_OS/2013/01/03/sync-application-preferences</guid>
       <description>&lt;p&gt;常常在台式机与笔记本电脑之间切换着工作，通过 Dropbox 同步文件很方便，偶尔会想到如果软件设置也可以同步就更美妙了。某个周末花了些时间搜集、整理了一些方法，在此分享出来。不必非用 Dropbox 不可，Google Drive 等类似服务应该也可以，只是一直使用 Dropbox 比较熟悉。如果不想麻烦，可以试试 &lt;a href='http://joeworkman.net/blog/post-9591023714' target='_blank'&gt;DropboxAppSync&lt;/a&gt; 这款软件，和下面介绍到的原理是一样的，都是通过创建 symlink 将设置文件链接到 Dropbox。&lt;/p&gt;
 
 &lt;h3 id='_sublime_text_2'&gt;同步 Sublime Text 2&lt;/h3&gt;
@@ -492,10 +492,10 @@ anim.play();&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>开始在 Github 上写博客</title>
-      <link>http://p233.github.com/Uncategorised/2013/01/02/blogging-with-jekyll.html</link>
+      <link>http://peters-playground.com/Uncategorised/2013/01/02/blogging-with-jekyll.html</link>
       <pubDate>02 Jan 2013</pubDate>
-      <author>40132147@qq.com (Peter)</author>
-      <guid>http://p233.github.com/Uncategorised/2013/01/02/blogging-with-jekyll</guid>
+      <author>Peter</author>
+      <guid>http://peters-playground.com/Uncategorised/2013/01/02/blogging-with-jekyll</guid>
       <description>&lt;p&gt;纪念刚刚过去的 2012 年，展望 2013，开始用时下流行的 Jekyll 在 Github 上写博客，积累经验，深度思考，期望在新的一年取得更好的成绩。&lt;/p&gt;
 
 &lt;p&gt;网络上关于 Jekyll 的文章已经非常详细了，在这里附上一点使用 Jekyll 的经验心得，也许能方便刚刚开始接触 Jekyll 的同学。&lt;/p&gt;
