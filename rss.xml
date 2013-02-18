@@ -6,12 +6,483 @@
     <atom:link href="http://peters-playground.com/rss.xml" rel="self" type="application/rss+xml" />
     <description>关于前端方面的资讯分享，经验总结，与深度思考</description>
     <language>zh_CN</language>
-    <pubDate>Thu, 24 Jan 2013 23:07:25 +0000</pubDate>
-    <lastBuildDate>Thu, 24 Jan 2013 23:07:25 +0000</lastBuildDate>
+    <pubDate>Mon, 18 Feb 2013 17:56:25 +0000</pubDate>
+    <lastBuildDate>Mon, 18 Feb 2013 17:56:25 +0000</lastBuildDate>
 
     
     <item>
-      <title>Sass 官方文档（中文）</title>
+      <title>【翻译】牢记 30 种 CSS 选择器用法</title>
+      <link>http://peters-playground.com/Css/2013/01/31/css-selectors-must-memorize.html</link>
+      <pubDate>31 Jan 2013</pubDate>
+      <author>Peter</author>
+      <guid>http://peters-playground.com/Css/2013/01/31/css-selectors-must-memorize</guid>
+      <description>&lt;p&gt;原文 &lt;a href='http://net.tutsplus.com/tutorials/html-css-techniques/the-30-css-selectors-you-must-memorize/' target='_blank'&gt;The 30 CSS Selectors you Must Memorize&lt;/a&gt; 由 Jeffrey Way 发表于 2011 年 6 月，介绍了 30 种最常用的 CSS 选择器用法，其他 CSS3 选择器用法请查看 &lt;a href='http://www.456bereastreet.com/archive/200601/css_3_selectors_explained/' target='_blank'&gt;CSS3 selectors explained&lt;/a&gt; 这篇文章，此外，W3C CSS3 选择器官方文档 &lt;a href='http://www.w3.org/TR/css3-selectors/' target='_blank'&gt;Selectors Level 3 W3C Recommendation 29 September 2011&lt;/a&gt; 记录在这里留待有疑问的时候查看。&lt;/p&gt;
+
+&lt;h3 id='1_'&gt;1. &lt;code&gt;*&lt;/code&gt;&lt;/h3&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;* {  
+   margin: 0;  
+   padding: 0;  
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;星号选择器用于选取页面中的所有元素，可用于快速清除所有元素的 &lt;code&gt;margin&lt;/code&gt; 与 &lt;code&gt;padding&lt;/code&gt;，但最好只在测试的时候使用，而不要正式用在 CSS 文件中，否则会大大加重浏览器负担。此外，星号选择器也可以给父层的所有子元素设定样式，重复一遍，尽量少用这种方式：&lt;/p&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;#container * {  
+   border: 1px solid black;  
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;兼容 IE6+&lt;/p&gt;
+
+&lt;h3 id='2_'&gt;2. &lt;code&gt;#X&lt;/code&gt;&lt;/h3&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;#container {  
+   width: 960px;  
+   margin: auto;  
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;id 选择器，最常见的选择器用法之一，不可重复使用。&lt;/p&gt;
+
+&lt;p&gt;兼容 IE6+&lt;/p&gt;
+
+&lt;h3 id='3_'&gt;3. &lt;code&gt;.X&lt;/code&gt;&lt;/h3&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;.error {  
+  color: red;  
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;class 选择器，也是最常见的选择器用法之一，与 id 选择器不同的是 class 选择器可同时选取多个元素，而 id 选择器只能给一个独一无二的元素设定样式。&lt;/p&gt;
+
+&lt;p&gt;兼容 IE6+&lt;/p&gt;
+
+&lt;h3 id='4_'&gt;4. &lt;code&gt;X Y&lt;/code&gt;&lt;/h3&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;li a {  
+  text-decoration: none;  
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;后代选择器 (descendant selector)，选取 X 元素内的所有 Y 元素，比如上面这段代码将选取 li 标签内的所有链接。&lt;/p&gt;
+
+&lt;p&gt;兼容 IE6+&lt;/p&gt;
+
+&lt;h3 id='5_'&gt;5. &lt;code&gt;X&lt;/code&gt;&lt;/h3&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;a { color: red; }  
+ul { margin-left: 0; }&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;标签选择器 (type selector)，用于选取 HTML 标签 (tag)。&lt;/p&gt;
+
+&lt;p&gt;兼容 IE6+&lt;/p&gt;
+
+&lt;h3 id='6__and_'&gt;6. &lt;code&gt;X:visited&lt;/code&gt; and &lt;code&gt;X:link&lt;/code&gt;&lt;/h3&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;a:link { color: red; }  
+a:visted { color: purple; }&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;:link&lt;/code&gt; 伪类选择器 (pseudo class selector) 用于选取所有&lt;em&gt;未点击过&lt;/em&gt;的链接，而 &lt;code&gt;:visited&lt;/code&gt; 则用于选取所有&lt;em&gt;已访问过&lt;/em&gt;的链接。&lt;/p&gt;
+
+&lt;p&gt;兼容 IE6+&lt;/p&gt;
+
+&lt;h3 id='7_'&gt;7. &lt;code&gt;X + Y&lt;/code&gt;&lt;/h3&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;ul + p {  
+   color: red;  
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;临近选择器 (adjacent selector)，选取紧邻在 X 元素后面出现的第一个元素，比如上面这段代码将选取 ul 元素后出现的第一个元素，也就是 p 元素。&lt;/p&gt;
+
+&lt;p&gt;兼容性 IE6+&lt;/p&gt;
+
+&lt;h3 id='8_'&gt;8. &lt;code&gt;X &amp;gt; Y&lt;/code&gt;&lt;/h3&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;div#container &amp;gt; ul {  
+  border: 1px solid black;  
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;在第 4 条中，后代选择器 &lt;code&gt;X Y&lt;/code&gt; 选取父层 X 内的所有 Y 元素；子选择器 &lt;code&gt;X &amp;gt; Y&lt;/code&gt; 则只选取直接出现在父层 X 内的 Y 元素。比如下面的 HTML 结构中，&lt;code&gt;#container &amp;gt; ul&lt;/code&gt; 选取直接出现在 &lt;code&gt;div#container&lt;/code&gt; 内的 ul 元素，不包含嵌套在 li 内的 ul 元素：&lt;/p&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-markup'&gt;&amp;lt;div id=&amp;quot;container&amp;quot;&amp;gt;  
+   &amp;lt;ul&amp;gt;  
+      &amp;lt;li&amp;gt; List Item  
+        &amp;lt;ul&amp;gt;  
+           &amp;lt;li&amp;gt; Child &amp;lt;/li&amp;gt;  
+        &amp;lt;/ul&amp;gt;  
+      &amp;lt;/li&amp;gt;  
+      &amp;lt;li&amp;gt; List Item &amp;lt;/li&amp;gt;  
+      &amp;lt;li&amp;gt; List Item &amp;lt;/li&amp;gt;  
+      &amp;lt;li&amp;gt; List Item &amp;lt;/li&amp;gt;  
+   &amp;lt;/ul&amp;gt;  
+&amp;lt;/div&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;兼容 IE6+&lt;/p&gt;
+
+&lt;h3 id='9_'&gt;9. &lt;code&gt;X ~ Y&lt;/code&gt;&lt;/h3&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;ul ~ p {  
+   color: red;  
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;同样也是临近选择器，前面第 7 条 &lt;code&gt;X + Y&lt;/code&gt; 选取紧邻在 X 后出现的第一个元素，而 &lt;code&gt;X ~ Y&lt;/code&gt; 将选取 X 元素后出现的所有同级元素。上面这段代码将选取 ul 元素后出现的所有同级 p 元素，而不是像 &lt;code&gt;ul + p&lt;/code&gt; 这样选取第一个出现的 p 元素。&lt;/p&gt;
+
+&lt;p&gt;兼容 IE7+&lt;/p&gt;
+
+&lt;h3 id='10_'&gt;10. &lt;code&gt;X[title]&lt;/code&gt;&lt;/h3&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;a[title] {  
+   color: green;  
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;属性选择器 (attributes selector)，根据元素使用的属性进一步缩小选取范围，上面这段代码将选取所有使用了 &lt;code&gt;title&lt;/code&gt; 属性的链接，或者 &lt;code&gt;a[title=&amp;quot;title content&amp;quot;]{color:green}&lt;/code&gt; 再进一步缩小选取范围。&lt;/p&gt;
+
+&lt;p&gt;兼容 IE7+&lt;/p&gt;
+
+&lt;h3 id='11_'&gt;11. &lt;code&gt;X[href=&amp;quot;foo&amp;quot;]&lt;/code&gt;&lt;/h3&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;a[href=&amp;quot;http://net.tutsplus.com&amp;quot;] {  
+  color: #1f6053; /* nettuts green */
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;上面这段代码将选取所有跳转到 &lt;code&gt;http://net.tutsplus.com&lt;/code&gt; 的链接，这些链接将显示为绿色，其他链接不受影响。&lt;/p&gt;
+
+&lt;p&gt;只是这种方式很严格不能相差一个字符，下面将会逐一介绍更灵活的用法。&lt;/p&gt;
+
+&lt;p&gt;兼容 IE7+&lt;/p&gt;
+
+&lt;h3 id='12_'&gt;12. &lt;code&gt;X[href*=&amp;quot;nettuts&amp;quot;]&lt;/code&gt;&lt;/h3&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;a[href*=&amp;quot;tuts&amp;quot;] {  
+  color: #1f6053; /* nettuts green */  
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;*&lt;/code&gt; 表示只要属性值中&lt;em&gt;包含&lt;/em&gt;双引号内的内容就满足选取要求，这段代码将选取跳转到 &lt;code&gt;nettuts.com&lt;/code&gt;，&lt;code&gt;net.tutsplus.com&lt;/code&gt;，或者 &lt;code&gt;tutsplus.com&lt;/code&gt; 等链接。&lt;/p&gt;
+
+&lt;p&gt;兼容 IE7+&lt;/p&gt;
+
+&lt;h3 id='13_'&gt;13. &lt;code&gt;X[href^=&amp;quot;http&amp;quot;]&lt;/code&gt;&lt;/h3&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;a[href^=&amp;quot;http&amp;quot;] {
+   background: url(path/to/external/icon.png) no-repeat;  
+   padding-left: 10px;  
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;^&lt;/code&gt; 表示只要属性值以双引号内的内容&lt;em&gt;开头&lt;/em&gt;就满足选取要求，这段代码也常用来给页面中所有外部接设定样式。&lt;/p&gt;
+
+&lt;p&gt;兼容 IE7+&lt;/p&gt;
+
+&lt;h3 id='14_'&gt;14. &lt;code&gt;X[href$=&amp;quot;.jpg&amp;quot;]&lt;/code&gt;&lt;/h3&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;a[href$=&amp;quot;.jpg&amp;quot;] {  
+   color: red;  
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;$&lt;/code&gt; 表示只要属性值以双引号内的内容&lt;em&gt;结尾&lt;/em&gt;就满足选取要求，这段代码将选取所有跳转到 jpg 图片的链接。&lt;/p&gt;
+
+&lt;p&gt;兼容 IE7+&lt;/p&gt;
+
+&lt;h3 id='15_'&gt;15. &lt;code&gt;X[data-*=&amp;quot;foo&amp;quot;]&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;上面第 14 条提到了如何选取所有跳转到 jpg 图片的链接，若要选取跳转到图片的所有链接可以用下面的方法：&lt;/p&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;a[href$=&amp;quot;.jpg&amp;quot;],  
+a[href$=&amp;quot;.jpeg&amp;quot;],  
+a[href$=&amp;quot;.png&amp;quot;],  
+a[href$=&amp;quot;.gif&amp;quot;] {  
+   color: red;  
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;或者，先给图片链接添加 &lt;code&gt;data-&lt;/code&gt; 属性（注：&lt;a href='http://html5doctor.com/html5-custom-data-attributes/' target='_blank'&gt;HTML5 Custom Data Attributes&lt;/a&gt;）&lt;/p&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-markup'&gt;&amp;lt;a href=&amp;quot;path/to/image.jpg&amp;quot; data-filetype=&amp;quot;image&amp;quot;&amp;gt; Image Link &amp;lt;/a&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;然后再通过属性选择器选取：&lt;/p&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;a[data-filetype=&amp;quot;image&amp;quot;] {  
+   color: red;  
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;兼容 IE7+&lt;/p&gt;
+
+&lt;h3 id='16_'&gt;16. &lt;code&gt;X[foo~=&amp;quot;bar&amp;quot;]&lt;/code&gt;&lt;/h3&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;a[data-info~=&amp;quot;external&amp;quot;] {  
+   color: red;  
+}  
+a[data-info~=&amp;quot;image&amp;quot;] {  
+   border: 1px solid black;  
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;如果属性值中有用空格分隔的一连串属性值，&lt;code&gt;~&lt;/code&gt; 可以选取其中一个属性值，比如：&lt;/p&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-markup'&gt;&amp;quot;&amp;lt;a href=&amp;quot;path/to/image.jpg&amp;quot; data-info=&amp;quot;external image&amp;quot;&amp;gt; Click Me, Fool &amp;lt;/a&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;借助 &lt;code&gt;~&lt;/code&gt; 选取包含 &lt;code&gt;external&lt;/code&gt; 或者 &lt;code&gt;image&lt;/code&gt; 属性值的元素：&lt;/p&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;/* Target data-info attr that contains the value &amp;quot;external&amp;quot; */  
+a[data-info~=&amp;quot;external&amp;quot;] {  
+   color: red;  
+}  
+/* And which contain the value &amp;quot;image&amp;quot; */  
+a[data-info~=&amp;quot;image&amp;quot;] {  
+  border: 1px solid black;  
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;兼容 IE7+&lt;/p&gt;
+
+&lt;h3 id='17_'&gt;17. &lt;code&gt;X:checked&lt;/code&gt;&lt;/h3&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;input[type=radio]:checked {  
+   border: 1px solid black;  
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;:checked&lt;/code&gt; 伪类选择器用于选取所有标记为 &lt;em&gt;checked&lt;/em&gt; 的元素，比如单选框 (radio button) 或复选框 (checkbox)。&lt;/p&gt;
+
+&lt;p&gt;兼容 IE9+&lt;/p&gt;
+
+&lt;h3 id='18_'&gt;18. &lt;code&gt;X:after&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;:before&lt;/code&gt; 与 &lt;code&gt;:after&lt;/code&gt; 是两个令人兴奋的伪类选择器，几乎每天都有人发明出一些新用法，这里简单介绍一下如何用它清除浮动：&lt;/p&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;.clearfix:after {  
+    content: &amp;quot;&amp;quot;;  
+    display: block;  
+    clear: both;  
+    visibility: hidden;  
+    font-size: 0;  
+    height: 0;  
+    }  
+.clearfix {  
+   *display: inline-block;  
+   _height: 1%;  
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;这种方式通过 &lt;code&gt;:after&lt;/code&gt; 在元素后面添加一块区域，然后将其隐藏，可以弥补 &lt;code&gt;overflow: hidden;&lt;/code&gt; 的缺陷。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;根据 CSS3 选择器标准，理论上伪类选择器应该使用双冒号，但实际上浏览器也支持单冒号的形式，所以可以继续使用单冒号。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;兼容 IE8+&lt;/p&gt;
+
+&lt;h3 id='19_'&gt;19. &lt;code&gt;X:hover&lt;/code&gt;&lt;/h3&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;div:hover {  
+  background: #e3e3e3;  
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;最常用的伪类选择器，不多解释了，只是需要注意 IE6 不支持将 &lt;code&gt;:hover&lt;/code&gt; 作用于除 &lt;code&gt;a&lt;/code&gt; 链接外的其他元素。&lt;/p&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;a:hover {  
+ border-bottom: 1px solid black;  
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;另外提醒一点：&lt;code&gt;border-bottom: 1px solid black;&lt;/code&gt; 的效果要比 &lt;code&gt;text-decoration: underline;&lt;/code&gt; 好看一些。&lt;/p&gt;
+
+&lt;p&gt;兼容 IE6+ （在 IE6 中 &lt;code&gt;:hover&lt;/code&gt; 只能作用于链接）&lt;/p&gt;
+
+&lt;h3 id='20_'&gt;20. &lt;code&gt;X:not(selector)&lt;/code&gt;&lt;/h3&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;div:not(#container) {  
+   color: blue;  
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;:not&lt;/code&gt; 伪类选择器有时会起到很重要的作用，假设现在要选取除 &lt;code&gt;#contaienr&lt;/code&gt; 外的所有 &lt;code&gt;div&lt;/code&gt; 元素，就可以用上面的代码实现。&lt;/p&gt;
+
+&lt;p&gt;兼容 IE9+&lt;/p&gt;
+
+&lt;h3 id='21_'&gt;21. &lt;code&gt;X::pseudoElement&lt;/code&gt;&lt;/h3&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;p::first-line {  
+   font-weight: bold;  
+   font-size: 1.2em;  
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;通过伪元素（使用双冒号 &lt;code&gt;::&lt;/code&gt;）可以给元素的某一部分设定样式，比如第一行、或者第一个字母。需要注意的是，这只对块级元素 (block level elements) 生效。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;提示：伪元素 (pseudo element) 使用双冒号 &lt;code&gt;::&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id='id268'&gt;选取段落的第一个字母&lt;/h4&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;p::first-letter {  
+   float: left;  
+   font-size: 2em;  
+   font-weight: bold;  
+   font-family: cursive;  
+   padding-right: 2px;  
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;这段代码将选取页面中所有 p 元素，然后再选取其中的第一个字母。&lt;/p&gt;
+
+&lt;h4 id='id269'&gt;选取段落的第一行&lt;/h4&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;p::first-line {  
+   font-weight: bold;  
+   font-size: 1.2em;  
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;与上面的例子类似，通过 &lt;code&gt;::first-line&lt;/code&gt; 选取页面的第一行。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;为了兼容 CSS1 与 CSS2 中的伪类选择器（比如 &lt;code&gt;:first-line&lt;/code&gt;, &lt;code&gt;:first-letter&lt;/code&gt;, &lt;code&gt;:before&lt;/code&gt; 以及 &lt;code&gt;:after&lt;/code&gt;），浏览器接受单冒号与双冒号两种格式，但对于 CSS3 中最新引入的伪元素，必须使用双冒号。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;兼容 IE6+&lt;/p&gt;
+
+&lt;h3 id='22_'&gt;22. &lt;code&gt;X:nth-child(n)&lt;/code&gt;&lt;/h3&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;li:nth-child(3) {  
+   color: red;  
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;:nth-child(n)&lt;/code&gt; 用于选取 stack 中的某一个元素，只接受整数作参数（参数从 1 开始计数），如果你想选取第二个 li 元素，只需这样写 &lt;code&gt;li:nth-child(2)&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;也可以设定可变的参数，比如 &lt;code&gt;li:nth-child(4n)&lt;/code&gt; 将选取第 4, 8 , 12… 个元素（4*n, n=1, n++）。&lt;/p&gt;
+
+&lt;p&gt;兼容 IE9+&lt;/p&gt;
+
+&lt;h3 id='23_'&gt;23. &lt;code&gt;X:nth-last-child(n)&lt;/code&gt;&lt;/h3&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;li:nth-last-child(2) {  
+   color: red;  
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;除了正序（从上往下）选择，也可以使用 &lt;code&gt;:nth-last-child(n)&lt;/code&gt; 倒序（从下往上）选择第几个元素，其他用法与第 22 条完全一样。&lt;/p&gt;
+
+&lt;p&gt;兼容 IE9+&lt;/p&gt;
+
+&lt;h3 id='24_'&gt;24. &lt;code&gt;X:nth-of-type(n)&lt;/code&gt;&lt;/h3&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;ul:nth-of-type(3) {  
+   border: 1px solid black;  
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;:nth-of-type(n)&lt;/code&gt; 的作用不是选取子元素 (child element)，而是选取同类元素 (type of element)。想象一下 HTML 文件中包含 5 个 ul 元素，现在要选取第三个，只需使用上面的代码，而不用再单独这个 ul 添加 &lt;code&gt;id&lt;/code&gt;。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;关于 &lt;code&gt;:nth-child&lt;/code&gt; 与 &lt;code&gt;:nth-of-type&lt;/code&gt; 的区别，具体请查看 &lt;a href='http://css-tricks.com/the-difference-between-nth-child-and-nth-of-type/' target='_blank'&gt;CSS-Tricks 网站的解释&lt;/a&gt;，简单来说，如果父层内只包含一种元素（比如都是 p 元素）那两种用法是等效的，如果父层包含多种元素（比如 p 元素与同级的其他元素），需要选取第几个 p 元素时应该用 &lt;code&gt;:nth-of-type&lt;/code&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;兼容 IE9+&lt;/p&gt;
+
+&lt;h3 id='25_'&gt;25. &lt;code&gt;X:nth-last-of-type(n)&lt;/code&gt;&lt;/h3&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;ul:nth-last-of-type(3) {  
+   border: 1px solid black;  
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;与第 24 条用法相同，倒序选取同类元素。&lt;/p&gt;
+
+&lt;p&gt;兼容 IE9+&lt;/p&gt;
+
+&lt;h3 id='26_'&gt;26. &lt;code&gt;X:first-child&lt;/code&gt;&lt;/h3&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;ul li:first-child {  
+   border-top: none;  
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;选取父层内的第一个子元素。&lt;/p&gt;
+
+&lt;p&gt;兼容 IE7+&lt;/p&gt;
+
+&lt;h3 id='27_'&gt;27. &lt;code&gt;X:last-child&lt;/code&gt;&lt;/h3&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;ul &amp;gt; li:last-child {  
+   color: green;  
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;与第 26 条用法相同，区别在于 &lt;code&gt;:last-child&lt;/code&gt; 选取父层元素内的最后一个子元素。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;:first-child&lt;/code&gt; 与 &lt;code&gt;:last-child&lt;/code&gt; 通常用来清除边框 (border)，比如 &lt;code&gt;&amp;lt;ul&amp;gt;&amp;lt;/ul&amp;gt;&lt;/code&gt; 内每个 &lt;code&gt;&amp;lt;li&amp;gt;&amp;lt;/li&amp;gt;&lt;/code&gt; 都使用了 &lt;code&gt;border-top&lt;/code&gt; 与 &lt;code&gt;border-bottom&lt;/code&gt; 边框，结果是，第一个元素的上方与最后一个元素的下方会是单边框效果。这种情况可以用 &lt;code&gt;:first-child&lt;/code&gt; 与 &lt;code&gt;:last-child&lt;/code&gt; 清除上下的边框，而不用给第一个元素添加 &lt;code&gt;id=&amp;quot;first&amp;quot;&lt;/code&gt; 或者给最后一个元素添加 &lt;code&gt;id=&amp;quot;last&amp;quot;&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;兼容 IE9+&lt;/p&gt;
+
+&lt;h3 id='28_'&gt;28. &lt;code&gt;X:only-child&lt;/code&gt;&lt;/h3&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;div p:only-child {  
+   color: red;  
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;这个伪类选择器不常用，它可以选取包含唯一指定子元素的父层。比如上面的代码中将选取下面第一个 div 元素，而不是第二个 div 中的 p 元素。&lt;/p&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-markup'&gt;&amp;lt;div&amp;gt;&amp;lt;p&amp;gt; My paragraph here. &amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;  
+&amp;lt;div&amp;gt;  
+   &amp;lt;p&amp;gt; Two paragraphs total. &amp;lt;/p&amp;gt;  
+   &amp;lt;p&amp;gt; Two paragraphs total. &amp;lt;/p&amp;gt;  
+&amp;lt;/div&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;兼容 IE9+&lt;/p&gt;
+
+&lt;h3 id='29_'&gt;29. &lt;code&gt;X:only-of-type&lt;/code&gt;&lt;/h3&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;li:only-of-type {  
+   font-weight: bold;  
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;这个选择器会选取某个元素，并且这个元素在其父层内没有其他同级同类元素（不一定是唯一元素）。比如，要选取所有只包含一个 li 元素的 ul 元素该怎么做呢？如果使用 &lt;code&gt;ul li&lt;/code&gt; 将选取所有 li 元素，应该使用 &lt;code&gt;only-of-type&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;兼容 IE9+&lt;/p&gt;
+
+&lt;h3 id='30_'&gt;30. &lt;code&gt;X:first-of-type&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;first-of-type&lt;/code&gt; 伪类可以选取某种元素的第一个同类元素。&lt;/p&gt;
+
+&lt;p&gt;为了更好地理解它的用法，现在思考一下如何在下面的 HTML 结构中选取 &lt;code&gt;List Item 2&lt;/code&gt; ？&lt;/p&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-markup'&gt;&amp;lt;div&amp;gt;  
+   &amp;lt;p&amp;gt; My paragraph here. &amp;lt;/p&amp;gt;  
+   &amp;lt;ul&amp;gt;  
+      &amp;lt;li&amp;gt; List Item 1 &amp;lt;/li&amp;gt;  
+      &amp;lt;li&amp;gt; List Item 2 &amp;lt;/li&amp;gt;  
+   &amp;lt;/ul&amp;gt;  
+   &amp;lt;ul&amp;gt;  
+      &amp;lt;li&amp;gt; List Item 3 &amp;lt;/li&amp;gt;  
+      &amp;lt;li&amp;gt; List Item 4 &amp;lt;/li&amp;gt;  
+   &amp;lt;/ul&amp;gt;  
+&amp;lt;/div&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h4 id='id270'&gt;方法一&lt;/h4&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;ul:first-of-type &amp;gt; li:nth-child(2) {  
+   font-weight: bold;  
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;这段代码的意思是：首先选取第一个 ul 元素；然后选取其中的所有直接子元素，也就是 li；最后选取第二个子元素。&lt;/p&gt;
+
+&lt;h4 id='id271'&gt;方法二&lt;/h4&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;p + ul li:last-child {  
+   font-weight: bold;  
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;找到 p 元素后第一个出现的 ul 元素，然后选取其中的最后一个子元素。&lt;/p&gt;
+
+&lt;h4 id='id272'&gt;方法三&lt;/h4&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;ul:first-of-type li:nth-last-child(1) {  
+   font-weight: bold;  
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;找到第一个 ul 元素，然后从上往下选取第一个子元素。&lt;/p&gt;
+
+&lt;p&gt;兼容 IE9+&lt;/p&gt;
+
+&lt;h3 id='31_'&gt;31. 伪类选择器联用&lt;/h3&gt;
+
+&lt;p&gt;偶然发现有些伪类选择器是可以联用的，例如：&lt;/p&gt;
+&lt;div&gt;
+  &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;#post p:nth-of-type(2):first-letter {
+   float: left;
+   margin: 0 5px 0 1em;
+   width: 1em;
+   height: 1em;
+   font-size: 2em;
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;兼容 IE9+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>【翻译】Sass 官方文档中文版</title>
       <link>http://peters-playground.com/Css/2013/01/24/sass-reference.html</link>
       <pubDate>24 Jan 2013</pubDate>
       <author>Peter</author>
@@ -52,7 +523,7 @@
 &lt;a href='#6_4'&gt;6.4. 运算符 (Operations)&lt;/a&gt;
 &lt;div class='level3'&gt;
 &lt;a href='#6_4_1'&gt;6.4.1. 数字运算 (Number Operations)&lt;/a&gt;
-&lt;a href='#6_4_1_1' class='level4'&gt;6.4.1.1. 除法运算 / (Division and /)&lt;/a&gt;
+&lt;a class='level4' href='#6_4_1_1'&gt;6.4.1.1. 除法运算 / (Division and /)&lt;/a&gt;
 &lt;a href='#6_4_2'&gt;6.4.2. 颜色运算 (Color Operations)&lt;/a&gt;
 &lt;a href='#6_4_3'&gt;6.4.3. 字符串运算 (String Operations)&lt;/a&gt;
 &lt;a href='#6_4_4'&gt;6.4.4. 布尔运算 (Boolean Operations)&lt;/a&gt;
@@ -81,7 +552,7 @@
 &lt;a href='#7_3_3'&gt;7.3.3. 继续延伸 (Chaining Extends)&lt;/a&gt;
 &lt;a href='#7_3_4'&gt;7.3.4. 选择器列 (Selector Sequences)&lt;/a&gt;
 &lt;a href='#7_3_5'&gt;7.3.5. 合并选择器列 (Merging Selector Sequences)&lt;/a&gt;
-&lt;a href='#7_3_5_1' class='level4'&gt;7.3.5.1. @extend-Only 选择器 (@extend-Only Selectors)&lt;/a&gt;
+&lt;a class='level4' href='#7_3_5_1'&gt;7.3.5.1. @extend-Only 选择器 (@extend-Only Selectors)&lt;/a&gt;
 &lt;a href='#7_3_6'&gt;7.3.6. @extend-Only 选择器 (@extend-Only Selectors)&lt;/a&gt;
 &lt;a href='#7_3_7'&gt;7.3.7. !optional 声明 (The !optional Flag)&lt;/a&gt;
 &lt;a href='#7_3_8'&gt;7.3.8. 在指令中延伸 (@extend in Directives)&lt;/a&gt;
@@ -1567,32 +2038,32 @@ $gutter-width: 10px;
     </item>
     
     <item>
-      <title>DropboxDiff，对比文件的历史版本</title>
+      <title>【总结】DropboxDiff 对比文件的历史版本</title>
       <link>http://peters-playground.com/Mac_OS/2013/01/19/dropbox-diff.html</link>
       <pubDate>19 Jan 2013</pubDate>
       <author>Peter</author>
       <guid>http://peters-playground.com/Mac_OS/2013/01/19/dropbox-diff</guid>
-      <description>&lt;p&gt;写 HTML, CSS, Javascript，当修改幅度比较大时，偶尔会想查看之前的版本，使用版本控制系统 (SVN) 好像有点大材小用，毕竟不是多人协作，也不是太复杂的项目。所以，我一般将文件存放在 Dropbox 下，保存文件时 Dropbox 会自动备份历史版本，需要恢复或对比的时候，就可以在 Dropbox 网站查看历史记录。但是，仅仅这样还不够方便，借助 &lt;a href='http://blog.vicshih.com/2011/09/dropboxdiff-chrome-extension.html' target='_blank'&gt;DropboxDiff&lt;/a&gt; 这款 Chrome 插件，我们可以直接对比两个文件的具体区别，好像版本控制软件那样。&lt;/p&gt;
+      <description>&lt;p&gt;写 HTML, CSS, Javascript，当修改幅度比较大时，偶尔会想查看之前的版本，使用版本控制系统 (SVN) 好像有点大材小用，毕竟不是多人协作，也不是太复杂的项目。所以，我一般将文件存放在 Dropbox 下，保存文件时 Dropbox 会自动备份历史版本，需要恢复或对比的时候，就可以在 Dropbox 网站查看历史记录。但是，仅仅这样还不够方便，借助 &lt;a href='http://blog.vicshih.com/2011/09/dropboxdiff-chrome-extension.html' target='_blank'&gt;DropboxDiff&lt;/a&gt; 这款 Chrome 插件，可以直接对比两个文件的具体区别，做到版本控制软件那样的效果。&lt;/p&gt;
 
 &lt;p&gt;Chrome Web Store 中搜索 &lt;code&gt;DropboxDiff&lt;/code&gt; (Extensions) 并安装，之后，查看历史版本的时候，每个条目的后面会自动添加两个单选框。选择需要对比的文件，然后按下 “Diff” 按钮就可以启用预设的软件对比两个文件。&lt;/p&gt;
-&lt;a href='/images/dropboxdiff/img1.png' class='img' target='_blank'&gt;&lt;img src='/images/dropboxdiff/img1.png' alt='dropboxdiff' /&gt;&lt;/a&gt;
+&lt;a class='img' href='/images/dropboxdiff/img1.png' target='_blank'&gt;&lt;img alt='dropboxdiff' src='/images/dropboxdiff/img1.png' /&gt;&lt;/a&gt;
 &lt;p&gt;第一次使用时，需要先设置对比软件 (diff tool)，比如作者推荐的 &lt;a href='http://kdiff3.sourceforge.net/' target='_blank'&gt;kdiff3&lt;/a&gt;，Xcode 自带的 FileMerge，或者其他可用命令行操作的软件（好像不支持 Kaleidoscope ?），输入执行命令，再保存即可。&lt;/p&gt;
-&lt;a href='/images/dropboxdiff/img2.png' class='img' target='_blank'&gt;&lt;img src='/images/dropboxdiff/img2.png' alt='dropboxdiff setting' /&gt;&lt;/a&gt;
+&lt;a class='img' href='/images/dropboxdiff/img2.png' target='_blank'&gt;&lt;img alt='dropboxdiff setting' src='/images/dropboxdiff/img2.png' /&gt;&lt;/a&gt;
 &lt;p&gt;FileMerge 的命令是 &lt;code&gt;opendiff file1 file2&lt;/code&gt;，如果在使用时遇到了路径错误，试试下面的解决办法：&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;引用 &lt;a href='http://stackoverflow.com/questions/9300748/opendiff-does-not-start-anymore' target='_blank'&gt;StackOverflow&lt;/a&gt; 上 Valexa 的解释：That is because with 4.3 /Developer/ moved to /Applications/Xcode.app/Contents/Developer/ . The proper setting for the new path is: &lt;code&gt;sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer/&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;a href='/images/dropboxdiff/img3.png' class='img' target='_blank'&gt;&lt;img src='/images/dropboxdiff/img3.png' alt='FileMerge' /&gt;&lt;/a&gt;
+&lt;a class='img' href='/images/dropboxdiff/img3.png' target='_blank'&gt;&lt;img alt='FileMerge' src='/images/dropboxdiff/img3.png' /&gt;&lt;/a&gt;
 &lt;blockquote&gt;
 &lt;p&gt;这是我的 Dropbox 推广链接 &lt;a href='http://db.tt/dKXdR3gf' target='_blank'&gt;http://db.tt/dKXdR3gf&lt;/a&gt;，通过这个链接注册 Dropbox 账户，我们每个人都可以获得额外的 500MB 空间 :)&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;strong&gt;PS:&lt;/strong&gt; Sublime Text 2 用户也可以试试 &lt;a href='https://github.com/vishr/local-history' target='_blank'&gt;Local History&lt;/a&gt; 插件，在本地保存、管理文件的历史记录。&lt;/p&gt;</description>
+&lt;p&gt;&lt;strong&gt;PS:&lt;/strong&gt; Sublime Text 2 用户也可以试试 &lt;a href='https://github.com/vishr/local-history' target='_blank'&gt;Local History&lt;/a&gt; 这款插件，提供了在本地保存、管理文件的历史记录的功能。&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>Jekyll Alfred Extensions</title>
+      <title>【分享】Jekyll Alfred Extensions</title>
       <link>http://peters-playground.com/Mac_OS/2013/01/08/jekyll-alfred-extensions.html</link>
       <pubDate>08 Jan 2013</pubDate>
       <author>Peter</author>
@@ -1657,14 +2128,14 @@ end alfred_script&lt;/code&gt;&lt;/pre&gt;
     </item>
     
     <item>
-      <title>关于 Css Transition 的一切</title>
+      <title>【翻译】关于 Css Transition 的一切</title>
       <link>http://peters-playground.com/Css/2013/01/06/css-transitions.html</link>
       <pubDate>06 Jan 2013</pubDate>
       <author>Peter</author>
       <guid>http://peters-playground.com/Css/2013/01/06/css-transitions</guid>
       <description>&lt;p&gt;刚刚读到的文章，非常不错，翻译出来与大家分享。原文 &lt;a href='http://blog.alexmaccaw.com/css-transitions' target='_blank'&gt;All you need to know about Css Transitions&lt;/a&gt; 由 Alex Maccaw 发表于 2013 年 1 月 3 日。不想花太多时间纠结于字面翻译，只专注最核心的信息，Javascript 入门水平，因此后半部分理解不深入，详细信息还请读原文，翻译不当的地方请大家指正。&lt;/p&gt;
 
-&lt;h3 id='id2'&gt;浏览器支持&lt;/h3&gt;
+&lt;h3 id='id260'&gt;浏览器支持&lt;/h3&gt;
 
 &lt;p&gt;几乎所有版本的 Firefox, Safari, Chrome 以及最新的 IE10 都支持 transition 属性。动画与渐变特效在 Safari 和 Chrome 下仍然需要添加 &lt;code&gt;-webkit&lt;/code&gt; 前缀，不过很快也会不需要了。&lt;/p&gt;
 
@@ -1711,7 +2182,7 @@ var inactive = function(){
   $('.element').removeClass('active').addClass('inactive');
 };&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;h3 id='id3'&gt;渐变背景的变化&lt;/h3&gt;
+&lt;h3 id='id261'&gt;渐变背景的变化&lt;/h3&gt;
 
 &lt;p&gt;不是所有的 css 属性都可以变化，而且只能从一个绝对值变化到另一个绝对值。比如，&lt;code&gt;height&lt;/code&gt; 不能从 &lt;code&gt;0px&lt;/code&gt; 变化到 &lt;code&gt;auto&lt;/code&gt;（补充：不同单位之间也可以变化，比如从 &lt;code&gt;0px&lt;/code&gt; 变化到 &lt;code&gt;10em&lt;/code&gt;，但不可以从 &lt;code&gt;0px&lt;/code&gt; 变化到 &lt;code&gt;10%&lt;/code&gt;），可变化的属性列表请参考&lt;a href='http://oli.jp/2010/css-animatable-properties/' target='_blank'&gt;这里&lt;/a&gt;。&lt;/p&gt;
 
@@ -1762,7 +2233,7 @@ var inactive = function(){
 .x:hover {} 
 .x:hover:before { /* This works (needs :hover declared) */ }&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;h3 id='id4'&gt;硬件加速&lt;/h3&gt;
+&lt;h3 id='id262'&gt;硬件加速&lt;/h3&gt;
 
 &lt;p&gt;变化某些属性，比如 &lt;code&gt;left&lt;/code&gt; ，&lt;code&gt;margin&lt;/code&gt;，&lt;em&gt;浏览器会重新计算每一帧的显示效果&lt;/em&gt;，这严重影响速度，尤其是在移动设备上。解决办法就是让 GPU 来做这些运算，简单的说，就是将元素转化为图片再制作变化效果，而不是重新计算每一帧的 css 样式。最简单的一个使用硬件加速的办法就是用 &lt;code&gt;transform: translate3d(0,0,0);&lt;/code&gt; 属性。&lt;/p&gt;
 
@@ -1790,11 +2261,11 @@ input:focus {
   -webkit-transform: translate3d(-50px, 0, 0);
 }&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;h3 id='id5'&gt;时间函数&lt;/h3&gt;
+&lt;h3 id='id263'&gt;时间函数&lt;/h3&gt;
 
 &lt;p&gt;浏览器内置的时间函数包括 &lt;code&gt;linear, ease, ease-in, ease-out and ease-in-out&lt;/code&gt;，复杂一点，可以用 cubic-bezier 曲线自定义时间函数，比如 &lt;code&gt;transition: -webkit-transform 1s cubic-bezier(.17,.67,.69,1.33);&lt;/code&gt; 。两个帮你选择时间函数的工具 &lt;a href='http://easings.net' target='_blank'&gt;Pre-defined Curves&lt;/a&gt; 和 &lt;a href='http://cubic-bezier.com/#.17,.67,.83,.67' target='_blank'&gt;Graphing Tool&lt;/a&gt;。&lt;/p&gt;
 
-&lt;h3 id='id6'&gt;用程序控制变化效果&lt;/h3&gt;
+&lt;h3 id='id264'&gt;用程序控制变化效果&lt;/h3&gt;
 
 &lt;p&gt;借助 js 可以更有效的控制变化的效果，例如将连续的变化做成动画。变化属性为 &lt;code&gt;all&lt;/code&gt; 时意味着元素的所有属性都可以同时发生变化，请看下面的例子&lt;/p&gt;
 &lt;div&gt;
@@ -1835,7 +2306,7 @@ $(this).css(properties);&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;现在可以调用 &lt;code&gt;$.fn.emulateTransitionEnd()&lt;/code&gt; 确保变化结束的 callback 被激活。&lt;/p&gt;
 
-&lt;h3 id='id7'&gt;连续的变化&lt;/h3&gt;
+&lt;h3 id='id265'&gt;连续的变化&lt;/h3&gt;
 
 &lt;p&gt;熟悉用 js 调用变化，与获取变化结束的 callback 后，可以进一步将变化进行排列，做成连续的动画。jQuery 提供了两个对列相关的函数 &lt;code&gt;$.fn.queue(callback)&lt;/code&gt; 与 &lt;code&gt;$.fn.dequeue()&lt;/code&gt;。先将 css 变化样式写入 &lt;code&gt;$.fn.queue&lt;/code&gt; callback 中，变化结束后调用 &lt;code&gt;$.fn.dequeue&lt;/code&gt;。&lt;/p&gt;
 &lt;div&gt;
@@ -1853,7 +2324,7 @@ $el.queue(function(){
              .delay(200)
              .transition({background: 'red'});&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;h3 id='id8'&gt;重绘&lt;/h3&gt;
+&lt;h3 id='id266'&gt;重绘&lt;/h3&gt;
 
 &lt;p&gt;在使用 &lt;code&gt;transition&lt;/code&gt; 属性时，要写两套 css 属性，初始样式与结束样式。&lt;/p&gt;
 &lt;div&gt;
@@ -1885,13 +2356,13 @@ anim.play();&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;另外，可以在 &lt;a href='https://github.com/web-animations/web-animations-js' target='_blank'&gt;这里&lt;/a&gt; 找到一些实现新 API 的变通法子。&lt;/p&gt;
 
-&lt;h3 id='id9'&gt;结尾&lt;/h3&gt;
+&lt;h3 id='id267'&gt;结尾&lt;/h3&gt;
 
 &lt;p&gt;目前为止，希望你已经深入的了解了 css 的 transition 属性，以及如何组合简单的 API 制作丰富的动画效果。文中大多数 js 例子来源于 &lt;a href='https://github.com/maccman/gfx' target='_blank'&gt;GFX&lt;/a&gt;，这也是本文作者 Alex 写的一个 jQuery Css transition 库。&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>关注 Css 性能 (一)</title>
+      <title>【翻译】关注 Css 性能 (一)</title>
       <link>http://peters-playground.com/Css/2013/01/05/css-performance.html</link>
       <pubDate>05 Jan 2013</pubDate>
       <author>Peter</author>
@@ -1901,7 +2372,9 @@ anim.play();&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Doug 介绍了自己测试 css 性能的两个方法：缩放浏览器窗口与上下滚动页面。浏览器重绘页面可以反映很多关于性能的问题，未添加 css 的页面反应速度肯定是最快的。一般来说，&lt;em&gt;如果页面缩放时有明显延时，很可能是布局问题，比如浮动、流体宽度等等，而如果页面滚动时有明显延时，则可能是特效问题，比如说阴影与渐变。&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;优化 css 性能，自然要先找到问题出在哪里。作者介绍了三款衡量页面性能的工具：&lt;a href='https://github.com/andyedinborough/stress-css' target='_blank'&gt;Css Stress Test&lt;/a&gt;，Chrome Developer Tools 的 Profiles 与 Timeline。就不一一介绍这些工具了，原则上是要找出最耗时间的地方，然后将其优化。&lt;/p&gt;
-&lt;p class='noindent'&gt;几点关于 Css 性能的小提示&lt;/p&gt;
+
+&lt;h6 id='_css_'&gt;几点关于 Css 性能的小提示&lt;/h6&gt;
+
 &lt;ol&gt;
 &lt;li&gt;大家都知道 id 选择器的表现效果要优于 class，事实虽然也如此，但仅仅是非常微小的差别，几乎可以不予考虑；&lt;/li&gt;
 
@@ -1918,7 +2391,7 @@ anim.play();&lt;/code&gt;&lt;/pre&gt;
     </item>
     
     <item>
-      <title>CSS 判断浏览器方法整理</title>
+      <title>【总结】CSS 判断浏览器方法整理</title>
       <link>http://peters-playground.com/Css/2013/01/04/Browser-Specific-Hacks.html</link>
       <pubDate>04 Jan 2013</pubDate>
       <author>Peter</author>
@@ -1966,7 +2439,9 @@ anim.play();&lt;/code&gt;&lt;/pre&gt;
 &amp;lt;!--[if !IE]&amp;gt; --&amp;gt;
   According to the conditional comment this is not IE
 &amp;lt;!-- &amp;lt;![endif]--&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;&lt;p class='noindent'&gt;Source: &lt;a href='http://www.quirksmode.org/css/condcom.html' target='_blank'&gt;http://www.quirksmode.org/css/condcom.html&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;h6 id='source_'&gt;Source: &lt;a href='http://www.quirksmode.org/css/condcom.html' target='_blank'&gt;http://www.quirksmode.org/css/condcom.html&lt;/a&gt;&lt;/h6&gt;
+
 &lt;h3 id='target_ie'&gt;Target IE&lt;/h3&gt;
 &lt;div&gt;
   &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;p {
@@ -2008,12 +2483,18 @@ anim.play();&lt;/code&gt;&lt;/pre&gt;
     </item>
     
     <item>
-      <title>用 Dropbox 同步 Mac 软件设置</title>
+      <title>【总结】用 Dropbox 同步 Mac 软件设置</title>
       <link>http://peters-playground.com/Mac_OS/2013/01/03/sync-application-preferences.html</link>
       <pubDate>03 Jan 2013</pubDate>
       <author>Peter</author>
       <guid>http://peters-playground.com/Mac_OS/2013/01/03/sync-application-preferences</guid>
-      <description>&lt;p&gt;常常在台式机与笔记本电脑之间切换着工作，通过 Dropbox 同步文件很方便，偶尔会想到如果软件设置也可以同步就更美妙了。某个周末花了些时间搜集、整理了一些方法，在此分享出来。不必非用 Dropbox 不可，Google Drive 等类似服务应该也可以，只是一直使用 Dropbox 比较熟悉。如果不想麻烦，可以试试 &lt;a href='http://joeworkman.net/blog/post-9591023714' target='_blank'&gt;DropboxAppSync&lt;/a&gt; 这款软件，和下面介绍到的原理是一样的，都是通过创建 symlink 将设置文件链接到 Dropbox。&lt;/p&gt;
+      <description>&lt;p&gt;常常在台式机与笔记本电脑之间切换着工作，虽然 Dropbox 同步文件很方便，但偶尔也会想如果可以同步软件设置就更完美了。某个周末花了些时间搜集、整理了一些方法，在此分享出来。不必非用 Dropbox，Google Drive 等类似服务应该也可以。&lt;/p&gt;
+
+&lt;p&gt;同步的原理是将软件的设置文件移动到 Dropbox 文件夹下，交给 Dropbox 管理，然后在存储软件设置的地方创建 symlink 指向 Dropbox 内的设置文件，软件每次读取/保存设置文件的时候其实是在 Dropbox 文件夹内操作（symlink 被称为符号链接，相当于快捷方式，具体解释还请搜索 google）。创建 symlink 的命令是: &lt;code&gt;ln -s &amp;lt;source_file&amp;gt; &amp;lt;myfile&amp;gt;&lt;/code&gt;，或者先用 &lt;code&gt;cd&lt;/code&gt; 命令打开目标地址，然后用 &lt;code&gt;ln -s &amp;lt;source_file&amp;gt;&lt;/code&gt; 命令将目标文件链接到目标地址。 &lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;如果不想使用命令，也可以试试 &lt;a href='http://joeworkman.net/blog/post-9591023714' target='_blank'&gt;DropboxAppSync&lt;/a&gt; 这款软件，和上面介绍的原理是一样的&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;h3 id='_sublime_text_2'&gt;同步 Sublime Text 2&lt;/h3&gt;
 
@@ -2029,7 +2510,7 @@ anim.play();&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;在第二台机器上，关闭 Sublime Text 2，找到 packages 文件夹并将其删除，然后重复步骤 3 中的命令。&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h3 id='id1'&gt;同步其他软件&lt;/h3&gt;
+&lt;h3 id='id259'&gt;同步其他软件&lt;/h3&gt;
 
 &lt;p&gt;Mac OS 下软件的设置文件都会以 .plist 的格式保存在 &lt;code&gt;~/Library/Preferences/&lt;/code&gt; 下，只要给这些文件创建 symlink 就可以完成同步。有些软件除了 .plist 外，还会在 &lt;code&gt;~/Libray/Application Support/&lt;/code&gt; 下创建文件夹存储额外的设置，比如 Alfred 会创建一个文件夹存储 extensions，TextMate 会创建一个文件夹存储 Bundles 与 Themes，给这些文件夹创建 symlink 可以完成更彻底的同步。&lt;em&gt;但是，并不是所有的软件都允许同步这些文件夹&lt;/em&gt;，有些软件会删除 symlink 重新写入文件，而不是按照 symlink 找到位于 Dropbox 下的文件。已经同步的软件如果更新，则不会影响到 symlink。&lt;/p&gt;
 
@@ -2047,7 +2528,7 @@ anim.play();&lt;/code&gt;&lt;/pre&gt;
     </item>
     
     <item>
-      <title>开始在 Github 上写博客</title>
+      <title>【总结】开始在 Github 上写博客</title>
       <link>http://peters-playground.com/Uncategorised/2013/01/02/blogging-with-jekyll.html</link>
       <pubDate>02 Jan 2013</pubDate>
       <author>Peter</author>

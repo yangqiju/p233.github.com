@@ -64,13 +64,13 @@ nav a:hover { color: #e1ec30; background: rgba(255, 255, 255, 0.1); }
 #recent h2:before { content: "===\00a0\00a0"; color: #acacac; }
 #recent h2:after { content: "\00a0\00a0==="; color: #acacac; }
 
-#recent p { padding-left: 60px; }
+#recent p { padding-left: 30px; }
 
 #attribution { padding: 120px 30px 20px; font-size: 0.8em; line-height: 1.5; text-align: center; }
 
 /*------- entry ------- */
 .entry { line-height: 1.7em; }
-.entry span { width: 120px; display: inline-block; color: #acacac; }
+.entry span { width: 100px; display: inline-block; color: #acacac; }
 
 /*------- categories page ------- */
 #cate h2 { margin: 50px 0 10px; border-bottom: 2px dashed #dddddd; }
@@ -89,9 +89,9 @@ nav a:hover { color: #e1ec30; background: rgba(255, 255, 255, 0.1); }
 #post p:nth-of-type(2) { text-indent: 0; }
 #post p:nth-of-type(2):first-letter { float: left; margin: 0 5px 0 1em; width: 1em; height: 1em; font-size: 2em; }
 
-#post p.noindent { text-indent: 0; }
-
 @-moz-document url-prefix() { #post p:nth-of-type(2):first-letter { padding-top: 10px; } }
+
+#post p.noindent { text-indent: 0; }
 
 #post a { text-decoration: underline; }
 
