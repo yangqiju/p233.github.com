@@ -64,13 +64,13 @@ nav a:hover { color: #e1ec30; background: rgba(255, 255, 255, 0.1); }
 #recent h2:before { content: "===\00a0\00a0"; color: #acacac; }
 #recent h2:after { content: "\00a0\00a0==="; color: #acacac; }
 
-#recent p { padding-left: 30px; }
+#recent p { padding-left: 20px; }
 
 #attribution { padding: 120px 30px 20px; font-size: 0.8em; line-height: 1.5; text-align: center; }
 
 /*------- entry ------- */
 .entry { line-height: 1.7em; }
-.entry span { width: 100px; display: inline-block; color: #acacac; }
+.entry span { width: 110px; display: inline-block; color: #acacac; }
 
 /*------- categories page ------- */
 #cate h2 { margin: 50px 0 10px; border-bottom: 2px dashed #dddddd; }
