@@ -42,7 +42,7 @@
 			<div id="post" class="inner">
 	<p id="date"><span>31 January 2013</span></p>
 	<h2>【翻译】牢记 30 种 CSS 选择器用法</h2>
-	<p>原文 <a href='http://net.tutsplus.com/tutorials/html-css-techniques/the-30-css-selectors-you-must-memorize/' target='_blank'>The 30 CSS Selectors you Must Memorize</a> 由 Jeffrey Way 发表于 2011 年 6 月，介绍了 30 种最常用的 CSS 选择器用法，其他 CSS3 选择器用法请查看 <a href='http://www.456bereastreet.com/archive/200601/css_3_selectors_explained/' target='_blank'>CSS3 selectors explained</a> 这篇文章，此外，W3C CSS3 选择器官方文档 <a href='http://www.w3.org/TR/css3-selectors/' target='_blank'>Selectors Level 3 W3C Recommendation 29 September 2011</a> 记录在这里留待有疑问的时候查看。</p>
+	<p>原文 <a target='_blank' href='http://net.tutsplus.com/tutorials/html-css-techniques/the-30-css-selectors-you-must-memorize/'>The 30 CSS Selectors you Must Memorize</a> 由 Jeffrey Way 发表于 2011 年 6 月，介绍了 30 种最常用的 CSS 选择器用法，其他 CSS3 选择器用法请查看 <a target='_blank' href='http://www.456bereastreet.com/archive/200601/css_3_selectors_explained/'>CSS3 selectors explained</a> 这篇文章，此外，W3C CSS3 选择器官方文档 <a target='_blank' href='http://www.w3.org/TR/css3-selectors/'>Selectors Level 3 W3C Recommendation 29 September 2011</a> 记录在这里留待有疑问的时候查看。</p>
 
 <h3 id='1_'>1. <code>*</code></h3>
 <div>
@@ -215,7 +215,7 @@ a[href$=&quot;.gif&quot;] {
    color: red;  
 }</code></pre>
 </div>
-<p>或者，先给图片链接添加 <code>data-</code> 属性（注：<a href='http://html5doctor.com/html5-custom-data-attributes/' target='_blank'>HTML5 Custom Data Attributes</a>）</p>
+<p>或者，先给图片链接添加 <code>data-</code> 属性（注：<a target='_blank' href='http://html5doctor.com/html5-custom-data-attributes/'>HTML5 Custom Data Attributes</a>）</p>
 <div>
   <pre data-line=''><code class='language-markup'>&lt;a href=&quot;path/to/image.jpg&quot; data-filetype=&quot;image&quot;&gt; Image Link &lt;/a&gt;</code></pre>
 </div>
@@ -327,7 +327,7 @@ a[data-info~=&quot;image&quot;] {
 <p>提示：伪元素 (pseudo element) 使用双冒号 <code>::</code></p>
 </blockquote>
 
-<h4 id='id248'>选取段落的第一个字母</h4>
+<h4 id='id10'>选取段落的第一个字母</h4>
 <div>
   <pre data-line=''><code class='language-css'>p::first-letter {  
    float: left;  
@@ -339,7 +339,7 @@ a[data-info~=&quot;image&quot;] {
 </div>
 <p>这段代码将选取页面中所有 p 元素，然后再选取其中的第一个字母。</p>
 
-<h4 id='id249'>选取段落的第一行</h4>
+<h4 id='id11'>选取段落的第一行</h4>
 <div>
   <pre data-line=''><code class='language-css'>p::first-line {  
    font-weight: bold;  
@@ -385,7 +385,7 @@ a[data-info~=&quot;image&quot;] {
 <p><code>:nth-of-type(n)</code> 的作用不是选取子元素 (child element)，而是选取同类元素 (type of element)。想象一下 HTML 文件中包含 5 个 ul 元素，现在要选取第三个，只需使用上面的代码，而不用再单独这个 ul 添加 <code>id</code>。</p>
 
 <blockquote>
-<p>关于 <code>:nth-child</code> 与 <code>:nth-of-type</code> 的区别，具体请查看 <a href='http://css-tricks.com/the-difference-between-nth-child-and-nth-of-type/' target='_blank'>CSS-Tricks 网站的解释</a>，简单来说，如果父层内只包含一种元素（比如都是 p 元素）那两种用法是等效的，如果父层包含多种元素（比如 p 元素与同级的其他元素），需要选取第几个 p 元素时应该用 <code>:nth-of-type</code>。</p>
+<p>关于 <code>:nth-child</code> 与 <code>:nth-of-type</code> 的区别，具体请查看 <a target='_blank' href='http://css-tricks.com/the-difference-between-nth-child-and-nth-of-type/'>CSS-Tricks 网站的解释</a>，简单来说，如果父层内只包含一种元素（比如都是 p 元素）那两种用法是等效的，如果父层包含多种元素（比如 p 元素与同级的其他元素），需要选取第几个 p 元素时应该用 <code>:nth-of-type</code>。</p>
 </blockquote>
 
 <p>兼容 IE9+</p>
@@ -466,7 +466,7 @@ a[data-info~=&quot;image&quot;] {
    &lt;/ul&gt;  
 &lt;/div&gt;</code></pre>
 </div>
-<h4 id='id250'>方法一</h4>
+<h4 id='id12'>方法一</h4>
 <div>
   <pre data-line=''><code class='language-css'>ul:first-of-type &gt; li:nth-child(2) {  
    font-weight: bold;  
@@ -474,7 +474,7 @@ a[data-info~=&quot;image&quot;] {
 </div>
 <p>这段代码的意思是：首先选取第一个 ul 元素；然后选取其中的所有直接子元素，也就是 li；最后选取第二个子元素。</p>
 
-<h4 id='id251'>方法二</h4>
+<h4 id='id13'>方法二</h4>
 <div>
   <pre data-line=''><code class='language-css'>p + ul li:last-child {  
    font-weight: bold;  
@@ -482,7 +482,7 @@ a[data-info~=&quot;image&quot;] {
 </div>
 <p>找到 p 元素后第一个出现的 ul 元素，然后选取其中的最后一个子元素。</p>
 
-<h4 id='id252'>方法三</h4>
+<h4 id='id14'>方法三</h4>
 <div>
   <pre data-line=''><code class='language-css'>ul:first-of-type li:nth-last-child(1) {  
    font-weight: bold;  

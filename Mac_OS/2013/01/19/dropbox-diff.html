@@ -42,23 +42,23 @@
 			<div id="post" class="inner">
 	<p id="date"><span>19 January 2013</span></p>
 	<h2>【总结】DropboxDiff 对比文件的历史版本</h2>
-	<p>写 HTML, CSS, Javascript，当修改幅度比较大时，偶尔会想查看之前的版本，使用版本控制系统 (SVN) 好像有点大材小用，毕竟不是多人协作，也不是太复杂的项目。所以，我一般将文件存放在 Dropbox 下，保存文件时 Dropbox 会自动备份历史版本，需要恢复或对比的时候，就可以在 Dropbox 网站查看历史记录。但是，仅仅这样还不够方便，借助 <a href='http://blog.vicshih.com/2011/09/dropboxdiff-chrome-extension.html' target='_blank'>DropboxDiff</a> 这款 Chrome 插件，可以直接对比两个文件的具体区别，做到版本控制软件那样的效果。</p>
+	<p>写 HTML, CSS, Javascript，当修改幅度比较大时，偶尔会想查看之前的版本，使用版本控制系统 (SVN) 好像有点大材小用，毕竟不是多人协作，也不是太复杂的项目。所以，我一般将文件存放在 Dropbox 下，保存文件时 Dropbox 会自动备份历史版本，需要恢复或对比的时候，就可以在 Dropbox 网站查看历史记录。但是，仅仅这样还不够方便，借助 <a target='_blank' href='http://blog.vicshih.com/2011/09/dropboxdiff-chrome-extension.html'>DropboxDiff</a> 这款 Chrome 插件，可以直接对比两个文件的具体区别，做到版本控制软件那样的效果。</p>
 
 <p>Chrome Web Store 中搜索 <code>DropboxDiff</code> (Extensions) 并安装，之后，查看历史版本的时候，每个条目的后面会自动添加两个单选框。选择需要对比的文件，然后按下 “Diff” 按钮就可以启用预设的软件对比两个文件。</p>
-<a class='img' href='/images/dropboxdiff/img1.png' target='_blank'><img alt='dropboxdiff' src='/images/dropboxdiff/img1.png' /></a>
-<p>第一次使用时，需要先设置对比软件 (diff tool)，比如作者推荐的 <a href='http://kdiff3.sourceforge.net/' target='_blank'>kdiff3</a>，Xcode 自带的 FileMerge，或者其他可用命令行操作的软件（好像不支持 Kaleidoscope ?），输入执行命令，再保存即可。</p>
-<a class='img' href='/images/dropboxdiff/img2.png' target='_blank'><img alt='dropboxdiff setting' src='/images/dropboxdiff/img2.png' /></a>
+<a class='img' target='_blank' href='/images/dropboxdiff/img1.png'><img alt='dropboxdiff' src='/images/dropboxdiff/img1.png' /></a>
+<p>第一次使用时，需要先设置对比软件 (diff tool)，比如作者推荐的 <a target='_blank' href='http://kdiff3.sourceforge.net/'>kdiff3</a>，Xcode 自带的 FileMerge，或者其他可用命令行操作的软件（好像不支持 Kaleidoscope ?），输入执行命令，再保存即可。</p>
+<a class='img' target='_blank' href='/images/dropboxdiff/img2.png'><img alt='dropboxdiff setting' src='/images/dropboxdiff/img2.png' /></a>
 <p>FileMerge 的命令是 <code>opendiff file1 file2</code>，如果在使用时遇到了路径错误，试试下面的解决办法：</p>
 
 <blockquote>
-<p>引用 <a href='http://stackoverflow.com/questions/9300748/opendiff-does-not-start-anymore' target='_blank'>StackOverflow</a> 上 Valexa 的解释：That is because with 4.3 /Developer/ moved to /Applications/Xcode.app/Contents/Developer/ . The proper setting for the new path is: <code>sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer/</code></p>
+<p>引用 <a target='_blank' href='http://stackoverflow.com/questions/9300748/opendiff-does-not-start-anymore'>StackOverflow</a> 上 Valexa 的解释：That is because with 4.3 /Developer/ moved to /Applications/Xcode.app/Contents/Developer/ . The proper setting for the new path is: <code>sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer/</code></p>
 </blockquote>
-<a class='img' href='/images/dropboxdiff/img3.png' target='_blank'><img alt='FileMerge' src='/images/dropboxdiff/img3.png' /></a>
+<a class='img' target='_blank' href='/images/dropboxdiff/img3.png'><img alt='FileMerge' src='/images/dropboxdiff/img3.png' /></a>
 <blockquote>
-<p>这是我的 Dropbox 推广链接 <a href='http://db.tt/dKXdR3gf' target='_blank'>http://db.tt/dKXdR3gf</a>，通过这个链接注册 Dropbox 账户，我们每个人都可以获得额外的 500MB 空间 :)</p>
+<p>这是我的 Dropbox 推广链接 <a target='_blank' href='http://db.tt/dKXdR3gf'>http://db.tt/dKXdR3gf</a>，通过这个链接注册 Dropbox 账户，我们每个人都可以获得额外的 500MB 空间 :)</p>
 </blockquote>
 
-<p><strong>PS:</strong> Sublime Text 2 用户也可以试试 <a href='https://github.com/vishr/local-history' target='_blank'>Local History</a> 这款插件，提供了在本地保存、管理文件的历史记录的功能。</p>
+<p><strong>PS:</strong> Sublime Text 2 用户也可以试试 <a target='_blank' href='https://github.com/vishr/local-history'>Local History</a> 这款插件，提供了在本地保存、管理文件的历史记录的功能。</p>
 	<p class="noindent">全文完&nbsp;&nbsp;&nbsp;<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank"><img src="/images/cc_small.png" alt="creative commons"></a>
 		<script type="text/javascript" charset="utf-8">
 		(function(){
