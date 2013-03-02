@@ -4,7 +4,7 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="">
 		<meta name="keywords" content="">
-		<title>【分享】Jekyll Alfred Extensions | Peter's Playground</title>
+		<title>【分享】Sass for Sublime Text 2 | Peter's Playground</title>
 		<!--[if lt IE 8]><meta http-equiv="refresh" content="0;url=/ie.html"><![endif]-->
 		<!--[if lt IE 9]><script src="/js/html5shiv.js"></script><![endif]-->
 		<link rel="shortcut icon" href="/images/favicon.ico" />
@@ -40,65 +40,13 @@
 		<div id="arrow"></div>
 		<div id="container">
 			<div id="post" class="inner">
-	<p id="date"><span>08 January 2013</span></p>
-	<h2>【分享】Jekyll Alfred Extensions</h2>
-	<p>三个 Alfred Extensions 让 Jekyll 用起来更方便：Create a Jekyll Post, Generate Jekyll site, 以及 Push Jekyll post to Github。可以直接从 <a href='https://github.com/P233/Jekyll-Alfred-Extensions' target='_blank'>Github</a> 下载，或者根据下面的代码自己创建。</p>
+	<p id="date"><span>02 March 2013</span></p>
+	<h2>【分享】Sass for Sublime Text 2</h2>
+	<p>用过几个版本的 Sass 代码高亮插件，效果都不太理想，所以参考 <a href='https://github.com/nathos/sass-textmate-bundle'>nathos&#8217;s sass-textmate-bundle</a> 自己也写了一个。采用匹配语句结构的方式代替匹配关键词，因此不会出现某些词不能高亮的问题，但有些根据 Scope Selector 的 snippets 可能会失效。添加了 Attribute Selector 高亮，优化了 <code>@media</code> 高亮效果，此外，支持 Sass 专有语句，包括 Variable, Directive, Directive Shorthand (<code>=</code> <code>+</code>), Placeholder Selector, Build-in Function, Interpolation 等等。目前除了运算符与自定义函数，其他部分应该完美显示。</p>
 
-<h3 id='create_a_jekyll_post'>Create a Jekyll Post</h3>
+<p><strong>请注意，这个插件只支持 Sass 语句，不支持 SCSS 语句。任何想法建议欢迎联系我，大家一起交流！</strong></p>
 
-<p>快速创建一篇 Jekyll 文章。下载后双击安装，在 Alfred 管理面板中右键选择 “Show in Finder”，打开 new_post.rb 文件，然后添加你自己的 _posts 文件夹路径，格式必须以 <code>/Users/user_name/</code> 开头。创建新文章时，在 Alfred 中输入 <code>post</code> 与文件名，文件名中的空格请用 <code>-</code> 代替。以下是 ruby 源码：</p>
-<div>
-  <pre data-line=''><code class='language-markup'># Please replace your own _posts folder path in the next line. The format should start with /Users/user_name/
-Dir.chdir &quot;/Users/lpw/Dropbox/Websites/Jekyll/_posts/&quot;
-
-today = Time.now.strftime('%Y-%m-%d')
-input = ARGV[0]
-
-filename = [today, input].join('-')
-extension = 'md'
-	
-file = [filename, extension].join('.')
-
-system(%[touch &quot;#{file}&quot;])
-system(%[open &quot;#{file}&quot;])</code></pre>
-</div>
-<h3 id='generate_jekyll_site'>Generate Jekyll site</h3>
-
-<p>通过 AppleScript 在 Terminal 中自动运行 <code>cd</code> 与 <code>jekyll --server --auto</code> 两个命令，然后在浏览器中访问网站，不要忘记替换成自己的 Jekyll 文件夹的路径。</p>
-<div>
-  <pre data-line=''><code class='language-markup'>tell application &quot;Terminal&quot;
-    activate
-    if (count of windows) is 0 then
-        set currentTab to do script &quot;cd ~/dropbox/websites/jekyll/&quot;
-    else
-        do script &quot;cd ~/dropbox/websites/jekyll/&quot; in window 1
-    end if
-    do script &quot;jekyll --server --auto&quot; in window 1
-    delay 2
-    do shell script &quot;open http://0.0.0.0:4000&quot;
-end tell</code></pre>
-</div>
-<h3 id='push_jekyll_post_to_github'>Push Jekyll post to Github</h3>
-
-<p>通过 AppleScript 在 Terminal 中将生成的网站复制到新地址，并将新地址下的内容上传到 Github。之所以复制是因为 Github Pages 不支持插件，只能上传生成的网站，如果你不需要这个步骤，将下面的 <code>if</code> 语句删除即可。同样需要替换成自己的 Jekyll 文件夹路径。</p>
-<div>
-  <pre data-line=''><code class='language-markup'>on alfred_script(message)
-  tell application &quot;Terminal&quot;
-    activate
-
-    if (count of windows) is 0 then
-        set currentTab to do script &quot;cp -a ~/dropbox/websites/jekyll/_site/. ~/dropbox/websites/p233.github.com/&quot;
-    else
-        do script &quot;cp -a ~/dropbox/websites/jekyll/_site/. ~/dropbox/websites/p233.github.com/&quot; in window 1
-    end if
-    
-    do script &quot;cd ~/dropbox/websites/p233.github.com/&quot; in window 1
-    do script &quot;git add .&quot; in window 1
-    do script &quot;git commit -am '&quot; &amp; message &amp; &quot;'&quot; in window 1
-    do script &quot;git push&quot; in window 1
-end tell
-end alfred_script</code></pre>
-</div>
+<p>更多信息请查看 Github：<a href='https://github.com/P233/Syntax-highlighting-for-Sass' target='_blank'>https://github.com/P233/Syntax-highlighting-for-Sass</a></p>
 	<p class="noindent">全文完&nbsp;&nbsp;&nbsp;<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank"><img src="/images/cc_small.png" alt="creative commons"></a>
 		<script type="text/javascript" charset="utf-8">
 		(function(){

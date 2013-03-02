@@ -42,7 +42,7 @@
 			<div id="post" class="inner">
 	<p id="date"><span>06 January 2013</span></p>
 	<h2>【翻译】关于 Css Transition 的一切</h2>
-	<p>刚刚读到的文章，非常不错，翻译出来与大家分享。原文 <a target='_blank' href='http://blog.alexmaccaw.com/css-transitions'>All you need to know about Css Transitions</a> 由 Alex Maccaw 发表于 2013 年 1 月 3 日。不想花太多时间纠结于字面翻译，只专注最核心的信息，Javascript 入门水平，因此后半部分理解不深入，详细信息还请读原文，翻译不当的地方请大家指正。</p>
+	<p>刚刚读到的文章，非常不错，翻译出来与大家分享。原文 <a href='http://blog.alexmaccaw.com/css-transitions' target='_blank'>All you need to know about Css Transitions</a> 由 Alex Maccaw 发表于 2013 年 1 月 3 日。不想花太多时间纠结于字面翻译，只专注最核心的信息，Javascript 入门水平，因此后半部分理解不深入，详细信息还请读原文，翻译不当的地方请大家指正。</p>
 
 <h3 id='id2'>浏览器支持</h3>
 
@@ -93,7 +93,7 @@ var inactive = function(){
 </div>
 <h3 id='id3'>渐变背景的变化</h3>
 
-<p>不是所有的 css 属性都可以变化，而且只能从一个绝对值变化到另一个绝对值。比如，<code>height</code> 不能从 <code>0px</code> 变化到 <code>auto</code>（补充：不同单位之间也可以变化，比如从 <code>0px</code> 变化到 <code>10em</code>，但不可以从 <code>0px</code> 变化到 <code>10%</code>），可变化的属性列表请参考<a target='_blank' href='http://oli.jp/2010/css-animatable-properties/'>这里</a>。</p>
+<p>不是所有的 css 属性都可以变化，而且只能从一个绝对值变化到另一个绝对值。比如，<code>height</code> 不能从 <code>0px</code> 变化到 <code>auto</code>（补充：不同单位之间也可以变化，比如从 <code>0px</code> 变化到 <code>10em</code>，但不可以从 <code>0px</code> 变化到 <code>10%</code>），可变化的属性列表请参考<a href='http://oli.jp/2010/css-animatable-properties/' target='_blank'>这里</a>。</p>
 
 <p>还有，只有纯色背景可以变化，带有渐变效果的背景却不可以，没有任何技术原因不支持，只是浏览器还需要些时间支持这些特效。不过，还是有几种变通办法的：</p>
 
@@ -109,7 +109,7 @@ var inactive = function(){
   background-color: #DDD;
 }</code></pre>
 </div>
-<p>如果渐变样式是连续的，还可以通过 <code>background-position</code> 属性移动它，<a target='_blank' href='http://sapphion.com/2011/10/css3-gradient-transition-with-background-position/'>例子</a>。或者，创建两个元素叠加，控制上面一层的透明度。如下：</p>
+<p>如果渐变样式是连续的，还可以通过 <code>background-position</code> 属性移动它，<a href='http://sapphion.com/2011/10/css3-gradient-transition-with-background-position/' target='_blank'>例子</a>。或者，创建两个元素叠加，控制上面一层的透明度。如下：</p>
 <div>
   <pre data-line=''><code class='language-css'>.element {  
   width: 100px;  
@@ -134,7 +134,7 @@ var inactive = function(){
 <p>但是，这样需要额外的标签，上一层的元素也会获取鼠标事件。所以，如果这里能用 <code>:before</code>，<code>:after</code> 伪类是最理想的，可惜目前只有 Firefox 支持伪类变化。Eliott Sprehn 正在努力让 webkit 也支持伪类变化，这一功能很快也会在 Safari Chrome 上实现。</p>
 
 <blockquote>
-<p><strong>更新：</strong>这个问题现在已经解决，目前 Firefox，Chrome 支持伪类变化，Safari 会在下一个版本中更新，Opera 目前还不支持，IE10 也支持，但有点奇特，要用下面的方式 (Source: <a target='_blank' href='http://css-tricks.com/pseudo-element-animationstransitions-bug-fixed-in-webkit/'>CSS-Tricks</a>)</p>
+<p><strong>更新：</strong>这个问题现在已经解决，目前 Firefox，Chrome 支持伪类变化，Safari 会在下一个版本中更新，Opera 目前还不支持，IE10 也支持，但有点奇特，要用下面的方式 (Source: <a href='http://css-tricks.com/pseudo-element-animationstransitions-bug-fixed-in-webkit/' target='_blank'>CSS-Tricks</a>)</p>
 </blockquote>
 <div>
   <pre data-line=''><code class='language-css'>.x:hover:before { /* By itself, doesn't work */ }
@@ -172,7 +172,7 @@ input:focus {
 </div>
 <h3 id='id5'>时间函数</h3>
 
-<p>浏览器内置的时间函数包括 <code>linear, ease, ease-in, ease-out and ease-in-out</code>，复杂一点，可以用 cubic-bezier 曲线自定义时间函数，比如 <code>transition: -webkit-transform 1s cubic-bezier(.17,.67,.69,1.33);</code> 。两个帮你选择时间函数的工具 <a target='_blank' href='http://easings.net'>Pre-defined Curves</a> 和 <a target='_blank' href='http://cubic-bezier.com/#.17,.67,.83,.67'>Graphing Tool</a>。</p>
+<p>浏览器内置的时间函数包括 <code>linear, ease, ease-in, ease-out and ease-in-out</code>，复杂一点，可以用 cubic-bezier 曲线自定义时间函数，比如 <code>transition: -webkit-transform 1s cubic-bezier(.17,.67,.69,1.33);</code> 。两个帮你选择时间函数的工具 <a href='http://easings.net' target='_blank'>Pre-defined Curves</a> 和 <a href='http://cubic-bezier.com/#.17,.67,.83,.67' target='_blank'>Graphing Tool</a>。</p>
 
 <h3 id='id6'>用程序控制变化效果</h3>
 
@@ -195,7 +195,7 @@ $.fn.transition = function (properties, options) {
 </div>
 <h3 id='_callback'>获取变化结束的 callback</h3>
 
-<p>组合多个 transitions 首先要知道变化在什么时间结束，webkit 浏览器中可以监视 <code>webkitTransitionEnd</code> 事件，其他浏览器需要先用 <a target='_blank' href='https://gist.github.com/4414792'>这个</a> 找出事件名称。</p>
+<p>组合多个 transitions 首先要知道变化在什么时间结束，webkit 浏览器中可以监视 <code>webkitTransitionEnd</code> 事件，其他浏览器需要先用 <a href='https://gist.github.com/4414792' target='_blank'>这个</a> 找出事件名称。</p>
 <div>
   <pre data-line=''><code class='language-javascript'>var callback = function () {
   // ...
@@ -258,16 +258,16 @@ $el.queue(function(){
 </div>
 <h3 id='transition_'>Transition 的未来</h3>
 
-<p>W3C 的 <a target='_blank' href='https://dvcs.w3.org/hg/FXTF/raw-file/tip/web-anim/index.html'>新草案</a> 包含新的 Javascript API 应对现在的局限性，给开发者更灵活的空间。根据新的 API，可以同步动画，自定义时间函数，获取 callbacks，实在是令人期待的新功能。</p>
+<p>W3C 的 <a href='https://dvcs.w3.org/hg/FXTF/raw-file/tip/web-anim/index.html' target='_blank'>新草案</a> 包含新的 Javascript API 应对现在的局限性，给开发者更灵活的空间。根据新的 API，可以同步动画，自定义时间函数，获取 callbacks，实在是令人期待的新功能。</p>
 <div>
   <pre data-line=''><code class='language-javascript'>var anim = new Animation(elem, { left: '100px' }, 3);
 anim.play();</code></pre>
 </div>
-<p>另外，可以在 <a target='_blank' href='https://github.com/web-animations/web-animations-js'>这里</a> 找到一些实现新 API 的变通法子。</p>
+<p>另外，可以在 <a href='https://github.com/web-animations/web-animations-js' target='_blank'>这里</a> 找到一些实现新 API 的变通法子。</p>
 
 <h3 id='id9'>结尾</h3>
 
-<p>目前为止，希望你已经深入的了解了 css 的 transition 属性，以及如何组合简单的 API 制作丰富的动画效果。文中大多数 js 例子来源于 <a target='_blank' href='https://github.com/maccman/gfx'>GFX</a>，这也是本文作者 Alex 写的一个 jQuery Css transition 库。</p>
+<p>目前为止，希望你已经深入的了解了 css 的 transition 属性，以及如何组合简单的 API 制作丰富的动画效果。文中大多数 js 例子来源于 <a href='https://github.com/maccman/gfx' target='_blank'>GFX</a>，这也是本文作者 Alex 写的一个 jQuery Css transition 库。</p>
 	<p class="noindent">全文完&nbsp;&nbsp;&nbsp;<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank"><img src="/images/cc_small.png" alt="creative commons"></a>
 		<script type="text/javascript" charset="utf-8">
 		(function(){

@@ -6,47 +6,21 @@
     <atom:link href="http://peters-playground.com/rss.xml" rel="self" type="application/rss+xml" />
     <description>关于前端方面的资讯分享，经验总结，与深度思考</description>
     <language>zh_CN</language>
-    <pubDate>Sun, 24 Feb 2013 22:20:41 +0000</pubDate>
-    <lastBuildDate>Sun, 24 Feb 2013 22:20:41 +0000</lastBuildDate>
+    <pubDate>Sat, 02 Mar 2013 10:20:20 +0000</pubDate>
+    <lastBuildDate>Sat, 02 Mar 2013 10:20:20 +0000</lastBuildDate>
 
     
     <item>
       <title>【分享】Sass for Sublime Text 2</title>
-      <link>http://peters-playground.com/Css/2013/02/22/sass-syntax.html</link>
-      <pubDate>22 Feb 2013</pubDate>
+      <link>http://peters-playground.com/Css/2013/03/02/sass-syntax.html</link>
+      <pubDate>02 Mar 2013</pubDate>
       <author>Peter</author>
-      <guid>http://peters-playground.com/Css/2013/02/22/sass-syntax</guid>
-      <description>&lt;p&gt;刚刚修改了 &lt;a target='_blank' href='https://github.com/nathos/sass-textmate-bundle'&gt;nathos 的 sass-textmate-bundle&lt;/a&gt; （也就是 Package Control 中的 Sass 插件）作为自用，列出更改项目与大家分享。&lt;a target='_blank' href='https://github.com/P233/sass-textmate-bundle'&gt;Github 下载地址&lt;/a&gt;。&lt;/p&gt;
-&lt;p class='noindent'&gt;2013 年 2 月 24 日更新记录：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;改进了 &lt;code&gt;@keyframes&lt;/code&gt; at-rule&lt;/li&gt;
+      <guid>http://peters-playground.com/Css/2013/03/02/sass-syntax</guid>
+      <description>&lt;p&gt;用过几个版本的 Sass 代码高亮插件，效果都不太理想，所以参考 &lt;a href='https://github.com/nathos/sass-textmate-bundle'&gt;nathos&amp;#8217;s sass-textmate-bundle&lt;/a&gt; 自己也写了一个。采用匹配语句结构的方式代替匹配关键词，因此不会出现某些词不能高亮的问题，但有些根据 Scope Selector 的 snippets 可能会失效。添加了 Attribute Selector 高亮，优化了 &lt;code&gt;@media&lt;/code&gt; 高亮效果，此外，支持 Sass 专有语句，包括 Variable, Directive, Directive Shorthand (&lt;code&gt;=&lt;/code&gt; &lt;code&gt;+&lt;/code&gt;), Placeholder Selector, Build-in Function, Interpolation 等等。目前除了运算符与自定义函数，其他部分应该完美显示。&lt;/p&gt;
 
-&lt;li&gt;添加了 &lt;code&gt;behavior&lt;/code&gt; &lt;code&gt;user-select&lt;/code&gt; &lt;code&gt;speak &lt;/code&gt; 等属性名&lt;/li&gt;
+&lt;p&gt;&lt;strong&gt;请注意，这个插件只支持 Sass 语句，不支持 SCSS 语句。任何想法建议欢迎联系我，大家一起交流！&lt;/strong&gt;&lt;/p&gt;
 
-&lt;li&gt;添加了 &lt;code&gt;:-ms-input-placeholder&lt;/code&gt; &lt;code&gt;:-moz-placeholder&lt;/code&gt; &lt;code&gt;::-webkit-input-placeholder&lt;/code&gt; 等伪类&lt;/li&gt;
-
-&lt;li&gt;添加了 &lt;code&gt;antialiased|subpixel-antialiased|alternate|infinite|running|paused|forwards|backwards|both|all|ease|linear|ease-in|ease-out|ease-in-out&lt;/code&gt; 等属性值&lt;/li&gt;
-
-&lt;li&gt;给 &lt;code&gt;animation&lt;/code&gt; 属性添加了 &lt;code&gt;-o-&lt;/code&gt; 等值&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p class='noindent'&gt;2013 年 2 月 22 日更新记录：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;添加了 &lt;code&gt;@keyframes&lt;/code&gt; at-rule；&lt;/li&gt;
-
-&lt;li&gt;支持 &lt;code&gt;@mixin&lt;/code&gt; &lt;code&gt;@include&lt;/code&gt; 简写，&lt;em&gt;scope selector:&lt;/em&gt; &lt;code&gt;variable.shorthand.sass&lt;/code&gt;；&lt;/li&gt;
-
-&lt;li&gt;支持 Sass 自带函数，&lt;em&gt;scope selector:&lt;/em&gt; &lt;code&gt;support.function.buildin.sass&lt;/code&gt;；&lt;/li&gt;
-
-&lt;li&gt;移除了 &lt;code&gt;none&lt;/code&gt; &lt;code&gt;inherit&lt;/code&gt; &lt;code&gt;auto&lt;/code&gt; 属性名，只做属性值使用；&lt;/li&gt;
-
-&lt;li&gt;给 &lt;code&gt;transform&lt;/code&gt; 等属性添加了 &lt;code&gt;-moz-&lt;/code&gt; 前缀；&lt;/li&gt;
-
-&lt;li&gt;给 &lt;code&gt;resize&lt;/code&gt; 属性添加了 &lt;code&gt;-webkit-&lt;/code&gt; 前缀；&lt;/li&gt;
-
-&lt;li&gt;移除了 snippets 文件夹。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;不确定所有人都接受这些更改，希望各位 Sass 爱好者可以一起交流。&lt;/p&gt;</description>
+&lt;p&gt;更多信息请查看 Github：&lt;a href='https://github.com/P233/Syntax-highlighting-for-Sass' target='_blank'&gt;https://github.com/P233/Syntax-highlighting-for-Sass&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -55,7 +29,7 @@
       <pubDate>31 Jan 2013</pubDate>
       <author>Peter</author>
       <guid>http://peters-playground.com/Css/2013/01/31/css-selectors-must-memorize</guid>
-      <description>&lt;p&gt;原文 &lt;a target='_blank' href='http://net.tutsplus.com/tutorials/html-css-techniques/the-30-css-selectors-you-must-memorize/'&gt;The 30 CSS Selectors you Must Memorize&lt;/a&gt; 由 Jeffrey Way 发表于 2011 年 6 月，介绍了 30 种最常用的 CSS 选择器用法，其他 CSS3 选择器用法请查看 &lt;a target='_blank' href='http://www.456bereastreet.com/archive/200601/css_3_selectors_explained/'&gt;CSS3 selectors explained&lt;/a&gt; 这篇文章，此外，W3C CSS3 选择器官方文档 &lt;a target='_blank' href='http://www.w3.org/TR/css3-selectors/'&gt;Selectors Level 3 W3C Recommendation 29 September 2011&lt;/a&gt; 记录在这里留待有疑问的时候查看。&lt;/p&gt;
+      <description>&lt;p&gt;原文 &lt;a href='http://net.tutsplus.com/tutorials/html-css-techniques/the-30-css-selectors-you-must-memorize/' target='_blank'&gt;The 30 CSS Selectors you Must Memorize&lt;/a&gt; 由 Jeffrey Way 发表于 2011 年 6 月，介绍了 30 种最常用的 CSS 选择器用法，其他 CSS3 选择器用法请查看 &lt;a href='http://www.456bereastreet.com/archive/200601/css_3_selectors_explained/' target='_blank'&gt;CSS3 selectors explained&lt;/a&gt; 这篇文章，此外，W3C CSS3 选择器官方文档 &lt;a href='http://www.w3.org/TR/css3-selectors/' target='_blank'&gt;Selectors Level 3 W3C Recommendation 29 September 2011&lt;/a&gt; 记录在这里留待有疑问的时候查看。&lt;/p&gt;
 
 &lt;h3 id='1_'&gt;1. &lt;code&gt;*&lt;/code&gt;&lt;/h3&gt;
 &lt;div&gt;
@@ -228,7 +202,7 @@ a[href$=&amp;quot;.gif&amp;quot;] {
    color: red;  
 }&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;p&gt;或者，先给图片链接添加 &lt;code&gt;data-&lt;/code&gt; 属性（注：&lt;a target='_blank' href='http://html5doctor.com/html5-custom-data-attributes/'&gt;HTML5 Custom Data Attributes&lt;/a&gt;）&lt;/p&gt;
+&lt;p&gt;或者，先给图片链接添加 &lt;code&gt;data-&lt;/code&gt; 属性（注：&lt;a href='http://html5doctor.com/html5-custom-data-attributes/' target='_blank'&gt;HTML5 Custom Data Attributes&lt;/a&gt;）&lt;/p&gt;
 &lt;div&gt;
   &lt;pre data-line=''&gt;&lt;code class='language-markup'&gt;&amp;lt;a href=&amp;quot;path/to/image.jpg&amp;quot; data-filetype=&amp;quot;image&amp;quot;&amp;gt; Image Link &amp;lt;/a&amp;gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
@@ -398,7 +372,7 @@ a[data-info~=&amp;quot;image&amp;quot;] {
 &lt;p&gt;&lt;code&gt;:nth-of-type(n)&lt;/code&gt; 的作用不是选取子元素 (child element)，而是选取同类元素 (type of element)。想象一下 HTML 文件中包含 5 个 ul 元素，现在要选取第三个，只需使用上面的代码，而不用再单独这个 ul 添加 &lt;code&gt;id&lt;/code&gt;。&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;关于 &lt;code&gt;:nth-child&lt;/code&gt; 与 &lt;code&gt;:nth-of-type&lt;/code&gt; 的区别，具体请查看 &lt;a target='_blank' href='http://css-tricks.com/the-difference-between-nth-child-and-nth-of-type/'&gt;CSS-Tricks 网站的解释&lt;/a&gt;，简单来说，如果父层内只包含一种元素（比如都是 p 元素）那两种用法是等效的，如果父层包含多种元素（比如 p 元素与同级的其他元素），需要选取第几个 p 元素时应该用 &lt;code&gt;:nth-of-type&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;关于 &lt;code&gt;:nth-child&lt;/code&gt; 与 &lt;code&gt;:nth-of-type&lt;/code&gt; 的区别，具体请查看 &lt;a href='http://css-tricks.com/the-difference-between-nth-child-and-nth-of-type/' target='_blank'&gt;CSS-Tricks 网站的解释&lt;/a&gt;，简单来说，如果父层内只包含一种元素（比如都是 p 元素）那两种用法是等效的，如果父层包含多种元素（比如 p 元素与同级的其他元素），需要选取第几个 p 元素时应该用 &lt;code&gt;:nth-of-type&lt;/code&gt;。&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;兼容 IE9+&lt;/p&gt;
@@ -526,9 +500,9 @@ a[data-info~=&amp;quot;image&amp;quot;] {
       <pubDate>24 Jan 2013</pubDate>
       <author>Peter</author>
       <guid>http://peters-playground.com/Css/2013/01/24/sass-reference</guid>
-      <description>&lt;p&gt;使用 Sass 已经有几个月的时间了，翻来覆去还是在用几个简单的功能，下决心好好学习一下，所以翻译了官方文档。翻译的过程也是学习与积累的过程，深入理解了几个复杂功能，同时也补充了一些基础知识。只是官方文档写得实在绕口，花了很久才翻译完，有几处地方不太理解，翻译不出来，还请大家帮忙，理解错误的地方也请大家指正。关于 Sass 设置的部分暂时未翻译，因为只会用 &lt;a target='_blank' href='http://incident57.com/codekit/'&gt;Codekit&lt;/a&gt;，对这些没有概念。如果哪位愿意代为翻译，或者交流，&lt;a target='_blank' href='mailto:40132147&amp;#64;&amp;#113;&amp;#113;&amp;#46;&amp;#99;&amp;#111;&amp;#109;?Subject=Hi%20Peter'&gt;请联系 Peter&lt;/a&gt;。&lt;/p&gt;
+      <description>&lt;p&gt;使用 Sass 已经有几个月的时间了，翻来覆去还是在用几个简单的功能，下决心好好学习一下，所以翻译了官方文档。翻译的过程也是学习与积累的过程，深入理解了几个复杂功能，同时也补充了一些基础知识。只是官方文档写得实在绕口，花了很久才翻译完，有几处地方不太理解，翻译不出来，还请大家帮忙，理解错误的地方也请大家指正。关于 Sass 设置的部分暂时未翻译，因为只会用 &lt;a href='http://incident57.com/codekit/' target='_blank'&gt;Codekit&lt;/a&gt;，对这些没有概念。如果哪位愿意代为翻译，或者交流，&lt;a href='mailto:40132147&amp;#64;&amp;#113;&amp;#113;&amp;#46;&amp;#99;&amp;#111;&amp;#109;?Subject=Hi%20Peter' target='_blank'&gt;请联系 Peter&lt;/a&gt;。&lt;/p&gt;
 
-&lt;p&gt;Sass 官方文档，&lt;a target='_blank' href='http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html'&gt;原地址在请看这里&lt;/a&gt;，相当于 Sass 的功能概览，要学好 Sass 还是要多方面学习，&lt;a target='_blank' href='http://manning.com/netherland/'&gt;《Sass and Compass in action》&lt;/a&gt; 这本书下个月底出版，非常期待。&lt;/p&gt;
+&lt;p&gt;Sass 官方文档，&lt;a href='http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html' target='_blank'&gt;原地址在请看这里&lt;/a&gt;，相当于 Sass 的功能概览，要学好 Sass 还是要多方面学习，&lt;a href='http://manning.com/netherland/' target='_blank'&gt;《Sass and Compass in action》&lt;/a&gt; 这本书下个月底出版，非常期待。&lt;/p&gt;
 &lt;div id='contents'&gt;
 &lt;h3&gt;目录&lt;/h3&gt;
 &lt;a href='#1'&gt;1. 特色功能 (Features)&lt;/a&gt;
@@ -637,14 +611,14 @@ a[data-info~=&amp;quot;image&amp;quot;] {
 &lt;/div&gt;&lt;h3 id='1'&gt;1. 特色功能 (Features)&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;完全兼容 CSS3；&lt;/li&gt;
 &lt;li&gt;在 CSS 语言基础上添加了拓展功能，比如变量、嵌套 (nesting)、混合 (mixin) 等等；&lt;/li&gt;
-&lt;li&gt;可以用&lt;a target='_blank' href='http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html'&gt;函数&lt;/a&gt;运算颜色值与属性值 (property value) ；&lt;/li&gt;
+&lt;li&gt;可以用&lt;a href='http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html' target='_blank'&gt;函数&lt;/a&gt;运算颜色值与属性值 (property value) ；&lt;/li&gt;
 &lt;li&gt;高级命令，如&lt;a href='#8'&gt;控制指令 (control directives)&lt;/a&gt;；&lt;/li&gt;
 &lt;li&gt;可定义多种输出格式；&lt;/li&gt;
-&lt;li&gt;&lt;a target='_blank' href='https://addons.mozilla.org/en-US/firefox/addon/firesass-for-firebug/'&gt;支持 Firebug&lt;/a&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;a href='https://addons.mozilla.org/en-US/firefox/addon/firesass-for-firebug/' target='_blank'&gt;支持 Firebug&lt;/a&gt;。&lt;/li&gt;
 &lt;/ul&gt;&lt;h3 id='2'&gt;2. 语言格式 (Syntax)&lt;/h3&gt;
 &lt;p&gt;Sass 包含两种语言格式。第一种被称为 SCSS (Sassy CSS)，也是本文示例所使用的格式，作为 CSS3 语言的拓展。也就是说，所有的 CSS3 样式都可以写进 SCSS 文件中，除此之外，SCSS 也能够理解大多数的 CSS hacks 以及浏览器前缀 (vendor-specific)，甚至早期的 IE 滤镜，这些都依赖于 Sass 的特色功能，下文将会详细介绍。这种格式以 &lt;code&gt;.scss&lt;/code&gt; 作为拓展名。&lt;/p&gt;
 
-&lt;p&gt;另一种格式出现的时间更早一些，被成为缩进格式（或者 “Sass”），这是一种让书写 CSS 变得更简洁的方式。它使用“缩进”替代“括号”表示属性嵌套在选择器中，用“换行”替代“分号”表示属性的区分。不少人认为这种格式比 SCSS 更容易阅读，书写也更快速。缩进格式可使用 Sass 的所有功能，只是个别地方采用了不同的表达方式，具体可以通过 &lt;a target='_blank' href='http://sass-lang.com/docs/yardoc/file.INDENTED_SYNTAX.html'&gt;the indented syntax reference&lt;/a&gt; 查看区别。这种格式以 &lt;code&gt;.sass&lt;/code&gt; 作为拓展名。&lt;/p&gt;
+&lt;p&gt;另一种格式出现的时间更早一些，被成为缩进格式（或者 “Sass”），这是一种让书写 CSS 变得更简洁的方式。它使用“缩进”替代“括号”表示属性嵌套在选择器中，用“换行”替代“分号”表示属性的区分。不少人认为这种格式比 SCSS 更容易阅读，书写也更快速。缩进格式可使用 Sass 的所有功能，只是个别地方采用了不同的表达方式，具体可以通过 &lt;a href='http://sass-lang.com/docs/yardoc/file.INDENTED_SYNTAX.html' target='_blank'&gt;the indented syntax reference&lt;/a&gt; 查看区别。这种格式以 &lt;code&gt;.sass&lt;/code&gt; 作为拓展名。&lt;/p&gt;
 
 &lt;p&gt;每种格式都可以被&lt;a href='#7_1'&gt;导入 (@import)&lt;/a&gt; 到另一种格式中使用，也可以通过 &lt;code&gt;sass-convert&lt;/code&gt; 指令互相转换。&lt;/p&gt;
 &lt;div&gt;
@@ -654,7 +628,7 @@ $ sass-convert style.sass style.scss
 # Convert SCSS to Sass
 $ sass-convert style.scss style.sass&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;&lt;h3 id='3'&gt;3. 使用 Sass (Using Sass)&lt;/h3&gt;
-&lt;p&gt;Sass 通过以下三种方式使用：在命令行工具中，作为独立的 Ruby 模式 (Ruby module)，或者作为 Rack-enabled 框架的插件（包括 Ruby on Rails 与 Merb）。第一步，安装 Sass gem （Windows 系统下，需要先&lt;a target='_blank' href='http://rubyinstaller.org/'&gt;安装 Ruby&lt;/a&gt;）：&lt;/p&gt;
+&lt;p&gt;Sass 通过以下三种方式使用：在命令行工具中，作为独立的 Ruby 模式 (Ruby module)，或者作为 Rack-enabled 框架的插件（包括 Ruby on Rails 与 Merb）。第一步，安装 Sass gem （Windows 系统下，需要先&lt;a href='http://rubyinstaller.org/' target='_blank'&gt;安装 Ruby&lt;/a&gt;）：&lt;/p&gt;
 &lt;div&gt;
   &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;gem install sass&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
@@ -672,22 +646,23 @@ $ sass-convert style.scss style.sass&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;更多命令请通过 &lt;code&gt;sass --help&lt;/code&gt; 查看。&lt;/p&gt;
 
-&lt;p&gt;在 Ruby 代码中使用 Sass 也非常容易，安装完毕后，运行 &lt;code&gt;require &amp;quot;sass&amp;quot;&lt;/code&gt; 然后使用 &lt;a target='_blank' href='http://sass-lang.com/docs/yardoc/Sass/Engine.html'&gt;Sass::Engine&lt;/a&gt;，例如&lt;/p&gt;
+&lt;p&gt;在 Ruby 代码中使用 Sass 也非常容易，安装完毕后，运行 &lt;code&gt;require &amp;quot;sass&amp;quot;&lt;/code&gt; 然后使用 &lt;a href='http://sass-lang.com/docs/yardoc/Sass/Engine.html' target='_blank'&gt;Sass::Engine&lt;/a&gt;，例如&lt;/p&gt;
 &lt;div&gt;
   &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;engine = Sass::Engine.new(&amp;quot;#main {background-color: #0000ff}&amp;quot;, :syntax =&amp;gt; :scss)
 engine.render #=&amp;gt; &amp;quot;#main { background-color: #0000ff; }\n&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;blockquote&gt;
-&lt;p&gt;以下关于 Sass 设置的内容暂未翻译，请查看 &lt;a target='_blank' href='http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#rackrailsmerb_plugin'&gt;原文档&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;以下关于 Sass 设置的内容暂未翻译，请查看 &lt;a href='http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#rackrailsmerb_plugin' target='_blank'&gt;原文档&lt;/a&gt;。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;!---
-&lt;h4 id=&quot;3_1&quot;&gt;3.1. Rack/Rails/Merb Plugin&lt;/h4&gt;
-&lt;h4 id=&quot;3_2&quot;&gt;3.2. Caching&lt;/h4&gt;
-&lt;h4 id=&quot;3_3&quot;&gt;3.3. Options&lt;/h4&gt;
-&lt;h4 id=&quot;3_4&quot;&gt;3.4. Syntax Selection&lt;/h4&gt;
-&lt;h4 id=&quot;3_5&quot;&gt;3.5. Encodings&lt;/h4&gt;
-&lt;h5 id=&quot;3_5_1&quot;&gt;3.5.1. Output Encoding&lt;/h5&gt;
---&gt;&lt;h3 id='4'&gt;4. CSS 拓展 (CSS Extensions)&lt;/h3&gt;&lt;h4 id='4_1'&gt;4.1. 嵌套规则 (Nested Rules)&lt;/h4&gt;
+&lt;pre class='markdown-html-error' style='border: solid 3px red; background-color: pink'&gt;REXML could not parse this XML/HTML: 
+&amp;lt;!---
+&amp;lt;h4 id=&amp;quot;3_1&amp;quot;&amp;gt;3.1. Rack/Rails/Merb Plugin&amp;lt;/h4&amp;gt;
+&amp;lt;h4 id=&amp;quot;3_2&amp;quot;&amp;gt;3.2. Caching&amp;lt;/h4&amp;gt;
+&amp;lt;h4 id=&amp;quot;3_3&amp;quot;&amp;gt;3.3. Options&amp;lt;/h4&amp;gt;
+&amp;lt;h4 id=&amp;quot;3_4&amp;quot;&amp;gt;3.4. Syntax Selection&amp;lt;/h4&amp;gt;
+&amp;lt;h4 id=&amp;quot;3_5&amp;quot;&amp;gt;3.5. Encodings&amp;lt;/h4&amp;gt;
+&amp;lt;h5 id=&amp;quot;3_5_1&amp;quot;&amp;gt;3.5.1. Output Encoding&amp;lt;/h5&amp;gt;
+--&amp;gt;&lt;/pre&gt;&lt;h3 id='4'&gt;4. CSS 拓展 (CSS Extensions)&lt;/h3&gt;&lt;h4 id='4_1'&gt;4.1. 嵌套规则 (Nested Rules)&lt;/h4&gt;
 &lt;p&gt;Sass 可以将一套 CSS 样式嵌套进另一套样式中使用，嵌套后的样式将继承给它的外层选择器（父选择器），例如：&lt;/p&gt;
 &lt;div&gt;
   &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;#main p {
@@ -901,7 +876,7 @@ white&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;需要注意的是：当 deprecated = property syntax 时 （暂时不理解是怎样的情况），所有的字符串都将被编译为无引号字符串，不论是否使用了引号。&lt;/p&gt;
 &lt;h5 id='6_3_2'&gt;6.3.2. 值列表 (Lists)&lt;/h5&gt;
 &lt;p&gt;所谓值列表 (lists) 是指 Sass 如何处理 CSS 中 &lt;code&gt;margin: 10px 15px 0 0&lt;/code&gt; 或者 &lt;code&gt;font-face: Helvetica, Arial, sans-serif&lt;/code&gt; 这样通过空格或者逗号分隔的一系列的值。事实上，独立的值也被视为值列表——只包含一个值的值列表。&lt;/p&gt;
-&lt;p&gt;&lt;a target='_blank' href='http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html#list-functions'&gt;Sass list functions&lt;/a&gt; 赋予了值列表更多功能：nth function 可以直接访问值列表中的某一项，join function 可以将多个值列表连结在一起，append function 可以在值列表中添加值，而 @each rule 则能够给值列表中的每个项目添加样式。&lt;/p&gt;
+&lt;p&gt;&lt;a href='http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html#list-functions' target='_blank'&gt;Sass list functions&lt;/a&gt; 赋予了值列表更多功能：nth function 可以直接访问值列表中的某一项，join function 可以将多个值列表连结在一起，append function 可以在值列表中添加值，而 @each rule 则能够给值列表中的每个项目添加样式。&lt;/p&gt;
 &lt;p&gt;值列表中可以再包含值列表，比如 &lt;code&gt;1px 2px, 5px 6px&lt;/code&gt; 是包含 &lt;code&gt;1px 2px&lt;/code&gt; 与 &lt;code&gt;5px 6px&lt;/code&gt; 两个值列表的值列表。如果内外两层值列表使用相同的分隔方式，要用圆括号包裹内层，所以也可以写成 &lt;code&gt;(1px 2px) (5px 6px)&lt;/code&gt;。当值列表被编译为 CSS 时，Sass 不会添加任何圆括号，因为 CSS 不允许这样做。&lt;code&gt;(1px 2px) (5px 6px)&lt;/code&gt; 与 &lt;code&gt;1px 2px 5px 6px&lt;/code&gt; 在编译后的 CSS 文件中是一样的，但是它们在 Sass 文件中却有不同的意义，前者是包含两个值列表的值列表，而后者是包含四个值的值列表。&lt;/p&gt;
 
 &lt;p&gt;可以用 &lt;code&gt;()&lt;/code&gt; 表示空的列表，这样不可以直接编译成 CSS，比如编译 &lt;code&gt;font-family: ()&lt;/code&gt; 时，Sass 将会报错。如果值列表中包含空的值列表或空值，编译时将清除空值，比如 &lt;code&gt;1px 2px () 3px&lt;/code&gt; 或 &lt;code&gt;1px 2px null 3px&lt;/code&gt;。&lt;/p&gt;
@@ -969,7 +944,7 @@ white&lt;/code&gt;&lt;/pre&gt;
   &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;p {
 	color: #050709; }&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;p&gt;通常，使用 &lt;a target='_blank' href='http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html'&gt;color functions&lt;/a&gt; 比计算颜色值更方便一些。&lt;/p&gt;
+&lt;p&gt;通常，使用 &lt;a href='http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html' target='_blank'&gt;color functions&lt;/a&gt; 比计算颜色值更方便一些。&lt;/p&gt;
 
 &lt;p&gt;数字与颜色值之间也可以进行算数运算，同样也是分段计算的，比如&lt;/p&gt;
 &lt;div&gt;
@@ -993,7 +968,7 @@ white&lt;/code&gt;&lt;/pre&gt;
   &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;p {
 	color: rgba(255, 255, 0, 0.75); }&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;p&gt;颜色值的 alpha channel 可以通过 &lt;a target='_blank' href='http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html#opacify-instance_method'&gt;opacify&lt;/a&gt; 或 &lt;a target='_blank' href='http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html#transparentize-instance_method'&gt;transparentize&lt;/a&gt; 两个函数进行调整。&lt;/p&gt;
+&lt;p&gt;颜色值的 alpha channel 可以通过 &lt;a href='http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html#opacify-instance_method' target='_blank'&gt;opacify&lt;/a&gt; 或 &lt;a href='http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html#transparentize-instance_method' target='_blank'&gt;transparentize&lt;/a&gt; 两个函数进行调整。&lt;/p&gt;
 &lt;div&gt;
   &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;$translucent-red: rgba(255, 0, 0, 0.5);
 p {
@@ -1081,7 +1056,7 @@ p:before {
 &lt;/div&gt;&lt;h5 id='6_4_4'&gt;6.4.4. 布尔运算 (Boolean Operations)&lt;/h5&gt;
 &lt;p&gt;SassScript 支持布尔型的 &lt;code&gt;and&lt;/code&gt; &lt;code&gt;or&lt;/code&gt; 以及 &lt;code&gt;not&lt;/code&gt; 运算。&lt;/p&gt;
 &lt;h5 id='6_4_5'&gt;6.4.5. 值列表运算 (List Operations)&lt;/h5&gt;
-&lt;p&gt;值列表不支持任何运算方式，只能使用 &lt;a target='_blank' href='http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html#list-functions'&gt;list functions&lt;/a&gt; 控制。&lt;/p&gt;
+&lt;p&gt;值列表不支持任何运算方式，只能使用 &lt;a href='http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html#list-functions' target='_blank'&gt;list functions&lt;/a&gt; 控制。&lt;/p&gt;
 &lt;h4 id='6_5'&gt;6.5. 圆括号 (Parentheses)&lt;/h4&gt;
 &lt;p&gt;圆括号可以用来影响运算的顺序：&lt;/p&gt;
 &lt;div&gt;
@@ -1113,7 +1088,7 @@ p:before {
 &lt;/div&gt;
 &lt;p&gt;虽然不够简明，但是阅读起来会更方便。关键词参数给函数提供了更灵活的接口，以及容易调用的参数。关键词参数可以打乱顺序使用，如果使用默认值也可以省缺，另外，参数名被视为变量名，下划线、短横线可以互换使用。&lt;/p&gt;
 
-&lt;p&gt;通过 &lt;a target='_blank' href='http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html'&gt;Sass::Script::Functions&lt;/a&gt; 查看完整的 Sass 函数列表，参数名，以及如何自定义函数。&lt;/p&gt;
+&lt;p&gt;通过 &lt;a href='http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html' target='_blank'&gt;Sass::Script::Functions&lt;/a&gt; 查看完整的 Sass 函数列表，参数名，以及如何自定义函数。&lt;/p&gt;
 &lt;h4 id='6_7'&gt;6.7. 插值语句 &lt;code&gt;#{ }&lt;/code&gt; (Interpolation: &lt;code&gt;#{ }&lt;/code&gt;)&lt;/h4&gt;
 &lt;p&gt;通过 &lt;code&gt;#{ }&lt;/code&gt; 插值语句可以在选择器或属性名中使用变量：&lt;/p&gt;
 &lt;div&gt;
@@ -1619,7 +1594,7 @@ a {
 &lt;p&gt;希望有一天，浏览器可以原生支持 &lt;code&gt;@extend&lt;/code&gt; 指令，这样就可以在任何指令中使用延伸功能，不再受限制了。&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;&lt;code&gt;@debug&lt;/code&gt; 与 &lt;code&gt;@warn&lt;/code&gt; 两条指令不太熟悉，暂时未翻译，请查看 &lt;a target='_blank' href='http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#id8'&gt;原文档&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;@debug&lt;/code&gt; 与 &lt;code&gt;@warn&lt;/code&gt; 两条指令不太熟悉，暂时未翻译，请查看 &lt;a href='http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#id8' target='_blank'&gt;原文档&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;!--
 &lt;h4 id=&quot;7_4&quot;&gt;7.4. @debug&lt;/h4&gt;
@@ -1651,7 +1626,7 @@ a {
 &lt;/div&gt;
 
 --&gt;&lt;h3 id='8'&gt;8. 控制指令 (Control Directives)&lt;/h3&gt;
-&lt;p&gt;SassScript 提供了一些基础的控制指令，比如在满足条件的时候引用样式，或者在一定范围内重复输出样式。&lt;strong&gt;请注意，控制指令是一种高级功能，不建议频繁使用。&lt;/strong&gt;控制指令主要与混合指令 (mixin) 配合使用，尤其是在 &lt;a target='_blank' href='http://compass-style.org/'&gt;Compass&lt;/a&gt; 等样式库中。&lt;/p&gt;
+&lt;p&gt;SassScript 提供了一些基础的控制指令，比如在满足条件的时候引用样式，或者在一定范围内重复输出样式。&lt;strong&gt;请注意，控制指令是一种高级功能，不建议频繁使用。&lt;/strong&gt;控制指令主要与混合指令 (mixin) 配合使用，尤其是在 &lt;a href='http://compass-style.org/' target='_blank'&gt;Compass&lt;/a&gt; 等样式库中。&lt;/p&gt;
 
 &lt;p&gt;&lt;h4 id='8_1'&gt;8.1. @if&lt;/h4&gt;&lt;/p&gt;
 
@@ -2065,10 +2040,10 @@ $gutter-width: 10px;
 &lt;/div&gt;&lt;h3 id='12'&gt;12. 拓展 Sass&lt;/h3&gt;
 &lt;p&gt;Sass 提供了很多高级自定义功能，使用这些功能需要有良好的 Ruby 基础。&lt;/p&gt;
 &lt;h4 id='12_1'&gt;12.1. 自定义 Sass 函数&lt;/h4&gt;
-&lt;p&gt;用户可以通过 Ruby API 自定义 Sass 函数，详细信息请查看 &lt;a target='_blank' href='http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html#adding_custom_functions'&gt;source documentation&lt;/a&gt; 。&lt;/p&gt;
+&lt;p&gt;用户可以通过 Ruby API 自定义 Sass 函数，详细信息请查看 &lt;a href='http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html#adding_custom_functions' target='_blank'&gt;source documentation&lt;/a&gt; 。&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;以下关于 Sass 缓存与自定义导入设置的内容暂时未翻译，请查看 &lt;a target='_blank' href='http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#cache_stores'&gt;原文档&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;以下关于 Sass 缓存与自定义导入设置的内容暂时未翻译，请查看 &lt;a href='http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#cache_stores' target='_blank'&gt;原文档&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;!--
 &lt;h4 id=&quot;12_2&quot;&gt;12.2. Cache Stores&lt;/h4&gt;
@@ -2082,23 +2057,23 @@ $gutter-width: 10px;
       <pubDate>19 Jan 2013</pubDate>
       <author>Peter</author>
       <guid>http://peters-playground.com/Mac_OS/2013/01/19/dropbox-diff</guid>
-      <description>&lt;p&gt;写 HTML, CSS, Javascript，当修改幅度比较大时，偶尔会想查看之前的版本，使用版本控制系统 (SVN) 好像有点大材小用，毕竟不是多人协作，也不是太复杂的项目。所以，我一般将文件存放在 Dropbox 下，保存文件时 Dropbox 会自动备份历史版本，需要恢复或对比的时候，就可以在 Dropbox 网站查看历史记录。但是，仅仅这样还不够方便，借助 &lt;a target='_blank' href='http://blog.vicshih.com/2011/09/dropboxdiff-chrome-extension.html'&gt;DropboxDiff&lt;/a&gt; 这款 Chrome 插件，可以直接对比两个文件的具体区别，做到版本控制软件那样的效果。&lt;/p&gt;
+      <description>&lt;p&gt;写 HTML, CSS, Javascript，当修改幅度比较大时，偶尔会想查看之前的版本，使用版本控制系统 (SVN) 好像有点大材小用，毕竟不是多人协作，也不是太复杂的项目。所以，我一般将文件存放在 Dropbox 下，保存文件时 Dropbox 会自动备份历史版本，需要恢复或对比的时候，就可以在 Dropbox 网站查看历史记录。但是，仅仅这样还不够方便，借助 &lt;a href='http://blog.vicshih.com/2011/09/dropboxdiff-chrome-extension.html' target='_blank'&gt;DropboxDiff&lt;/a&gt; 这款 Chrome 插件，可以直接对比两个文件的具体区别，做到版本控制软件那样的效果。&lt;/p&gt;
 
 &lt;p&gt;Chrome Web Store 中搜索 &lt;code&gt;DropboxDiff&lt;/code&gt; (Extensions) 并安装，之后，查看历史版本的时候，每个条目的后面会自动添加两个单选框。选择需要对比的文件，然后按下 “Diff” 按钮就可以启用预设的软件对比两个文件。&lt;/p&gt;
-&lt;a class='img' target='_blank' href='/images/dropboxdiff/img1.png'&gt;&lt;img alt='dropboxdiff' src='/images/dropboxdiff/img1.png' /&gt;&lt;/a&gt;
-&lt;p&gt;第一次使用时，需要先设置对比软件 (diff tool)，比如作者推荐的 &lt;a target='_blank' href='http://kdiff3.sourceforge.net/'&gt;kdiff3&lt;/a&gt;，Xcode 自带的 FileMerge，或者其他可用命令行操作的软件（好像不支持 Kaleidoscope ?），输入执行命令，再保存即可。&lt;/p&gt;
-&lt;a class='img' target='_blank' href='/images/dropboxdiff/img2.png'&gt;&lt;img alt='dropboxdiff setting' src='/images/dropboxdiff/img2.png' /&gt;&lt;/a&gt;
+&lt;a class='img' href='/images/dropboxdiff/img1.png' target='_blank'&gt;&lt;img alt='dropboxdiff' src='/images/dropboxdiff/img1.png' /&gt;&lt;/a&gt;
+&lt;p&gt;第一次使用时，需要先设置对比软件 (diff tool)，比如作者推荐的 &lt;a href='http://kdiff3.sourceforge.net/' target='_blank'&gt;kdiff3&lt;/a&gt;，Xcode 自带的 FileMerge，或者其他可用命令行操作的软件（好像不支持 Kaleidoscope ?），输入执行命令，再保存即可。&lt;/p&gt;
+&lt;a class='img' href='/images/dropboxdiff/img2.png' target='_blank'&gt;&lt;img alt='dropboxdiff setting' src='/images/dropboxdiff/img2.png' /&gt;&lt;/a&gt;
 &lt;p&gt;FileMerge 的命令是 &lt;code&gt;opendiff file1 file2&lt;/code&gt;，如果在使用时遇到了路径错误，试试下面的解决办法：&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;引用 &lt;a target='_blank' href='http://stackoverflow.com/questions/9300748/opendiff-does-not-start-anymore'&gt;StackOverflow&lt;/a&gt; 上 Valexa 的解释：That is because with 4.3 /Developer/ moved to /Applications/Xcode.app/Contents/Developer/ . The proper setting for the new path is: &lt;code&gt;sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer/&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;引用 &lt;a href='http://stackoverflow.com/questions/9300748/opendiff-does-not-start-anymore' target='_blank'&gt;StackOverflow&lt;/a&gt; 上 Valexa 的解释：That is because with 4.3 /Developer/ moved to /Applications/Xcode.app/Contents/Developer/ . The proper setting for the new path is: &lt;code&gt;sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer/&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;a class='img' target='_blank' href='/images/dropboxdiff/img3.png'&gt;&lt;img alt='FileMerge' src='/images/dropboxdiff/img3.png' /&gt;&lt;/a&gt;
+&lt;a class='img' href='/images/dropboxdiff/img3.png' target='_blank'&gt;&lt;img alt='FileMerge' src='/images/dropboxdiff/img3.png' /&gt;&lt;/a&gt;
 &lt;blockquote&gt;
-&lt;p&gt;这是我的 Dropbox 推广链接 &lt;a target='_blank' href='http://db.tt/dKXdR3gf'&gt;http://db.tt/dKXdR3gf&lt;/a&gt;，通过这个链接注册 Dropbox 账户，我们每个人都可以获得额外的 500MB 空间 :)&lt;/p&gt;
+&lt;p&gt;这是我的 Dropbox 推广链接 &lt;a href='http://db.tt/dKXdR3gf' target='_blank'&gt;http://db.tt/dKXdR3gf&lt;/a&gt;，通过这个链接注册 Dropbox 账户，我们每个人都可以获得额外的 500MB 空间 :)&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;strong&gt;PS:&lt;/strong&gt; Sublime Text 2 用户也可以试试 &lt;a target='_blank' href='https://github.com/vishr/local-history'&gt;Local History&lt;/a&gt; 这款插件，提供了在本地保存、管理文件的历史记录的功能。&lt;/p&gt;</description>
+&lt;p&gt;&lt;strong&gt;PS:&lt;/strong&gt; Sublime Text 2 用户也可以试试 &lt;a href='https://github.com/vishr/local-history' target='_blank'&gt;Local History&lt;/a&gt; 这款插件，提供了在本地保存、管理文件的历史记录的功能。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -2107,7 +2082,7 @@ $gutter-width: 10px;
       <pubDate>08 Jan 2013</pubDate>
       <author>Peter</author>
       <guid>http://peters-playground.com/Mac_OS/2013/01/08/jekyll-alfred-extensions</guid>
-      <description>&lt;p&gt;三个 Alfred Extensions 让 Jekyll 用起来更方便：Create a Jekyll Post, Generate Jekyll site, 以及 Push Jekyll post to Github。可以直接从 &lt;a target='_blank' href='https://github.com/P233/Jekyll-Alfred-Extensions'&gt;Github&lt;/a&gt; 下载，或者根据下面的代码自己创建。&lt;/p&gt;
+      <description>&lt;p&gt;三个 Alfred Extensions 让 Jekyll 用起来更方便：Create a Jekyll Post, Generate Jekyll site, 以及 Push Jekyll post to Github。可以直接从 &lt;a href='https://github.com/P233/Jekyll-Alfred-Extensions' target='_blank'&gt;Github&lt;/a&gt; 下载，或者根据下面的代码自己创建。&lt;/p&gt;
 
 &lt;h3 id='create_a_jekyll_post'&gt;Create a Jekyll Post&lt;/h3&gt;
 
@@ -2172,7 +2147,7 @@ end alfred_script&lt;/code&gt;&lt;/pre&gt;
       <pubDate>06 Jan 2013</pubDate>
       <author>Peter</author>
       <guid>http://peters-playground.com/Css/2013/01/06/css-transitions</guid>
-      <description>&lt;p&gt;刚刚读到的文章，非常不错，翻译出来与大家分享。原文 &lt;a target='_blank' href='http://blog.alexmaccaw.com/css-transitions'&gt;All you need to know about Css Transitions&lt;/a&gt; 由 Alex Maccaw 发表于 2013 年 1 月 3 日。不想花太多时间纠结于字面翻译，只专注最核心的信息，Javascript 入门水平，因此后半部分理解不深入，详细信息还请读原文，翻译不当的地方请大家指正。&lt;/p&gt;
+      <description>&lt;p&gt;刚刚读到的文章，非常不错，翻译出来与大家分享。原文 &lt;a href='http://blog.alexmaccaw.com/css-transitions' target='_blank'&gt;All you need to know about Css Transitions&lt;/a&gt; 由 Alex Maccaw 发表于 2013 年 1 月 3 日。不想花太多时间纠结于字面翻译，只专注最核心的信息，Javascript 入门水平，因此后半部分理解不深入，详细信息还请读原文，翻译不当的地方请大家指正。&lt;/p&gt;
 
 &lt;h3 id='id2'&gt;浏览器支持&lt;/h3&gt;
 
@@ -2223,7 +2198,7 @@ var inactive = function(){
 &lt;/div&gt;
 &lt;h3 id='id3'&gt;渐变背景的变化&lt;/h3&gt;
 
-&lt;p&gt;不是所有的 css 属性都可以变化，而且只能从一个绝对值变化到另一个绝对值。比如，&lt;code&gt;height&lt;/code&gt; 不能从 &lt;code&gt;0px&lt;/code&gt; 变化到 &lt;code&gt;auto&lt;/code&gt;（补充：不同单位之间也可以变化，比如从 &lt;code&gt;0px&lt;/code&gt; 变化到 &lt;code&gt;10em&lt;/code&gt;，但不可以从 &lt;code&gt;0px&lt;/code&gt; 变化到 &lt;code&gt;10%&lt;/code&gt;），可变化的属性列表请参考&lt;a target='_blank' href='http://oli.jp/2010/css-animatable-properties/'&gt;这里&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;不是所有的 css 属性都可以变化，而且只能从一个绝对值变化到另一个绝对值。比如，&lt;code&gt;height&lt;/code&gt; 不能从 &lt;code&gt;0px&lt;/code&gt; 变化到 &lt;code&gt;auto&lt;/code&gt;（补充：不同单位之间也可以变化，比如从 &lt;code&gt;0px&lt;/code&gt; 变化到 &lt;code&gt;10em&lt;/code&gt;，但不可以从 &lt;code&gt;0px&lt;/code&gt; 变化到 &lt;code&gt;10%&lt;/code&gt;），可变化的属性列表请参考&lt;a href='http://oli.jp/2010/css-animatable-properties/' target='_blank'&gt;这里&lt;/a&gt;。&lt;/p&gt;
 
 &lt;p&gt;还有，只有纯色背景可以变化，带有渐变效果的背景却不可以，没有任何技术原因不支持，只是浏览器还需要些时间支持这些特效。不过，还是有几种变通办法的：&lt;/p&gt;
 
@@ -2239,7 +2214,7 @@ var inactive = function(){
   background-color: #DDD;
 }&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;p&gt;如果渐变样式是连续的，还可以通过 &lt;code&gt;background-position&lt;/code&gt; 属性移动它，&lt;a target='_blank' href='http://sapphion.com/2011/10/css3-gradient-transition-with-background-position/'&gt;例子&lt;/a&gt;。或者，创建两个元素叠加，控制上面一层的透明度。如下：&lt;/p&gt;
+&lt;p&gt;如果渐变样式是连续的，还可以通过 &lt;code&gt;background-position&lt;/code&gt; 属性移动它，&lt;a href='http://sapphion.com/2011/10/css3-gradient-transition-with-background-position/' target='_blank'&gt;例子&lt;/a&gt;。或者，创建两个元素叠加，控制上面一层的透明度。如下：&lt;/p&gt;
 &lt;div&gt;
   &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;.element {  
   width: 100px;  
@@ -2264,7 +2239,7 @@ var inactive = function(){
 &lt;p&gt;但是，这样需要额外的标签，上一层的元素也会获取鼠标事件。所以，如果这里能用 &lt;code&gt;:before&lt;/code&gt;，&lt;code&gt;:after&lt;/code&gt; 伪类是最理想的，可惜目前只有 Firefox 支持伪类变化。Eliott Sprehn 正在努力让 webkit 也支持伪类变化，这一功能很快也会在 Safari Chrome 上实现。&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;更新：&lt;/strong&gt;这个问题现在已经解决，目前 Firefox，Chrome 支持伪类变化，Safari 会在下一个版本中更新，Opera 目前还不支持，IE10 也支持，但有点奇特，要用下面的方式 (Source: &lt;a target='_blank' href='http://css-tricks.com/pseudo-element-animationstransitions-bug-fixed-in-webkit/'&gt;CSS-Tricks&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;更新：&lt;/strong&gt;这个问题现在已经解决，目前 Firefox，Chrome 支持伪类变化，Safari 会在下一个版本中更新，Opera 目前还不支持，IE10 也支持，但有点奇特，要用下面的方式 (Source: &lt;a href='http://css-tricks.com/pseudo-element-animationstransitions-bug-fixed-in-webkit/' target='_blank'&gt;CSS-Tricks&lt;/a&gt;)&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;div&gt;
   &lt;pre data-line=''&gt;&lt;code class='language-css'&gt;.x:hover:before { /* By itself, doesn't work */ }
@@ -2302,7 +2277,7 @@ input:focus {
 &lt;/div&gt;
 &lt;h3 id='id5'&gt;时间函数&lt;/h3&gt;
 
-&lt;p&gt;浏览器内置的时间函数包括 &lt;code&gt;linear, ease, ease-in, ease-out and ease-in-out&lt;/code&gt;，复杂一点，可以用 cubic-bezier 曲线自定义时间函数，比如 &lt;code&gt;transition: -webkit-transform 1s cubic-bezier(.17,.67,.69,1.33);&lt;/code&gt; 。两个帮你选择时间函数的工具 &lt;a target='_blank' href='http://easings.net'&gt;Pre-defined Curves&lt;/a&gt; 和 &lt;a target='_blank' href='http://cubic-bezier.com/#.17,.67,.83,.67'&gt;Graphing Tool&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;浏览器内置的时间函数包括 &lt;code&gt;linear, ease, ease-in, ease-out and ease-in-out&lt;/code&gt;，复杂一点，可以用 cubic-bezier 曲线自定义时间函数，比如 &lt;code&gt;transition: -webkit-transform 1s cubic-bezier(.17,.67,.69,1.33);&lt;/code&gt; 。两个帮你选择时间函数的工具 &lt;a href='http://easings.net' target='_blank'&gt;Pre-defined Curves&lt;/a&gt; 和 &lt;a href='http://cubic-bezier.com/#.17,.67,.83,.67' target='_blank'&gt;Graphing Tool&lt;/a&gt;。&lt;/p&gt;
 
 &lt;h3 id='id6'&gt;用程序控制变化效果&lt;/h3&gt;
 
@@ -2325,7 +2300,7 @@ $.fn.transition = function (properties, options) {
 &lt;/div&gt;
 &lt;h3 id='_callback'&gt;获取变化结束的 callback&lt;/h3&gt;
 
-&lt;p&gt;组合多个 transitions 首先要知道变化在什么时间结束，webkit 浏览器中可以监视 &lt;code&gt;webkitTransitionEnd&lt;/code&gt; 事件，其他浏览器需要先用 &lt;a target='_blank' href='https://gist.github.com/4414792'&gt;这个&lt;/a&gt; 找出事件名称。&lt;/p&gt;
+&lt;p&gt;组合多个 transitions 首先要知道变化在什么时间结束，webkit 浏览器中可以监视 &lt;code&gt;webkitTransitionEnd&lt;/code&gt; 事件，其他浏览器需要先用 &lt;a href='https://gist.github.com/4414792' target='_blank'&gt;这个&lt;/a&gt; 找出事件名称。&lt;/p&gt;
 &lt;div&gt;
   &lt;pre data-line=''&gt;&lt;code class='language-javascript'&gt;var callback = function () {
   // ...
@@ -2388,16 +2363,16 @@ $el.queue(function(){
 &lt;/div&gt;
 &lt;h3 id='transition_'&gt;Transition 的未来&lt;/h3&gt;
 
-&lt;p&gt;W3C 的 &lt;a target='_blank' href='https://dvcs.w3.org/hg/FXTF/raw-file/tip/web-anim/index.html'&gt;新草案&lt;/a&gt; 包含新的 Javascript API 应对现在的局限性，给开发者更灵活的空间。根据新的 API，可以同步动画，自定义时间函数，获取 callbacks，实在是令人期待的新功能。&lt;/p&gt;
+&lt;p&gt;W3C 的 &lt;a href='https://dvcs.w3.org/hg/FXTF/raw-file/tip/web-anim/index.html' target='_blank'&gt;新草案&lt;/a&gt; 包含新的 Javascript API 应对现在的局限性，给开发者更灵活的空间。根据新的 API，可以同步动画，自定义时间函数，获取 callbacks，实在是令人期待的新功能。&lt;/p&gt;
 &lt;div&gt;
   &lt;pre data-line=''&gt;&lt;code class='language-javascript'&gt;var anim = new Animation(elem, { left: '100px' }, 3);
 anim.play();&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;p&gt;另外，可以在 &lt;a target='_blank' href='https://github.com/web-animations/web-animations-js'&gt;这里&lt;/a&gt; 找到一些实现新 API 的变通法子。&lt;/p&gt;
+&lt;p&gt;另外，可以在 &lt;a href='https://github.com/web-animations/web-animations-js' target='_blank'&gt;这里&lt;/a&gt; 找到一些实现新 API 的变通法子。&lt;/p&gt;
 
 &lt;h3 id='id9'&gt;结尾&lt;/h3&gt;
 
-&lt;p&gt;目前为止，希望你已经深入的了解了 css 的 transition 属性，以及如何组合简单的 API 制作丰富的动画效果。文中大多数 js 例子来源于 &lt;a target='_blank' href='https://github.com/maccman/gfx'&gt;GFX&lt;/a&gt;，这也是本文作者 Alex 写的一个 jQuery Css transition 库。&lt;/p&gt;</description>
+&lt;p&gt;目前为止，希望你已经深入的了解了 css 的 transition 属性，以及如何组合简单的 API 制作丰富的动画效果。文中大多数 js 例子来源于 &lt;a href='https://github.com/maccman/gfx' target='_blank'&gt;GFX&lt;/a&gt;，这也是本文作者 Alex 写的一个 jQuery Css transition 库。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -2406,11 +2381,11 @@ anim.play();&lt;/code&gt;&lt;/pre&gt;
       <pubDate>05 Jan 2013</pubDate>
       <author>Peter</author>
       <guid>http://peters-playground.com/Css/2013/01/05/css-performance</guid>
-      <description>&lt;p&gt;虽然我只会写最简单的页面，但本着“取法乎上，得乎其中”的原则，一直关注 Css 性能，读过几篇相关文章，准备逐步翻译出来当做总结与积累。第一篇 &lt;a target='_blank' href='http://boagworld.com/dev/why-you-should-care-about-css-page-performance/'&gt;Why you should care about CSS page performance&lt;/a&gt; 由 Doug Stewart 发表于 2012 年 5 月。只记录下几点重要的信息，没有直接翻译，理解不当的地方还请大家指正。&lt;/p&gt;
+      <description>&lt;p&gt;虽然我只会写最简单的页面，但本着“取法乎上，得乎其中”的原则，一直关注 Css 性能，读过几篇相关文章，准备逐步翻译出来当做总结与积累。第一篇 &lt;a href='http://boagworld.com/dev/why-you-should-care-about-css-page-performance/' target='_blank'&gt;Why you should care about CSS page performance&lt;/a&gt; 由 Doug Stewart 发表于 2012 年 5 月。只记录下几点重要的信息，没有直接翻译，理解不当的地方还请大家指正。&lt;/p&gt;
 
 &lt;p&gt;Doug 介绍了自己测试 css 性能的两个方法：缩放浏览器窗口与上下滚动页面。浏览器重绘页面可以反映很多关于性能的问题，未添加 css 的页面反应速度肯定是最快的。一般来说，&lt;em&gt;如果页面缩放时有明显延时，很可能是布局问题，比如浮动、流体宽度等等，而如果页面滚动时有明显延时，则可能是特效问题，比如说阴影与渐变。&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;优化 css 性能，自然要先找到问题出在哪里。作者介绍了三款衡量页面性能的工具：&lt;a target='_blank' href='https://github.com/andyedinborough/stress-css'&gt;Css Stress Test&lt;/a&gt;，Chrome Developer Tools 的 Profiles 与 Timeline。就不一一介绍这些工具了，原则上是要找出最耗时间的地方，然后将其优化。&lt;/p&gt;
+&lt;p&gt;优化 css 性能，自然要先找到问题出在哪里。作者介绍了三款衡量页面性能的工具：&lt;a href='https://github.com/andyedinborough/stress-css' target='_blank'&gt;Css Stress Test&lt;/a&gt;，Chrome Developer Tools 的 Profiles 与 Timeline。就不一一介绍这些工具了，原则上是要找出最耗时间的地方，然后将其优化。&lt;/p&gt;
 
 &lt;h6 id='_css_'&gt;几点关于 Css 性能的小提示&lt;/h6&gt;
 
@@ -2479,7 +2454,7 @@ anim.play();&lt;/code&gt;&lt;/pre&gt;
   According to the conditional comment this is not IE
 &amp;lt;!-- &amp;lt;![endif]--&amp;gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;h6 id='source_'&gt;Source: &lt;a target='_blank' href='http://www.quirksmode.org/css/condcom.html'&gt;http://www.quirksmode.org/css/condcom.html&lt;/a&gt;&lt;/h6&gt;
+&lt;h6 id='source_'&gt;Source: &lt;a href='http://www.quirksmode.org/css/condcom.html' target='_blank'&gt;http://www.quirksmode.org/css/condcom.html&lt;/a&gt;&lt;/h6&gt;
 
 &lt;h3 id='target_ie'&gt;Target IE&lt;/h3&gt;
 &lt;div&gt;
@@ -2532,7 +2507,7 @@ anim.play();&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;同步的原理是将软件的设置文件移动到 Dropbox 文件夹下，交给 Dropbox 管理，然后在存储软件设置的地方创建 symlink 指向 Dropbox 内的设置文件，软件每次读取/保存设置文件的时候其实是在 Dropbox 文件夹内操作（symlink 被称为符号链接，相当于快捷方式，具体解释还请搜索 google）。创建 symlink 的命令是: &lt;code&gt;ln -s &amp;lt;source_file&amp;gt; &amp;lt;myfile&amp;gt;&lt;/code&gt;，或者先用 &lt;code&gt;cd&lt;/code&gt; 命令打开目标地址，然后用 &lt;code&gt;ln -s &amp;lt;source_file&amp;gt;&lt;/code&gt; 命令将目标文件链接到目标地址。 &lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;如果不想使用命令，也可以试试 &lt;a target='_blank' href='http://joeworkman.net/blog/post-9591023714'&gt;DropboxAppSync&lt;/a&gt; 这款软件，和上面介绍的原理是一样的&lt;/p&gt;
+&lt;p&gt;如果不想使用命令，也可以试试 &lt;a href='http://joeworkman.net/blog/post-9591023714' target='_blank'&gt;DropboxAppSync&lt;/a&gt; 这款软件，和上面介绍的原理是一样的&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h3 id='_sublime_text_2'&gt;同步 Sublime Text 2&lt;/h3&gt;
@@ -2544,7 +2519,7 @@ anim.play();&lt;/code&gt;&lt;/pre&gt;
 
 &lt;li&gt;在要同步的主机上找到 Sublime Text 2 的 packages 文件夹（路径：&lt;code&gt;~/Library/Application Support/Sublime Text 2/&lt;/code&gt;），将其移动到 Dropbox 文件夹内，例如 &lt;code&gt;~/Dropbox/Sync/Packages&lt;/code&gt;；&lt;/li&gt;
 
-&lt;li&gt;启动 Terminal，输入 &lt;code&gt;cd ~/Library/Application\ Support/Sublime\ Text\ 2/&lt;/code&gt; 打开目标文件夹（空格前要加 &lt;code&gt;\&lt;/code&gt;），然后输入 &lt;code&gt;ln -s ~/Dropbox/Sync/Packages&lt;/code&gt; 创建一个 symlink 将 Dropbox 下的 Packages 文件夹链接到当前目录，Windows 下创建 symlink 的命令请看&lt;a target='_blank' href='http://technet.microsoft.com/en-us/library/cc753194(v=ws.10).aspx'&gt;这里&lt;/a&gt;；&lt;/li&gt;
+&lt;li&gt;启动 Terminal，输入 &lt;code&gt;cd ~/Library/Application\ Support/Sublime\ Text\ 2/&lt;/code&gt; 打开目标文件夹（空格前要加 &lt;code&gt;\&lt;/code&gt;），然后输入 &lt;code&gt;ln -s ~/Dropbox/Sync/Packages&lt;/code&gt; 创建一个 symlink 将 Dropbox 下的 Packages 文件夹链接到当前目录，Windows 下创建 symlink 的命令请看&lt;a href='http://technet.microsoft.com/en-us/library/cc753194(v=ws.10).aspx' target='_blank'&gt;这里&lt;/a&gt;；&lt;/li&gt;
 
 &lt;li&gt;在第二台机器上，关闭 Sublime Text 2，找到 packages 文件夹并将其删除，然后重复步骤 3 中的命令。&lt;/li&gt;
 &lt;/ol&gt;
@@ -2560,7 +2535,7 @@ anim.play();&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;同步方法：将 &lt;code&gt;~/Library/Keychains/&lt;/code&gt; 下的 login.keychain 文件移动到 Dropbox 文件夹下；启动 Keychain Access，选择 File &amp;gt; Add Keychain…，然后添加位于 Dropbox 下的 login.keychain 文件；在第二台电脑上删除本地的 login.keychain 文件，然后重复 File &amp;gt; Add Keychain…。同步 Keychain 后，重启电脑偶尔会被要求输入密码，验证 Keychain 的管理权限。&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;这是我的 Dropbox 推广链接 &lt;a target='_blank' href='http://db.tt/dKXdR3gf'&gt;http://db.tt/dKXdR3gf&lt;/a&gt;，通过这个链接注册 Dropbox 账户，我们每个人都可以获得额外的 500MB 空间 :)&lt;/p&gt;
+&lt;p&gt;这是我的 Dropbox 推广链接 &lt;a href='http://db.tt/dKXdR3gf' target='_blank'&gt;http://db.tt/dKXdR3gf&lt;/a&gt;，通过这个链接注册 Dropbox 账户，我们每个人都可以获得额外的 500MB 空间 :)&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;&lt;strong&gt;最后，不要在两台电脑上同时运行同步的软件，会因为文件冲而突丢失设置。&lt;/strong&gt;&lt;/p&gt;</description>
@@ -2579,15 +2554,15 @@ anim.play();&lt;/code&gt;&lt;/pre&gt;
 &lt;ol&gt;
 &lt;li&gt;门槛：需要理解 Github 的工作方式，熟悉 Github 客户端，熟悉 Html 与 Css；&lt;/li&gt;
 
-&lt;li&gt;不妨一边写静态模板，一边了解 Jekyll 布局所用到的 &lt;a target='_blank' href='https://github.com/mojombo/jekyll/wiki/Liquid-Extensions'&gt;Liquid Tag&lt;/a&gt;，磨刀不误砍柴工；&lt;/li&gt;
+&lt;li&gt;不妨一边写静态模板，一边了解 Jekyll 布局所用到的 &lt;a href='https://github.com/mojombo/jekyll/wiki/Liquid-Extensions' target='_blank'&gt;Liquid Tag&lt;/a&gt;，磨刀不误砍柴工；&lt;/li&gt;
 
-&lt;li&gt;Jekyll 博客，其实是一套文件结构，然后通过 Jekyll 程序（无图形操作界面）编译成静态网站。如果不熟悉命令，完全可以不安装 Jekyll，只需按照&lt;a target='_blank' href='https://github.com/mojombo/jekyll/wiki/usage'&gt;要求的格式&lt;/a&gt;创建文件后再上传到 Github，访问主页就可以了，因为 Github Pages 便是由 Jekyll 驱动的，或者直接使用 &lt;a target='_blank' href='http://jekyllbootstrap.com'&gt;Jekyll-Bootstrap&lt;/a&gt; 的结构；&lt;/li&gt;
+&lt;li&gt;Jekyll 博客，其实是一套文件结构，然后通过 Jekyll 程序（无图形操作界面）编译成静态网站。如果不熟悉命令，完全可以不安装 Jekyll，只需按照&lt;a href='https://github.com/mojombo/jekyll/wiki/usage' target='_blank'&gt;要求的格式&lt;/a&gt;创建文件后再上传到 Github，访问主页就可以了，因为 Github Pages 便是由 Jekyll 驱动的，或者直接使用 &lt;a href='http://jekyllbootstrap.com' target='_blank'&gt;Jekyll-Bootstrap&lt;/a&gt; 的结构；&lt;/li&gt;
 
 &lt;li&gt;Jekyll 的文件结构大概可以这样分：配置文件（_config.yml），布局文件（_layouts），模块文件（_includes），插件（_plugin），文章（_posts），其他文件（不以&lt;em&gt;下划线&lt;/em&gt;开头的文件及文件夹都会完整的拷贝到生成的静态网站中，比如 css 文件、图片等），以及生成的网站（_site）；&lt;/li&gt;
 
 &lt;li&gt;Jekyll 命令的用法很简单，先通过 &lt;code&gt;cd&lt;/code&gt; 命令打开目标文件夹，然后输入 &lt;code&gt;jekyll --server&lt;/code&gt; 生成网站，浏览器中输入 &lt;code&gt;0.0.0.0:4000&lt;/code&gt; 访问生成的静态网站，&lt;code&gt;jekyll --server --auto&lt;/code&gt; 命令开启实时更新，修改文件后在浏览器中刷新就可看到效果，对本地调试很有帮助；&lt;/li&gt;
 
-&lt;li&gt;Github Pages 禁用所有插件，需要使用插件功能，只能上传生成的网站文件夹（_site），熟悉命令也可以试试&lt;a target='_blank' href='http://edhedges.com/blog/2012/07/30/jekyll-with-plugins-hosted-on-github-pages/'&gt;这个办法&lt;/a&gt; ;&lt;/li&gt;
+&lt;li&gt;Github Pages 禁用所有插件，需要使用插件功能，只能上传生成的网站文件夹（_site），熟悉命令也可以试试&lt;a href='http://edhedges.com/blog/2012/07/30/jekyll-with-plugins-hosted-on-github-pages/' target='_blank'&gt;这个办法&lt;/a&gt; ;&lt;/li&gt;
 
 &lt;li&gt;想写草稿不想被编译？创建一个以下划线开头文件夹就会被忽略，例如在 _posts 下创建 _drafts 存储草稿。&lt;/li&gt;
 &lt;/ol&gt;

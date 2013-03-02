@@ -42,9 +42,9 @@
 			<div id="post" class="inner">
 	<p id="date"><span>24 January 2013</span></p>
 	<h2>【翻译】Sass 官方文档中文版</h2>
-	<p>使用 Sass 已经有几个月的时间了，翻来覆去还是在用几个简单的功能，下决心好好学习一下，所以翻译了官方文档。翻译的过程也是学习与积累的过程，深入理解了几个复杂功能，同时也补充了一些基础知识。只是官方文档写得实在绕口，花了很久才翻译完，有几处地方不太理解，翻译不出来，还请大家帮忙，理解错误的地方也请大家指正。关于 Sass 设置的部分暂时未翻译，因为只会用 <a target='_blank' href='http://incident57.com/codekit/'>Codekit</a>，对这些没有概念。如果哪位愿意代为翻译，或者交流，<a target='_blank' href='mailto:40132147&#64;&#113;&#113;&#46;&#99;&#111;&#109;?Subject=Hi%20Peter'>请联系 Peter</a>。</p>
+	<p>使用 Sass 已经有几个月的时间了，翻来覆去还是在用几个简单的功能，下决心好好学习一下，所以翻译了官方文档。翻译的过程也是学习与积累的过程，深入理解了几个复杂功能，同时也补充了一些基础知识。只是官方文档写得实在绕口，花了很久才翻译完，有几处地方不太理解，翻译不出来，还请大家帮忙，理解错误的地方也请大家指正。关于 Sass 设置的部分暂时未翻译，因为只会用 <a href='http://incident57.com/codekit/' target='_blank'>Codekit</a>，对这些没有概念。如果哪位愿意代为翻译，或者交流，<a href='mailto:40132147&#64;&#113;&#113;&#46;&#99;&#111;&#109;?Subject=Hi%20Peter' target='_blank'>请联系 Peter</a>。</p>
 
-<p>Sass 官方文档，<a target='_blank' href='http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html'>原地址在请看这里</a>，相当于 Sass 的功能概览，要学好 Sass 还是要多方面学习，<a target='_blank' href='http://manning.com/netherland/'>《Sass and Compass in action》</a> 这本书下个月底出版，非常期待。</p>
+<p>Sass 官方文档，<a href='http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html' target='_blank'>原地址在请看这里</a>，相当于 Sass 的功能概览，要学好 Sass 还是要多方面学习，<a href='http://manning.com/netherland/' target='_blank'>《Sass and Compass in action》</a> 这本书下个月底出版，非常期待。</p>
 <div id='contents'>
 <h3>目录</h3>
 <a href='#1'>1. 特色功能 (Features)</a>
@@ -153,14 +153,14 @@
 </div><h3 id='1'>1. 特色功能 (Features)</h3><ul>
 <li>完全兼容 CSS3；</li>
 <li>在 CSS 语言基础上添加了拓展功能，比如变量、嵌套 (nesting)、混合 (mixin) 等等；</li>
-<li>可以用<a target='_blank' href='http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html'>函数</a>运算颜色值与属性值 (property value) ；</li>
+<li>可以用<a href='http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html' target='_blank'>函数</a>运算颜色值与属性值 (property value) ；</li>
 <li>高级命令，如<a href='#8'>控制指令 (control directives)</a>；</li>
 <li>可定义多种输出格式；</li>
-<li><a target='_blank' href='https://addons.mozilla.org/en-US/firefox/addon/firesass-for-firebug/'>支持 Firebug</a>。</li>
+<li><a href='https://addons.mozilla.org/en-US/firefox/addon/firesass-for-firebug/' target='_blank'>支持 Firebug</a>。</li>
 </ul><h3 id='2'>2. 语言格式 (Syntax)</h3>
 <p>Sass 包含两种语言格式。第一种被称为 SCSS (Sassy CSS)，也是本文示例所使用的格式，作为 CSS3 语言的拓展。也就是说，所有的 CSS3 样式都可以写进 SCSS 文件中，除此之外，SCSS 也能够理解大多数的 CSS hacks 以及浏览器前缀 (vendor-specific)，甚至早期的 IE 滤镜，这些都依赖于 Sass 的特色功能，下文将会详细介绍。这种格式以 <code>.scss</code> 作为拓展名。</p>
 
-<p>另一种格式出现的时间更早一些，被成为缩进格式（或者 “Sass”），这是一种让书写 CSS 变得更简洁的方式。它使用“缩进”替代“括号”表示属性嵌套在选择器中，用“换行”替代“分号”表示属性的区分。不少人认为这种格式比 SCSS 更容易阅读，书写也更快速。缩进格式可使用 Sass 的所有功能，只是个别地方采用了不同的表达方式，具体可以通过 <a target='_blank' href='http://sass-lang.com/docs/yardoc/file.INDENTED_SYNTAX.html'>the indented syntax reference</a> 查看区别。这种格式以 <code>.sass</code> 作为拓展名。</p>
+<p>另一种格式出现的时间更早一些，被成为缩进格式（或者 “Sass”），这是一种让书写 CSS 变得更简洁的方式。它使用“缩进”替代“括号”表示属性嵌套在选择器中，用“换行”替代“分号”表示属性的区分。不少人认为这种格式比 SCSS 更容易阅读，书写也更快速。缩进格式可使用 Sass 的所有功能，只是个别地方采用了不同的表达方式，具体可以通过 <a href='http://sass-lang.com/docs/yardoc/file.INDENTED_SYNTAX.html' target='_blank'>the indented syntax reference</a> 查看区别。这种格式以 <code>.sass</code> 作为拓展名。</p>
 
 <p>每种格式都可以被<a href='#7_1'>导入 (@import)</a> 到另一种格式中使用，也可以通过 <code>sass-convert</code> 指令互相转换。</p>
 <div>
@@ -170,7 +170,7 @@ $ sass-convert style.sass style.scss
 # Convert SCSS to Sass
 $ sass-convert style.scss style.sass</code></pre>
 </div><h3 id='3'>3. 使用 Sass (Using Sass)</h3>
-<p>Sass 通过以下三种方式使用：在命令行工具中，作为独立的 Ruby 模式 (Ruby module)，或者作为 Rack-enabled 框架的插件（包括 Ruby on Rails 与 Merb）。第一步，安装 Sass gem （Windows 系统下，需要先<a target='_blank' href='http://rubyinstaller.org/'>安装 Ruby</a>）：</p>
+<p>Sass 通过以下三种方式使用：在命令行工具中，作为独立的 Ruby 模式 (Ruby module)，或者作为 Rack-enabled 框架的插件（包括 Ruby on Rails 与 Merb）。第一步，安装 Sass gem （Windows 系统下，需要先<a href='http://rubyinstaller.org/' target='_blank'>安装 Ruby</a>）：</p>
 <div>
   <pre data-line=''><code class='language-css'>gem install sass</code></pre>
 </div>
@@ -188,22 +188,23 @@ $ sass-convert style.scss style.sass</code></pre>
 </div>
 <p>更多命令请通过 <code>sass --help</code> 查看。</p>
 
-<p>在 Ruby 代码中使用 Sass 也非常容易，安装完毕后，运行 <code>require &quot;sass&quot;</code> 然后使用 <a target='_blank' href='http://sass-lang.com/docs/yardoc/Sass/Engine.html'>Sass::Engine</a>，例如</p>
+<p>在 Ruby 代码中使用 Sass 也非常容易，安装完毕后，运行 <code>require &quot;sass&quot;</code> 然后使用 <a href='http://sass-lang.com/docs/yardoc/Sass/Engine.html' target='_blank'>Sass::Engine</a>，例如</p>
 <div>
   <pre data-line=''><code class='language-css'>engine = Sass::Engine.new(&quot;#main {background-color: #0000ff}&quot;, :syntax =&gt; :scss)
 engine.render #=&gt; &quot;#main { background-color: #0000ff; }\n&quot;</code></pre>
 </div>
 <blockquote>
-<p>以下关于 Sass 设置的内容暂未翻译，请查看 <a target='_blank' href='http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#rackrailsmerb_plugin'>原文档</a>。</p>
+<p>以下关于 Sass 设置的内容暂未翻译，请查看 <a href='http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#rackrailsmerb_plugin' target='_blank'>原文档</a>。</p>
 </blockquote>
-<!---
-<h4 id="3_1">3.1. Rack/Rails/Merb Plugin</h4>
-<h4 id="3_2">3.2. Caching</h4>
-<h4 id="3_3">3.3. Options</h4>
-<h4 id="3_4">3.4. Syntax Selection</h4>
-<h4 id="3_5">3.5. Encodings</h4>
-<h5 id="3_5_1">3.5.1. Output Encoding</h5>
---><h3 id='4'>4. CSS 拓展 (CSS Extensions)</h3><h4 id='4_1'>4.1. 嵌套规则 (Nested Rules)</h4>
+<pre class='markdown-html-error' style='border: solid 3px red; background-color: pink'>REXML could not parse this XML/HTML: 
+&lt;!---
+&lt;h4 id=&quot;3_1&quot;&gt;3.1. Rack/Rails/Merb Plugin&lt;/h4&gt;
+&lt;h4 id=&quot;3_2&quot;&gt;3.2. Caching&lt;/h4&gt;
+&lt;h4 id=&quot;3_3&quot;&gt;3.3. Options&lt;/h4&gt;
+&lt;h4 id=&quot;3_4&quot;&gt;3.4. Syntax Selection&lt;/h4&gt;
+&lt;h4 id=&quot;3_5&quot;&gt;3.5. Encodings&lt;/h4&gt;
+&lt;h5 id=&quot;3_5_1&quot;&gt;3.5.1. Output Encoding&lt;/h5&gt;
+--&gt;</pre><h3 id='4'>4. CSS 拓展 (CSS Extensions)</h3><h4 id='4_1'>4.1. 嵌套规则 (Nested Rules)</h4>
 <p>Sass 可以将一套 CSS 样式嵌套进另一套样式中使用，嵌套后的样式将继承给它的外层选择器（父选择器），例如：</p>
 <div>
   <pre data-line=''><code class='language-css'>#main p {
@@ -417,7 +418,7 @@ white</code></pre>
 <p>需要注意的是：当 deprecated = property syntax 时 （暂时不理解是怎样的情况），所有的字符串都将被编译为无引号字符串，不论是否使用了引号。</p>
 <h5 id='6_3_2'>6.3.2. 值列表 (Lists)</h5>
 <p>所谓值列表 (lists) 是指 Sass 如何处理 CSS 中 <code>margin: 10px 15px 0 0</code> 或者 <code>font-face: Helvetica, Arial, sans-serif</code> 这样通过空格或者逗号分隔的一系列的值。事实上，独立的值也被视为值列表——只包含一个值的值列表。</p>
-<p><a target='_blank' href='http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html#list-functions'>Sass list functions</a> 赋予了值列表更多功能：nth function 可以直接访问值列表中的某一项，join function 可以将多个值列表连结在一起，append function 可以在值列表中添加值，而 @each rule 则能够给值列表中的每个项目添加样式。</p>
+<p><a href='http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html#list-functions' target='_blank'>Sass list functions</a> 赋予了值列表更多功能：nth function 可以直接访问值列表中的某一项，join function 可以将多个值列表连结在一起，append function 可以在值列表中添加值，而 @each rule 则能够给值列表中的每个项目添加样式。</p>
 <p>值列表中可以再包含值列表，比如 <code>1px 2px, 5px 6px</code> 是包含 <code>1px 2px</code> 与 <code>5px 6px</code> 两个值列表的值列表。如果内外两层值列表使用相同的分隔方式，要用圆括号包裹内层，所以也可以写成 <code>(1px 2px) (5px 6px)</code>。当值列表被编译为 CSS 时，Sass 不会添加任何圆括号，因为 CSS 不允许这样做。<code>(1px 2px) (5px 6px)</code> 与 <code>1px 2px 5px 6px</code> 在编译后的 CSS 文件中是一样的，但是它们在 Sass 文件中却有不同的意义，前者是包含两个值列表的值列表，而后者是包含四个值的值列表。</p>
 
 <p>可以用 <code>()</code> 表示空的列表，这样不可以直接编译成 CSS，比如编译 <code>font-family: ()</code> 时，Sass 将会报错。如果值列表中包含空的值列表或空值，编译时将清除空值，比如 <code>1px 2px () 3px</code> 或 <code>1px 2px null 3px</code>。</p>
@@ -485,7 +486,7 @@ white</code></pre>
   <pre data-line=''><code class='language-css'>p {
 	color: #050709; }</code></pre>
 </div>
-<p>通常，使用 <a target='_blank' href='http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html'>color functions</a> 比计算颜色值更方便一些。</p>
+<p>通常，使用 <a href='http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html' target='_blank'>color functions</a> 比计算颜色值更方便一些。</p>
 
 <p>数字与颜色值之间也可以进行算数运算，同样也是分段计算的，比如</p>
 <div>
@@ -509,7 +510,7 @@ white</code></pre>
   <pre data-line=''><code class='language-css'>p {
 	color: rgba(255, 255, 0, 0.75); }</code></pre>
 </div>
-<p>颜色值的 alpha channel 可以通过 <a target='_blank' href='http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html#opacify-instance_method'>opacify</a> 或 <a target='_blank' href='http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html#transparentize-instance_method'>transparentize</a> 两个函数进行调整。</p>
+<p>颜色值的 alpha channel 可以通过 <a href='http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html#opacify-instance_method' target='_blank'>opacify</a> 或 <a href='http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html#transparentize-instance_method' target='_blank'>transparentize</a> 两个函数进行调整。</p>
 <div>
   <pre data-line=''><code class='language-css'>$translucent-red: rgba(255, 0, 0, 0.5);
 p {
@@ -597,7 +598,7 @@ p:before {
 </div><h5 id='6_4_4'>6.4.4. 布尔运算 (Boolean Operations)</h5>
 <p>SassScript 支持布尔型的 <code>and</code> <code>or</code> 以及 <code>not</code> 运算。</p>
 <h5 id='6_4_5'>6.4.5. 值列表运算 (List Operations)</h5>
-<p>值列表不支持任何运算方式，只能使用 <a target='_blank' href='http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html#list-functions'>list functions</a> 控制。</p>
+<p>值列表不支持任何运算方式，只能使用 <a href='http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html#list-functions' target='_blank'>list functions</a> 控制。</p>
 <h4 id='6_5'>6.5. 圆括号 (Parentheses)</h4>
 <p>圆括号可以用来影响运算的顺序：</p>
 <div>
@@ -629,7 +630,7 @@ p:before {
 </div>
 <p>虽然不够简明，但是阅读起来会更方便。关键词参数给函数提供了更灵活的接口，以及容易调用的参数。关键词参数可以打乱顺序使用，如果使用默认值也可以省缺，另外，参数名被视为变量名，下划线、短横线可以互换使用。</p>
 
-<p>通过 <a target='_blank' href='http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html'>Sass::Script::Functions</a> 查看完整的 Sass 函数列表，参数名，以及如何自定义函数。</p>
+<p>通过 <a href='http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html' target='_blank'>Sass::Script::Functions</a> 查看完整的 Sass 函数列表，参数名，以及如何自定义函数。</p>
 <h4 id='6_7'>6.7. 插值语句 <code>#{ }</code> (Interpolation: <code>#{ }</code>)</h4>
 <p>通过 <code>#{ }</code> 插值语句可以在选择器或属性名中使用变量：</p>
 <div>
@@ -1135,7 +1136,7 @@ a {
 <p>希望有一天，浏览器可以原生支持 <code>@extend</code> 指令，这样就可以在任何指令中使用延伸功能，不再受限制了。</p>
 
 <blockquote>
-<p><code>@debug</code> 与 <code>@warn</code> 两条指令不太熟悉，暂时未翻译，请查看 <a target='_blank' href='http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#id8'>原文档</a></p>
+<p><code>@debug</code> 与 <code>@warn</code> 两条指令不太熟悉，暂时未翻译，请查看 <a href='http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#id8' target='_blank'>原文档</a></p>
 </blockquote>
 <!--
 <h4 id="7_4">7.4. @debug</h4>
@@ -1167,7 +1168,7 @@ a {
 </div>
 
 --><h3 id='8'>8. 控制指令 (Control Directives)</h3>
-<p>SassScript 提供了一些基础的控制指令，比如在满足条件的时候引用样式，或者在一定范围内重复输出样式。<strong>请注意，控制指令是一种高级功能，不建议频繁使用。</strong>控制指令主要与混合指令 (mixin) 配合使用，尤其是在 <a target='_blank' href='http://compass-style.org/'>Compass</a> 等样式库中。</p>
+<p>SassScript 提供了一些基础的控制指令，比如在满足条件的时候引用样式，或者在一定范围内重复输出样式。<strong>请注意，控制指令是一种高级功能，不建议频繁使用。</strong>控制指令主要与混合指令 (mixin) 配合使用，尤其是在 <a href='http://compass-style.org/' target='_blank'>Compass</a> 等样式库中。</p>
 
 <p><h4 id='8_1'>8.1. @if</h4></p>
 
@@ -1581,10 +1582,10 @@ $gutter-width: 10px;
 </div><h3 id='12'>12. 拓展 Sass</h3>
 <p>Sass 提供了很多高级自定义功能，使用这些功能需要有良好的 Ruby 基础。</p>
 <h4 id='12_1'>12.1. 自定义 Sass 函数</h4>
-<p>用户可以通过 Ruby API 自定义 Sass 函数，详细信息请查看 <a target='_blank' href='http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html#adding_custom_functions'>source documentation</a> 。</p>
+<p>用户可以通过 Ruby API 自定义 Sass 函数，详细信息请查看 <a href='http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html#adding_custom_functions' target='_blank'>source documentation</a> 。</p>
 
 <blockquote>
-<p>以下关于 Sass 缓存与自定义导入设置的内容暂时未翻译，请查看 <a target='_blank' href='http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#cache_stores'>原文档</a></p>
+<p>以下关于 Sass 缓存与自定义导入设置的内容暂时未翻译，请查看 <a href='http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#cache_stores' target='_blank'>原文档</a></p>
 </blockquote>
 <!--
 <h4 id="12_2">12.2. Cache Stores</h4>
