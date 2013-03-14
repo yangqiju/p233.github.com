@@ -327,7 +327,7 @@ a[data-info~=&quot;image&quot;] {
 <p>提示：伪元素 (pseudo element) 使用双冒号 <code>::</code></p>
 </blockquote>
 
-<h4 id='id10'>选取段落的第一个字母</h4>
+<h4 id='id1190'>选取段落的第一个字母</h4>
 <div>
   <pre data-line=''><code class='language-css'>p::first-letter {  
    float: left;  
@@ -339,7 +339,7 @@ a[data-info~=&quot;image&quot;] {
 </div>
 <p>这段代码将选取页面中所有 p 元素，然后再选取其中的第一个字母。</p>
 
-<h4 id='id11'>选取段落的第一行</h4>
+<h4 id='id1191'>选取段落的第一行</h4>
 <div>
   <pre data-line=''><code class='language-css'>p::first-line {  
    font-weight: bold;  
@@ -466,7 +466,7 @@ a[data-info~=&quot;image&quot;] {
    &lt;/ul&gt;  
 &lt;/div&gt;</code></pre>
 </div>
-<h4 id='id12'>方法一</h4>
+<h4 id='id1192'>方法一</h4>
 <div>
   <pre data-line=''><code class='language-css'>ul:first-of-type &gt; li:nth-child(2) {  
    font-weight: bold;  
@@ -474,7 +474,7 @@ a[data-info~=&quot;image&quot;] {
 </div>
 <p>这段代码的意思是：首先选取第一个 ul 元素；然后选取其中的所有直接子元素，也就是 li；最后选取第二个子元素。</p>
 
-<h4 id='id13'>方法二</h4>
+<h4 id='id1193'>方法二</h4>
 <div>
   <pre data-line=''><code class='language-css'>p + ul li:last-child {  
    font-weight: bold;  
@@ -482,7 +482,7 @@ a[data-info~=&quot;image&quot;] {
 </div>
 <p>找到 p 元素后第一个出现的 ul 元素，然后选取其中的最后一个子元素。</p>
 
-<h4 id='id14'>方法三</h4>
+<h4 id='id1194'>方法三</h4>
 <div>
   <pre data-line=''><code class='language-css'>ul:first-of-type li:nth-last-child(1) {  
    font-weight: bold;  

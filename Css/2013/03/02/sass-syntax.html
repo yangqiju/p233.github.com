@@ -42,11 +42,27 @@
 			<div id="post" class="inner">
 	<p id="date"><span>02 March 2013</span></p>
 	<h2>【分享】Sass for Sublime Text 2</h2>
-	<p>用过几个版本的 Sass 代码高亮插件，效果都不太理想，所以参考 <a href='https://github.com/nathos/sass-textmate-bundle'>nathos&#8217;s sass-textmate-bundle</a> 自己也写了一个。采用匹配语句结构的方式代替匹配关键词，因此不会出现某些词不能高亮的问题，但有些根据 Scope Selector 的 snippets 可能会失效。添加了 Attribute Selector 高亮，优化了 <code>@media</code> 高亮效果，此外，支持 Sass 专有语句，包括 Variable, Directive, Directive Shorthand (<code>=</code> <code>+</code>), Placeholder Selector, Build-in Function, Interpolation 等等。目前除了运算符与自定义函数，其他部分应该完美显示。</p>
+	<p>用过几个版本的 Sass 代码高亮插件，效果都不太理想，所以参考 <a href='https://github.com/nathos/sass-textmate-bundle'>nathos&#8217;s sass-textmate-bundle</a> 自己也写了一个，简单列出新加入的特色功能，欢迎大家试用。</p>
 
-<p><strong>请注意，这个插件只支持 Sass 语句，不支持 SCSS 语句。任何想法建议欢迎联系我，大家一起交流！</strong></p>
+<ol>
+<li>采用匹配语句结构的方式代替匹配关键词，因此不会出现某些词无法高亮的情况，但有些根据 Scope Selector 的 snippets 可能会失效；</li>
 
-<p>更多信息请查看 Github：<a href='https://github.com/P233/Syntax-highlighting-for-Sass' target='_blank'>https://github.com/P233/Syntax-highlighting-for-Sass</a></p>
+<li>支持属性选择器 (Attribute Selector) 高亮；</li>
+
+<li>支持 Sass 专有语句，包括 Variable, Directive, Directive Shorthand (<code>=</code> <code>+</code>), Placeholder Selector, Build-in Function, Interpolation 等等；</li>
+
+<li>所有 <code>something(…)</code> 将当做 function 结构处理，包括 <code>url()</code>, <code>format()</code>, 部分 CSS 属性值，Sass 自带函数，Compass/Bourbon 函数，自定义函数等等（注：函数的左括号在 Sublime Text 中无法更改颜色，Textmate 中可以，已经在官方论坛询问，可惜暂时还没有解决办法）；</li>
+
+<li>Sass 的 at-rule 当做 directive 结构处理，以后会进一步优化这部分的高亮效果；</li>
+
+<li>优化了 <code>@media</code> 高亮效果； 7. 支持运算符高亮；</li>
+
+<li>输入 id，class，placeholder 选择器时禁用 snippets；</li>
+
+<li>分别支持 SCSS 与 Sass 两种语句结构，而不是将其合并在一起。</li>
+</ol>
+
+<p>更多信息请查看 Github：<a href='https://github.com/P233/Syntax-highlighting-for-Sass' target='_blank'>https://github.com/P233/Syntax-highlighting-for-Sass</a>，意见反馈欢迎联系我，大家一起交流！！</p>
 	<p class="noindent">全文完&nbsp;&nbsp;&nbsp;<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank"><img src="/images/cc_small.png" alt="creative commons"></a>
 		<script type="text/javascript" charset="utf-8">
 		(function(){

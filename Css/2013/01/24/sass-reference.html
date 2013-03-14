@@ -196,15 +196,14 @@ engine.render #=&gt; &quot;#main { background-color: #0000ff; }\n&quot;</code></
 <blockquote>
 <p>以下关于 Sass 设置的内容暂未翻译，请查看 <a href='http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#rackrailsmerb_plugin' target='_blank'>原文档</a>。</p>
 </blockquote>
-<pre class='markdown-html-error' style='border: solid 3px red; background-color: pink'>REXML could not parse this XML/HTML: 
-&lt;!---
-&lt;h4 id=&quot;3_1&quot;&gt;3.1. Rack/Rails/Merb Plugin&lt;/h4&gt;
-&lt;h4 id=&quot;3_2&quot;&gt;3.2. Caching&lt;/h4&gt;
-&lt;h4 id=&quot;3_3&quot;&gt;3.3. Options&lt;/h4&gt;
-&lt;h4 id=&quot;3_4&quot;&gt;3.4. Syntax Selection&lt;/h4&gt;
-&lt;h4 id=&quot;3_5&quot;&gt;3.5. Encodings&lt;/h4&gt;
-&lt;h5 id=&quot;3_5_1&quot;&gt;3.5.1. Output Encoding&lt;/h5&gt;
---&gt;</pre><h3 id='4'>4. CSS 拓展 (CSS Extensions)</h3><h4 id='4_1'>4.1. 嵌套规则 (Nested Rules)</h4>
+<!---
+<h4 id="3_1">3.1. Rack/Rails/Merb Plugin</h4>
+<h4 id="3_2">3.2. Caching</h4>
+<h4 id="3_3">3.3. Options</h4>
+<h4 id="3_4">3.4. Syntax Selection</h4>
+<h4 id="3_5">3.5. Encodings</h4>
+<h5 id="3_5_1">3.5.1. Output Encoding</h5>
+--><h3 id='4'>4. CSS 拓展 (CSS Extensions)</h3><h4 id='4_1'>4.1. 嵌套规则 (Nested Rules)</h4>
 <p>Sass 可以将一套 CSS 样式嵌套进另一套样式中使用，嵌套后的样式将继承给它的外层选择器（父选择器），例如：</p>
 <div>
   <pre data-line=''><code class='language-css'>#main p {
@@ -336,7 +335,7 @@ engine.render #=&gt; &quot;#main { background-color: #0000ff; }\n&quot;</code></
 body { color: black; }
 
 // These comments are only one line long each.
-// They won't appear in the CSS output,
+// They won&#39;t appear in the CSS output,
 // since they use the single-line comment syntax.
 a { color: green; }</code></pre>
 </div>
@@ -529,13 +528,13 @@ p {
   <pre data-line=''><code class='language-css'>$translucent-red: rgba(255, 0, 0, 0.5);
 $green: #00ff00;
 div {
-	filter: progid:DXImageTransform.Microsoft.gradient(enabled='false', startColorstr='#{ie-hex-str($green)}', endColorstr='#{ie-hex-str($translucent-red)}');
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled=&#39;false&#39;, startColorstr=&#39;#{ie-hex-str($green)}&#39;, endColorstr=&#39;#{ie-hex-str($translucent-red)}&#39;);
 }</code></pre>
 </div>
 <p>编译为</p>
 <div>
   <pre data-line=''><code class='language-css'>div {
-	filter: progid:DXImageTransform.Microsoft.gradient(enabled='false', startColorstr=#FF00FF00, endColorstr=#80FF0000);
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled=&#39;false&#39;, startColorstr=#FF00FF00, endColorstr=#80FF0000);
 }</code></pre>
 </div><h5 id='6_4_3'>6.4.3. 字符串运算 (String Operations)</h5>
 <p><code>+</code> 可用于连结字符串</p>
@@ -842,7 +841,7 @@ $value: 1.5;
 <p>在设计网页的时候常常遇到这种情况：一个元素使用的样式与另一个元素完全相同，但又添加了额外的样式。通常会在 HTML 中给元素定义两个 class，一个通用样式，一个特殊样式。假设现在要设计一个普通错误样式与一个严重错误样式，一般会这样写：</p>
 <div>
   <pre data-line=''><code class='language-markup'>&lt;div class=&quot;error seriousError&quot;&gt;
-	Oh no! You've been hacked!
+	Oh no! You&#39;ve been hacked!
 &lt;/div&gt;</code></pre>
 </div>
 <p>样式如下</p>
@@ -1073,7 +1072,7 @@ a {
 
 <p>如果使用普通的 CSS 规则，最后会编译出很多用不到的样式，也容易与其他样式名冲突，所以，Sass 引入了“占位符选择器” (placeholder selectors)，看起来很像普通的 <code>id</code> 或 <code>class</code> 选择器，只是 <code>#</code> 或 <code>.</code> 被替换成了 <code>%</code>。可以像 class 或者 id 选择器那样使用，当它们单独使用时，不会被编译到 CSS 文件中。</p>
 <div>
-  <pre data-line=''><code class='language-css'>// This ruleset won't be rendered on its own.
+  <pre data-line=''><code class='language-css'>// This ruleset won&#39;t be rendered on its own.
 #context a%extreme {
 	color: blue;
 	font-weight: bold;
@@ -1230,20 +1229,20 @@ p {
 <div>
   <pre data-line=''><code class='language-css'>@each $animal in puma, sea-slug, egret, salamander {
 	.#{$animal}-icon {
-		background-image: url('/images/#{$animal}.png');
+		background-image: url(&#39;/images/#{$animal}.png&#39;);
 	}
 }</code></pre>
 </div>
 <p>编译为</p>
 <div>
   <pre data-line=''><code class='language-css'>.puma-icon {
-	background-image: url('/images/puma.png'); }
+	background-image: url(&#39;/images/puma.png&#39;); }
 .sea-slug-icon {
-	background-image: url('/images/sea-slug.png'); }
+	background-image: url(&#39;/images/sea-slug.png&#39;); }
 .egret-icon {
-	background-image: url('/images/egret.png'); }
+	background-image: url(&#39;/images/egret.png&#39;); }
 .salamander-icon {
-	background-image: url('/images/salamander.png'); }</code></pre>
+	background-image: url(&#39;/images/salamander.png&#39;); }</code></pre>
 </div>
 <p><h4 id='8_4'>8.4. @while</h4></p>
 

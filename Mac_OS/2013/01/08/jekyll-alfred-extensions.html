@@ -51,13 +51,13 @@
   <pre data-line=''><code class='language-markup'># Please replace your own _posts folder path in the next line. The format should start with /Users/user_name/
 Dir.chdir &quot;/Users/lpw/Dropbox/Websites/Jekyll/_posts/&quot;
 
-today = Time.now.strftime('%Y-%m-%d')
+today = Time.now.strftime(&#39;%Y-%m-%d&#39;)
 input = ARGV[0]
 
-filename = [today, input].join('-')
-extension = 'md'
+filename = [today, input].join(&#39;-&#39;)
+extension = &#39;md&#39;
 	
-file = [filename, extension].join('.')
+file = [filename, extension].join(&#39;.&#39;)
 
 system(%[touch &quot;#{file}&quot;])
 system(%[open &quot;#{file}&quot;])</code></pre>
@@ -94,7 +94,7 @@ end tell</code></pre>
     
     do script &quot;cd ~/dropbox/websites/p233.github.com/&quot; in window 1
     do script &quot;git add .&quot; in window 1
-    do script &quot;git commit -am '&quot; &amp; message &amp; &quot;'&quot; in window 1
+    do script &quot;git commit -am &#39;&quot; &amp; message &amp; &quot;&#39;&quot; in window 1
     do script &quot;git push&quot; in window 1
 end tell
 end alfred_script</code></pre>

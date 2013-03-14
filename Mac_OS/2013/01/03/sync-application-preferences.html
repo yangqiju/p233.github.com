@@ -64,7 +64,7 @@
 <li>在第二台机器上，关闭 Sublime Text 2，找到 packages 文件夹并将其删除，然后重复步骤 3 中的命令。</li>
 </ol>
 
-<h3 id='id1'>同步其他软件</h3>
+<h3 id='id1181'>同步其他软件</h3>
 
 <p>Mac OS 下软件的设置文件都会以 .plist 的格式保存在 <code>~/Library/Preferences/</code> 下，只要给这些文件创建 symlink 就可以完成同步。有些软件除了 .plist 外，还会在 <code>~/Libray/Application Support/</code> 下创建文件夹存储额外的设置，比如 Alfred 会创建一个文件夹存储 extensions，TextMate 会创建一个文件夹存储 Bundles 与 Themes，给这些文件夹创建 symlink 可以完成更彻底的同步。<em>但是，并不是所有的软件都允许同步这些文件夹</em>，有些软件会删除 symlink 重新写入文件，而不是按照 symlink 找到位于 Dropbox 下的文件。已经同步的软件如果更新，则不会影响到 symlink。</p>
 
