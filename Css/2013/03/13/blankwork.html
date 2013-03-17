@@ -4,7 +4,7 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="">
 		<meta name="keywords" content="">
-		<title>【分享】Blankwork 最棒的网格系统 | Peter's Playground</title>
+		<title>【分享】Blankwork 非常好用的网格系统 | Peter's Playground</title>
 		<!--[if lt IE 8]><meta http-equiv="refresh" content="0;url=/ie.html"><![endif]-->
 		<!--[if lt IE 9]><script src="/js/html5shiv.js"></script><![endif]-->
 		<link rel="shortcut icon" href="/images/favicon.ico" />
@@ -41,10 +41,10 @@
 		<div id="container">
 			<div id="post" class="inner">
 	<p id="date"><span>13 March 2013</span></p>
-	<h2>【分享】Blankwork 最棒的网格系统</h2>
-	<p>最近有点忙，没有坚持写博客很不应该，今天与大家分享一款 SCSS Grid System —— Blankwork，这是我所有了解过的网格系统中最牛也是最好用的一款，与其他相比不需要定义任何一个额外的 class，通过调用自定义函数与 maxin 直接给元素编译样式，所以强烈推荐所有 Sass 用户尝试一下。地址：<a href='http://www.blankwork.net/'>http://www.blankwork.net/</a></p>
+	<h2>【分享】Blankwork 非常好用的网格系统</h2>
+	<p>最近有点忙，没有坚持写博客很不应该，今天与大家分享一款 SCSS Grid System —— Blankwork，这是我所有了解过的网格系统中最好用的一款，与其他相比不需要定义任何一个额外的 class，只需调用自定义函数与 mixin 直接给元素编译样式，所以强烈推荐所有 Sass 用户尝试一下。地址：<a href='http://www.blankwork.net/' target='_blank'>http://www.blankwork.net/</a></p>
 
-<p>首先，导入 <code>blankwork.sass</code> 文件，这个文件中有几个参数可以修改，默认宽度 960px，12列布局，间距 20px。</p>
+<p>首先，导入 <code>blankwork.scss</code> 文件，这个文件中有几个参数可以修改，默认宽度 960px，12列布局，间距 20px。</p>
 <div>
   <pre data-line=''><code class='language-css'>$_columns: 12 !default;      // Total number of columns
 $_column-width: 60px !default;   // Width of a single column
@@ -85,7 +85,7 @@ $_gutter: 20px !default;     // Width of the gutter</code></pre>
 	padding 10px
 	border: 1px solid black</code></pre>
 </div>
-<p>输出宽度是 960px 减去“偏移量”，算上 <code>padding</code> 与 <code>border</code> 总宽度还是 960px。另外，建议在 <code>blankwork.sass</code> 文件中调整一下偏移量与居中的顺序，不然要多打一次 true。</p>
+<p>输出宽度是 960px 减去“偏移量”，算上 <code>padding</code> 与 <code>border</code> 总宽度还是 960px。另外，建议在 <code>blankwork.scss</code> 文件中调整一下偏移量与居中的顺序，不然要多打一次 true。</p>
 
 <h4 id='2_'>2. <code>+container($columns, $subtract)</code></h4>
 
@@ -103,11 +103,11 @@ $_gutter: 20px !default;     // Width of the gutter</code></pre>
 </div>
 <h4 id='3_'>3. <code>column($columns, $subtract, $margin-override)</code></h4>
 
-<p>Column 使用三个参数：列数（默认：12），偏移量（默认：0），间距（默认：20px，每侧各 10px）。前两个相信不用介绍了，第三个参数调左右的 <code>margin</code> 值，与 960 的 <code>prefix</code> <code>suffix</code> 单向 <code>padding</code> 不同，参数值除以二平均分配给两侧，相信不会经常用到。</p>
+<p>Column 使用三个参数：列数（默认：12），偏移量（默认：0），间距（默认：20px，每侧各 10px）。前两个相信不用介绍了，多提一点第一个参数并不一定要输入整数，带小数也可以，相加之和等于 12 即可，非常灵活。第三个参数调整左右的 <code>margin</code> 值，与 960 的 <code>prefix</code> <code>suffix</code> 单向 <code>padding</code> 不同，参数值除以二平均分配给两侧，应该不会经常用到。</p>
 
 <h4 id='4_'>4. <code>get_width($columns, $onlyInnerWidth)</code></h4>
 
-<p>Get_width 是个自定义函数，用于提取宽度给其他属性使用。第一个参数设定列数（默认：12），第二参数决定提取的宽度是否包含间距，默认：true，也就是不包含。用法如下：</p>
+<p>Get_width 是个自定义函数，用于提取宽度给其他属性使用。第一个参数设定列数（默认：12），第二参数决定提取的宽度是否不包含间距，默认：true，也就是不包含。用法如下：</p>
 <div>
   <pre data-line=''><code class='language-css'>#demo
   width: get_width(3)

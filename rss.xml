@@ -6,19 +6,86 @@
     <atom:link href="http://peters-playground.com/rss.xml" rel="self" type="application/rss+xml" />
     <description>关于前端方面的资讯分享，经验总结，与深度思考</description>
     <language>zh_CN</language>
-    <pubDate>Thu, 14 Mar 2013 00:30:21 +0000</pubDate>
-    <lastBuildDate>Thu, 14 Mar 2013 00:30:21 +0000</lastBuildDate>
+    <pubDate>Sun, 17 Mar 2013 15:32:33 +0000</pubDate>
+    <lastBuildDate>Sun, 17 Mar 2013 15:32:33 +0000</lastBuildDate>
 
     
     <item>
-      <title>【分享】Blankwork 最棒的网格系统</title>
+      <title>【分享】Jekyll Alfred 2 Workflows</title>
+      <link>http://peters-playground.com/Mac_OS/2013/03/17/jekyll-alfred-extensions.html</link>
+      <pubDate>17 Mar 2013</pubDate>
+      <author>Peter</author>
+      <guid>http://peters-playground.com/Mac_OS/2013/03/17/jekyll-alfred-extensions</guid>
+      <description>&lt;p&gt;Alfred 2 将之前的 extension 功能替换成了现在的 workflow，所以将这三个 Jekyll 相关插件简单调整了一下，重新发出来，欢迎大家试用。下载地址：&lt;a href=&#39;https://github.com/P233/Jekyll-Alfred-Extensions&#39; target=&#39;_blank&#39;&gt;https://github.com/P233/Jekyll-Alfred-Extensions&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#39;create_new_jekyll_post&#39;&gt;Create new Jekyll Post&lt;/h3&gt;
+
+&lt;p&gt;输入 &lt;code&gt;newpost [title]&lt;/code&gt;创建一篇 Jekyll 文章，文件名前自动添加今天的日期作为前缀，&lt;code&gt;title&lt;/code&gt; 中请输入 &lt;code&gt;-&lt;/code&gt; 代替空格。需要替换成自己的 Jekyll 文件夹的路径，格式必须以 &lt;code&gt;/Users/user_name/&lt;/code&gt; 开头。&lt;/p&gt;
+&lt;div&gt;
+  &lt;pre data-line=&#39;&#39;&gt;&lt;code class=&#39;language-markup&#39;&gt;# Please replace your own _posts folder path in the next line. The format should start with /Users/user_name/
+Dir.chdir &amp;quot;/Users/lpw/Dropbox/Websites/Jekyll/_posts/&amp;quot;
+
+today = Time.now.strftime(&amp;#39;%Y-%m-%d&amp;#39;)
+input = “{query}”
+
+filename = [today, input].join(&amp;#39;-&amp;#39;)
+extension = &amp;#39;md&amp;#39;
+	
+file = [filename, extension].join(&amp;#39;.&amp;#39;)
+
+system(%[touch &amp;quot;#{file}&amp;quot;])
+system(%[open &amp;quot;#{file}&amp;quot;])&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h3 id=&#39;generate_jekyll_site&#39;&gt;Generate Jekyll site&lt;/h3&gt;
+
+&lt;p&gt;输入 &lt;code&gt;jekyll&lt;/code&gt; 运行 &lt;code&gt;cd [path]&lt;/code&gt; 与 &lt;code&gt;jekyll --server --auto&lt;/code&gt; 两个命令，然后在浏览器中访问网站，需要在 applescript 中替换自己的 Jekyll 文件夹路径。&lt;/p&gt;
+&lt;div&gt;
+  &lt;pre data-line=&#39;&#39;&gt;&lt;code class=&#39;language-markup&#39;&gt;on alfred_script(q)
+tell application &amp;quot;Terminal&amp;quot;
+    activate
+    if (count of windows) is 0 then
+        set currentTab to do script &amp;quot;cd ~/dropbox/websites/jekyll/&amp;quot;
+    else
+        do script &amp;quot;cd ~/dropbox/websites/jekyll/&amp;quot; in window 1
+    end if
+    do script &amp;quot;jekyll --server --auto&amp;quot; in window 1
+    delay 2
+    do shell script &amp;quot;open http://0.0.0.0:4000&amp;quot;
+end tell
+end alfred_script&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h3 id=&#39;push_jekyll_to_github&#39;&gt;Push Jekyll to Github&lt;/h3&gt;
+
+&lt;p&gt;输入 &lt;code&gt;pushjekyll&lt;/code&gt; 将 Jekyll 生成的网站复制到新地址，并将新地址上传到 Github，之所以这样做是因为 Github Pages 不支持自定义插件，只好上传生成的静态网站。如果不需要这个步骤，可以将 &lt;code&gt;if&lt;/code&gt; 部分删除。同样需要在 applescript 中替换自己的 Jekyll 文件夹路径，如果路径中有空格，需要在空格前添加 &lt;code&gt;\\&lt;/code&gt;。&lt;/p&gt;
+&lt;div&gt;
+  &lt;pre data-line=&#39;&#39;&gt;&lt;code class=&#39;language-markup&#39;&gt;on alfred_script(message)
+  tell application &amp;quot;Terminal&amp;quot;
+    activate
+
+    if (count of windows) is 0 then
+        set currentTab to do script &amp;quot;cp -a ~/dropbox/websites/jekyll/_site/. ~/dropbox/websites/p233.github.com/&amp;quot;
+    else
+        do script &amp;quot;cp -a ~/dropbox/websites/jekyll/_site/. ~/dropbox/websites/p233.github.com/&amp;quot; in window 1
+    end if
+    
+    do script &amp;quot;cd ~/dropbox/websites/p233.github.com/&amp;quot; in window 1
+    do script &amp;quot;git add .&amp;quot; in window 1
+    do script &amp;quot;git commit -am &amp;#39;&amp;quot; &amp;amp; message &amp;amp; &amp;quot;&amp;#39;&amp;quot; in window 1
+    do script &amp;quot;git push&amp;quot; in window 1
+  end tell
+end alfred_script&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>【分享】Blankwork 非常好用的网格系统</title>
       <link>http://peters-playground.com/Css/2013/03/13/blankwork.html</link>
       <pubDate>13 Mar 2013</pubDate>
       <author>Peter</author>
       <guid>http://peters-playground.com/Css/2013/03/13/blankwork</guid>
-      <description>&lt;p&gt;最近有点忙，没有坚持写博客很不应该，今天与大家分享一款 SCSS Grid System —— Blankwork，这是我所有了解过的网格系统中最牛也是最好用的一款，与其他相比不需要定义任何一个额外的 class，通过调用自定义函数与 maxin 直接给元素编译样式，所以强烈推荐所有 Sass 用户尝试一下。地址：&lt;a href=&#39;http://www.blankwork.net/&#39;&gt;http://www.blankwork.net/&lt;/a&gt;&lt;/p&gt;
+      <description>&lt;p&gt;最近有点忙，没有坚持写博客很不应该，今天与大家分享一款 SCSS Grid System —— Blankwork，这是我所有了解过的网格系统中最好用的一款，与其他相比不需要定义任何一个额外的 class，只需调用自定义函数与 mixin 直接给元素编译样式，所以强烈推荐所有 Sass 用户尝试一下。地址：&lt;a href=&#39;http://www.blankwork.net/&#39; target=&#39;_blank&#39;&gt;http://www.blankwork.net/&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;首先，导入 &lt;code&gt;blankwork.sass&lt;/code&gt; 文件，这个文件中有几个参数可以修改，默认宽度 960px，12列布局，间距 20px。&lt;/p&gt;
+&lt;p&gt;首先，导入 &lt;code&gt;blankwork.scss&lt;/code&gt; 文件，这个文件中有几个参数可以修改，默认宽度 960px，12列布局，间距 20px。&lt;/p&gt;
 &lt;div&gt;
   &lt;pre data-line=&#39;&#39;&gt;&lt;code class=&#39;language-css&#39;&gt;$_columns: 12 !default;      // Total number of columns
 $_column-width: 60px !default;   // Width of a single column
@@ -59,7 +126,7 @@ $_gutter: 20px !default;     // Width of the gutter&lt;/code&gt;&lt;/pre&gt;
 	padding 10px
 	border: 1px solid black&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;p&gt;输出宽度是 960px 减去“偏移量”，算上 &lt;code&gt;padding&lt;/code&gt; 与 &lt;code&gt;border&lt;/code&gt; 总宽度还是 960px。另外，建议在 &lt;code&gt;blankwork.sass&lt;/code&gt; 文件中调整一下偏移量与居中的顺序，不然要多打一次 true。&lt;/p&gt;
+&lt;p&gt;输出宽度是 960px 减去“偏移量”，算上 &lt;code&gt;padding&lt;/code&gt; 与 &lt;code&gt;border&lt;/code&gt; 总宽度还是 960px。另外，建议在 &lt;code&gt;blankwork.scss&lt;/code&gt; 文件中调整一下偏移量与居中的顺序，不然要多打一次 true。&lt;/p&gt;
 
 &lt;h4 id=&#39;2_&#39;&gt;2. &lt;code&gt;+container($columns, $subtract)&lt;/code&gt;&lt;/h4&gt;
 
@@ -77,11 +144,11 @@ $_gutter: 20px !default;     // Width of the gutter&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;h4 id=&#39;3_&#39;&gt;3. &lt;code&gt;column($columns, $subtract, $margin-override)&lt;/code&gt;&lt;/h4&gt;
 
-&lt;p&gt;Column 使用三个参数：列数（默认：12），偏移量（默认：0），间距（默认：20px，每侧各 10px）。前两个相信不用介绍了，第三个参数调左右的 &lt;code&gt;margin&lt;/code&gt; 值，与 960 的 &lt;code&gt;prefix&lt;/code&gt; &lt;code&gt;suffix&lt;/code&gt; 单向 &lt;code&gt;padding&lt;/code&gt; 不同，参数值除以二平均分配给两侧，相信不会经常用到。&lt;/p&gt;
+&lt;p&gt;Column 使用三个参数：列数（默认：12），偏移量（默认：0），间距（默认：20px，每侧各 10px）。前两个相信不用介绍了，多提一点第一个参数并不一定要输入整数，带小数也可以，相加之和等于 12 即可，非常灵活。第三个参数调整左右的 &lt;code&gt;margin&lt;/code&gt; 值，与 960 的 &lt;code&gt;prefix&lt;/code&gt; &lt;code&gt;suffix&lt;/code&gt; 单向 &lt;code&gt;padding&lt;/code&gt; 不同，参数值除以二平均分配给两侧，应该不会经常用到。&lt;/p&gt;
 
 &lt;h4 id=&#39;4_&#39;&gt;4. &lt;code&gt;get_width($columns, $onlyInnerWidth)&lt;/code&gt;&lt;/h4&gt;
 
-&lt;p&gt;Get_width 是个自定义函数，用于提取宽度给其他属性使用。第一个参数设定列数（默认：12），第二参数决定提取的宽度是否包含间距，默认：true，也就是不包含。用法如下：&lt;/p&gt;
+&lt;p&gt;Get_width 是个自定义函数，用于提取宽度给其他属性使用。第一个参数设定列数（默认：12），第二参数决定提取的宽度是否不包含间距，默认：true，也就是不包含。用法如下：&lt;/p&gt;
 &lt;div&gt;
   &lt;pre data-line=&#39;&#39;&gt;&lt;code class=&#39;language-css&#39;&gt;#demo
   width: get_width(3)
@@ -417,7 +484,7 @@ a[data-info~=&amp;quot;image&amp;quot;] {
 &lt;p&gt;提示：伪元素 (pseudo element) 使用双冒号 &lt;code&gt;::&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h4 id=&#39;id1190&#39;&gt;选取段落的第一个字母&lt;/h4&gt;
+&lt;h4 id=&#39;id10&#39;&gt;选取段落的第一个字母&lt;/h4&gt;
 &lt;div&gt;
   &lt;pre data-line=&#39;&#39;&gt;&lt;code class=&#39;language-css&#39;&gt;p::first-letter {  
    float: left;  
@@ -429,7 +496,7 @@ a[data-info~=&amp;quot;image&amp;quot;] {
 &lt;/div&gt;
 &lt;p&gt;这段代码将选取页面中所有 p 元素，然后再选取其中的第一个字母。&lt;/p&gt;
 
-&lt;h4 id=&#39;id1191&#39;&gt;选取段落的第一行&lt;/h4&gt;
+&lt;h4 id=&#39;id11&#39;&gt;选取段落的第一行&lt;/h4&gt;
 &lt;div&gt;
   &lt;pre data-line=&#39;&#39;&gt;&lt;code class=&#39;language-css&#39;&gt;p::first-line {  
    font-weight: bold;  
@@ -556,7 +623,7 @@ a[data-info~=&amp;quot;image&amp;quot;] {
    &amp;lt;/ul&amp;gt;  
 &amp;lt;/div&amp;gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;h4 id=&#39;id1192&#39;&gt;方法一&lt;/h4&gt;
+&lt;h4 id=&#39;id12&#39;&gt;方法一&lt;/h4&gt;
 &lt;div&gt;
   &lt;pre data-line=&#39;&#39;&gt;&lt;code class=&#39;language-css&#39;&gt;ul:first-of-type &amp;gt; li:nth-child(2) {  
    font-weight: bold;  
@@ -564,7 +631,7 @@ a[data-info~=&amp;quot;image&amp;quot;] {
 &lt;/div&gt;
 &lt;p&gt;这段代码的意思是：首先选取第一个 ul 元素；然后选取其中的所有直接子元素，也就是 li；最后选取第二个子元素。&lt;/p&gt;
 
-&lt;h4 id=&#39;id1193&#39;&gt;方法二&lt;/h4&gt;
+&lt;h4 id=&#39;id13&#39;&gt;方法二&lt;/h4&gt;
 &lt;div&gt;
   &lt;pre data-line=&#39;&#39;&gt;&lt;code class=&#39;language-css&#39;&gt;p + ul li:last-child {  
    font-weight: bold;  
@@ -572,7 +639,7 @@ a[data-info~=&amp;quot;image&amp;quot;] {
 &lt;/div&gt;
 &lt;p&gt;找到 p 元素后第一个出现的 ul 元素，然后选取其中的最后一个子元素。&lt;/p&gt;
 
-&lt;h4 id=&#39;id1194&#39;&gt;方法三&lt;/h4&gt;
+&lt;h4 id=&#39;id14&#39;&gt;方法三&lt;/h4&gt;
 &lt;div&gt;
   &lt;pre data-line=&#39;&#39;&gt;&lt;code class=&#39;language-css&#39;&gt;ul:first-of-type li:nth-last-child(1) {  
    font-weight: bold;  
@@ -2179,71 +2246,6 @@ $gutter-width: 10px;
     </item>
     
     <item>
-      <title>【分享】Jekyll Alfred Extensions</title>
-      <link>http://peters-playground.com/Mac_OS/2013/01/08/jekyll-alfred-extensions.html</link>
-      <pubDate>08 Jan 2013</pubDate>
-      <author>Peter</author>
-      <guid>http://peters-playground.com/Mac_OS/2013/01/08/jekyll-alfred-extensions</guid>
-      <description>&lt;p&gt;三个 Alfred Extensions 让 Jekyll 用起来更方便：Create a Jekyll Post, Generate Jekyll site, 以及 Push Jekyll post to Github。可以直接从 &lt;a href=&#39;https://github.com/P233/Jekyll-Alfred-Extensions&#39; target=&#39;_blank&#39;&gt;Github&lt;/a&gt; 下载，或者根据下面的代码自己创建。&lt;/p&gt;
-
-&lt;h3 id=&#39;create_a_jekyll_post&#39;&gt;Create a Jekyll Post&lt;/h3&gt;
-
-&lt;p&gt;快速创建一篇 Jekyll 文章。下载后双击安装，在 Alfred 管理面板中右键选择 “Show in Finder”，打开 new_post.rb 文件，然后添加你自己的 _posts 文件夹路径，格式必须以 &lt;code&gt;/Users/user_name/&lt;/code&gt; 开头。创建新文章时，在 Alfred 中输入 &lt;code&gt;post&lt;/code&gt; 与文件名，文件名中的空格请用 &lt;code&gt;-&lt;/code&gt; 代替。以下是 ruby 源码：&lt;/p&gt;
-&lt;div&gt;
-  &lt;pre data-line=&#39;&#39;&gt;&lt;code class=&#39;language-markup&#39;&gt;# Please replace your own _posts folder path in the next line. The format should start with /Users/user_name/
-Dir.chdir &amp;quot;/Users/lpw/Dropbox/Websites/Jekyll/_posts/&amp;quot;
-
-today = Time.now.strftime(&amp;#39;%Y-%m-%d&amp;#39;)
-input = ARGV[0]
-
-filename = [today, input].join(&amp;#39;-&amp;#39;)
-extension = &amp;#39;md&amp;#39;
-	
-file = [filename, extension].join(&amp;#39;.&amp;#39;)
-
-system(%[touch &amp;quot;#{file}&amp;quot;])
-system(%[open &amp;quot;#{file}&amp;quot;])&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;h3 id=&#39;generate_jekyll_site&#39;&gt;Generate Jekyll site&lt;/h3&gt;
-
-&lt;p&gt;通过 AppleScript 在 Terminal 中自动运行 &lt;code&gt;cd&lt;/code&gt; 与 &lt;code&gt;jekyll --server --auto&lt;/code&gt; 两个命令，然后在浏览器中访问网站，不要忘记替换成自己的 Jekyll 文件夹的路径。&lt;/p&gt;
-&lt;div&gt;
-  &lt;pre data-line=&#39;&#39;&gt;&lt;code class=&#39;language-markup&#39;&gt;tell application &amp;quot;Terminal&amp;quot;
-    activate
-    if (count of windows) is 0 then
-        set currentTab to do script &amp;quot;cd ~/dropbox/websites/jekyll/&amp;quot;
-    else
-        do script &amp;quot;cd ~/dropbox/websites/jekyll/&amp;quot; in window 1
-    end if
-    do script &amp;quot;jekyll --server --auto&amp;quot; in window 1
-    delay 2
-    do shell script &amp;quot;open http://0.0.0.0:4000&amp;quot;
-end tell&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;h3 id=&#39;push_jekyll_post_to_github&#39;&gt;Push Jekyll post to Github&lt;/h3&gt;
-
-&lt;p&gt;通过 AppleScript 在 Terminal 中将生成的网站复制到新地址，并将新地址下的内容上传到 Github。之所以复制是因为 Github Pages 不支持插件，只能上传生成的网站，如果你不需要这个步骤，将下面的 &lt;code&gt;if&lt;/code&gt; 语句删除即可。同样需要替换成自己的 Jekyll 文件夹路径。&lt;/p&gt;
-&lt;div&gt;
-  &lt;pre data-line=&#39;&#39;&gt;&lt;code class=&#39;language-markup&#39;&gt;on alfred_script(message)
-  tell application &amp;quot;Terminal&amp;quot;
-    activate
-
-    if (count of windows) is 0 then
-        set currentTab to do script &amp;quot;cp -a ~/dropbox/websites/jekyll/_site/. ~/dropbox/websites/p233.github.com/&amp;quot;
-    else
-        do script &amp;quot;cp -a ~/dropbox/websites/jekyll/_site/. ~/dropbox/websites/p233.github.com/&amp;quot; in window 1
-    end if
-    
-    do script &amp;quot;cd ~/dropbox/websites/p233.github.com/&amp;quot; in window 1
-    do script &amp;quot;git add .&amp;quot; in window 1
-    do script &amp;quot;git commit -am &amp;#39;&amp;quot; &amp;amp; message &amp;amp; &amp;quot;&amp;#39;&amp;quot; in window 1
-    do script &amp;quot;git push&amp;quot; in window 1
-end tell
-end alfred_script&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;</description>
-    </item>
-    
-    <item>
       <title>【翻译】关于 Css Transition 的一切</title>
       <link>http://peters-playground.com/Css/2013/01/06/css-transitions.html</link>
       <pubDate>06 Jan 2013</pubDate>
@@ -2251,7 +2253,7 @@ end alfred_script&lt;/code&gt;&lt;/pre&gt;
       <guid>http://peters-playground.com/Css/2013/01/06/css-transitions</guid>
       <description>&lt;p&gt;刚刚读到的文章，非常不错，翻译出来与大家分享。原文 &lt;a href=&#39;http://blog.alexmaccaw.com/css-transitions&#39; target=&#39;_blank&#39;&gt;All you need to know about Css Transitions&lt;/a&gt; 由 Alex Maccaw 发表于 2013 年 1 月 3 日。不想花太多时间纠结于字面翻译，只专注最核心的信息，Javascript 入门水平，因此后半部分理解不深入，详细信息还请读原文，翻译不当的地方请大家指正。&lt;/p&gt;
 
-&lt;h3 id=&#39;id1182&#39;&gt;浏览器支持&lt;/h3&gt;
+&lt;h3 id=&#39;id2&#39;&gt;浏览器支持&lt;/h3&gt;
 
 &lt;p&gt;几乎所有版本的 Firefox, Safari, Chrome 以及最新的 IE10 都支持 transition 属性。动画与渐变特效在 Safari 和 Chrome 下仍然需要添加 &lt;code&gt;-webkit&lt;/code&gt; 前缀，不过很快也会不需要了。&lt;/p&gt;
 
@@ -2298,7 +2300,7 @@ var inactive = function(){
   $(&amp;#39;.element&amp;#39;).removeClass(&amp;#39;active&amp;#39;).addClass(&amp;#39;inactive&amp;#39;);
 };&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;h3 id=&#39;id1183&#39;&gt;渐变背景的变化&lt;/h3&gt;
+&lt;h3 id=&#39;id3&#39;&gt;渐变背景的变化&lt;/h3&gt;
 
 &lt;p&gt;不是所有的 css 属性都可以变化，而且只能从一个绝对值变化到另一个绝对值。比如，&lt;code&gt;height&lt;/code&gt; 不能从 &lt;code&gt;0px&lt;/code&gt; 变化到 &lt;code&gt;auto&lt;/code&gt;（补充：不同单位之间也可以变化，比如从 &lt;code&gt;0px&lt;/code&gt; 变化到 &lt;code&gt;10em&lt;/code&gt;，但不可以从 &lt;code&gt;0px&lt;/code&gt; 变化到 &lt;code&gt;10%&lt;/code&gt;），可变化的属性列表请参考&lt;a href=&#39;http://oli.jp/2010/css-animatable-properties/&#39; target=&#39;_blank&#39;&gt;这里&lt;/a&gt;。&lt;/p&gt;
 
@@ -2349,7 +2351,7 @@ var inactive = function(){
 .x:hover {} 
 .x:hover:before { /* This works (needs :hover declared) */ }&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;h3 id=&#39;id1184&#39;&gt;硬件加速&lt;/h3&gt;
+&lt;h3 id=&#39;id4&#39;&gt;硬件加速&lt;/h3&gt;
 
 &lt;p&gt;变化某些属性，比如 &lt;code&gt;left&lt;/code&gt; ，&lt;code&gt;margin&lt;/code&gt;，&lt;em&gt;浏览器会重新计算每一帧的显示效果&lt;/em&gt;，这严重影响速度，尤其是在移动设备上。解决办法就是让 GPU 来做这些运算，简单的说，就是将元素转化为图片再制作变化效果，而不是重新计算每一帧的 css 样式。最简单的一个使用硬件加速的办法就是用 &lt;code&gt;transform: translate3d(0,0,0);&lt;/code&gt; 属性。&lt;/p&gt;
 
@@ -2377,11 +2379,11 @@ input:focus {
   -webkit-transform: translate3d(-50px, 0, 0);
 }&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;h3 id=&#39;id1185&#39;&gt;时间函数&lt;/h3&gt;
+&lt;h3 id=&#39;id5&#39;&gt;时间函数&lt;/h3&gt;
 
 &lt;p&gt;浏览器内置的时间函数包括 &lt;code&gt;linear, ease, ease-in, ease-out and ease-in-out&lt;/code&gt;，复杂一点，可以用 cubic-bezier 曲线自定义时间函数，比如 &lt;code&gt;transition: -webkit-transform 1s cubic-bezier(.17,.67,.69,1.33);&lt;/code&gt; 。两个帮你选择时间函数的工具 &lt;a href=&#39;http://easings.net&#39; target=&#39;_blank&#39;&gt;Pre-defined Curves&lt;/a&gt; 和 &lt;a href=&#39;http://cubic-bezier.com/#.17,.67,.83,.67&#39; target=&#39;_blank&#39;&gt;Graphing Tool&lt;/a&gt;。&lt;/p&gt;
 
-&lt;h3 id=&#39;id1186&#39;&gt;用程序控制变化效果&lt;/h3&gt;
+&lt;h3 id=&#39;id6&#39;&gt;用程序控制变化效果&lt;/h3&gt;
 
 &lt;p&gt;借助 js 可以更有效的控制变化的效果，例如将连续的变化做成动画。变化属性为 &lt;code&gt;all&lt;/code&gt; 时意味着元素的所有属性都可以同时发生变化，请看下面的例子&lt;/p&gt;
 &lt;div&gt;
@@ -2422,7 +2424,7 @@ $(this).css(properties);&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;现在可以调用 &lt;code&gt;$.fn.emulateTransitionEnd()&lt;/code&gt; 确保变化结束的 callback 被激活。&lt;/p&gt;
 
-&lt;h3 id=&#39;id1187&#39;&gt;连续的变化&lt;/h3&gt;
+&lt;h3 id=&#39;id7&#39;&gt;连续的变化&lt;/h3&gt;
 
 &lt;p&gt;熟悉用 js 调用变化，与获取变化结束的 callback 后，可以进一步将变化进行排列，做成连续的动画。jQuery 提供了两个对列相关的函数 &lt;code&gt;$.fn.queue(callback)&lt;/code&gt; 与 &lt;code&gt;$.fn.dequeue()&lt;/code&gt;。先将 css 变化样式写入 &lt;code&gt;$.fn.queue&lt;/code&gt; callback 中，变化结束后调用 &lt;code&gt;$.fn.dequeue&lt;/code&gt;。&lt;/p&gt;
 &lt;div&gt;
@@ -2440,7 +2442,7 @@ $el.queue(function(){
              .delay(200)
              .transition({background: &amp;#39;red&amp;#39;});&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;h3 id=&#39;id1188&#39;&gt;重绘&lt;/h3&gt;
+&lt;h3 id=&#39;id8&#39;&gt;重绘&lt;/h3&gt;
 
 &lt;p&gt;在使用 &lt;code&gt;transition&lt;/code&gt; 属性时，要写两套 css 属性，初始样式与结束样式。&lt;/p&gt;
 &lt;div&gt;
@@ -2472,7 +2474,7 @@ anim.play();&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;另外，可以在 &lt;a href=&#39;https://github.com/web-animations/web-animations-js&#39; target=&#39;_blank&#39;&gt;这里&lt;/a&gt; 找到一些实现新 API 的变通法子。&lt;/p&gt;
 
-&lt;h3 id=&#39;id1189&#39;&gt;结尾&lt;/h3&gt;
+&lt;h3 id=&#39;id9&#39;&gt;结尾&lt;/h3&gt;
 
 &lt;p&gt;目前为止，希望你已经深入的了解了 css 的 transition 属性，以及如何组合简单的 API 制作丰富的动画效果。文中大多数 js 例子来源于 &lt;a href=&#39;https://github.com/maccman/gfx&#39; target=&#39;_blank&#39;&gt;GFX&lt;/a&gt;，这也是本文作者 Alex 写的一个 jQuery Css transition 库。&lt;/p&gt;</description>
     </item>
@@ -2626,7 +2628,7 @@ anim.play();&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;在第二台机器上，关闭 Sublime Text 2，找到 packages 文件夹并将其删除，然后重复步骤 3 中的命令。&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h3 id=&#39;id1181&#39;&gt;同步其他软件&lt;/h3&gt;
+&lt;h3 id=&#39;id1&#39;&gt;同步其他软件&lt;/h3&gt;
 
 &lt;p&gt;Mac OS 下软件的设置文件都会以 .plist 的格式保存在 &lt;code&gt;~/Library/Preferences/&lt;/code&gt; 下，只要给这些文件创建 symlink 就可以完成同步。有些软件除了 .plist 外，还会在 &lt;code&gt;~/Libray/Application Support/&lt;/code&gt; 下创建文件夹存储额外的设置，比如 Alfred 会创建一个文件夹存储 extensions，TextMate 会创建一个文件夹存储 Bundles 与 Themes，给这些文件夹创建 symlink 可以完成更彻底的同步。&lt;em&gt;但是，并不是所有的软件都允许同步这些文件夹&lt;/em&gt;，有些软件会删除 symlink 重新写入文件，而不是按照 symlink 找到位于 Dropbox 下的文件。已经同步的软件如果更新，则不会影响到 symlink。&lt;/p&gt;
 
