@@ -1,100 +1,25 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<meta name="description" content="">
-		<meta name="keywords" content="">
-		<title>首页 | Peter's Playground</title>
-		<!--[if lt IE 8]><meta http-equiv="refresh" content="0;url=/ie.html"><![endif]-->
-		<!--[if lt IE 9]><script src="/js/html5shiv.js"></script><![endif]-->
-		<link rel="shortcut icon" href="/images/favicon.ico" />
-		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Overlock">
-		<link rel="stylesheet" type="text/css" href="/stylesheet/style.css">
-		<script type="text/javascript">
-		  var _gaq = _gaq || [];
-		  _gaq.push(['_setAccount', 'UA-37955907-1']);
-		  _gaq.push(['_trackPageview']);
-		  (function() {
-		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		  })();
-		</script>
-	</head>
-	<body>
-		<header>
-			<h1>Peter's Playground</h1>
-			<nav>
-				<a href="/index.html">首页</a>
-				<a href="/categories.html">文章分类</a>
-					<div id="sub_nav">
-						<a href="/categories.html#css">Css 技术</a>
-						<a href="/categories.html#mac">软件与系统</a>
-						<a href="/categories.html#unc">未分类</a>
-					</div>
-				<a href="/github.html">My Github</a>
-			</nav>
-			<a id="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank"><img src="/images/cc.png" alt="creative commons"/></a>
-			<a id="rss" href="/rss.xml"><img src="/images/rss.png" alt="rss"/></a>
-		</header>
-		<div id="arrow"></div>
-		<div id="container">
-			<div id="index" class="inner">
-	<div id="welcome">
-		<h2 id="title">Peter's Playground</h2>
-		<p>嗨！我是 Peter，Github 用户名 P233。我享受学习前端技术所带来的快乐，搭建这个博客，鼓励自己分享资讯，积累经验，深度思考，目标在 2013 年取得更好的成绩。</p>
-	</div>
-	<div id="recent">
-		<h2>最新文章</h2>
-		
-		<p class="entry">
-			<span>17 Mar 2013</span>
-			<a href="/Mac_OS/2013/03/17/jekyll-alfred-extensions.html">【分享】Jekyll Alfred 2 Workflows</a>
-		</p>
-		
-		<p class="entry">
-			<span>13 Mar 2013</span>
-			<a href="/Css/2013/03/13/blankwork.html">【分享】Blankwork 非常好用的网格系统</a>
-		</p>
-		
-		<p class="entry">
-			<span>02 Mar 2013</span>
-			<a href="/Css/2013/03/02/sass-syntax.html">【分享】Sass for Sublime Text 2</a>
-		</p>
-		
-		<p class="entry">
-			<span>31 Jan 2013</span>
-			<a href="/Css/2013/01/31/css-selectors-must-memorize.html">【翻译】牢记 30 种 CSS 选择器用法</a>
-		</p>
-		
-		<p class="entry">
-			<span>24 Jan 2013</span>
-			<a href="/Css/2013/01/24/sass-reference.html">【翻译】Sass 官方文档中文版</a>
-		</p>
-		
-	</div>
-	<div id="attribution">
-		<p>Theme by <a href="mailto:40132147&#64;&#113;&#113;&#46;&#99;&#111;&#109;?Subject=Hi%20Peter">Peter</a></p>
-		<p>3D Menu by <a href="http://lab.hakim.se/meny/" target="_blank">Meny</a></p>
-		<p>Hosted on <a href="http://pages.github.com" target="_blank">Github Pages</a></p>
-		<p>Powered by <a href="https://github.com/mojombo/jekyll" target="_blank">Jekyll</a> and <a href="http://disqus.com" target="_blank">Disqus</a></p>
-		<p>所有文章均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank">知识共享署名-非商业性使用-相同方式共享 3.0 中国大陆许可协议</a> 进行许可，转载需注明文章地址</p>
-	</div>
-</div>
-		</div>
-		<script type="text/javascript" src="/js/meny.min.js"></script>
-		<script type="text/javascript" src="/js/prism.min.js"></script>
-		<script type="text/javascript">
-			if (navigator.appVersion.indexOf("Win")!=-1) document.body.style.fontSize = '18px';
-
-			var meny = Meny.create({
-				menuElement: document.querySelector( 'header' ),
-				contentsElement: document.querySelector( '#container' ),
-				position: Meny.getQuery().p || 'left',
-				height: 200,
-				width: 250,
-				threshold: 40
-			});
-		</script>
-	</body>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Peters-Playground</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="robots" content="noindex" />
+    <style type="text/css">
+    body {
+        width:450px;
+        margin:50px auto;
+        font:14px/1.5 'Trebuchet MS', sans-serif;
+        text-align:center;
+        background-color:#252525;
+    }
+    h1 {margin:0; font-size:180px; color:#fff;}
+    h2, p {color:#e1ec30; text-shadow:0 -1px 0 rgba(0, 0 ,0, .3);}
+    </style>
+</head>
+<body>
+    <h1>!</h1>
+    <h2>Comming Soon</h2>
+    <p>抱歉，新版页面正在测试中</p>
+</body>
 </html>

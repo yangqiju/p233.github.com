@@ -1,386 +1,307 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<meta name="description" content="">
-		<meta name="keywords" content="">
-		<title>【翻译】Sass 官方文档中文版 | Peter's Playground</title>
-		<!--[if lt IE 8]><meta http-equiv="refresh" content="0;url=/ie.html"><![endif]-->
-		<!--[if lt IE 9]><script src="/js/html5shiv.js"></script><![endif]-->
-		<link rel="shortcut icon" href="/images/favicon.ico" />
-		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Overlock">
-		<link rel="stylesheet" type="text/css" href="/stylesheet/style.css">
-		<script type="text/javascript">
-		  var _gaq = _gaq || [];
-		  _gaq.push(['_setAccount', 'UA-37955907-1']);
-		  _gaq.push(['_trackPageview']);
-		  (function() {
-		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		  })();
-		</script>
-	</head>
-	<body>
-		<header>
-			<h1>Peter's Playground</h1>
-			<nav>
-				<a href="/index.html">首页</a>
-				<a href="/categories.html">文章分类</a>
-					<div id="sub_nav">
-						<a href="/categories.html#css">Css 技术</a>
-						<a href="/categories.html#mac">软件与系统</a>
-						<a href="/categories.html#unc">未分类</a>
-					</div>
-				<a href="/github.html">My Github</a>
-			</nav>
-			<a id="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank"><img src="/images/cc.png" alt="creative commons"/></a>
-			<a id="rss" href="/rss.xml"><img src="/images/rss.png" alt="rss"/></a>
-		</header>
-		<div id="arrow"></div>
-		<div id="container">
-			<div id="post" class="inner">
-	<p id="date"><span>24 January 2013</span></p>
-	<h2>【翻译】Sass 官方文档中文版</h2>
-	<p>使用 Sass 已经有几个月的时间了，翻来覆去还是在用几个简单的功能，下决心好好学习一下，所以翻译了官方文档。翻译的过程也是学习与积累的过程，深入理解了几个复杂功能，同时也补充了一些基础知识。只是官方文档写得实在绕口，花了很久才翻译完，有几处地方不太理解，翻译不出来，还请大家帮忙，理解错误的地方也请大家指正。关于 Sass 设置的部分暂时未翻译，因为只会用 <a href='http://incident57.com/codekit/' target='_blank'>Codekit</a>，对这些没有概念。如果哪位愿意代为翻译，或者交流，<a href='mailto:40132147&#64;&#113;&#113;&#46;&#99;&#111;&#109;?Subject=Hi%20Peter' target='_blank'>请联系 Peter</a>。</p>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>Peter's Playground</title>
+    <!--[if lt IE 8]><meta http-equiv="refresh" content="0;url=/ie.html"><![endif]-->
+    <!--[if lt IE 9]><script src="/js/html5shiv.js"></script><![endif]-->
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/stylesheet/style.css">
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-37955907-1']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </head>
+  <body>
+    <nav id="nav">
+      <img id="profile" src="/images/profile.png" alt="">
+      <ul id="menu">
+        <li id="label1" class="label selected"><span>最新文章</span></li>
+        <li id="label2" class="label"><sapn>CSS 技术</sapn></li>
+        <li id="label3" class="label"><span>前端综合</span></li>
+        <li id="label4" class="label"><span>软件系统</span></li>
+        <li id="label5" class="label"><span>Demo</span></li>
+        <li id="label6" class="label"><span>Github</span></li>
+        <a id="about" href="/index.html">About</a>
+      </ul>
+      <a id="contact_me" href="mailto:40132147&#64;&#113;&#113;&#46;&#99;&#111;&#109;?Subject=Hi%20Peter"></a>
+      <a id="rss" href="/rss.xml" target="blank"></a>
+    </nav>
 
-<p>Sass 官方文档，<a href='http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html' target='_blank'>原地址在请看这里</a>，相当于 Sass 的功能概览，要学好 Sass 还是要多方面学习，<a href='http://manning.com/netherland/' target='_blank'>《Sass and Compass in action》</a> 这本书下个月底出版，非常期待。</p>
-<div id='contents'>
-<h3>目录</h3>
-<a href='#1'>1. 特色功能 (Features)</a>
-<a href='#2'>2. 语言格式 (Syntax)</a>
-<a href='#3'>3. 使用 Sass (Using Sass)</a>
-<!--
-<a href="#3_1">3.1. Rack/Rails/Merb Plugins</a>
-<a href="#3_2">3.2. </a>
-<a href="#3_3">3.3. </a>
-<a href="#3_4">3.4. </a>
-<a href="#3_5">3.5. </a>
-<a href="#3_5_1">3.5.1 </a>
--->
-<a href='#4'>4. CSS 拓展 (CSS Extensions)</a>
-<div class='level2'>
-<a href='#4_1'>4.1. 嵌套规则 (Nested Rules)</a>
-<a href='#4_2'>4.2. 引用父选择器 &amp; (Referencing Parent Selectors: &amp;)</a>
-<a href='#4_3'>4.3. 属性嵌套 (Nested Properties)</a>
-<a href='#4_4'>4.4. 占位符选择器 %foo (Placeholder Selectors: %foo)</a>
-</div>
-<a href='#5'>5. 注释 /* */ 与 // (Comments: /* */ and //)</a>
-<a href='#6'>6. SassScript</a>
-<div class='level2'>
-<a href='#6_1'>6.1. Interactive Shell</a>
-<a href='#6_2'>6.2. 变量 $ (Variables: $)</a>
-<a href='#6_3'>6.3. 数据类型 (Data Types)</a>
-<div class='level3'>
-<a href='#6_3_1'>6.3.1. 字符串 (Strings)</a>
-<a href='#6_3_2'>6.3.2. 值列表 (Lists)</a>
-</div>
-<a href='#6_4'>6.4. 运算符 (Operations)</a>
-<div class='level3'>
-<a href='#6_4_1'>6.4.1. 数字运算 (Number Operations)</a>
-<a class='level4' href='#6_4_1_1'>6.4.1.1. 除法运算 / (Division and /)</a>
-<a href='#6_4_2'>6.4.2. 颜色运算 (Color Operations)</a>
-<a href='#6_4_3'>6.4.3. 字符串运算 (String Operations)</a>
-<a href='#6_4_4'>6.4.4. 布尔运算 (Boolean Operations)</a>
-<a href='#6_4_5'>6.4.5. 值列表运算 (List Operations)</a>
-</div>
-<a href='#6_5'>6.5. 圆括号 (Parentheses)</a>
-<a href='#6_6'>6.6. 函数 (Functions)</a>
-<div class='level3'>
-<a href='#6_6_1'>6.6.1. 关键词参数 (Keyword Arguments)</a>
-</div>
-<a href='#6_7'>6.7. 插值语句 #{ } (Interpolation: #{ })</a>
-<a href='#6_8'>6.8. 变量定义 !default (Variable Defaults: !default)</a>
-</div>
-<a href='#7'>7. @-Rules 与指令 (@-Rules and Directives)</a>
-<div class='level2'>
-<a href='#7_1'>7.1. @import</a>
-<div class='level3'>
-<a href='#7_1_1'>7.1.1. 分音 (Partials)</a>
-<a href='#7_1_2'>7.1.2. 嵌套 @import</a>
-</div>
-<a href='#7_2'>7.2. @media</a>
-<a href='#7_3'>7.3. @extend</a>
-<div class='level3'>
-<a href='#7_3_1'>7.3.1. How it Works</a>
-<a href='#7_3_2'>7.3.2. 多重延伸 (Multiple Extends)</a>
-<a href='#7_3_3'>7.3.3. 继续延伸 (Chaining Extends)</a>
-<a href='#7_3_4'>7.3.4. 选择器列 (Selector Sequences)</a>
-<a href='#7_3_5'>7.3.5. 合并选择器列 (Merging Selector Sequences)</a>
-<a class='level4' href='#7_3_5_1'>7.3.5.1. @extend-Only 选择器 (@extend-Only Selectors)</a>
-<a href='#7_3_6'>7.3.6. @extend-Only 选择器 (@extend-Only Selectors)</a>
-<a href='#7_3_7'>7.3.7. !optional 声明 (The !optional Flag)</a>
-<a href='#7_3_8'>7.3.8. 在指令中延伸 (@extend in Directives)</a>
-</div>
-<!--
-<a href="#7_4">7.4. @debug</a>
-<a href="#7_5">7.5. @warn</a>
--->
-</div>
-<a href='#8'>8. 控制指令 (Control Directives)</a>
-<div class='level2'>
-<a href='#8_1'>8.1. @if</a>
-<a href='#8_2'>8.2. @for</a>
-<a href='#8_3'>8.3. @each</a>
-<a href='#8_4'>8.4. @while</a>
-</div>
-<a href='#9'>9. 混合指令 (Mixin Directives)</a>
-<div class='level2'>
-<a href='#9_1'>9.1. 定义混合指令 @mixin (Defining a Mixin: @mixin)</a>
-<a href='#9_2'>9.2. 引用混合样式 @include (Including a Mixin: @include)</a>
-<a href='#9_3'>9.3. 参数 (Arguments)</a>
-<div class='level3'>
-<a href='#9_3_1'>9.3.1. 关键词参数 (Keyword Arguments)</a>
-<a href='#9_3_2'>9.3.2. 参数变量 (Variable Arguments)</a>
-</div>
-<a href='#9_4'>9.4. 向混合样式中导入内容 (Passing Content Blocks to a Mixin)</a>
-<div class='level3'>
-<a href='#9_4_1'>9.4.1. Variable Scope and Content Blocks</a>
-</div>
-</div>
-<a href='#10'>10. 函数指令 (Function Directives)</a>
-<a href='#11'>11. 输出样式 (Output Style)</a>
-<div class='level2'>
-<a href='#11_1'>11.1. :nested</a>
-<a href='#11_2'>11.2. :expanded</a>
-<a href='#11_3'>11.3. :compact</a>
-<a href='#11_4'>11.4. :compressed</a>
-</div>
-<a href='#12'>12. 拓展 Sass</a>
-<div class='level2'>
-<a href='#12_1'>12.1. 自定义 Sass 函数</a>
-</div>
-</div><h3 id='1'>1. 特色功能 (Features)</h3><ul>
+    <aside id="sidebar">
+      <div id="title_wrap" class="select1">
+        <h2 id="title1" class="title">最新文章</h2>
+        <h2 id="title2" class="title">CSS 技术</h2>
+        <h2 id="title3" class="title">前端综合</h2>
+        <h2 id="title4" class="title">软件系统</h2>
+        <h2 id="title5" class="title">Demo</h2>
+        <h2 id="title6" class="title">Github</h2>
+      </div>
+
+      <div id="post_list">
+        
+          <a class="Demo cate1" href="/Demo/2013/04/06/css3-slider-practice.html">CSS3 Slider 模仿练习<span>Apr 2013</span></a>
+        
+          <a class="Front_end cate1" href="/Front_end/2013/03/31/ie10-placeholder.html">IE10 的 placeholder 伪类问题<span>Mar 2013</span></a>
+        
+          <a class="Github cate1" href="/Github/2013/03/17/jekyll-alfred-extensions.html">Jekyll Alfred 2 Workflows<span>Mar 2013</span></a>
+        
+          <a class="CSS cate1" href="/CSS/2013/03/13/blankwork.html">Blankwork 超好用的网格系统<span>Mar 2013</span></a>
+        
+          <a class="Github cate1" href="/Github/2013/03/02/sass-syntax.html">Syntax Highlighting for Sass<span>Mar 2013</span></a>
+        
+          <a class="CSS cate1" href="/CSS/2013/01/31/css-selectors-must-memorize.html">牢记 31 种 CSS 选择器用法<span>Jan 2013</span></a>
+        
+          <a class="CSS cate1" href="/CSS/2013/01/24/sass-reference.html">Sass 官方文档翻译<span>Jan 2013</span></a>
+        
+          <a class="Mac cate1" href="/Mac/2013/01/19/dropbox-diff.html">DropboxDiff 对比文件的历史版本<span>Jan 2013</span></a>
+        
+          <a class="CSS cate1" href="/CSS/2013/01/06/css-transitions.html">关于 CSS Transition 的一切<span>Jan 2013</span></a>
+        
+          <a class="CSS cate1" href="/CSS/2013/01/05/css-performance.html">关注 CSS 性能 (一)<span>Jan 2013</span></a>
+        
+          <a class="CSS cate1" href="/CSS/2013/01/04/Browser-Specific-Hacks.html">CSS 判断浏览器方法整理<span>Jan 2013</span></a>
+        
+          <a class="Mac cate1" href="/Mac/2013/01/03/sync-application-preferences.html">用 Dropbox 同步 Mac 软件设置<span>Jan 2013</span></a>
+        
+          <a class="Front_end cate1" href="/Front_end/2013/01/02/blogging-with-jekyll.html">开始在 Github 上写博客<span>Jan 2013</span></a>
+        
+      </div>
+    </aside>
+
+    <div id="container">
+      <div id="load"></div>
+      <div class="ajax"><article id="post">
+  <header id="header">
+    <h1>Sass 官方文档翻译</h1>
+    <button id="fullscreen" class="header_icon" title="部分浏览器不支持全屏模式"></button>
+    <button id="fontsize" class="header_icon"></button>
+  </header>
+  <div id="content">
+    <p>使用 Sass 已经有几个月的时间了，翻来覆去还是在用几个简单的功能，下决心好好学习一下，所以翻译了官方文档。翻译的过程也是学习与积累的过程，深入理解了几个复杂功能，同时也补充了一些基础知识。只是官方文档写得实在绕口，花了很久才翻译完，有几处地方不太理解，翻译不出来，还请大家帮忙，理解错误的地方也请大家指正。关于 Sass 设置的部分暂时未翻译，因为只会用 <a href='http://incident57.com/codekit/'>Codekit</a>，对这些没有概念。如果哪位愿意代为翻译，或者交流，<a href='mailto:40132147&amp;#64;&amp;#113;&amp;#113;&amp;#46;&amp;#99;&amp;#111;&amp;#109;?Subject=Hi%20Peter'>请联系 Peter</a>。</p>
+
+<p>Sass 官方文档，<a href='http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html'>原地址在请看这里</a>，相当于 Sass 的功能概览，要学好 Sass 还是要多方面学习，<a href='http://manning.com/netherland/'>《Sass and Compass in action》</a> 这本书下个月底出版，非常期待。</p>
+<h2 id='1'>1. 特色功能 (Features)</h2>
+<ul>
 <li>完全兼容 CSS3；</li>
+
 <li>在 CSS 语言基础上添加了拓展功能，比如变量、嵌套 (nesting)、混合 (mixin) 等等；</li>
-<li>可以用<a href='http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html' target='_blank'>函数</a>运算颜色值与属性值 (property value) ；</li>
-<li>高级命令，如<a href='#8'>控制指令 (control directives)</a>；</li>
-<li>可定义多种输出格式；</li>
-<li><a href='https://addons.mozilla.org/en-US/firefox/addon/firesass-for-firebug/' target='_blank'>支持 Firebug</a>。</li>
-</ul><h3 id='2'>2. 语言格式 (Syntax)</h3>
+
+<li><a href='http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html'>函数</a>运算颜色值与属性值 (property value) ；</li>
+
+<li>高级命令，如 <a href='#8'>控制指令 (control directives)</a>； * 可定义多种输出格式；</li>
+
+<li><a href='https://addons.mozilla.org/en-US/firefox/addon/firesass-for-firebug/'>支持 Firebug</a>。</li>
+</ul>
+<h2 id='2'>2. 语言格式 (Syntax)</h2>
 <p>Sass 包含两种语言格式。第一种被称为 SCSS (Sassy CSS)，也是本文示例所使用的格式，作为 CSS3 语言的拓展。也就是说，所有的 CSS3 样式都可以写进 SCSS 文件中，除此之外，SCSS 也能够理解大多数的 CSS hacks 以及浏览器前缀 (vendor-specific)，甚至早期的 IE 滤镜，这些都依赖于 Sass 的特色功能，下文将会详细介绍。这种格式以 <code>.scss</code> 作为拓展名。</p>
 
-<p>另一种格式出现的时间更早一些，被成为缩进格式（或者 “Sass”），这是一种让书写 CSS 变得更简洁的方式。它使用“缩进”替代“括号”表示属性嵌套在选择器中，用“换行”替代“分号”表示属性的区分。不少人认为这种格式比 SCSS 更容易阅读，书写也更快速。缩进格式可使用 Sass 的所有功能，只是个别地方采用了不同的表达方式，具体可以通过 <a href='http://sass-lang.com/docs/yardoc/file.INDENTED_SYNTAX.html' target='_blank'>the indented syntax reference</a> 查看区别。这种格式以 <code>.sass</code> 作为拓展名。</p>
+<p>另一种格式出现的时间更早一些，被成为缩进格式（或者 “Sass”），这是一种让书写 CSS 变得更简洁的方式。它使用“缩进”替代“括号”表示属性嵌套在选择器中，用“换行”替代“分号”表示属性的区分。不少人认为这种格式比 SCSS 更容易阅读，书写也更快速。缩进格式可使用 Sass 的所有功能，只是个别地方采用了不同的表达方式，具体可以通过 <a href='http://sass-lang.com/docs/yardoc/file.INDENTED_SYNTAX.html'>the indented syntax reference</a> 查看区别。这种格式以 <code>.sass</code> 作为拓展名。</p>
 
-<p>每种格式都可以被<a href='#7_1'>导入 (@import)</a> 到另一种格式中使用，也可以通过 <code>sass-convert</code> 指令互相转换。</p>
-<div>
-  <pre data-line=''><code class='language-markup'># Convert Sass to SCSS
-$ sass-convert style.sass style.scss
+<p>每种格式都可以被 <a href='#7_1'>导入 (@import)</a> 到另一种格式中使用，也可以通过 <code>sass-convert</code> 指令互相转换。</p>
+<div class='highlight'><pre><code class='irb'><span class='go'># Convert Sass to SCSS</span>
+<span class='go'>$ sass-convert style.sass style.scss</span>
 
-# Convert SCSS to Sass
-$ sass-convert style.scss style.sass</code></pre>
-</div><h3 id='3'>3. 使用 Sass (Using Sass)</h3>
-<p>Sass 通过以下三种方式使用：在命令行工具中，作为独立的 Ruby 模式 (Ruby module)，或者作为 Rack-enabled 框架的插件（包括 Ruby on Rails 与 Merb）。第一步，安装 Sass gem （Windows 系统下，需要先<a href='http://rubyinstaller.org/' target='_blank'>安装 Ruby</a>）：</p>
-<div>
-  <pre data-line=''><code class='language-css'>gem install sass</code></pre>
-</div>
+<span class='go'># Convert SCSS to Sass</span>
+<span class='go'>$ sass-convert style.scss style.sass</span>
+</code></pre></div><h2 id='3'>3. 使用 Sass (Using Sass)</h2>
+<p>Sass 可以通过以下三种方式使用：在命令行工具中，作为独立的 Ruby 模块 (Ruby module)，或者作为 Rack-enabled 框架的插件（包括 Ruby on Rails 与 Merb）。第一步，安装 Sass gem （Windows 系统下，需要先<a href='http://rubyinstaller.org/'>安装 Ruby</a>）：</p>
+<div class='highlight'><pre><code class='irb'><span class='go'>gem install sass</span>
+</code></pre></div>
 <p>在命令行中运行 Sass：</p>
-<div>
-  <pre data-line=''><code class='language-css'>sass input.scss output.css</code></pre>
-</div>
+<div class='highlight'><pre><code class='irb'><span class='go'>sass input.scss output.css</span>
+</code></pre></div>
 <p>监视 Sass 文件，每次更新时，自动编译成 CSS：</p>
-<div>
-  <pre data-line=''><code class='language-css'>sass --watch input.scss:output.css</code></pre>
-</div>
+<div class='highlight'><pre><code class='irb'><span class='go'>sass --watch input.scss:output.css</span>
+</code></pre></div>
 <p>监视整个文件夹：</p>
-<div>
-  <pre data-line=''><code class='language-css'>sass --watch app/sass:public/stylesheets</code></pre>
-</div>
+<div class='highlight'><pre><code class='irb'><span class='go'>sass --watch app/sass:public/stylesheets</span>
+</code></pre></div>
 <p>更多命令请通过 <code>sass --help</code> 查看。</p>
 
-<p>在 Ruby 代码中使用 Sass 也非常容易，安装完毕后，运行 <code>require &quot;sass&quot;</code> 然后使用 <a href='http://sass-lang.com/docs/yardoc/Sass/Engine.html' target='_blank'>Sass::Engine</a>，例如</p>
-<div>
-  <pre data-line=''><code class='language-css'>engine = Sass::Engine.new(&quot;#main {background-color: #0000ff}&quot;, :syntax =&gt; :scss)
-engine.render #=&gt; &quot;#main { background-color: #0000ff; }\n&quot;</code></pre>
-</div>
+<p>在 Ruby 代码中使用 Sass 也非常容易，安装完毕后，运行 <code>require &quot;sass&quot;</code> 然后使用 <a href='http://sass-lang.com/docs/yardoc/Sass/Engine.html'>Sass::Engine</a>，例如</p>
+<div class='highlight'><pre><code class='irb'><span class='go'>engine = Sass::Engine.new(&quot;#main {background-color: #0000ff}&quot;, :syntax =&gt; :scss)</span>
+<span class='go'>engine.render #=&gt; &quot;#main { background-color: #0000ff; }\n&quot;</span>
+</code></pre></div>
 <blockquote>
-<p>以下关于 Sass 设置的内容暂未翻译，请查看 <a href='http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#rackrailsmerb_plugin' target='_blank'>原文档</a>。</p>
+<p>以下关于 Sass 设置的内容暂未翻译，请查看 <a href='http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#rackrailsmerb_plugin'>原文档</a>。</p>
 </blockquote>
 <!---
-<h4 id="3_1">3.1. Rack/Rails/Merb Plugin</h4>
-<h4 id="3_2">3.2. Caching</h4>
-<h4 id="3_3">3.3. Options</h4>
-<h4 id="3_4">3.4. Syntax Selection</h4>
-<h4 id="3_5">3.5. Encodings</h4>
-<h5 id="3_5_1">3.5.1. Output Encoding</h5>
---><h3 id='4'>4. CSS 拓展 (CSS Extensions)</h3><h4 id='4_1'>4.1. 嵌套规则 (Nested Rules)</h4>
-<p>Sass 可以将一套 CSS 样式嵌套进另一套样式中使用，嵌套后的样式将继承给它的外层选择器（父选择器），例如：</p>
-<div>
-  <pre data-line=''><code class='language-css'>#main p {
-	color: #00ff00;
-	width: 97%;
+<h3 id="3_1">3.1. Rack/Rails/Merb Plugin</h3>
+<h3 id="3_2">3.2. Caching</h3>
+<h3 id="3_3">3.3. Options</h3>
+<h3 id="3_4">3.4. Syntax Selection</h3>
+<h3 id="3_5">3.5. Encodings</h3>
+<h4 id="3_5_1">3.5.1. Output Encoding</h4>
+--><h2 id='4'>4. CSS 拓展 (CSS Extensions)</h2><h3 id='4_1'>4.1. 嵌套规则 (Nested Rules)</h3>
+<p>Sass 可以将一套 CSS 样式嵌套进另一套样式中使用，嵌套后的样式将继承给它的外层选择器（或父选择器），例如：</p>
+<div class='highlight'><pre><code class='scss'><span class='nn'>#main</span> <span class='nt'>p</span> <span class='p'>{</span>
+	<span class='na'>color</span><span class='o'>:</span> <span class='mh'>#00ff00</span><span class='p'>;</span>
+	<span class='na'>width</span><span class='o'>:</span> <span class='mi'>97</span><span class='kt'>%</span><span class='p'>;</span>
 
-	.redbox {
-		background-color: #ff0000;
-		color: #000000;
-	}
-}</code></pre>
-</div>
+	<span class='nc'>.redbox</span> <span class='p'>{</span>
+		<span class='na'>background-color</span><span class='o'>:</span> <span class='mh'>#ff0000</span><span class='p'>;</span>
+		<span class='na'>color</span><span class='o'>:</span> <span class='mh'>#000000</span><span class='p'>;</span>
+	<span class='p'>}</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>#main p {
-	color: #00ff00;
-	width: 97%; }
-	#main p .redbox {
-		background-color: #ff0000;
-		color: #000000; }</code></pre>
-</div>
+<div class='highlight'><pre><code class='css'><span class='nf'>#main</span> <span class='nt'>p</span> <span class='p'>{</span>
+	<span class='k'>color</span><span class='o'>:</span> <span class='m'>#00ff00</span><span class='p'>;</span>
+	<span class='k'>width</span><span class='o'>:</span> <span class='m'>97</span><span class='o'>%</span><span class='p'>;</span> <span class='p'>}</span>
+	<span class='nf'>#main</span> <span class='nt'>p</span> <span class='nc'>.redbox</span> <span class='p'>{</span>
+		<span class='k'>background-color</span><span class='o'>:</span> <span class='m'>#ff0000</span><span class='p'>;</span>
+		<span class='k'>color</span><span class='o'>:</span> <span class='m'>#000000</span><span class='p'>;</span> <span class='p'>}</span>
+</code></pre></div>
 <p>嵌套功能可以避免重复使用父选择器，并且让书写复杂的 CSS 结构变得简单、容易，例如：</p>
-<div>
-  <pre data-line=''><code class='language-css'>#main {
-	width: 97%;
+<div class='highlight'><pre><code class='scss'><span class='nn'>#main</span> <span class='p'>{</span>
+	<span class='na'>width</span><span class='o'>:</span> <span class='mi'>97</span><span class='kt'>%</span><span class='p'>;</span>
 
-	p, div {
-		font-size: 2em;
-		a { font-weight: bold; }
-	}
+	<span class='nt'>p</span><span class='o'>,</span> <span class='nt'>div</span> <span class='p'>{</span>
+		<span class='na'>font-size</span><span class='o'>:</span> <span class='mi'>2</span><span class='kt'>em</span><span class='p'>;</span>
+		<span class='nt'>a</span> <span class='p'>{</span> <span class='na'>font-weight</span><span class='o'>:</span> <span class='no'>bold</span><span class='p'>;</span> <span class='p'>}</span>
+	<span class='p'>}</span>
 
-	pre { font-size: 3em; }
-}</code></pre>
-</div>
+	<span class='nt'>pre</span> <span class='p'>{</span> <span class='na'>font-size</span><span class='o'>:</span> <span class='mi'>3</span><span class='kt'>em</span><span class='p'>;</span> <span class='p'>}</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>#main {
-	width: 97%; }
-	#main p, #main div {
-		font-size: 2em; }
-		#main p a, #main div a {
-			font-weight: bold; }
-	#main pre {
-		font-size: 3em; }</code></pre>
-</div><h4 id='4_2'>4.2. 引用父选择器 <code>&amp;</code> (Referencing Parent Selectors: <code>&amp;</code>)</h4>
-<p>在嵌套 CSS 规则时，Sass 提供了一种简便的办法引用父选择器，比如，当给一个元素 hover 样式的时候，或者 <code>body</code> 元素确定了 class 的时候。这时，可以用 <code>&amp;</code> 表示父选择器。</p>
-<div>
-  <pre data-line=''><code class='language-css'>a {
-	font-weight: bold;
-	text-decoration: none;
-	&amp;:hover { text-decoration: underline; }
-	body.firefox &amp; { font-weight: normal; }
-}</code></pre>
-</div>
+<div class='highlight'><pre><code class='css'><span class='nf'>#main</span> <span class='p'>{</span>
+	<span class='k'>width</span><span class='o'>:</span> <span class='m'>97</span><span class='o'>%</span><span class='p'>;</span> <span class='p'>}</span>
+	<span class='nf'>#main</span> <span class='nt'>p</span><span class='o'>,</span> <span class='nf'>#main</span> <span class='nt'>div</span> <span class='p'>{</span>
+		<span class='k'>font-size</span><span class='o'>:</span> <span class='m'>2em</span><span class='p'>;</span> <span class='p'>}</span>
+		<span class='nf'>#main</span> <span class='nt'>p</span> <span class='nt'>a</span><span class='o'>,</span> <span class='nf'>#main</span> <span class='nt'>div</span> <span class='nt'>a</span> <span class='p'>{</span>
+			<span class='k'>font-weight</span><span class='o'>:</span> <span class='k'>bold</span><span class='p'>;</span> <span class='p'>}</span>
+	<span class='nf'>#main</span> <span class='nt'>pre</span> <span class='p'>{</span>
+		<span class='k'>font-size</span><span class='o'>:</span> <span class='m'>3em</span><span class='p'>;</span> <span class='p'>}</span>
+</code></pre></div><h3 id='4_2'>4.2. 引用父选择器 <code>&amp;</code> (Referencing Parent Selectors: <code>&amp;</code>)</h3>
+<p>在嵌套 CSS 规则时，Sass 提供了一种简便的办法引用父选择器，比如，当给一个元素设定 hover 样式的时候，或者 <code>body</code> 元素确定了 class 的时候，这时，可以用 <code>&amp;</code> 表示父选择器。</p>
+<div class='highlight'><pre><code class='scss'><span class='nt'>a</span> <span class='p'>{</span>
+	<span class='na'>font-weight</span><span class='o'>:</span> <span class='no'>bold</span><span class='p'>;</span>
+	<span class='na'>text-decoration</span><span class='o'>:</span> <span class='no'>none</span><span class='p'>;</span>
+	<span class='k'>&amp;</span><span class='nd'>:hover</span> <span class='p'>{</span> <span class='na'>text-decoration</span><span class='o'>:</span> <span class='no'>underline</span><span class='p'>;</span> <span class='p'>}</span>
+	<span class='nt'>body</span><span class='nc'>.firefox</span> <span class='k'>&amp;</span> <span class='p'>{</span> <span class='na'>font-weight</span><span class='o'>:</span> <span class='no'>normal</span><span class='p'>;</span> <span class='p'>}</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>a {
-	font-weight: bold;
-	text-decoration: none; }
-	a:hover {
-		text-decoration: underline; }
-	body.firefox a {
-		font-weight: normal; }</code></pre>
-</div>
+<div class='highlight'><pre><code class='css'><span class='nt'>a</span> <span class='p'>{</span>
+	<span class='k'>font-weight</span><span class='o'>:</span> <span class='k'>bold</span><span class='p'>;</span>
+	<span class='k'>text-decoration</span><span class='o'>:</span> <span class='k'>none</span><span class='p'>;</span> <span class='p'>}</span>
+	<span class='nt'>a</span><span class='nd'>:hover</span> <span class='p'>{</span>
+		<span class='k'>text-decoration</span><span class='o'>:</span> <span class='k'>underline</span><span class='p'>;</span> <span class='p'>}</span>
+	<span class='nt'>body</span><span class='nc'>.firefox</span> <span class='nt'>a</span> <span class='p'>{</span>
+		<span class='k'>font-weight</span><span class='o'>:</span> <span class='k'>normal</span><span class='p'>;</span> <span class='p'>}</span>
+</code></pre></div>
 <p>在编译过的 CSS 文件中，<code>&amp;</code> 将被替换成外层的父选择器，如果使用了多层嵌套（最好不要超过三层），最外层的父选择器会被完整地替换给每一层。</p>
-<div>
-  <pre data-line=''><code class='language-css'>#main {
-	color: black;
-	a {
-		font-weight: bold;
-		&amp;:hover { color: red; }
-	}
-}</code></pre>
-</div>
+<div class='highlight'><pre><code class='scss'><span class='nn'>#main</span> <span class='p'>{</span>
+	<span class='na'>color</span><span class='o'>:</span> <span class='nb'>black</span><span class='p'>;</span>
+	<span class='nt'>a</span> <span class='p'>{</span>
+		<span class='na'>font-weight</span><span class='o'>:</span> <span class='no'>bold</span><span class='p'>;</span>
+		<span class='k'>&amp;</span><span class='nd'>:hover</span> <span class='p'>{</span> <span class='na'>color</span><span class='o'>:</span> <span class='nb'>red</span><span class='p'>;</span> <span class='p'>}</span>
+	<span class='p'>}</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>#main {
-	color: black; }
-	#main a {
-		font-weight: bold; }
-		#main a:hover {
-			color: red; }</code></pre>
-</div><h4 id='4_3'>4.3. 属性嵌套 (Nested Properties)</h4>
+<div class='highlight'><pre><code class='css'><span class='nf'>#main</span> <span class='p'>{</span>
+	<span class='k'>color</span><span class='o'>:</span> <span class='nb'>black</span><span class='p'>;</span> <span class='p'>}</span>
+	<span class='nf'>#main</span> <span class='nt'>a</span> <span class='p'>{</span>
+		<span class='k'>font-weight</span><span class='o'>:</span> <span class='k'>bold</span><span class='p'>;</span> <span class='p'>}</span>
+		<span class='nf'>#main</span> <span class='nt'>a</span><span class='nd'>:hover</span> <span class='p'>{</span>
+			<span class='k'>color</span><span class='o'>:</span> <span class='nb'>red</span><span class='p'>;</span> <span class='p'>}</span>
+</code></pre></div><h3 id='4_3'>4.3. 属性嵌套 (Nested Properties)</h3>
 <p>有些 CSS 属性遵循相同的命名规则 (namespace)，比如 <code>font-family, font-size, font-weight</code> 都以 <code>font</code> 作为属性名的前半部分（注，这个前半部分就是 namespace，也可单独作 CSS 属性）。使用一套遵循相同命名规则的属性，每次都要重复输入 namespace，略显繁琐。为此，Sass 提供了一种简便的方法，只需书写 namespace 一次，然后在其中嵌套子属性：</p>
-<div>
-  <pre data-line=''><code class='language-css'>.funky {
-	font: {
-		family: fantasy;
-		size: 30em;
-		weight: bold;
-	}
-}</code></pre>
-</div>
+<div class='highlight'><pre><code class='scss'><span class='nc'>.funky</span> <span class='p'>{</span>
+	<span class='na'>font</span><span class='o'>:</span> <span class='p'>{</span>
+		<span class='na'>family</span><span class='o'>:</span> <span class='no'>fantasy</span><span class='p'>;</span>
+		<span class='na'>size</span><span class='o'>:</span> <span class='mi'>30</span><span class='kt'>em</span><span class='p'>;</span>
+		<span class='na'>weight</span><span class='o'>:</span> <span class='no'>bold</span><span class='p'>;</span>
+	<span class='p'>}</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>.funky {
-	font-family: fantasy;
-	font-size: 30em;
-	font-weight: bold; }</code></pre>
-</div>
+<div class='highlight'><pre><code class='css'><span class='nc'>.funky</span> <span class='p'>{</span>
+	<span class='k'>font-family</span><span class='o'>:</span> <span class='k'>fantasy</span><span class='p'>;</span>
+	<span class='k'>font-size</span><span class='o'>:</span> <span class='m'>30em</span><span class='p'>;</span>
+	<span class='k'>font-weight</span><span class='o'>:</span> <span class='k'>bold</span><span class='p'>;</span> <span class='p'>}</span>
+</code></pre></div>
 <p>Namespace 也可以先设定属性值，再开始嵌套，比如：</p>
-<div>
-  <pre data-line=''><code class='language-css'>.funky {
-	font: 2px/3px {
-		family: fantasy;
-		size: 30em;
-		weight: bold;
-	}
-}</code></pre>
-</div>
+<div class='highlight'><pre><code class='scss'><span class='nc'>.funky</span> <span class='p'>{</span>
+	<span class='na'>font</span><span class='o'>:</span> <span class='mi'>2</span><span class='kt'>px</span><span class='o'>/</span><span class='mi'>3</span><span class='kt'>px</span> <span class='p'>{</span>
+		<span class='na'>family</span><span class='o'>:</span> <span class='no'>fantasy</span><span class='p'>;</span>
+		<span class='na'>size</span><span class='o'>:</span> <span class='mi'>30</span><span class='kt'>em</span><span class='p'>;</span>
+		<span class='na'>weight</span><span class='o'>:</span> <span class='no'>bold</span><span class='p'>;</span>
+	<span class='p'>}</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>.funky {
-	font: 2px/3px;
-		font-family: fantasy;
-		font-size: 30em;
-		font-weight: bold; }</code></pre>
-</div><h4 id='4_4'>4.4. 占位符选择器 <code>%foo</code> (Placeholder Selectors: <code>%foo</code>)</h4>
+<div class='highlight'><pre><code class='css'><span class='nc'>.funky</span> <span class='p'>{</span>
+	<span class='k'>font</span><span class='o'>:</span> <span class='m'>2px</span><span class='o'>/</span><span class='m'>3px</span><span class='p'>;</span>
+		<span class='k'>font-family</span><span class='o'>:</span> <span class='k'>fantasy</span><span class='p'>;</span>
+		<span class='k'>font-size</span><span class='o'>:</span> <span class='m'>30em</span><span class='p'>;</span>
+		<span class='k'>font-weight</span><span class='o'>:</span> <span class='k'>bold</span><span class='p'>;</span> <span class='p'>}</span>
+</code></pre></div><h3 id='4_4'>4.4. 占位符选择器 <code>%foo</code> (Placeholder Selectors: <code>%foo</code>)</h3>
 <p>Sass 支持一种特殊类型的选择器，占位符选择器 (placeholder selector)，看起来很像普通的 <code>id</code> 或 <code>class</code> 选择器，只是 <code>#</code> 或 <code>.</code> 被替换成了 <code>%</code>。通过 <a href='#7_3'>@extend</a> 指令调用，更多信息请查看 <a href='#7_3_6'>@extend-Only Selectors</a>。</p>
 
 <p>当它们单独使用时（没有通过 <code>@extend</code> 调用），不会被编译到 CSS 文件中。</p>
-<h3 id='5'>5. 注释 <code>/* */</code> 与 <code>//</code>  (Comments: <code>/* */</code> and <code>//</code>)</h3>
+<h2 id='5'>5. 注释 <code>/* */</code> 与 <code>//</code>  (Comments: <code>/* */</code> and <code>//</code>)</h2>
 <p>Sass 使用 CSS 的多行注释 <code>/* */</code>，同时也支持单行注释 <code>//</code>，前者在编译时将被完整地输出到 CSS 文件中，后者则会被移除。例如：</p>
-<div>
-  <pre data-line=''><code class='language-css'>/* This comment is
- * several lines long.
- * since it uses the CSS comment syntax,
- * it will appear in the CSS output. */
-body { color: black; }
+<div class='highlight'><pre><code class='scss'><span class='cm'>/* This comment is</span>
+<span class='cm'> * several lines long.</span>
+<span class='cm'> * since it uses the CSS comment syntax,</span>
+<span class='cm'> * it will appear in the CSS output. */</span>
+<span class='nt'>body</span> <span class='p'>{</span> <span class='na'>color</span><span class='o'>:</span> <span class='nb'>black</span><span class='p'>;</span> <span class='p'>}</span>
 
-// These comments are only one line long each.
-// They won&#39;t appear in the CSS output,
-// since they use the single-line comment syntax.
-a { color: green; }</code></pre>
-</div>
+<span class='c1'>// These comments are only one line long each.</span>
+<span class='c1'>// They won&#39;t appear in the CSS output,</span>
+<span class='c1'>// since they use the single-line comment syntax.</span>
+<span class='nt'>a</span> <span class='p'>{</span> <span class='na'>color</span><span class='o'>:</span> <span class='nb'>green</span><span class='p'>;</span> <span class='p'>}</span>
+</code></pre></div>
 <p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>/* This comment is
- * several lines long.
- * since it uses the CSS comment syntax,
- * it will appear in the CSS output. */
-body {
-	color: black; }
+<div class='highlight'><pre><code class='css'><span class='c'>/* This comment is</span>
+<span class='c'> * several lines long.</span>
+<span class='c'> * since it uses the CSS comment syntax,</span>
+<span class='c'> * it will appear in the CSS output. */</span>
+<span class='nt'>body</span> <span class='p'>{</span>
+	<span class='k'>color</span><span class='o'>:</span> <span class='nb'>black</span><span class='p'>;</span> <span class='p'>}</span>
 
-a {
-	color: green; }</code></pre>
-</div>
+<span class='nt'>a</span> <span class='p'>{</span>
+	<span class='k'>color</span><span class='o'>:</span> <span class='nb'>green</span><span class='p'>;</span> <span class='p'>}</span>
+</code></pre></div>
 <p>在压缩输出模式下 (compressed)，如果需要将注释编译到 CSS 文件中，可以将多行注释的第一个字母改为 <code>!</code>，便于添加版权信息。</p>
-<h3 id='6'>6. SassScript</h3>
-<p>除了与 CSS 一样的语法，Sass 也提供了一些被称为 SassScript 的拓展功能。 SassScript 可作用于任何属性，允许属性使用变量、算数运算等额外功能。在使用混合指令 (mixin) 时，SassScript 甚至可以生成选择器或属性名。</p>
-<h4 id='6_1'>6.1. Interactive Shell</h4>
+<h2 id='6'>6. SassScript</h2>
+<p>除了与 CSS 一样的语法，Sass 也提供了一些被称为 SassScript 的拓展功能。 SassScript 可作用于任何属性，允许属性使用变量、算数运算等额外功能。在使用混合指令 (mixin) 时，SassScript 甚至可以生成选择器或属性名（暂时还不能生成变量）。</p>
+<h3 id='6_1'>6.1. Interactive Shell</h3>
 <p>通过 Interactive Shell 测试 SassScript 的功能。在命令行中输入 <code>sass -i</code>，然后，输入你想测试 SassScript 查看输出结果。</p>
-<div>
-  <pre data-line=''><code class='language-markup'>$ sass -i
-&gt;&gt; &quot;Hello, Sassy World!&quot;
-&quot;Hello, Sassy World!&quot;
-&gt;&gt; 1px + 1px + 1px
-3px
-&gt;&gt; #777 + #777
-#eeeeee
-&gt;&gt; #777 + #888
-white</code></pre>
-</div><h4 id='6_2'>6.2. 变量 <code>$</code> (Variables: <code>$</code>)</h4>
+<div class='highlight'><pre><code class='irb'><span class='go'>$ sass -i</span>
+<span class='gp'>&gt;&gt; </span><span class='s2'>&quot;Hello, Sassy World!&quot;</span>
+<span class='go'>&quot;Hello, Sassy World!&quot;</span>
+<span class='gp'>&gt;&gt; </span><span class='mi'>1</span><span class='n'>px</span> <span class='o'>+</span> <span class='mi'>1</span><span class='n'>px</span> <span class='o'>+</span> <span class='mi'>1</span><span class='n'>px</span>
+<span class='go'>3px</span>
+<span class='gp'>&gt;&gt; </span><span class='c1'>#777 + #777</span>
+<span class='go'>#eeeeee</span>
+<span class='gp'>&gt;&gt; </span><span class='c1'>#777 + #888</span>
+<span class='go'>white</span>
+</code></pre></div><h3 id='6_2'>6.2. 变量 <code>$</code> (Variables: <code>$</code>)</h3>
 <p>SassScript 最直接的用法就是变量，变量以美元符号开头，赋值方法与 CSS 属性的用法一样。</p>
-<div>
-  <pre data-line=''><code class='language-css'>$width: 5em;</code></pre>
-</div>
+<div class='highlight'><pre><code class='scss'><span class='nv'>$width</span><span class='o'>:</span> <span class='mi'>5</span><span class='kt'>em</span><span class='p'>;</span>
+</code></pre></div>
 <p>然后可以这样调用变量</p>
-<div>
-  <pre data-line=''><code class='language-css'>#main {
-	width: $width;
-}</code></pre>
-</div>
+<div class='highlight'><pre><code class='css'><span class='nf'>#main</span> <span class='p'>{</span>
+	<span class='k'>width</span><span class='o'>:</span> <span class='err'>$</span><span class='k'>width</span><span class='p'>;</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>嵌套规则内定义的变量只能在嵌套规则内使用，而嵌套规则外（最外层）定义的变量，则可以在任何地方使用。</p>
 
-<p>旧版本的 Sass 使用 <code>!</code> 作为变量的前缀字符，用 <code>=</code> 赋值，现在这两种方式仍然可以用，但不再鼓励使用，也会提示错误，所以请使用 <code>$</code> 与 <code>:</code>。</p>
-<h4 id='6_3'>6.3. 数据类型 (Data Types)</h4>
+<p>旧版本的 Sass 使用 <code>!</code> 作为变量的前缀字符，用 <code>=</code> 赋值，现在这两种方式仍然可以用，但会提示错误，所以请使用 <code>$</code> 与 <code>:</code>。</p>
+<h3 id='6_3'>6.3. 数据类型 (Data Types)</h3>
 <p>SassScript 支持六种不同的数据类型：</p>
 
 <ul>
@@ -398,45 +319,44 @@ white</code></pre>
 </ul>
 
 <p>SassScript 也支持其他 CSS 属性值（property value），比如 Unicode 范围，或 <code>!important</code> 声明。然而，Sass 不会特殊对待这些属性值，一律视为无引号字符串 (unquoted strings)。</p>
-<h5 id='6_3_1'>6.3.1. 字符串 (Strings)</h5>
+<h4 id='6_3_1'>6.3.1. 字符串 (Strings)</h4>
 <p>SassScript 支持 CSS 的两种字符串类型：有引号字符串 (quoted strings)，如 <code>&quot;Lucida Grande&quot;</code> <code>&#39;http://sass-lang.com&#39;</code>；与无引号字符串 (unquoted strings)，如 <code>sans-serif</code> <code>bold</code>，在编译 CSS 文件时不会改变其类型。只有一种情况例外，使用 <code>#{ }</code> 插值语句 (interpolation) 时，有引号字符串将被编译为无引号字符串，这样方便了在混合指令 (mixin) 中引用选择器名。</p>
-<div>
-  <pre data-line=''><code class='language-css'>@mixin firefox-message($selector) {
-	body.firefox #{$selector}:before {
-		content: &quot;Hi, Firefox users!&quot;;
-	}
-}
 
-@include firefox-message(&quot;.header&quot;);</code></pre>
-</div>
+<p><div class='highlight'><pre><code class='scss'><span class='k'>@mixin</span><span class='nf'> firefox-message</span><span class='p'>(</span><span class='nv'>$selector</span><span class='p'>)</span> <span class='p'>{</span>
+	<span class='nt'>body</span><span class='nc'>.firefox</span> <span class='nn'>#</span><span class='p'>{</span><span class='err'>$</span><span class='nt'>selector</span><span class='p'>}</span><span class='nd'>:before</span> <span class='p'>{</span>
+		<span class='na'>content</span><span class='o'>:</span> <span class='s2'>&quot;Hi, Firefox users!&quot;</span><span class='p'>;</span>
+	<span class='p'>}</span>
+<span class='p'>}</span>
+<span class='k'>@include</span><span class='nd'> firefox-message</span><span class='p'>(</span><span class='s2'>&quot;.header&quot;</span><span class='p'>);</span>
+</code></pre></div></p>
+
 <p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>body.firefox .header:before {
-	content: &quot;Hi, Firefox users!&quot;; }</code></pre>
-</div>
+<div class='highlight'><pre><code class='css'><span class='nt'>body</span><span class='nc'>.firefox</span> <span class='nc'>.header</span><span class='nd'>:before</span> <span class='p'>{</span>
+	<span class='k'>content</span><span class='o'>:</span> <span class='s2'>&quot;Hi, Firefox users!&quot;</span><span class='p'>;</span> <span class='p'>}</span>
+</code></pre></div>
 <p>需要注意的是：当 deprecated = property syntax 时 （暂时不理解是怎样的情况），所有的字符串都将被编译为无引号字符串，不论是否使用了引号。</p>
-<h5 id='6_3_2'>6.3.2. 值列表 (Lists)</h5>
+<h4 id='6_3_2'>6.3.2. 值列表 (Lists)</h4>
 <p>所谓值列表 (lists) 是指 Sass 如何处理 CSS 中 <code>margin: 10px 15px 0 0</code> 或者 <code>font-face: Helvetica, Arial, sans-serif</code> 这样通过空格或者逗号分隔的一系列的值。事实上，独立的值也被视为值列表——只包含一个值的值列表。</p>
-<p><a href='http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html#list-functions' target='_blank'>Sass list functions</a> 赋予了值列表更多功能：nth function 可以直接访问值列表中的某一项，join function 可以将多个值列表连结在一起，append function 可以在值列表中添加值，而 @each rule 则能够给值列表中的每个项目添加样式。</p>
+
+<p><a href='http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html#list-functions'>Sass list functions</a> 赋予了值列表更多功能：nth function 可以直接访问值列表中的某一项，join function 可以将多个值列表连结在一起，append function 可以在值列表中添加值，而 @each rule 则能够给值列表中的每个项目添加样式。</p>
+
 <p>值列表中可以再包含值列表，比如 <code>1px 2px, 5px 6px</code> 是包含 <code>1px 2px</code> 与 <code>5px 6px</code> 两个值列表的值列表。如果内外两层值列表使用相同的分隔方式，要用圆括号包裹内层，所以也可以写成 <code>(1px 2px) (5px 6px)</code>。当值列表被编译为 CSS 时，Sass 不会添加任何圆括号，因为 CSS 不允许这样做。<code>(1px 2px) (5px 6px)</code> 与 <code>1px 2px 5px 6px</code> 在编译后的 CSS 文件中是一样的，但是它们在 Sass 文件中却有不同的意义，前者是包含两个值列表的值列表，而后者是包含四个值的值列表。</p>
 
 <p>可以用 <code>()</code> 表示空的列表，这样不可以直接编译成 CSS，比如编译 <code>font-family: ()</code> 时，Sass 将会报错。如果值列表中包含空的值列表或空值，编译时将清除空值，比如 <code>1px 2px () 3px</code> 或 <code>1px 2px null 3px</code>。</p>
-<h4 id='6_4'>6.4. 运算符 (Operations)</h4>
+<h3 id='6_4'>6.4. 运算符 (Operations)</h3>
 <p>所有数据类型均支持相等运算符 <code>==</code> 或 <code>!=</code>，此外，每种数据类型也有其特殊支持的运算符。</p>
-<h5 id='6_4_1'>6.4.1. 数字运算 (Number Operations)</h5>
+<h4 id='6_4_1'>6.4.1. 数字运算 (Number Operations)</h4>
 <p>SassScript 支持数字的加减乘除、取整等运算 (<code>+, -, *, /, %</code>)，如果需要也可以在不同单位间转换值。</p>
-<div>
-  <pre data-line=''><code class='language-css'>p {
-	width: 1in + 8pt;
-}</code></pre>
-</div>
+<div class='highlight'><pre><code class='scss'><span class='nt'>p</span> <span class='p'>{</span>
+	<span class='na'>width</span><span class='o'>:</span> <span class='mi'>1</span><span class='kt'>in</span> <span class='o'>+</span> <span class='mi'>8</span><span class='kt'>pt</span><span class='p'>;</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>p {
-	width: 1.111in; }</code></pre>
-</div>
+<div class='highlight'><pre><code class='css'><span class='nt'>p</span> <span class='p'>{</span>
+	<span class='k'>width</span><span class='o'>:</span> <span class='m'>1.111in</span><span class='p'>;</span> <span class='p'>}</span>
+</code></pre></div>
 <p>关系运算符 <code>&lt;, &gt;, &lt;=, &gt;=</code> 也可用于数字运算，相等运算符 <code>==, !=</code> 可用于所有数据类型。</p>
-<h5 id='6_4_1_1'>6.4.1.1. 除法运算 <code>/</code> (Division and <code>/</code>)</h5>
+<h4 id='6_4_1_1'>6.4.1.1. 除法运算 <code>/</code> (Division and <code>/</code>)</h4>
 <p><code>/</code> 在 CSS 中通常起到分隔数字的用途，SassScript 作为 CSS 语言的拓展当然也继承了这个功能，同时，赋予了 <code>/</code> 除法运算的功能。也就是说，默认情况下，如果 <code>/</code> 在 SassScript 中把两个数字分隔，编译的 CSS 文件中也是同样的作用。</p>
 
 <p>以下三种情况下 <code>/</code> 将被视为除法运算符号（通常只有这三种情况）：</p>
@@ -444,255 +364,218 @@ white</code></pre>
 <li>如果值，或值的一部分，是变量；</li>
 <li>如果值被圆括号包裹；</li>
 <li>如果值是算数表达式的一部分。</li>
-</ul><div>
-  <pre data-line=''><code class='language-css'>p {
-	font: 10px/8px;				  // Plain CSS, no division
-	$width: 1000px;
-	width: $width/2;			  // Uses a variable, does division
-	height: (500px/2);            // Uses parentheses, does division
-	margin-left: 5px + 8px/2px;   // Uses +, does division
-}</code></pre>
-</div>
+</ul><div class='highlight'><pre><code class='scss'><span class='nt'>p</span> <span class='p'>{</span>
+	<span class='na'>font</span><span class='o'>:</span> <span class='mi'>10</span><span class='kt'>px</span><span class='o'>/</span><span class='mi'>8</span><span class='kt'>px</span><span class='p'>;</span>				  <span class='c1'>// Plain CSS, no division</span>
+	<span class='nv'>$width</span><span class='o'>:</span> <span class='mi'>1000</span><span class='kt'>px</span><span class='p'>;</span>
+	<span class='na'>width</span><span class='o'>:</span> <span class='nv'>$width</span><span class='o'>/</span><span class='mi'>2</span><span class='p'>;</span>			  <span class='c1'>// Uses a variable, does division</span>
+	<span class='na'>height</span><span class='o'>:</span> <span class='p'>(</span><span class='mi'>500</span><span class='kt'>px</span><span class='o'>/</span><span class='mi'>2</span><span class='p'>);</span>            <span class='c1'>// Uses parentheses, does division</span>
+	<span class='na'>margin-left</span><span class='o'>:</span> <span class='mi'>5</span><span class='kt'>px</span> <span class='o'>+</span> <span class='mi'>8</span><span class='kt'>px</span><span class='o'>/</span><span class='mi'>2</span><span class='kt'>px</span><span class='p'>;</span>   <span class='c1'>// Uses +, does division</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>p {
-	font: 10px/8px;
-	width: 500px;
-	height: 250px;
-	margin-left: 9px; }</code></pre>
-</div>
+<div class='highlight'><pre><code class='css'><span class='nt'>p</span> <span class='p'>{</span>
+	<span class='k'>font</span><span class='o'>:</span> <span class='m'>10px</span><span class='o'>/</span><span class='m'>8px</span><span class='p'>;</span>
+	<span class='k'>width</span><span class='o'>:</span> <span class='m'>500px</span><span class='p'>;</span>
+	<span class='k'>height</span><span class='o'>:</span> <span class='m'>250px</span><span class='p'>;</span>
+	<span class='k'>margin-left</span><span class='o'>:</span> <span class='m'>9px</span><span class='p'>;</span> <span class='p'>}</span>
+</code></pre></div>
 <p>如果需要使用变量，同时又要确保 <code>/</code> 不做除法运算而是完整地编译到 CSS 文件中起分隔的作用，只需要用 <code>#{ }</code> 插值语句将变量包裹。</p>
-<div>
-  <pre data-line=''><code class='language-css'>p {
-	$font-size: 12px;
-	$line-height: 30px;
-	font: #{$font-size}/#{$line-height};
-}</code></pre>
-</div>
+<div class='highlight'><pre><code class='scss'><span class='nt'>p</span> <span class='p'>{</span>
+	<span class='na'>$font-size</span><span class='o'>:</span> <span class='mi'>12</span><span class='kt'>px</span><span class='p'>;</span>
+	<span class='na'>$line-height</span><span class='o'>:</span> <span class='mi'>30</span><span class='kt'>px</span><span class='p'>;</span>
+	<span class='na'>font</span><span class='o'>:</span> <span class='si'>#{</span><span class='nv'>$font-size</span><span class='si'>}</span><span class='o'>/</span><span class='si'>#{</span><span class='nv'>$line-height</span><span class='si'>}</span><span class='p'>;</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>p {
-	font: 12px/30px; }</code></pre>
-</div><h5 id='6_4_2'>6.4.2. 颜色值运算 (Color Operations)</h5>
+<div class='highlight'><pre><code class='css'><span class='nt'>p</span> <span class='p'>{</span>
+	<span class='k'>font</span><span class='o'>:</span> <span class='m'>12px</span><span class='o'>/</span><span class='m'>30px</span><span class='p'>;</span> <span class='p'>}</span>
+</code></pre></div><h4 id='6_4_2'>6.4.2. 颜色值运算 (Color Operations)</h4>
 <p>颜色值的运算是分段计算进行的，也就是分别计算红色，绿色，以及蓝色的值：</p>
-<div>
-  <pre data-line=''><code class='language-css'>p {
-	color: #010203 + #040506;
-}</code></pre>
-</div>
+<div class='highlight'><pre><code class='scss'><span class='nt'>p</span> <span class='p'>{</span>
+	<span class='na'>color</span><span class='o'>:</span> <span class='mh'>#010203</span> <span class='o'>+</span> <span class='mh'>#040506</span><span class='p'>;</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>计算 <code>01 + 04 = 05</code> <code>02 + 05 = 07</code> <code>03 + 06 = 09</code>，然后编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>p {
-	color: #050709; }</code></pre>
-</div>
-<p>通常，使用 <a href='http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html' target='_blank'>color functions</a> 比计算颜色值更方便一些。</p>
+<div class='highlight'><pre><code class='css'><span class='nt'>p</span> <span class='p'>{</span>
+	<span class='k'>color</span><span class='o'>:</span> <span class='m'>#050709</span><span class='p'>;</span> <span class='p'>}</span>
+</code></pre></div>
+<p>通常，使用 <a href='http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html'>color functions</a> 比计算颜色值更方便一些。</p>
 
 <p>数字与颜色值之间也可以进行算数运算，同样也是分段计算的，比如</p>
-<div>
-  <pre data-line=''><code class='language-css'>p {
-	color: #010203 * 2;
-}</code></pre>
-</div>
+<div class='highlight'><pre><code class='scss'><span class='nt'>p</span> <span class='p'>{</span>
+	<span class='na'>color</span><span class='o'>:</span> <span class='mh'>#010203</span> <span class='o'>*</span> <span class='mi'>2</span><span class='p'>;</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>计算 <code>01 * 2 = 02</code> <code>02 * 2 = 04</code> <code>03 * 2 = 06</code>，然后编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>p {
-	color: #020406; }</code></pre>
-</div>
+<div class='highlight'><pre><code class='css'><span class='nt'>p</span> <span class='p'>{</span>
+	<span class='k'>color</span><span class='o'>:</span> <span class='m'>#020406</span><span class='p'>;</span> <span class='p'>}</span>
+</code></pre></div>
 <p>需要注意的是，如果颜色值包含 alpha channel（rgba 或 hsla 两种颜色值），必须拥有相等的 alpha 值才能进行运算，因为算术运算不会作用于 alpha 值。</p>
-<div>
-  <pre data-line=''><code class='language-css'>p {
-	color: rgba(255, 0, 0, 0.75) + rgba(0, 255, 0, 0.75);
-}</code></pre>
-</div>
+<div class='highlight'><pre><code class='scss'><span class='nt'>p</span> <span class='p'>{</span>
+	<span class='na'>color</span><span class='o'>:</span> <span class='nf'>rgba</span><span class='p'>(</span><span class='mi'>255</span><span class='o'>,</span> <span class='mi'>0</span><span class='o'>,</span> <span class='mi'>0</span><span class='o'>,</span> <span class='mi'>0</span><span class='mf'>.75</span><span class='p'>)</span> <span class='o'>+</span> <span class='nf'>rgba</span><span class='p'>(</span><span class='mi'>0</span><span class='o'>,</span> <span class='mi'>255</span><span class='o'>,</span> <span class='mi'>0</span><span class='o'>,</span> <span class='mi'>0</span><span class='mf'>.75</span><span class='p'>);</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>p {
-	color: rgba(255, 255, 0, 0.75); }</code></pre>
-</div>
-<p>颜色值的 alpha channel 可以通过 <a href='http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html#opacify-instance_method' target='_blank'>opacify</a> 或 <a href='http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html#transparentize-instance_method' target='_blank'>transparentize</a> 两个函数进行调整。</p>
-<div>
-  <pre data-line=''><code class='language-css'>$translucent-red: rgba(255, 0, 0, 0.5);
-p {
-	color: opacify($translucent-red, 0.3);
-	background-color: transparentize($translucent-red, 0.25);
-}</code></pre>
-</div>
+<div class='highlight'><pre><code class='css'><span class='nt'>p</span> <span class='p'>{</span>
+	<span class='k'>color</span><span class='o'>:</span> <span class='n'>rgba</span><span class='p'>(</span><span class='m'>255</span><span class='o'>,</span> <span class='m'>255</span><span class='o'>,</span> <span class='m'>0</span><span class='o'>,</span> <span class='m'>0</span><span class='o'>.</span><span class='m'>75</span><span class='p'>);</span> <span class='p'>}</span>
+</code></pre></div>
+<p>颜色值的 alpha channel 可以通过 <a href='http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html#opacify-instance_method'>opacify</a> 或 <a href='http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html#transparentize-instance_method'>transparentize</a> 两个函数进行调整。</p>
+<div class='highlight'><pre><code class='scss'><span class='na'>$translucent-red</span><span class='o'>:</span> <span class='nf'>rgba</span><span class='p'>(</span><span class='mi'>255</span><span class='o'>,</span> <span class='mi'>0</span><span class='o'>,</span> <span class='mi'>0</span><span class='o'>,</span> <span class='mi'>0</span><span class='mf'>.5</span><span class='p'>);</span>
+<span class='nt'>p</span> <span class='p'>{</span>
+	<span class='na'>color</span><span class='o'>:</span> <span class='nf'>opacify</span><span class='p'>(</span><span class='nv'>$translucent-red</span><span class='o'>,</span> <span class='mi'>0</span><span class='mf'>.3</span><span class='p'>);</span>
+	<span class='na'>background-color</span><span class='o'>:</span> <span class='nf'>transparentize</span><span class='p'>(</span><span class='nv'>$translucent-red</span><span class='o'>,</span> <span class='mi'>0</span><span class='mf'>.25</span><span class='p'>);</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>p {
-	color: rgba(255, 0, 0, 0.8);
-	background-color: rgba(255, 0, 0, 0.25); }</code></pre>
-</div>
+<div class='highlight'><pre><code class='css'><span class='nt'>p</span> <span class='p'>{</span>
+	<span class='k'>color</span><span class='o'>:</span> <span class='n'>rgba</span><span class='p'>(</span><span class='m'>255</span><span class='o'>,</span> <span class='m'>0</span><span class='o'>,</span> <span class='m'>0</span><span class='o'>,</span> <span class='m'>0</span><span class='o'>.</span><span class='m'>8</span><span class='p'>);</span>
+	<span class='k'>background-color</span><span class='o'>:</span> <span class='n'>rgba</span><span class='p'>(</span><span class='m'>255</span><span class='o'>,</span> <span class='m'>0</span><span class='o'>,</span> <span class='m'>0</span><span class='o'>,</span> <span class='m'>0</span><span class='o'>.</span><span class='m'>25</span><span class='p'>);</span> <span class='p'>}</span>
+</code></pre></div>
 <p>IE 滤镜要求所有的颜色值包含 alpha 层，而且格式必须固定 <code>#AABBCCDD</code>，使用 <code>ie_hex_str</code> 函数可以很容易地将颜色转化为 IE 滤镜要求的格式。</p>
-<div>
-  <pre data-line=''><code class='language-css'>$translucent-red: rgba(255, 0, 0, 0.5);
-$green: #00ff00;
-div {
-	filter: progid:DXImageTransform.Microsoft.gradient(enabled=&#39;false&#39;, startColorstr=&#39;#{ie-hex-str($green)}&#39;, endColorstr=&#39;#{ie-hex-str($translucent-red)}&#39;);
-}</code></pre>
-</div>
+<div class='highlight'><pre><code class='scss'><span class='na'>$translucent-red</span><span class='o'>:</span> <span class='nf'>rgba</span><span class='p'>(</span><span class='mi'>255</span><span class='o'>,</span> <span class='mi'>0</span><span class='o'>,</span> <span class='mi'>0</span><span class='o'>,</span> <span class='mi'>0</span><span class='mf'>.5</span><span class='p'>);</span>
+<span class='nv'>$green</span><span class='o'>:</span> <span class='mh'>#00ff00</span><span class='p'>;</span>
+<span class='nt'>div</span> <span class='p'>{</span>
+	<span class='na'>filter</span><span class='o'>:</span> <span class='n'>progid</span><span class='o'>:</span><span class='n'>DXImageTransform</span><span class='o'>.</span><span class='n'>Microsoft</span><span class='o'>.</span><span class='nf'>gradient</span><span class='p'>(</span><span class='n'>enabled</span><span class='o'>=</span><span class='s1'>&#39;</span><span class='s2'>false&#39;</span><span class='o'>,</span> <span class='n'>startColorstr</span><span class='o'>=</span><span class='s1'>&#39;</span><span class='si'>#{</span><span class='nf'>ie-hex-str</span><span class='p'>(</span><span class='nv'>$green</span><span class='p'>)</span><span class='si'>}</span><span class='s2'>&#39;</span><span class='o'>,</span> <span class='n'>endColorstr</span><span class='o'>=</span><span class='s1'>&#39;</span><span class='si'>#{</span><span class='nf'>ie-hex-str</span><span class='p'>(</span><span class='nv'>$translucent-red</span><span class='p'>)</span><span class='si'>}</span><span class='s2'>&#39;</span><span class='p'>);</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>div {
-	filter: progid:DXImageTransform.Microsoft.gradient(enabled=&#39;false&#39;, startColorstr=#FF00FF00, endColorstr=#80FF0000);
-}</code></pre>
-</div><h5 id='6_4_3'>6.4.3. 字符串运算 (String Operations)</h5>
+<div class='highlight'><pre><code class='css'><span class='nt'>div</span> <span class='p'>{</span>
+	<span class='n'>filter</span><span class='o'>:</span> <span class='n'>progid</span><span class='o'>:</span><span class='n'>DXImageTransform</span><span class='o'>.</span><span class='n'>Microsoft</span><span class='o'>.</span><span class='n'>gradient</span><span class='p'>(</span><span class='n'>enabled</span><span class='o'>=</span><span class='s1'>&#39;false&#39;</span><span class='o'>,</span> <span class='n'>startColorstr</span><span class='o'>=</span><span class='m'>#FF00FF00</span><span class='o'>,</span> <span class='n'>endColorstr</span><span class='o'>=</span><span class='m'>#80FF0000</span><span class='p'>);</span>
+<span class='p'>}</span>
+</code></pre></div><h4 id='6_4_3'>6.4.3. 字符串运算 (String Operations)</h4>
 <p><code>+</code> 可用于连结字符串</p>
-<div>
-  <pre data-line=''><code class='language-css'>p {
-	cursor: e + -resize;
-}</code></pre>
-</div>
+<div class='highlight'><pre><code class='scss'><span class='nt'>p</span> <span class='p'>{</span>
+	<span class='na'>cursor</span><span class='o'>:</span> <span class='n'>e</span> <span class='o'>+</span> <span class='o'>-</span><span class='n'>resize</span><span class='p'>;</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>p {
-	cursor: e-resize; }</code></pre>
-</div>
+<div class='highlight'><pre><code class='css'><span class='nt'>p</span> <span class='p'>{</span>
+	<span class='k'>cursor</span><span class='o'>:</span> <span class='k'>e-resize</span><span class='p'>;</span> <span class='p'>}</span>
+</code></pre></div>
 <p>注意，如果有引号字符串（<code>+</code> 左侧）连结无引号字符串，运算结果是有引号的，反过来，无引号字符串（<code>+</code> 左侧）连结有引号字符串，运算结果则没有引号。</p>
-<div>
-  <pre data-line=''><code class='language-css'>p:before {
-	content: &quot;Foo &quot; + Bar;
-	font-family: sans- + &quot;serif&quot;;
-}</code></pre>
-</div>
+<div class='highlight'><pre><code class='scss'><span class='nt'>p</span><span class='nd'>:before</span> <span class='p'>{</span>
+	<span class='na'>content</span><span class='o'>:</span> <span class='s2'>&quot;Foo &quot;</span> <span class='o'>+</span> <span class='n'>Bar</span><span class='p'>;</span>
+	<span class='na'>font-family</span><span class='o'>:</span> <span class='n'>sans-</span> <span class='o'>+</span> <span class='s2'>&quot;serif&quot;</span><span class='p'>;</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>p:before {
-	content: &quot;Foo Bar&quot;;
-	font-family: sans-serif; }</code></pre>
-</div>
+<div class='highlight'><pre><code class='css'><span class='nt'>p</span><span class='nd'>:before</span> <span class='p'>{</span>
+	<span class='k'>content</span><span class='o'>:</span> <span class='s2'>&quot;Foo Bar&quot;</span><span class='p'>;</span>
+	<span class='k'>font-family</span><span class='o'>:</span> <span class='k'>sans-serif</span><span class='p'>;</span> <span class='p'>}</span>
+</code></pre></div>
 <p>运算表达式与其他值连用时，用空格做连接符：</p>
-<div>
-  <pre data-line=''><code class='language-css'>p {
-	margin: 3px + 4px auto;
-}</code></pre>
-</div>
+<div class='highlight'><pre><code class='scss'><span class='nt'>p</span> <span class='p'>{</span>
+	<span class='na'>margin</span><span class='o'>:</span> <span class='mi'>3</span><span class='kt'>px</span> <span class='o'>+</span> <span class='mi'>4</span><span class='kt'>px</span> <span class='no'>auto</span><span class='p'>;</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>p {
-	margin: 7px auto; }</code></pre>
-</div>
+<div class='highlight'><pre><code class='css'><span class='nt'>p</span> <span class='p'>{</span>
+	<span class='k'>margin</span><span class='o'>:</span> <span class='m'>7px</span> <span class='k'>auto</span><span class='p'>;</span> <span class='p'>}</span>
+</code></pre></div>
 <p>在文本字符串中 <code>#{ }</code> 插值语句可以被用来添加动态的值：</p>
-<div>
-  <pre data-line=''><code class='language-css'>p:before {
-	content: &quot;I ate #{5 + 10} pies!&quot;;
-}</code></pre>
-</div>
+<div class='highlight'><pre><code class='scss'><span class='nt'>p</span><span class='nd'>:before</span> <span class='p'>{</span>
+	<span class='na'>content</span><span class='o'>:</span> <span class='s2'>&quot;I ate </span><span class='si'>#{</span><span class='mi'>5</span> <span class='o'>+</span> <span class='mi'>10</span><span class='si'>}</span><span class='s2'> pies!&quot;</span><span class='p'>;</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>p:before {
-	content: &quot;I ate 15 pies!&quot;; }</code></pre>
-</div>
+<div class='highlight'><pre><code class='css'><span class='nt'>p</span><span class='nd'>:before</span> <span class='p'>{</span>
+	<span class='k'>content</span><span class='o'>:</span> <span class='s2'>&quot;I ate 15 pies!&quot;</span><span class='p'>;</span> <span class='p'>}</span>
+</code></pre></div>
 <p>空的值被视作插入了空字符串：</p>
-<div>
-  <pre data-line=''><code class='language-css'>$value: null;
-p:before {
-	content: &quot;I ate #{$value} pies!&quot;;
-}</code></pre>
-</div>
+<div class='highlight'><pre><code class='scss'><span class='nv'>$value</span><span class='o'>:</span> <span class='n'>null</span><span class='p'>;</span>
+<span class='nt'>p</span><span class='nd'>:before</span> <span class='p'>{</span>
+	<span class='na'>content</span><span class='o'>:</span> <span class='s2'>&quot;I ate </span><span class='si'>#{</span><span class='nv'>$value</span><span class='si'>}</span><span class='s2'> pies!&quot;</span><span class='p'>;</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>p:before {
-	content: &quot;I ate	pies!&quot;; }</code></pre>
-</div><h5 id='6_4_4'>6.4.4. 布尔运算 (Boolean Operations)</h5>
+<div class='highlight'><pre><code class='css'><span class='nt'>p</span><span class='nd'>:before</span> <span class='p'>{</span>
+	<span class='k'>content</span><span class='o'>:</span> <span class='s2'>&quot;I ate	pies!&quot;</span><span class='p'>;</span> <span class='p'>}</span>
+</code></pre></div><h4 id='6_4_4'>6.4.4. 布尔运算 (Boolean Operations)</h4>
 <p>SassScript 支持布尔型的 <code>and</code> <code>or</code> 以及 <code>not</code> 运算。</p>
-<h5 id='6_4_5'>6.4.5. 值列表运算 (List Operations)</h5>
-<p>值列表不支持任何运算方式，只能使用 <a href='http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html#list-functions' target='_blank'>list functions</a> 控制。</p>
-<h4 id='6_5'>6.5. 圆括号 (Parentheses)</h4>
+<h4 id='6_4_5'>6.4.5. 值列表运算 (List Operations)</h4>
+<p>值列表不支持任何运算方式，只能使用 <a href='http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html#list-functions'>list functions</a> 控制。</p>
+<h3 id='6_5'>6.5. 圆括号 (Parentheses)</h3>
 <p>圆括号可以用来影响运算的顺序：</p>
-<div>
-  <pre data-line=''><code class='language-css'>p {
-	width: 1em + (2em * 3);
-}</code></pre>
-</div>
+<div class='highlight'><pre><code class='scss'><span class='nt'>p</span> <span class='p'>{</span>
+	<span class='na'>width</span><span class='o'>:</span> <span class='mi'>1</span><span class='kt'>em</span> <span class='o'>+</span> <span class='p'>(</span><span class='mi'>2</span><span class='kt'>em</span> <span class='o'>*</span> <span class='mi'>3</span><span class='p'>);</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>p {
-	width: 7em; }</code></pre>
-</div><h4 id='6_6'>6.6. 函数 (Functions)</h4>
+<div class='highlight'><pre><code class='css'><span class='nt'>p</span> <span class='p'>{</span>
+	<span class='k'>width</span><span class='o'>:</span> <span class='m'>7em</span><span class='p'>;</span> <span class='p'>}</span>
+</code></pre></div><h3 id='6_6'>6.6. 函数 (Functions)</h3>
 <p>SassScript 定义了多种函数，有些甚至可以通过普通的 CSS 语句调用：</p>
-<div>
-  <pre data-line=''><code class='language-css'>p {
-	color: hsl(0, 100%, 50%);
-}</code></pre>
-</div>
+<div class='highlight'><pre><code class='scss'><span class='nt'>p</span> <span class='p'>{</span>
+	<span class='na'>color</span><span class='o'>:</span> <span class='nf'>hsl</span><span class='p'>(</span><span class='mi'>0</span><span class='o'>,</span> <span class='mi'>100</span><span class='kt'>%</span><span class='o'>,</span> <span class='mi'>50</span><span class='kt'>%</span><span class='p'>);</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>p {
-	color: #ff0000; }</code></pre>
-</div><h5 id='6_6_1'>6.6.1. 关键词参数 (Keyword Arguments)</h5>
+<div class='highlight'><pre><code class='css'><span class='nt'>p</span> <span class='p'>{</span>
+	<span class='k'>color</span><span class='o'>:</span> <span class='m'>#ff0000</span><span class='p'>;</span> <span class='p'>}</span>
+</code></pre></div><h4 id='6_6_1'>6.6.1. 关键词参数 (Keyword Arguments)</h4>
 <p>Sass 函数允许使用关键词参数 (keyword arguments)，上面的例子也可以写成：</p>
-<div>
-  <pre data-line=''><code class='language-css'>p {
-	color: hsl($hue: 0, $saturation: 100%, $lightness: 50%);
-}</code></pre>
-</div>
+<div class='highlight'><pre><code class='scss'><span class='nt'>p</span> <span class='p'>{</span>
+	<span class='na'>color</span><span class='o'>:</span> <span class='nf'>hsl</span><span class='p'>(</span><span class='nv'>$hue</span><span class='o'>:</span> <span class='mi'>0</span><span class='o'>,</span> <span class='nv'>$saturation</span><span class='o'>:</span> <span class='mi'>100</span><span class='kt'>%</span><span class='o'>,</span> <span class='nv'>$lightness</span><span class='o'>:</span> <span class='mi'>50</span><span class='kt'>%</span><span class='p'>);</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>虽然不够简明，但是阅读起来会更方便。关键词参数给函数提供了更灵活的接口，以及容易调用的参数。关键词参数可以打乱顺序使用，如果使用默认值也可以省缺，另外，参数名被视为变量名，下划线、短横线可以互换使用。</p>
 
-<p>通过 <a href='http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html' target='_blank'>Sass::Script::Functions</a> 查看完整的 Sass 函数列表，参数名，以及如何自定义函数。</p>
-<h4 id='6_7'>6.7. 插值语句 <code>#{ }</code> (Interpolation: <code>#{ }</code>)</h4>
+<p>通过 <a href='http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html'>Sass::Script::Functions</a> 查看完整的 Sass 函数列表，参数名，以及如何自定义函数。</p>
+<h3 id='6_7'>6.7. 插值语句 <code>#{ }</code> (Interpolation: <code>#{ }</code>)</h3>
 <p>通过 <code>#{ }</code> 插值语句可以在选择器或属性名中使用变量：</p>
-<div>
-  <pre data-line=''><code class='language-css'>$name: foo;
-$attr: border;
-p.#{$name} {
-	#{$attr}-color: blue;
-}</code></pre>
-</div>
+<div class='highlight'><pre><code class='scss'><span class='nv'>$name</span><span class='o'>:</span> <span class='n'>foo</span><span class='p'>;</span>
+<span class='nv'>$attr</span><span class='o'>:</span> <span class='no'>border</span><span class='p'>;</span>
+<span class='nt'>p</span><span class='nc'>.</span><span class='si'>#{</span><span class='nv'>$name</span><span class='si'>}</span> <span class='p'>{</span>
+	<span class='nn'>#</span><span class='p'>{</span><span class='err'>$</span><span class='nt'>attr</span><span class='p'>}</span><span class='na'>-color</span><span class='o'>:</span> <span class='nb'>blue</span><span class='p'>;</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>p.foo {
-	border-color: blue; }</code></pre>
-</div>
+<div class='highlight'><pre><code class='css'><span class='nt'>p</span><span class='nc'>.foo</span> <span class='p'>{</span>
+	<span class='k'>border-color</span><span class='o'>:</span> <span class='nb'>blue</span><span class='p'>;</span> <span class='p'>}</span>
+</code></pre></div>
 <p><code>#{ }</code> 插值语句也可以在属性值中插入 SassScript，大多数情况下，这样可能还不如使用变量方便，但是使用 <code>#{ }</code> 可以避免 Sass 运行运算表达式，直接编译 CSS。</p>
-<div>
-  <pre data-line=''><code class='language-css'>p {
-	$font-size: 12px;
-	$line-height: 30px;
-	font: #{$font-size}/#{$line-height};
-}</code></pre>
-</div>
+<div class='highlight'><pre><code class='scss'><span class='nt'>p</span> <span class='p'>{</span>
+	<span class='na'>$font-size</span><span class='o'>:</span> <span class='mi'>12</span><span class='kt'>px</span><span class='p'>;</span>
+	<span class='na'>$line-height</span><span class='o'>:</span> <span class='mi'>30</span><span class='kt'>px</span><span class='p'>;</span>
+	<span class='na'>font</span><span class='o'>:</span> <span class='si'>#{</span><span class='nv'>$font-size</span><span class='si'>}</span><span class='o'>/</span><span class='si'>#{</span><span class='nv'>$line-height</span><span class='si'>}</span><span class='p'>;</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>p {
-	font: 12px/30px; }</code></pre>
-</div><h4 id='6_8'>6.8. 变量定义 <code>!default</code> (Variable Defaults: <code>!default</code>)</h4>
+<div class='highlight'><pre><code class='css'><span class='nt'>p</span> <span class='p'>{</span>
+	<span class='k'>font</span><span class='o'>:</span> <span class='m'>12px</span><span class='o'>/</span><span class='m'>30px</span><span class='p'>;</span> <span class='p'>}</span>
+</code></pre></div><h3 id='6_8'>6.8. 变量定义 <code>!default</code> (Variable Defaults: <code>!default</code>)</h3>
 <p>可以在变量的结尾添加 <code>!default</code> 给一个未通过 <code>!default</code> 声明赋值的变量赋值，此时，如果变量已经被赋值，不会再被重新赋值，但是如果变量还没有被赋值，则会被赋予新的值。</p>
-<div>
-  <pre data-line=''><code class='language-css'>$content: &quot;First content&quot;;
-$content: &quot;Second content?&quot; !default;
-$new_content: &quot;First time reference&quot; !default;
+<div class='highlight'><pre><code class='scss'><span class='nv'>$content</span><span class='o'>:</span> <span class='s2'>&quot;First content&quot;</span><span class='p'>;</span>
+<span class='nv'>$content</span><span class='o'>:</span> <span class='s2'>&quot;Second content?&quot;</span> <span class='nv'>!default</span><span class='p'>;</span>
+<span class='nv'>$new_content</span><span class='o'>:</span> <span class='s2'>&quot;First time reference&quot;</span> <span class='nv'>!default</span><span class='p'>;</span>
 
-#main {
-	content: $content;
-	new-content: $new_content;
-}</code></pre>
-</div>
+<span class='nn'>#main</span> <span class='p'>{</span>
+	<span class='na'>content</span><span class='o'>:</span> <span class='nv'>$content</span><span class='p'>;</span>
+	<span class='na'>new-content</span><span class='o'>:</span> <span class='nv'>$new_content</span><span class='p'>;</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>#main {
-	content: &quot;First content&quot;;
-	new-content: &quot;First time reference&quot;; }</code></pre>
-</div>
+<div class='highlight'><pre><code class='css'><span class='nf'>#main</span> <span class='p'>{</span>
+	<span class='k'>content</span><span class='o'>:</span> <span class='s2'>&quot;First content&quot;</span><span class='p'>;</span>
+	<span class='n'>new</span><span class='o'>-</span><span class='k'>content</span><span class='o'>:</span> <span class='s2'>&quot;First time reference&quot;</span><span class='p'>;</span> <span class='p'>}</span>
+</code></pre></div>
 <p>变量是 null 空值时将视为未被 <code>!default</code> 赋值。</p>
-<div>
-  <pre data-line=''><code class='language-css'>$content: null;
-$content: &quot;Non-null content&quot; !default;
+<div class='highlight'><pre><code class='scss'><span class='nv'>$content</span><span class='o'>:</span> <span class='n'>null</span><span class='p'>;</span>
+<span class='nv'>$content</span><span class='o'>:</span> <span class='s2'>&quot;Non-null content&quot;</span> <span class='nv'>!default</span><span class='p'>;</span>
 
-#main {
-	content: $content;
-}</code></pre>
-</div>
+<span class='nn'>#main</span> <span class='p'>{</span>
+	<span class='na'>content</span><span class='o'>:</span> <span class='nv'>$content</span><span class='p'>;</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>#main {
-	content: &quot;Non-null content&quot;; }</code></pre>
-</div>
-<p><h3 id='7'>7. @-Rules 与指令 (@-Rules and Directives)</h3></p>
+<div class='highlight'><pre><code class='css'><span class='nf'>#main</span> <span class='p'>{</span>
+	<span class='k'>content</span><span class='o'>:</span> <span class='s2'>&quot;Non-null content&quot;</span><span class='p'>;</span> <span class='p'>}</span>
+</code></pre></div>
+<p><h2 id='7'>7. @-Rules 与指令 (@-Rules and Directives)</h2></p>
 
 <p>Sass 支持所有的 CSS3 @-Rules，以及 Sass 特有的 “指令”（directives）。这一节会详细解释，更多资料请查看 <a href='#8'>控制指令 (control directives)</a> 与 <a href='#9'>混合指令 (mixin directives)</a> 两个部分。</p>
 
-<p><h4 id='7_1'>7.1. @import</h4></p>
+<p><h3 id='7_1'>7.1. @import</h3></p>
 
 <p>Sass 拓展了 <code>@import</code> 的功能，允许其导入 SCSS 或 Sass 文件。被导入的文件将合并编译到同一个 CSS 文件中，另外，被导入的文件中所包含的变量或者混合指令 (mixin) 都可以在导入的文件中使用。</p>
 
@@ -711,937 +594,853 @@ $content: &quot;Non-null content&quot; !default;
 </ul>
 
 <p>如果不在上述情况内，文件的拓展名是 <code>.scss</code> 或 <code>.sass</code>，则导入成功。没有指定拓展名，Sass 将会试着寻找文件名相同，拓展名为 <code>.scss</code> 或 <code>.sass</code> 的文件并将其导入。</p>
-<div>
-  <pre data-line=''><code class='language-css'>@import &quot;foo.scss&quot;;</code></pre>
-</div>
+
+<p><div class='highlight'><pre><code class='scss'><span class='k'>@import</span> <span class='s2'>&quot;foo.scss&quot;</span><span class='p'>;</span>
+</code></pre></div></p>
+
 <p>或</p>
-<div>
-  <pre data-line=''><code class='language-css'>@import &quot;foo&quot;;</code></pre>
-</div>
+
+<p><div class='highlight'><pre><code class='scss'><span class='k'>@import</span> <span class='s2'>&quot;foo&quot;</span><span class='p'>;</span>
+</code></pre></div></p>
+
 <p>都会导入文件 foo.scss，但是</p>
-<div>
-  <pre data-line=''><code class='language-css'>@import &quot;foo.css&quot;;
-@import &quot;foo&quot; screen;
-@import &quot;http://foo.com/bar&quot;;
-@import url(foo);</code></pre>
-</div>
+
+<p><div class='highlight'><pre><code class='scss'><span class='k'>@import</span> <span class='s2'>&quot;foo.css&quot;</span><span class='p'>;</span>
+<span class='k'>@import</span> <span class='s2'>&quot;foo&quot;</span> <span class='n'>screen</span><span class='p'>;</span>
+<span class='k'>@import</span> <span class='s2'>&quot;http://foo.com/bar&quot;</span><span class='p'>;</span>
+<span class='k'>@import</span> <span class='sx'>url(foo)</span><span class='p'>;</span>
+</code></pre></div></p>
+
 <p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>@import &quot;foo.css&quot;;
-@import &quot;foo&quot; screen;
-@import &quot;http://foo.com/bar&quot;;
-@import url(foo);</code></pre>
-</div>
+
+<p><div class='highlight'><pre><code class='css'><span class='k'>@import</span> <span class='s2'>&quot;foo.css&quot;</span><span class='p'>;</span>
+<span class='k'>@import</span> <span class='s2'>&quot;foo&quot;</span> <span class='nt'>screen</span><span class='p'>;</span>
+<span class='k'>@import</span> <span class='s2'>&quot;http://foo.com/bar&quot;</span><span class='p'>;</span>
+<span class='k'>@import</span> <span class='nt'>url</span><span class='o'>(</span><span class='nt'>foo</span><span class='o'>)</span><span class='p'>;</span>
+</code></pre></div></p>
+
 <p>Sass 允许同时导入多个文件，例如同时导入 rounded-corners 与 text-shadow 两个文件：</p>
-<div>
-  <pre data-line=''><code class='language-css'>@import &quot;rounded-corners&quot;, &quot;text-shadow&quot;;</code></pre>
-</div>
+
+<p><div class='highlight'><pre><code class='scss'><span class='k'>@import</span> <span class='s2'>&quot;rounded-corners&quot;</span><span class='o'>,</span> <span class='s2'>&quot;text-shadow&quot;</span><span class='p'>;</span>
+</code></pre></div></p>
+
 <p>导入文件也可以使用 <code>#{ }</code> 插值语句，但不是通过变量动态导入 Sass 文件，只能作用于 CSS 的 <code>url()</code> 导入方式：</p>
-<div>
-  <pre data-line=''><code class='language-css'>$family: unquote(&quot;Droid+Sans&quot;);
-@import url(&quot;http://fonts.googleapis.com/css?family=\#{$family}&quot;);</code></pre>
-</div>
+<div class='highlight'><pre><code class='scss'><span class='nv'>$family</span><span class='o'>:</span> <span class='nf'>unquote</span><span class='p'>(</span><span class='s2'>&quot;Droid+Sans&quot;</span><span class='p'>);</span>
+<span class='k'>@import</span> <span class='sx'>url(&quot;http://fonts.googleapis.com/css?family=\#{$family}&quot;)</span><span class='p'>;</span>
+</code></pre></div>
 <p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>@import url(&quot;http://fonts.googleapis.com/css?family=Droid+Sans&quot;);</code></pre>
-</div><h5 id='7_1_1'>7.1.1. 分音 (Partials)</h5>
+
+<p><div class='highlight'><pre><code class='css'><span class='k'>@import</span> <span class='nt'>url</span><span class='o'>(</span><span class='s2'>&quot;http://fonts.googleapis.com/css?family=Droid+Sans&quot;</span><span class='o'>)</span><span class='p'>;</span>
+</code></pre></div></p>
+<h4 id='7_1_1'>7.1.1. 分音 (Partials)</h4>
 <p>如果需要导入 SCSS 或者 Sass 文件，但又不希望将其编译为 CSS，只需要在文件名前添加下划线，这样会告诉 Sass 不要编译这些文件，但导入语句中却不需要添加下划线。</p>
 
 <p>例如，将文件命名为 <code>_colors.scss</code>，便不会编译 <code>_colours.css</code> 文件。</p>
-<div>
-  <pre data-line=''><code class='language-css'>@import &quot;colors&quot;;</code></pre>
-</div>
+
+<p><div class='highlight'><pre><code class='scss'><span class='k'>@import</span> <span class='s2'>&quot;colors&quot;</span><span class='p'>;</span>
+</code></pre></div></p>
+
 <p>上面的例子，导入的其实是 <code>_colors.scss</code> 文件</p>
 
 <p>注意，不可以同时存在添加下划线与未添加下划线的同名文件，添加下划线的文件将会被忽略。</p>
 
-<p><h5 id='7_1_2'>7.1.2. 嵌套 @import</h5></p>
+<p><h4 id='7_1_2'>7.1.2. 嵌套 @import</h4></p>
 
 <p>大多数情况下，一般在文件的最外层（不在嵌套规则内）使用 <code>@import</code>，其实，也可以将 <code>@import</code> 嵌套进 CSS 样式或者 <code>@media</code> 中，与平时的用法效果相同，只是这样导入的样式只能出现在嵌套的层中。</p>
 
 <p>假设 example.scss 文件包含以下样式：</p>
-<div>
-  <pre data-line=''><code class='language-css'>.example {
-	color: red;
-}</code></pre>
-</div>
+<div class='highlight'><pre><code class='scss'><span class='nc'>.example</span> <span class='p'>{</span>
+	<span class='na'>color</span><span class='o'>:</span> <span class='nb'>red</span><span class='p'>;</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>然后导入到 <code>#main</code> 样式内</p>
-<div>
-  <pre data-line=''><code class='language-css'>#main {
-	@import &quot;example&quot;;
-}</code></pre>
-</div>
+<div class='highlight'><pre><code class='scss'><span class='nn'>#main</span> <span class='p'>{</span>
+	<span class='k'>@import</span> <span class='s2'>&quot;example&quot;</span><span class='p'>;</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>将会被编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>#main .example {
-	color: red;
-}</code></pre>
-</div>
+<div class='highlight'><pre><code class='css'><span class='nf'>#main</span> <span class='nc'>.example</span> <span class='p'>{</span>
+	<span class='k'>color</span><span class='o'>:</span> <span class='nb'>red</span><span class='p'>;</span>
+<span class='p'>}</span>
+</code></pre></div>
 <blockquote>
 <p>Directives that are only allowed at the base level of a document, like @mixin or @charset, are not allowed in files that are @imported in a nested context. 这一句不理解</p>
 </blockquote>
 
 <p>不可以在混合指令 (mixin) 或控制指令 (control directives) 中嵌套 <code>@import</code>。</p>
 
-<p><h4 id='7_2'>7.2. @media</h4></p>
+<p><h3 id='7_2'>7.2. @media</h3></p>
 
 <p>Sass 中 <code>@media</code> 指令与 CSS 中用法一样，只是增加了一点额外的功能：允许其在 CSS 规则中嵌套。如果 <code>@media</code> 嵌套在 CSS 规则内，编译时，<code>@media</code> 将被编译到文件的最外层，包含嵌套的父选择器。这个功能让 <code>@media</code> 用起来更方便，不需要重复使用选择器，也不会打乱 CSS 的书写流程。</p>
-<div>
-  <pre data-line=''><code class='language-css'>.sidebar {
-	width: 300px;
-	@media screen and (orientation: landscape) {
-		width: 500px;
-	}
-}</code></pre>
-</div>
+<div class='highlight'><pre><code class='scss'><span class='nc'>.sidebar</span> <span class='p'>{</span>
+	<span class='na'>width</span><span class='o'>:</span> <span class='mi'>300</span><span class='kt'>px</span><span class='p'>;</span>
+	<span class='k'>@media</span> <span class='nt'>screen</span> <span class='nt'>and</span> <span class='o'>(</span><span class='nt'>orientation</span><span class='nd'>:</span> <span class='nt'>landscape</span><span class='o'>)</span> <span class='p'>{</span>
+		<span class='na'>width</span><span class='o'>:</span> <span class='mi'>500</span><span class='kt'>px</span><span class='p'>;</span>
+	<span class='p'>}</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>.sidebar {
-	width: 300px; }
-	@media screen and (orientation: landscape) {
-		.sidebar {
-			width: 500px; } }</code></pre>
-</div>
+<div class='highlight'><pre><code class='css'><span class='nc'>.sidebar</span> <span class='p'>{</span>
+	<span class='k'>width</span><span class='o'>:</span> <span class='m'>300px</span><span class='p'>;</span> <span class='p'>}</span>
+	<span class='k'>@media</span> <span class='nt'>screen</span> <span class='nt'>and</span> <span class='o'>(</span><span class='nt'>orientation</span><span class='o'>:</span> <span class='nt'>landscape</span><span class='o'>)</span> <span class='p'>{</span>
+		<span class='nc'>.sidebar</span> <span class='p'>{</span>
+			<span class='k'>width</span><span class='o'>:</span> <span class='m'>500px</span><span class='p'>;</span> <span class='p'>}</span> <span class='p'>}</span>
+</code></pre></div>
 <p><code>@media</code> 的 queries 允许互相嵌套使用，编译时，Sass 自动添加 <code>and</code></p>
-<div>
-  <pre data-line=''><code class='language-css'>@media screen {
-	.sidebar {
-		@media (orientation: landscape) {
-			width: 500px;
-		}
-	}
-}</code></pre>
-</div>
-<p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>@media screen and (orientation: landscape) {
-	.sidebar {
-		width: 500px; } }</code></pre>
-</div>
-<p><code>@media</code> 甚至可以使用 SassScript（比如变量，函数，以及运算符）代替条件的名称或者值：</p>
-<div>
-  <pre data-line=''><code class='language-css'>$media: screen;
-$feature: -webkit-min-device-pixel-ratio;
-$value: 1.5;
 
-@media #{$media} and ($feature: $value) {
-	.sidebar {
-		width: 500px;
-	}
-}</code></pre>
-</div>
+<p><div class='highlight'><pre><code class='scss'><span class='k'>@media</span> <span class='nt'>screen</span> <span class='p'>{</span>
+	<span class='nc'>.sidebar</span> <span class='p'>{</span>
+		<span class='k'>@media</span> <span class='o'>(</span><span class='nt'>orientation</span><span class='nd'>:</span> <span class='nt'>landscape</span><span class='o'>)</span> <span class='p'>{</span>
+			<span class='na'>width</span><span class='o'>:</span> <span class='mi'>500</span><span class='kt'>px</span><span class='p'>;</span>
+		<span class='p'>}</span>
+	<span class='p'>}</span>
+<span class='p'>}</span>
+</code></pre></div></p>
+
 <p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>@media screen and (-webkit-min-device-pixel-ratio: 1.5) {
-	.sidebar {
-		width: 500px; } }</code></pre>
-</div>
-<p><h4 id='7_3'>7.3. @extend</h4></p>
+
+<p><div class='highlight'><pre><code class='css'><span class='k'>@media</span> <span class='nt'>screen</span> <span class='nt'>and</span> <span class='o'>(</span><span class='nt'>orientation</span><span class='o'>:</span> <span class='nt'>landscape</span><span class='o'>)</span> <span class='p'>{</span>
+	<span class='nc'>.sidebar</span> <span class='p'>{</span>
+		<span class='k'>width</span><span class='o'>:</span> <span class='m'>500px</span><span class='p'>;</span> <span class='p'>}</span> <span class='p'>}</span>
+</code></pre></div></p>
+
+<p><code>@media</code> 甚至可以使用 SassScript（比如变量，函数，以及运算符）代替条件的名称或者值：</p>
+<div class='highlight'><pre><code class='scss'><span class='nv'>$media</span><span class='o'>:</span> <span class='n'>screen</span><span class='p'>;</span>
+<span class='nv'>$feature</span><span class='o'>:</span> <span class='o'>-</span><span class='n'>webkit-min-device-pixel-ratio</span><span class='p'>;</span>
+<span class='nv'>$value</span><span class='o'>:</span> <span class='mi'>1</span><span class='mf'>.5</span><span class='p'>;</span>
+
+<span class='k'>@media</span> <span class='nn'>#</span><span class='p'>{</span><span class='err'>$</span><span class='nt'>media</span><span class='p'>}</span> <span class='na'>and</span><span class='err'> </span><span class='na'>($feature</span><span class='o'>:</span> <span class='nv'>$value</span><span class='p'>)</span> <span class='p'>{</span>
+	<span class='nc'>.sidebar</span> <span class='p'>{</span>
+		<span class='na'>width</span><span class='o'>:</span> <span class='mi'>500</span><span class='kt'>px</span><span class='p'>;</span>
+	<span class='p'>}</span>
+<span class='p'>}</span>
+</code></pre></div>
+<p>编译为</p>
+
+<p><div class='highlight'><pre><code class='css'><span class='k'>@media</span> <span class='nt'>screen</span> <span class='nt'>and</span> <span class='o'>(</span><span class='nt'>-webkit-min-device-pixel-ratio</span><span class='o'>:</span> <span class='nt'>1</span><span class='nc'>.5</span><span class='o'>)</span> <span class='p'>{</span>
+	<span class='nc'>.sidebar</span> <span class='p'>{</span>
+		<span class='k'>width</span><span class='o'>:</span> <span class='m'>500px</span><span class='p'>;</span> <span class='p'>}</span> <span class='p'>}</span>
+</code></pre></div></p>
+
+<p><h3 id='7_3'>7.3. @extend</h3></p>
 
 <p>在设计网页的时候常常遇到这种情况：一个元素使用的样式与另一个元素完全相同，但又添加了额外的样式。通常会在 HTML 中给元素定义两个 class，一个通用样式，一个特殊样式。假设现在要设计一个普通错误样式与一个严重错误样式，一般会这样写：</p>
-<div>
-  <pre data-line=''><code class='language-markup'>&lt;div class=&quot;error seriousError&quot;&gt;
+<div class='highlight'><pre><code class='html'><span class='nt'>&lt;div</span> <span class='na'>class=</span><span class='s'>&quot;error seriousError&quot;</span><span class='nt'>&gt;</span>
 	Oh no! You&#39;ve been hacked!
-&lt;/div&gt;</code></pre>
-</div>
+<span class='nt'>&lt;/div&gt;</span>
+</code></pre></div>
 <p>样式如下</p>
-<div>
-  <pre data-line=''><code class='language-css'>.error {
-	border: 1px #f00;
-	background-color: #fdd;
-}
-.seriousError {
-	border-width: 3px;
-}</code></pre>
-</div>
+<div class='highlight'><pre><code class='css'><span class='nc'>.error</span> <span class='p'>{</span>
+	<span class='k'>border</span><span class='o'>:</span> <span class='m'>1px</span> <span class='m'>#f00</span><span class='p'>;</span>
+	<span class='k'>background-color</span><span class='o'>:</span> <span class='m'>#fdd</span><span class='p'>;</span>
+<span class='p'>}</span>
+<span class='nc'>.seriousError</span> <span class='p'>{</span>
+	<span class='k'>border-width</span><span class='o'>:</span> <span class='m'>3px</span><span class='p'>;</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>麻烦的是，这样做必须时刻记住使用 <code>.seriousError</code> 时需要参考 <code>.error</code> 的样式，带来了很多不变：智能比如加重维护负担，导致 bug，或者给 HTML 添加无语意的样式。使用 <code>@extend</code> 可以避免上述情况，告诉 Sass 将一个选择器下的所有样式继承给另一个选择器。</p>
-<div>
-  <pre data-line=''><code class='language-css'>.error {
-	border: 1px #f00;
-	background-color: #fdd;
-}
-.seriousError {
-	@extend .error;
-	border-width: 3px;
-}</code></pre>
-</div>
+<div class='highlight'><pre><code class='scss'><span class='nc'>.error</span> <span class='p'>{</span>
+	<span class='na'>border</span><span class='o'>:</span> <span class='mi'>1</span><span class='kt'>px</span> <span class='mh'>#f00</span><span class='p'>;</span>
+	<span class='na'>background-color</span><span class='o'>:</span> <span class='mh'>#fdd</span><span class='p'>;</span>
+<span class='p'>}</span>
+<span class='nc'>.seriousError</span> <span class='p'>{</span>
+	<span class='k'>@extend</span> <span class='nc'>.error</span><span class='o'>;</span>
+	<span class='nt'>border-width</span><span class='nd'>:</span> <span class='nt'>3px</span><span class='o'>;</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>上面代码的意思是将 <code>.error</code> 下的所有样式继承给 <code>.seriousError</code>，<code>border-width: 3px;</code> 是单独给 <code>.seriousError</code> 设定特殊样式，这样，使用 <code>.seriousError</code> 的地方可以不再使用 <code>.error</code>。</p>
 
 <p>其他使用到 <code>.error</code> 的样式也会同样继承给 <code>.seriousError</code>，例如，另一个样式 <code>.error.intrusion</code> 使用了 <code>hacked.png</code> 做背景，<code>&lt;div class=&quot;seriousError intrusion&quot;&gt;</code> 也同样会使用 <code>hacked.png</code> 背景。</p>
-<div>
-  <pre data-line=''><code class='language-css'>.error.intrusion {
-	background-image: url(&quot;/image/hacked.png&quot;);
-}</code></pre>
-</div><h5 id='7_3_1'>7.3.1. How it Works</h5>
+<div class='highlight'><pre><code class='css'><span class='nc'>.error.intrusion</span> <span class='p'>{</span>
+	<span class='k'>background-image</span><span class='o'>:</span> <span class='sx'>url(&quot;/image/hacked.png&quot;)</span><span class='p'>;</span>
+<span class='p'>}</span>
+</code></pre></div><h4 id='7_3_1'>7.3.1. How it Works</h4>
 <p><code>@extend</code> 的作用是将重复使用的样式 (<code>.error</code>) 延伸 (extend) 给需要包含这个样式的特殊样式（<code>.seriousError</code>），刚刚的例子：</p>
-<div>
-  <pre data-line=''><code class='language-css'>.error {
-	border: 1px #f00;
-	background-color: #fdd;
-}
-.error.intrusion {
-	background-image: url(&quot;/image/hacked.png&quot;);
-}
-.seriousError {
-	@extend .error;
-	border-width: 3px;
-}</code></pre>
-</div>
+<div class='highlight'><pre><code class='scss'><span class='nc'>.error</span> <span class='p'>{</span>
+	<span class='na'>border</span><span class='o'>:</span> <span class='mi'>1</span><span class='kt'>px</span> <span class='mh'>#f00</span><span class='p'>;</span>
+	<span class='na'>background-color</span><span class='o'>:</span> <span class='mh'>#fdd</span><span class='p'>;</span>
+<span class='p'>}</span>
+<span class='nc'>.error.intrusion</span> <span class='p'>{</span>
+	<span class='na'>background-image</span><span class='o'>:</span> <span class='sx'>url(&quot;/image/hacked.png&quot;)</span><span class='p'>;</span>
+<span class='p'>}</span>
+<span class='nc'>.seriousError</span> <span class='p'>{</span>
+	<span class='k'>@extend</span> <span class='nc'>.error</span><span class='o'>;</span>
+	<span class='nt'>border-width</span><span class='nd'>:</span> <span class='nt'>3px</span><span class='o'>;</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>.error, .seriousError {
-	border: 1px #f00;
-	background-color: #fdd; }
+<div class='highlight'><pre><code class='css'><span class='nc'>.error</span><span class='o'>,</span> <span class='nc'>.seriousError</span> <span class='p'>{</span>
+	<span class='k'>border</span><span class='o'>:</span> <span class='m'>1px</span> <span class='m'>#f00</span><span class='p'>;</span>
+	<span class='k'>background-color</span><span class='o'>:</span> <span class='m'>#fdd</span><span class='p'>;</span> <span class='p'>}</span>
 
-.error.intrusion, .seriousError.intrusion {
-	background-image: url(&quot;/image/hacked.png&quot;); }
+<span class='nc'>.error.intrusion</span><span class='o'>,</span> <span class='nc'>.seriousError.intrusion</span> <span class='p'>{</span>
+	<span class='k'>background-image</span><span class='o'>:</span> <span class='sx'>url(&quot;/image/hacked.png&quot;)</span><span class='p'>;</span> <span class='p'>}</span>
 
-.seriousError {
-	border-width: 3px; }</code></pre>
-</div>
+<span class='nc'>.seriousError</span> <span class='p'>{</span>
+	<span class='k'>border-width</span><span class='o'>:</span> <span class='m'>3px</span><span class='p'>;</span> <span class='p'>}</span>
+</code></pre></div>
 <p>当合并选择器时，<code>@extend</code> 会很聪明地避免无谓的重复，<code>.seriousError.seriousError</code> 将编译为 <code>.seriousError</code>，不能匹配任何元素的选择器（比如 <code>#main#footer</code> ）也会删除。</p>
-<h5 id='7_3_2'>7.3.2. 延伸复杂的选择器 (Extending Complex Selectors)</h5>
+<h4 id='7_3_2'>7.3.2. 延伸复杂的选择器 (Extending Complex Selectors)</h4>
 <p>Class 选择器并不是唯一可以被延伸 (extend) 的，Sass 允许延伸任何定义给单个元素的选择器，比如 <code>.special.cool</code>，<code>a:hover</code> 或者 <code>a.user[href^=&quot;http://&quot;]</code> 等，例如：</p>
-<div>
-  <pre data-line=''><code class='language-css'>.hoverlink {
-	@extend a:hover;
-}</code></pre>
-</div>
+<div class='highlight'><pre><code class='scss'><span class='nc'>.hoverlink</span> <span class='p'>{</span>
+	<span class='k'>@extend</span> <span class='nt'>a</span><span class='nd'>:hover</span><span class='o'>;</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>同 class 元素一样，<code>a:hover</code> 的样式将继承给 <code>.hoverlink</code>。</p>
-<div>
-  <pre data-line=''><code class='language-css'>.hoverlink {
-	@extend a:hover;
-}
-a:hover {
-	text-decoration: underline;
-}</code></pre>
-</div>
+<div class='highlight'><pre><code class='scss'><span class='nc'>.hoverlink</span> <span class='p'>{</span>
+	<span class='k'>@extend</span> <span class='nt'>a</span><span class='nd'>:hover</span><span class='o'>;</span>
+<span class='p'>}</span>
+<span class='nt'>a</span><span class='nd'>:hover</span> <span class='p'>{</span>
+	<span class='na'>text-decoration</span><span class='o'>:</span> <span class='no'>underline</span><span class='p'>;</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>a:hover, .hoverlink {
-	text-decoration: underline; }</code></pre>
-</div>
+<div class='highlight'><pre><code class='css'><span class='nt'>a</span><span class='nd'>:hover</span><span class='o'>,</span> <span class='nc'>.hoverlink</span> <span class='p'>{</span>
+	<span class='k'>text-decoration</span><span class='o'>:</span> <span class='k'>underline</span><span class='p'>;</span> <span class='p'>}</span>
+</code></pre></div>
 <p>与上面 <code>.error.intrusion</code> 的例子一样，所有 <code>a:hover</code> 的样式将继承给 <code>.hoverlink</code>，包括其他使用到 <code>a:hover</code> 的样式，例如：</p>
-<div>
-  <pre data-line=''><code class='language-css'>.hoverlink {
-	@extend a:hover;
-}
-.comment a.user:hover {
-	font-weight: bold;
-}</code></pre>
-</div>
+<div class='highlight'><pre><code class='scss'><span class='nc'>.hoverlink</span> <span class='p'>{</span>
+	<span class='k'>@extend</span> <span class='nt'>a</span><span class='nd'>:hover</span><span class='o'>;</span>
+<span class='p'>}</span>
+<span class='nc'>.comment</span> <span class='nt'>a</span><span class='nc'>.user</span><span class='nd'>:hover</span> <span class='p'>{</span>
+	<span class='na'>font-weight</span><span class='o'>:</span> <span class='no'>bold</span><span class='p'>;</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>.comment a.user:hover, .comment .user.hoverlink {
-	font-weight: bold; }</code></pre>
-</div><h5 id='7_3_3'>7.3.3. 多重延伸 (Multiple Extends)</h5>
+<div class='highlight'><pre><code class='css'><span class='nc'>.comment</span> <span class='nt'>a</span><span class='nc'>.user</span><span class='nd'>:hover</span><span class='o'>,</span> <span class='nc'>.comment</span> <span class='nc'>.user.hoverlink</span> <span class='p'>{</span>
+	<span class='k'>font-weight</span><span class='o'>:</span> <span class='k'>bold</span><span class='p'>;</span> <span class='p'>}</span>
+</code></pre></div><h4 id='7_3_3'>7.3.3. 多重延伸 (Multiple Extends)</h4>
 <p>同一个选择器可以延伸给多个选择器，它所包含的属性将继承给所有被延伸的选择器：</p>
-<div>
-  <pre data-line=''><code class='language-css'>.error {
-	border: 1px #f00;
-	background-color: #fdd;
-}
-.attention {
-	font-size: 3em;
-	background-color: #ff0;
-}
-.seriousError {
-	@extend .error;
-	@extend .attention;
-	border-width: 3px;
-}</code></pre>
-</div>
+<div class='highlight'><pre><code class='scss'><span class='nc'>.error</span> <span class='p'>{</span>
+	<span class='na'>border</span><span class='o'>:</span> <span class='mi'>1</span><span class='kt'>px</span> <span class='mh'>#f00</span><span class='p'>;</span>
+	<span class='na'>background-color</span><span class='o'>:</span> <span class='mh'>#fdd</span><span class='p'>;</span>
+<span class='p'>}</span>
+<span class='nc'>.attention</span> <span class='p'>{</span>
+	<span class='na'>font-size</span><span class='o'>:</span> <span class='mi'>3</span><span class='kt'>em</span><span class='p'>;</span>
+	<span class='na'>background-color</span><span class='o'>:</span> <span class='mh'>#ff0</span><span class='p'>;</span>
+<span class='p'>}</span>
+<span class='nc'>.seriousError</span> <span class='p'>{</span>
+	<span class='k'>@extend</span> <span class='nc'>.error</span><span class='o'>;</span>
+	<span class='o'>@</span><span class='nt'>extend</span> <span class='nc'>.attention</span><span class='o'>;</span>
+	<span class='nt'>border-width</span><span class='nd'>:</span> <span class='nt'>3px</span><span class='o'>;</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>.error, .seriousError {
-	border: 1px #f00;
-	background-color: #fdd; }
+<div class='highlight'><pre><code class='css'><span class='nc'>.error</span><span class='o'>,</span> <span class='nc'>.seriousError</span> <span class='p'>{</span>
+	<span class='k'>border</span><span class='o'>:</span> <span class='m'>1px</span> <span class='m'>#f00</span><span class='p'>;</span>
+	<span class='k'>background-color</span><span class='o'>:</span> <span class='m'>#fdd</span><span class='p'>;</span> <span class='p'>}</span>
 
-.attention, .seriousError {
-	font-size: 3em;
-	background-color: #ff0; }
+<span class='nc'>.attention</span><span class='o'>,</span> <span class='nc'>.seriousError</span> <span class='p'>{</span>
+	<span class='k'>font-size</span><span class='o'>:</span> <span class='m'>3em</span><span class='p'>;</span>
+	<span class='k'>background-color</span><span class='o'>:</span> <span class='m'>#ff0</span><span class='p'>;</span> <span class='p'>}</span>
 
-.seriousError {
-	border-width: 3px; }</code></pre>
-</div>
+<span class='nc'>.seriousError</span> <span class='p'>{</span>
+	<span class='k'>border-width</span><span class='o'>:</span> <span class='m'>3px</span><span class='p'>;</span> <span class='p'>}</span>
+</code></pre></div>
 <p>每个 <code>.seriousError</code> 将包含 <code>.error</code> 与 <code>.attention</code> 下的所有样式，这时，后定义的样式享有优先权：<code>.seriousError</code> 的背景颜色是 <code>#ff0</code> 而不是 <code>#fdd</code>，因为 <code>.attention</code> 在 <code>.error</code> 之后定义。</p>
 
 <p>多重延伸可以使用逗号分隔选择器名，比如 <code>@extend .error, .attention;</code> 与 <code>@extend .error;</code> <code>@extend.attention</code> 有相同的效果。</p>
-<h5 id='7_3_4'>7.3.4. 继续延伸 (Chaining Extends)</h5>
+<h4 id='7_3_4'>7.3.4. 继续延伸 (Chaining Extends)</h4>
 <p>当一个选择器延伸给第二个后，可以继续将第二个选择器延伸给第三个，例如：</p>
-<div>
-  <pre data-line=''><code class='language-css'>.error {
-	border: 1px #f00;
-	background-color: #fdd;
-}
-.seriousError {
-	@extend .error;
-	border-width: 3px;
-}
-.criticalError {
-	@extend .seriousError;
-	position: fixed;
-	top: 10%;
-	bottom: 10%;
-	left: 10%;
-	right: 10%;
-}</code></pre>
-</div>
+<div class='highlight'><pre><code class='scss'><span class='nc'>.error</span> <span class='p'>{</span>
+	<span class='na'>border</span><span class='o'>:</span> <span class='mi'>1</span><span class='kt'>px</span> <span class='mh'>#f00</span><span class='p'>;</span>
+	<span class='na'>background-color</span><span class='o'>:</span> <span class='mh'>#fdd</span><span class='p'>;</span>
+<span class='p'>}</span>
+<span class='nc'>.seriousError</span> <span class='p'>{</span>
+	<span class='k'>@extend</span> <span class='nc'>.error</span><span class='o'>;</span>
+	<span class='nt'>border-width</span><span class='nd'>:</span> <span class='nt'>3px</span><span class='o'>;</span>
+<span class='p'>}</span>
+<span class='nc'>.criticalError</span> <span class='p'>{</span>
+	<span class='k'>@extend</span> <span class='nc'>.seriousError</span><span class='o'>;</span>
+	<span class='nt'>position</span><span class='nd'>:</span> <span class='nt'>fixed</span><span class='o'>;</span>
+	<span class='nt'>top</span><span class='nd'>:</span> <span class='nt'>10</span><span class='err'>%</span><span class='o'>;</span>
+	<span class='nt'>bottom</span><span class='nd'>:</span> <span class='nt'>10</span><span class='err'>%</span><span class='o'>;</span>
+	<span class='nt'>left</span><span class='nd'>:</span> <span class='nt'>10</span><span class='err'>%</span><span class='o'>;</span>
+	<span class='nt'>right</span><span class='nd'>:</span> <span class='nt'>10</span><span class='err'>%</span><span class='o'>;</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>现在，每个 <code>.seriousError</code> 选择器将包含 <code>.error</code> 的样式，而 <code>.criticalError</code> 不仅包含 <code>.seriousError</code> 的样式也会同时包含 <code>.error</code> 的所有样式，上面的代码编译为：</p>
-<div>
-  <pre data-line=''><code class='language-css'>.error, .seriousError, .criticalError {
-	border: 1px #f00;
-	background-color: #fdd; }
+<div class='highlight'><pre><code class='css'><span class='nc'>.error</span><span class='o'>,</span> <span class='nc'>.seriousError</span><span class='o'>,</span> <span class='nc'>.criticalError</span> <span class='p'>{</span>
+	<span class='k'>border</span><span class='o'>:</span> <span class='m'>1px</span> <span class='m'>#f00</span><span class='p'>;</span>
+	<span class='k'>background-color</span><span class='o'>:</span> <span class='m'>#fdd</span><span class='p'>;</span> <span class='p'>}</span>
 
-.seriousError, .criticalError {
-	border-width: 3px; }
+<span class='nc'>.seriousError</span><span class='o'>,</span> <span class='nc'>.criticalError</span> <span class='p'>{</span>
+	<span class='k'>border-width</span><span class='o'>:</span> <span class='m'>3px</span><span class='p'>;</span> <span class='p'>}</span>
 
-.criticalError {
-	position: fixed;
-	top: 10%;
-	bottom: 10%;
-	left: 10%;
-	right: 10%; }</code></pre>
-</div><h5 id='7_3_5'>7.3.5. 选择器列 (Selector Sequences)</h5>
+<span class='nc'>.criticalError</span> <span class='p'>{</span>
+	<span class='k'>position</span><span class='o'>:</span> <span class='k'>fixed</span><span class='p'>;</span>
+	<span class='k'>top</span><span class='o'>:</span> <span class='m'>10</span><span class='o'>%</span><span class='p'>;</span>
+	<span class='k'>bottom</span><span class='o'>:</span> <span class='m'>10</span><span class='o'>%</span><span class='p'>;</span>
+	<span class='k'>left</span><span class='o'>:</span> <span class='m'>10</span><span class='o'>%</span><span class='p'>;</span>
+	<span class='k'>right</span><span class='o'>:</span> <span class='m'>10</span><span class='o'>%</span><span class='p'>;</span> <span class='p'>}</span>
+</code></pre></div><h4 id='7_3_5'>7.3.5. 选择器列 (Selector Sequences)</h4>
 <p>暂时不可以将选择器列 (Selector Sequences)，比如 <code>.foo .bar</code> 或 <code>.foo + .bar</code>，延伸给其他元素，但是，却可以将其他元素延伸给选择器列：</p>
-<div>
-  <pre data-line=''><code class='language-css'>#fake-links .link {
-	@extend a;
-}
+<div class='highlight'><pre><code class='scss'><span class='nn'>#fake-links</span> <span class='nc'>.link</span> <span class='p'>{</span>
+	<span class='k'>@extend</span> <span class='nt'>a</span><span class='o'>;</span>
+<span class='p'>}</span>
 
-a {
-	color: blue;
-	&amp;:hover {
-		text-decoration: underline;
-	}
-}</code></pre>
-</div>
+<span class='nt'>a</span> <span class='p'>{</span>
+	<span class='na'>color</span><span class='o'>:</span> <span class='nb'>blue</span><span class='p'>;</span>
+	<span class='k'>&amp;</span><span class='nd'>:hover</span> <span class='p'>{</span>
+		<span class='na'>text-decoration</span><span class='o'>:</span> <span class='no'>underline</span><span class='p'>;</span>
+	<span class='p'>}</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>a, #fake-links .link {
-	color: blue; }
-	a:hover, #fake-links .link:hover {
-		text-decoration: underline; }</code></pre>
-</div><h5 id='7_3_5_1'>7.3.5.1 合并选择器列 (Merging Selector Sequences)</h5>
+<div class='highlight'><pre><code class='css'><span class='nt'>a</span><span class='o'>,</span> <span class='nf'>#fake-links</span> <span class='nc'>.link</span> <span class='p'>{</span>
+	<span class='k'>color</span><span class='o'>:</span> <span class='nb'>blue</span><span class='p'>;</span> <span class='p'>}</span>
+	<span class='nt'>a</span><span class='nd'>:hover</span><span class='o'>,</span> <span class='nf'>#fake-links</span> <span class='nc'>.link</span><span class='nd'>:hover</span> <span class='p'>{</span>
+		<span class='k'>text-decoration</span><span class='o'>:</span> <span class='k'>underline</span><span class='p'>;</span> <span class='p'>}</span>
+</code></pre></div><h4 id='7_3_5_1'>7.3.5.1 合并选择器列 (Merging Selector Sequences)</h4>
 <p>有时会遇到复杂的情况，比如选择器列中的某个元素需要延伸给另一个选择器列，这种情况下，两个选择器列需要合并，比如：</p>
-<div>
-  <pre data-line=''><code class='language-css'>#admin .tabbar a {
-	font-weight: bold;
-}
-#demo .overview .fakelink {
-	@extend a;
-}</code></pre>
-</div>
+<div class='highlight'><pre><code class='scss'><span class='nn'>#admin</span> <span class='nc'>.tabbar</span> <span class='nt'>a</span> <span class='p'>{</span>
+	<span class='na'>font-weight</span><span class='o'>:</span> <span class='no'>bold</span><span class='p'>;</span>
+<span class='p'>}</span>
+<span class='nn'>#demo</span> <span class='nc'>.overview</span> <span class='nc'>.fakelink</span> <span class='p'>{</span>
+	<span class='k'>@extend</span> <span class='nt'>a</span><span class='o'>;</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>技术上讲能够生成所有匹配条件的结果，但是这样生成的样式表太复杂了，上面这个简单的例子就可能有 10 种结果。所以，Sass 只会编译输出有用的选择器。</p>
 
 <p>当两个列 (sequence) 合并时，如果没有包含相同的选择器，将生成两个新选择器：第一列出现在第二列之前，或者第二列出现在第一列之前：</p>
-<div>
-  <pre data-line=''><code class='language-css'>#admin .tabbar a {
-	font-weight: bold;
-}
-#demo .overview .fakelink {
-	@extend a;
-}</code></pre>
-</div>
+<div class='highlight'><pre><code class='scss'><span class='nn'>#admin</span> <span class='nc'>.tabbar</span> <span class='nt'>a</span> <span class='p'>{</span>
+	<span class='na'>font-weight</span><span class='o'>:</span> <span class='no'>bold</span><span class='p'>;</span>
+<span class='p'>}</span>
+<span class='nn'>#demo</span> <span class='nc'>.overview</span> <span class='nc'>.fakelink</span> <span class='p'>{</span>
+	<span class='k'>@extend</span> <span class='nt'>a</span><span class='o'>;</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>#admin .tabbar a,
-#admin .tabbar #demo .overview .fakelink,
-#demo .overview #admin .tabbar .fakelink {
-	font-weight: bold; }</code></pre>
-</div>
+<div class='highlight'><pre><code class='css'><span class='nf'>#admin</span> <span class='nc'>.tabbar</span> <span class='nt'>a</span><span class='o'>,</span>
+<span class='nf'>#admin</span> <span class='nc'>.tabbar</span> <span class='nf'>#demo</span> <span class='nc'>.overview</span> <span class='nc'>.fakelink</span><span class='o'>,</span>
+<span class='nf'>#demo</span> <span class='nc'>.overview</span> <span class='nf'>#admin</span> <span class='nc'>.tabbar</span> <span class='nc'>.fakelink</span> <span class='p'>{</span>
+	<span class='k'>font-weight</span><span class='o'>:</span> <span class='k'>bold</span><span class='p'>;</span> <span class='p'>}</span>
+</code></pre></div>
 <p>如果两个列 (sequence) 包含了相同的选择器，相同部分将会合并在一起，其他部分交替输出。在下面的例子里，两个列都包含 <code>#admin</code>，输出结果中它们合并在了一起：</p>
-<div>
-  <pre data-line=''><code class='language-css'>#admin .tabbar a {
-	font-weight: bold;
-}
-#admin .overview .fakelink {
-	@extend a;
-}</code></pre>
-</div>
+<div class='highlight'><pre><code class='scss'><span class='nn'>#admin</span> <span class='nc'>.tabbar</span> <span class='nt'>a</span> <span class='p'>{</span>
+	<span class='na'>font-weight</span><span class='o'>:</span> <span class='no'>bold</span><span class='p'>;</span>
+<span class='p'>}</span>
+<span class='nn'>#admin</span> <span class='nc'>.overview</span> <span class='nc'>.fakelink</span> <span class='p'>{</span>
+	<span class='k'>@extend</span> <span class='nt'>a</span><span class='o'>;</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>#admin .tabbar a,
-#admin .tabbar .overview .fakelink,
-#admin .overview .tabbar .fakelink {
-	font-weight: bold; }</code></pre>
-</div>
-<p><h5 id='7_3_6'>7.3.6. @extend-Only 选择器 (@extend-Only Selectors)</h5></p>
+<div class='highlight'><pre><code class='css'><span class='nf'>#admin</span> <span class='nc'>.tabbar</span> <span class='nt'>a</span><span class='o'>,</span>
+<span class='nf'>#admin</span> <span class='nc'>.tabbar</span> <span class='nc'>.overview</span> <span class='nc'>.fakelink</span><span class='o'>,</span>
+<span class='nf'>#admin</span> <span class='nc'>.overview</span> <span class='nc'>.tabbar</span> <span class='nc'>.fakelink</span> <span class='p'>{</span>
+	<span class='k'>font-weight</span><span class='o'>:</span> <span class='k'>bold</span><span class='p'>;</span> <span class='p'>}</span>
+</code></pre></div>
+<p><h4 id='7_3_6'>7.3.6. @extend-Only 选择器 (@extend-Only Selectors)</h4></p>
 
 <p>有时，需要定义一套样式并不是给某个元素用，而是只通过 <code>@extend</code> 指令使用，尤其是在制作 Sass 样式库的时候，希望 Sass 能够忽略用不到的样式。</p>
 
 <p>如果使用普通的 CSS 规则，最后会编译出很多用不到的样式，也容易与其他样式名冲突，所以，Sass 引入了“占位符选择器” (placeholder selectors)，看起来很像普通的 <code>id</code> 或 <code>class</code> 选择器，只是 <code>#</code> 或 <code>.</code> 被替换成了 <code>%</code>。可以像 class 或者 id 选择器那样使用，当它们单独使用时，不会被编译到 CSS 文件中。</p>
-<div>
-  <pre data-line=''><code class='language-css'>// This ruleset won&#39;t be rendered on its own.
-#context a%extreme {
-	color: blue;
-	font-weight: bold;
-	font-size: 2em;
-}</code></pre>
-</div>
+<div class='highlight'><pre><code class='scss'><span class='c1'>// This ruleset won&#39;t be rendered on its own.</span>
+<span class='nn'>#context</span> <span class='nt'>a</span><span class='err'>%</span><span class='nt'>extreme</span> <span class='p'>{</span>
+	<span class='na'>color</span><span class='o'>:</span> <span class='nb'>blue</span><span class='p'>;</span>
+	<span class='na'>font-weight</span><span class='o'>:</span> <span class='no'>bold</span><span class='p'>;</span>
+	<span class='na'>font-size</span><span class='o'>:</span> <span class='mi'>2</span><span class='kt'>em</span><span class='p'>;</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>占位符选择器需要通过延伸指令使用，用法与 class 或者 id 选择器一样，被延伸后，占位符选择器本身不会被编译。</p>
-<div>
-  <pre data-line=''><code class='language-css'>.notice {
-	@extend %extreme;
-}</code></pre>
-</div>
+<div class='highlight'><pre><code class='scss'><span class='nc'>.notice</span> <span class='p'>{</span>
+	<span class='k'>@extend</span> <span class='err'>%</span><span class='nt'>extreme</span><span class='o'>;</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>#context a.notice {
-	color: blue;
-	font-weight: bold;
-	font-size: 2em; }</code></pre>
-</div><h5 id='7_3_7'>7.3.7. <code>!optional</code> 声明 (The <code>!optional</code> Flag)</h5>
+<div class='highlight'><pre><code class='css'><span class='nf'>#context</span> <span class='nt'>a</span><span class='nc'>.notice</span> <span class='p'>{</span>
+	<span class='k'>color</span><span class='o'>:</span> <span class='nb'>blue</span><span class='p'>;</span>
+	<span class='k'>font-weight</span><span class='o'>:</span> <span class='k'>bold</span><span class='p'>;</span>
+	<span class='k'>font-size</span><span class='o'>:</span> <span class='m'>2em</span><span class='p'>;</span> <span class='p'>}</span>
+</code></pre></div><h4 id='7_3_7'>7.3.7. <code>!optional</code> 声明 (The <code>!optional</code> Flag)</h4>
 <p>如果 <code>@extend</code> 失败会收到错误提示，比如，这样写 <code>a.important {@extend .notice}</code>，当没有 <code>.notice</code> 选择器时，将会报错，只有 <code>h1.notice</code> 包含 <code>.notice</code> 时也会报错，因为 <code>h1</code> 与 <code>a</code> 冲突，会生成新的选择器。</p>
 
 <p>如果要求 <code>@extend</code> 不生成新选择器，可以通过 <code>!optional</code> 声明达到这个目的，例如：</p>
-<div>
-  <pre data-line=''><code class='language-css'>a.important {
-	@extend .notice !optional;
-}</code></pre>
-</div>
-<p><h5 id='7_3_8'>7.3.8 在指令中延伸 (@extend in Directives)</h5></p>
+<div class='highlight'><pre><code class='scss'><span class='nt'>a</span><span class='nc'>.important</span> <span class='p'>{</span>
+	<span class='k'>@extend</span> <span class='nc'>.notice</span> <span class='o'>!</span><span class='nt'>optional</span><span class='o'>;</span>
+<span class='p'>}</span>
+</code></pre></div>
+<p><h4 id='7_3_8'>7.3.8 在指令中延伸 (@extend in Directives)</h4></p>
 
 <p>在指令中使用 <code>@extend</code> 时（比如在 <code>@media</code> 中）有一些限制：Sass 不可以将 <code>@media</code> 层外的 CSS 规则延伸给指令层内的 CSS，这样会生成大量的无用代码。也就是说，如果在 <code>@media</code> （或者其他 CSS 指令）中使用 <code>@extend</code>，必须延伸给相同指令层中的选择器。</p>
 
 <p>下面的例子是可行的：</p>
-<div>
-  <pre data-line=''><code class='language-css'>@media print {
-	.error {
-		border: 1px #f00;
-		background-color: #fdd;
-	}
-	.seriousError {
-		@extend .error;
-		border-width: 3px;
-	}
-}</code></pre>
-</div>
-<p>但不可以这样：</p>
-<div>
-  <pre data-line=''><code class='language-css'>.error {
-	border: 1px #f00;
-	background-color: #fdd;
-}
 
-@media print {
-	.seriousError {
-		// INVALID EXTEND: .error is used outside of the &quot;@media print&quot; directive
-		@extend .error;
-		border-width: 3px;
-	}
-}</code></pre>
-</div>
+<p><div class='highlight'><pre><code class='scss'><span class='k'>@media</span> <span class='nt'>print</span> <span class='p'>{</span>
+	<span class='nc'>.error</span> <span class='p'>{</span>
+		<span class='na'>border</span><span class='o'>:</span> <span class='mi'>1</span><span class='kt'>px</span> <span class='mh'>#f00</span><span class='p'>;</span>
+		<span class='na'>background-color</span><span class='o'>:</span> <span class='mh'>#fdd</span><span class='p'>;</span>
+	<span class='p'>}</span>
+	<span class='nc'>.seriousError</span> <span class='p'>{</span>
+		<span class='k'>@extend</span> <span class='nc'>.error</span><span class='o'>;</span>
+		<span class='nt'>border-width</span><span class='nd'>:</span> <span class='nt'>3px</span><span class='o'>;</span>
+	<span class='p'>}</span>
+<span class='p'>}</span>
+</code></pre></div></p>
+
+<p>但不可以这样：</p>
+<div class='highlight'><pre><code class='scss'><span class='nc'>.error</span> <span class='p'>{</span>
+	<span class='na'>border</span><span class='o'>:</span> <span class='mi'>1</span><span class='kt'>px</span> <span class='mh'>#f00</span><span class='p'>;</span>
+	<span class='na'>background-color</span><span class='o'>:</span> <span class='mh'>#fdd</span><span class='p'>;</span>
+<span class='p'>}</span>
+
+<span class='k'>@media</span> <span class='nt'>print</span> <span class='p'>{</span>
+	<span class='nc'>.seriousError</span> <span class='p'>{</span>
+		<span class='c1'>// INVALID EXTEND: .error is used outside of the &quot;@media print&quot; directive</span>
+		<span class='k'>@extend</span> <span class='nc'>.error</span><span class='o'>;</span>
+		<span class='nt'>border-width</span><span class='nd'>:</span> <span class='nt'>3px</span><span class='o'>;</span>
+	<span class='p'>}</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>希望有一天，浏览器可以原生支持 <code>@extend</code> 指令，这样就可以在任何指令中使用延伸功能，不再受限制了。</p>
 
 <blockquote>
-<p><code>@debug</code> 与 <code>@warn</code> 两条指令不太熟悉，暂时未翻译，请查看 <a href='http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#id8' target='_blank'>原文档</a></p>
+<p><code>@debug</code> 与 <code>@warn</code> 两条指令不太熟悉，暂时未翻译，请查看 <a href='http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#id8'>原文档</a></p>
 </blockquote>
 <!--
-<h4 id="7_4">7.4. @debug</h4>
-
-<div>
-  <pre data-line=''><code class='language-css'>@debug 10em + 12em;</code></pre>
-</div>
+<h3 id="7_4">7.4. @debug</h3>
 
 
-<div>
-  <pre data-line=''><code class='language-css'>Line 1 DEBUG: 22em</code></pre>
-</div>
+<div class="highlight"><pre><code class="scss"><span class="k">@debug</span> <span class="mi">10</span><span class="kt">em</span> <span class="o">+</span> <span class="mi">12</span><span class="kt">em</span><span class="p">;</span>
+</code></pre></div>
 
 
-<h4 id="7_5">7.5 @warn</h4>
 
-<div>
-  <pre data-line=''><code class='language-css'>@mixin adjust-location($x, $y) {
-	@if unitless($x) {
-		@warn &quot;Assuming #{$x} to be in pixels&quot;;
-		$x: 1px * $x;
-	}
-	@if unitless($y) {
-		@warn &quot;Assuming #{$y} to be in pixels&quot;;
-		$y: 1px * $y;
-	}
-	position: relative; left: $x; top: $y;
-}</code></pre>
-</div>
+<div class="highlight"><pre><code class="scss"><span class="na">Line</span><span class="err"> </span><span class="na">1</span><span class="err"> </span><span class="na">DEBUG</span><span class="o">:</span> <span class="mi">22</span><span class="kt">em</span>
+</code></pre></div>
 
---><h3 id='8'>8. 控制指令 (Control Directives)</h3>
+
+<h3 id="7_5">7.5 @warn</h3>
+
+
+<div class="highlight"><pre><code class="scss"><span class="k">@mixin</span><span class="nf"> adjust-location</span><span class="p">(</span><span class="nv">$x</span><span class="o">,</span> <span class="nv">$y</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">@if</span> <span class="nf">unitless</span><span class="p">(</span><span class="nv">$x</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">@warn</span> <span class="s2">&quot;Assuming </span><span class="si">#{</span><span class="nv">$x</span><span class="si">}</span><span class="s2"> to be in pixels&quot;</span><span class="p">;</span>
+		<span class="nv">$x</span><span class="o">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="o">*</span> <span class="nv">$x</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">@if</span> <span class="nf">unitless</span><span class="p">(</span><span class="nv">$y</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">@warn</span> <span class="s2">&quot;Assuming </span><span class="si">#{</span><span class="nv">$y</span><span class="si">}</span><span class="s2"> to be in pixels&quot;</span><span class="p">;</span>
+		<span class="nv">$y</span><span class="o">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="o">*</span> <span class="nv">$y</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="na">position</span><span class="o">:</span> <span class="no">relative</span><span class="p">;</span> <span class="na">left</span><span class="o">:</span> <span class="nv">$x</span><span class="p">;</span> <span class="na">top</span><span class="o">:</span> <span class="nv">$y</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+--><h2 id='8'>8. 控制指令 (Control Directives)</h2>
 <p>SassScript 提供了一些基础的控制指令，比如在满足条件的时候引用样式，或者在一定范围内重复输出样式。<strong>请注意，控制指令是一种高级功能，不建议频繁使用。</strong>控制指令主要与混合指令 (mixin) 配合使用，尤其是在 <a href='http://compass-style.org/' target='_blank'>Compass</a> 等样式库中。</p>
 
-<p><h4 id='8_1'>8.1. @if</h4></p>
+<p><h3 id='8_1'>8.1. @if</h3></p>
 
 <p><code>@if</code> 指令内包含多个条件语句，当返回值不是 <code>false</code> 或者 <code>null</code> 时，条件成立，输出结果：</p>
-<div>
-  <pre data-line=''><code class='language-css'>p {
-	@if 1 + 1 == 2 { border: 1px solid;	}
-	@if 5 &lt; 3	   { border: 2px dotted; }
-	@if null	   { border: 3px double; }
-}</code></pre>
-</div>
+<div class='highlight'><pre><code class='scss'><span class='nt'>p</span> <span class='p'>{</span>
+	<span class='k'>@if</span> <span class='mi'>1</span> <span class='o'>+</span> <span class='mi'>1</span> <span class='o'>==</span> <span class='mi'>2</span> <span class='p'>{</span> <span class='na'>border</span><span class='o'>:</span> <span class='mi'>1</span><span class='kt'>px</span> <span class='no'>solid</span><span class='p'>;</span>	<span class='p'>}</span>
+	<span class='k'>@if</span> <span class='mi'>5</span> <span class='o'>&lt;</span> <span class='mi'>3</span>	   <span class='p'>{</span> <span class='na'>border</span><span class='o'>:</span> <span class='mi'>2</span><span class='kt'>px</span> <span class='no'>dotted</span><span class='p'>;</span> <span class='p'>}</span>
+	<span class='k'>@if</span> <span class='n'>null</span>	   <span class='p'>{</span> <span class='na'>border</span><span class='o'>:</span> <span class='mi'>3</span><span class='kt'>px</span> <span class='no'>double</span><span class='p'>;</span> <span class='p'>}</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>p {
-	border: 1px solid; }</code></pre>
-</div>
+<div class='highlight'><pre><code class='css'><span class='nt'>p</span> <span class='p'>{</span>
+	<span class='k'>border</span><span class='o'>:</span> <span class='m'>1px</span> <span class='k'>solid</span><span class='p'>;</span> <span class='p'>}</span>
+</code></pre></div>
 <p><code>@if</code> 声明后面可跟多个 <code>@else if</code> 声明，或者一个 <code>@else</code> 声明。如果 <code>@if</code> 声明失败，Sass 将逐条执行 <code>@else if</code> 声明，如果仍然失败，执行 <code>@else</code> 声明，例如：</p>
-<div>
-  <pre data-line=''><code class='language-css'>$type: monster;
-p {
-	@if $type == ocean {
-		color: blue;
-	} @else if $type == matador {
-		color: red;
-	} @else if $type == monster {
-		color: green;
-	} @else {
-		color: black;
-	}
-}</code></pre>
-</div>
+<div class='highlight'><pre><code class='scss'><span class='nv'>$type</span><span class='o'>:</span> <span class='n'>monster</span><span class='p'>;</span>
+<span class='nt'>p</span> <span class='p'>{</span>
+	<span class='k'>@if</span> <span class='nv'>$type</span> <span class='o'>==</span> <span class='n'>ocean</span> <span class='p'>{</span>
+		<span class='na'>color</span><span class='o'>:</span> <span class='nb'>blue</span><span class='p'>;</span>
+	<span class='p'>}</span> <span class='k'>@else</span> <span class='nt'>if</span> <span class='err'>$</span><span class='nt'>type</span> <span class='o'>==</span> <span class='nt'>matador</span> <span class='p'>{</span>
+		<span class='na'>color</span><span class='o'>:</span> <span class='nb'>red</span><span class='p'>;</span>
+	<span class='p'>}</span> <span class='k'>@else</span> <span class='nt'>if</span> <span class='err'>$</span><span class='nt'>type</span> <span class='o'>==</span> <span class='nt'>monster</span> <span class='p'>{</span>
+		<span class='na'>color</span><span class='o'>:</span> <span class='nb'>green</span><span class='p'>;</span>
+	<span class='p'>}</span> <span class='k'>@else</span> <span class='p'>{</span>
+		<span class='na'>color</span><span class='o'>:</span> <span class='nb'>black</span><span class='p'>;</span>
+	<span class='p'>}</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>p {
-	color: green; }</code></pre>
-</div>
-<p><h4 id='8_2'>8.2. @for</h4></p>
+<div class='highlight'><pre><code class='css'><span class='nt'>p</span> <span class='p'>{</span>
+	<span class='k'>color</span><span class='o'>:</span> <span class='nb'>green</span><span class='p'>;</span> <span class='p'>}</span>
+</code></pre></div>
+<p><h3 id='8_2'>8.2. @for</h3></p>
 
 <p><code>@for</code> 指令在限制的范围内重复输出一系列的样式，每次按要求（变量的值）对输出结果做出变动。这个指令包含两种格式：<code>@for $var from &lt;start&gt; through &lt;end&gt;</code>，或者 <code>@for $var from &lt;start&gt; to &lt;end&gt;</code>，区别在于 <code>through</code> 与 <code>to</code> 的含义：<em>当使用 <code>through</code> 时，条件范围包含 <code>&lt;start&gt;</code> 与 <code>&lt;end&gt;</code> 的值，而使用 <code>to</code> 时条件范围只包含 <code>&lt;start&gt;</code> 的值不包含 <code>&lt;end&gt;</code> 的值</em>。另外，<code>$var</code> 可以是任何变量，比如 <code>$i</code>；<code>&lt;start&gt;</code> 和 <code>&lt;end&gt;</code> 必须是整数值。</p>
-<div>
-  <pre data-line=''><code class='language-css'>@for $i from 1 through 3 {
-	.item-#{$i} { width: 2em * $i; }
-}</code></pre>
-</div>
+
+<p><div class='highlight'><pre><code class='scss'><span class='k'>@for</span> <span class='nv'>$i</span> <span class='ow'>from</span> <span class='mi'>1</span> <span class='ow'>through</span> <span class='mi'>3</span> <span class='p'>{</span>
+	<span class='nc'>.item-</span><span class='si'>#{</span><span class='nv'>$i</span><span class='si'>}</span> <span class='p'>{</span> <span class='na'>width</span><span class='o'>:</span> <span class='mi'>2</span><span class='kt'>em</span> <span class='o'>*</span> <span class='nv'>$i</span><span class='p'>;</span> <span class='p'>}</span>
+<span class='p'>}</span>
+</code></pre></div></p>
+
 <p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>.item-1 {
-	width: 2em; }
-.item-2 {
-	width: 4em; }
-.item-3 {
-	width: 6em; }</code></pre>
-</div>
-<p><h4 id='8_3'>8.3. @each</h4></p>
+<div class='highlight'><pre><code class='css'><span class='nc'>.item-1</span> <span class='p'>{</span>
+	<span class='k'>width</span><span class='o'>:</span> <span class='m'>2em</span><span class='p'>;</span> <span class='p'>}</span>
+<span class='nc'>.item-2</span> <span class='p'>{</span>
+	<span class='k'>width</span><span class='o'>:</span> <span class='m'>4em</span><span class='p'>;</span> <span class='p'>}</span>
+<span class='nc'>.item-3</span> <span class='p'>{</span>
+	<span class='k'>width</span><span class='o'>:</span> <span class='m'>6em</span><span class='p'>;</span> <span class='p'>}</span>
+</code></pre></div>
+<p><h3 id='8_3'>8.3. @each</h3></p>
 
 <p><code>@each</code> 指令的格式是 <code>$var in &lt;list&gt;</code>, <code>$var</code> 可以是任何变量名，比如 <code>$length</code> 或者 <code>$name</code>，而 <code>&lt;list&gt;</code> 是一连串的值，也就是值列表。</p>
 
 <p><code>@each</code> 将变量 <code>$var</code> 作用于值列表中的每一个项目，然后输出结果，例如：</p>
-<div>
-  <pre data-line=''><code class='language-css'>@each $animal in puma, sea-slug, egret, salamander {
-	.#{$animal}-icon {
-		background-image: url(&#39;/images/#{$animal}.png&#39;);
-	}
-}</code></pre>
-</div>
+
+<p><div class='highlight'><pre><code class='scss'><span class='k'>@each</span> <span class='err'>$</span><span class='nt'>animal</span> <span class='nt'>in</span> <span class='nt'>puma</span><span class='o'>,</span> <span class='nt'>sea-slug</span><span class='o'>,</span> <span class='nt'>egret</span><span class='o'>,</span> <span class='nt'>salamander</span> <span class='p'>{</span>
+	<span class='nc'>.</span><span class='si'>#{</span><span class='nv'>$animal</span><span class='si'>}</span><span class='nc'>-icon</span> <span class='p'>{</span>
+		<span class='na'>background-image</span><span class='o'>:</span> <span class='sx'>url(&#39;/images/</span><span class='si'>#{</span><span class='nv'>$animal</span><span class='si'>}</span><span class='sx'>.png&#39;)</span><span class='p'>;</span>
+	<span class='p'>}</span>
+<span class='p'>}</span>
+</code></pre></div></p>
+
 <p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>.puma-icon {
-	background-image: url(&#39;/images/puma.png&#39;); }
-.sea-slug-icon {
-	background-image: url(&#39;/images/sea-slug.png&#39;); }
-.egret-icon {
-	background-image: url(&#39;/images/egret.png&#39;); }
-.salamander-icon {
-	background-image: url(&#39;/images/salamander.png&#39;); }</code></pre>
-</div>
-<p><h4 id='8_4'>8.4. @while</h4></p>
+<div class='highlight'><pre><code class='css'><span class='nc'>.puma-icon</span> <span class='p'>{</span>
+	<span class='k'>background-image</span><span class='o'>:</span> <span class='sx'>url(&#39;/images/puma.png&#39;)</span><span class='p'>;</span> <span class='p'>}</span>
+<span class='nc'>.sea-slug-icon</span> <span class='p'>{</span>
+	<span class='k'>background-image</span><span class='o'>:</span> <span class='sx'>url(&#39;/images/sea-slug.png&#39;)</span><span class='p'>;</span> <span class='p'>}</span>
+<span class='nc'>.egret-icon</span> <span class='p'>{</span>
+	<span class='k'>background-image</span><span class='o'>:</span> <span class='sx'>url(&#39;/images/egret.png&#39;)</span><span class='p'>;</span> <span class='p'>}</span>
+<span class='nc'>.salamander-icon</span> <span class='p'>{</span>
+	<span class='k'>background-image</span><span class='o'>:</span> <span class='sx'>url(&#39;/images/salamander.png&#39;)</span><span class='p'>;</span> <span class='p'>}</span>
+</code></pre></div>
+<p><h3 id='8_4'>8.4. @while</h3></p>
 
 <p><code>@while</code> 指令重复输出样式直到返回结果为 <code>false</code>。这样可以做出比 <code>@for</code> 指令更复杂的循环，只是很少会用到。例如：</p>
-<div>
-  <pre data-line=''><code class='language-css'>$i: 6;
-@while $i &gt; 0 {
-	.item-#{$i} { width: 2em * $i; }
-	$i: $i - 2;
-}</code></pre>
-</div><div>
-  <pre data-line=''><code class='language-css'>.item-6 {
-	width: 12em; }
+<div class='highlight'><pre><code class='scss'><span class='nv'>$i</span><span class='o'>:</span> <span class='mi'>6</span><span class='p'>;</span>
+<span class='k'>@while</span> <span class='nv'>$i</span> <span class='o'>&gt;</span> <span class='mi'>0</span> <span class='p'>{</span>
+	<span class='nc'>.item-</span><span class='si'>#{</span><span class='nv'>$i</span><span class='si'>}</span> <span class='p'>{</span> <span class='na'>width</span><span class='o'>:</span> <span class='mi'>2</span><span class='kt'>em</span> <span class='o'>*</span> <span class='nv'>$i</span><span class='p'>;</span> <span class='p'>}</span>
+	<span class='nv'>$i</span><span class='o'>:</span> <span class='nv'>$i</span> <span class='o'>-</span> <span class='mi'>2</span><span class='p'>;</span>
+<span class='p'>}</span>
+</code></pre></div><div class='highlight'><pre><code class='css'><span class='nc'>.item-6</span> <span class='p'>{</span>
+	<span class='k'>width</span><span class='o'>:</span> <span class='m'>12em</span><span class='p'>;</span> <span class='p'>}</span>
 
-.item-4 {
-	width: 8em; }
+<span class='nc'>.item-4</span> <span class='p'>{</span>
+	<span class='k'>width</span><span class='o'>:</span> <span class='m'>8em</span><span class='p'>;</span> <span class='p'>}</span>
 
-.item-2 {
-	width: 4em; }</code></pre>
-</div><h3 id='9'>9. 混合指令 (Mixin Directives)</h3>
+<span class='nc'>.item-2</span> <span class='p'>{</span>
+	<span class='k'>width</span><span class='o'>:</span> <span class='m'>4em</span><span class='p'>;</span> <span class='p'>}</span>
+</code></pre></div><h2 id='9'>9. 混合指令 (Mixin Directives)</h2>
 <p>混合指令（Mixin）用于定义可重复使用的样式，避免了使用无语意的 class，比如 <code>.float-left</code>。混合指令可以包含所有的 CSS 规则，绝大部分 Sass 规则，甚至通过参数功能引入变量，输出多样化的样式。</p>
 
-<p><h4 id='9_1'>9.1. 定义混合指令 <code>@mixin</code> (Defining a Mixin: <code>@mixin</code>)</h4></p>
+<p><h3 id='9_1'>9.1. 定义混合指令 <code>@mixin</code> (Defining a Mixin: <code>@mixin</code>)</h3></p>
 
 <p>混合指令的用法是在 <code>@mixin</code> 后添加名称与样式，比如名为 <code>large-text</code> 的混合通过下面的代码定义：</p>
-<div>
-  <pre data-line=''><code class='language-css'>@mixin large-text {
-	font: {
-		family: Arial;
-		size: 20px;
-		weight: bold;
-	}
-	color: #ff0000;
-}</code></pre>
-</div>
+
+<p><div class='highlight'><pre><code class='scss'><span class='k'>@mixin</span><span class='nf'> large-text</span> <span class='p'>{</span>
+	<span class='na'>font</span><span class='o'>:</span> <span class='p'>{</span>
+		<span class='na'>family</span><span class='o'>:</span> <span class='n'>Arial</span><span class='p'>;</span>
+		<span class='na'>size</span><span class='o'>:</span> <span class='mi'>20</span><span class='kt'>px</span><span class='p'>;</span>
+		<span class='na'>weight</span><span class='o'>:</span> <span class='no'>bold</span><span class='p'>;</span>
+	<span class='p'>}</span>
+	<span class='na'>color</span><span class='o'>:</span> <span class='mh'>#ff0000</span><span class='p'>;</span>
+<span class='p'>}</span>
+</code></pre></div></p>
+
 <p>混合也需要包含选择器和属性，甚至可以用 <code>&amp;</code> 引用父选择器：</p>
-<div>
-  <pre data-line=''><code class='language-css'>@mixin clearfix {
-	display: inline-block;
-	&amp;:after {
-		content: &quot;.&quot;;
-		display: block;
-		height: 0;
-		clear: both;
-		visibility: hidden;
-	}
-	* html &amp; { height: 1px }
-}</code></pre>
-</div>
-<p><h4 id='9_2'>9.2. 引用混合样式 <code>@include</code> (Including a Mixin: <code>@include</code>)</h4></p>
+
+<p><div class='highlight'><pre><code class='scss'><span class='k'>@mixin</span><span class='nf'> clearfix</span> <span class='p'>{</span>
+	<span class='na'>display</span><span class='o'>:</span> <span class='no'>inline</span><span class='o'>-</span><span class='no'>block</span><span class='p'>;</span>
+	<span class='k'>&amp;</span><span class='nd'>:after</span> <span class='p'>{</span>
+		<span class='na'>content</span><span class='o'>:</span> <span class='s2'>&quot;.&quot;</span><span class='p'>;</span>
+		<span class='na'>display</span><span class='o'>:</span> <span class='no'>block</span><span class='p'>;</span>
+		<span class='na'>height</span><span class='o'>:</span> <span class='mi'>0</span><span class='p'>;</span>
+		<span class='na'>clear</span><span class='o'>:</span> <span class='no'>both</span><span class='p'>;</span>
+		<span class='na'>visibility</span><span class='o'>:</span> <span class='no'>hidden</span><span class='p'>;</span>
+	<span class='p'>}</span>
+	<span class='o'>*</span> <span class='nt'>html</span> <span class='k'>&amp;</span> <span class='p'>{</span> <span class='na'>height</span><span class='o'>:</span> <span class='mi'>1</span><span class='kt'>px</span> <span class='p'>}</span>
+<span class='p'>}</span>
+</code></pre></div></p>
+
+<p><h3 id='9_2'>9.2. 引用混合样式 <code>@include</code> (Including a Mixin: <code>@include</code>)</h3></p>
 
 <p>使用 <code>@include</code> 指令引用混合样式，格式是在其后添加混合名称，以及需要的参数（可选）：</p>
-<div>
-  <pre data-line=''><code class='language-css'>.page-title {
-	@include large-text;
-	padding: 4px;
-	margin-top: 10px;
-}</code></pre>
-</div>
+<div class='highlight'><pre><code class='scss'><span class='nc'>.page-title</span> <span class='p'>{</span>
+	<span class='k'>@include</span><span class='nd'> large-text</span><span class='p'>;</span>
+	<span class='na'>padding</span><span class='o'>:</span> <span class='mi'>4</span><span class='kt'>px</span><span class='p'>;</span>
+	<span class='na'>margin-top</span><span class='o'>:</span> <span class='mi'>10</span><span class='kt'>px</span><span class='p'>;</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>.page-title {
-	font-family: Arial;
-	font-size: 20px;
-	font-weight: bold;
-	color: #ff0000;
-	padding: 4px;
-	margin-top: 10px; }</code></pre>
-</div>
+<div class='highlight'><pre><code class='css'><span class='nc'>.page-title</span> <span class='p'>{</span>
+	<span class='k'>font-family</span><span class='o'>:</span> <span class='n'>Arial</span><span class='p'>;</span>
+	<span class='k'>font-size</span><span class='o'>:</span> <span class='m'>20px</span><span class='p'>;</span>
+	<span class='k'>font-weight</span><span class='o'>:</span> <span class='k'>bold</span><span class='p'>;</span>
+	<span class='k'>color</span><span class='o'>:</span> <span class='m'>#ff0000</span><span class='p'>;</span>
+	<span class='k'>padding</span><span class='o'>:</span> <span class='m'>4px</span><span class='p'>;</span>
+	<span class='k'>margin-top</span><span class='o'>:</span> <span class='m'>10px</span><span class='p'>;</span> <span class='p'>}</span>
+</code></pre></div>
 <p>也可以在最外层引用混合样式，不会直接定义属性，也不可以使用父选择器。</p>
-<div>
-  <pre data-line=''><code class='language-css'>@mixin silly-links {
-	a {
-		color: blue;
-		background-color: red;
-	}
-}
 
-@include silly-links;</code></pre>
-</div>
+<p><div class='highlight'><pre><code class='scss'><span class='k'>@mixin</span><span class='nf'> silly-links</span> <span class='p'>{</span>
+	<span class='nt'>a</span> <span class='p'>{</span>
+		<span class='na'>color</span><span class='o'>:</span> <span class='nb'>blue</span><span class='p'>;</span>
+		<span class='na'>background-color</span><span class='o'>:</span> <span class='nb'>red</span><span class='p'>;</span>
+	<span class='p'>}</span>
+<span class='p'>}</span>
+<span class='k'>@include</span><span class='nd'> silly-links</span><span class='p'>;</span>
+</code></pre></div></p>
+
 <p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>a {
-	color: blue;
-	background-color: red; }</code></pre>
-</div>
+<div class='highlight'><pre><code class='css'><span class='nt'>a</span> <span class='p'>{</span>
+	<span class='k'>color</span><span class='o'>:</span> <span class='nb'>blue</span><span class='p'>;</span>
+	<span class='k'>background-color</span><span class='o'>:</span> <span class='nb'>red</span><span class='p'>;</span> <span class='p'>}</span>
+</code></pre></div>
 <p>混合样式中也可以包含其他混合样式，比如</p>
-<div>
-  <pre data-line=''><code class='language-css'>@mixin compound {
-	@include highlighted-background;
-	@include header-text;
-}
 
-@mixin highlighted-background { background-color: #fc0; }
-@mixin header-text { font-size: 20px; }</code></pre>
-</div>
+<p><div class='highlight'><pre><code class='scss'><span class='k'>@mixin</span><span class='nf'> compound</span> <span class='p'>{</span>
+	<span class='k'>@include</span><span class='nd'> highlighted-background</span><span class='p'>;</span>
+	<span class='k'>@include</span><span class='nd'> header-text</span><span class='p'>;</span>
+<span class='p'>}</span>
+<span class='k'>@mixin</span><span class='nf'> highlighted-background</span> <span class='p'>{</span> <span class='na'>background-color</span><span class='o'>:</span> <span class='mh'>#fc0</span><span class='p'>;</span> <span class='p'>}</span>
+<span class='k'>@mixin</span><span class='nf'> header-text</span> <span class='p'>{</span> <span class='na'>font-size</span><span class='o'>:</span> <span class='mi'>20</span><span class='kt'>px</span><span class='p'>;</span> <span class='p'>}</span>
+</code></pre></div></p>
+
 <p>混合样式中应该只定义后代选择器，这样可以安全的导入到文件的任何位置。</p>
-<h4 id='9_3'>9.3. 参数 (Arguments)</h4>
+<h3 id='9_3'>9.3. 参数 (Arguments)</h3>
 <p>参数用于给混合指令中的样式设定变量，并且赋值使用。在定义混合指令的时候，按照变量的格式，通过逗号分隔，将参数写进圆括号里。引用指令时，按照参数的顺序，再将所赋的值对应写进括号：</p>
-<div>
-  <pre data-line=''><code class='language-css'>@mixin sexy-border($color, $width) {
-	border: {
-		color: $color;
-		width: $width;
-		style: dashed;
-	}
-}
 
-p { @include sexy-border(blue, 1in); }</code></pre>
-</div>
+<p><div class='highlight'><pre><code class='scss'><span class='k'>@mixin</span><span class='nf'> sexy-border</span><span class='p'>(</span><span class='nv'>$color</span><span class='o'>,</span> <span class='nv'>$width</span><span class='p'>)</span> <span class='p'>{</span>
+	<span class='na'>border</span><span class='o'>:</span> <span class='p'>{</span>
+		<span class='na'>color</span><span class='o'>:</span> <span class='nv'>$color</span><span class='p'>;</span>
+		<span class='na'>width</span><span class='o'>:</span> <span class='nv'>$width</span><span class='p'>;</span>
+		<span class='na'>style</span><span class='o'>:</span> <span class='no'>dashed</span><span class='p'>;</span>
+	<span class='p'>}</span>
+<span class='p'>}</span>
+<span class='nt'>p</span> <span class='p'>{</span> <span class='k'>@include</span><span class='nd'> sexy-border</span><span class='p'>(</span><span class='nb'>blue</span><span class='o'>,</span> <span class='mi'>1</span><span class='kt'>in</span><span class='p'>);</span> <span class='p'>}</span>
+</code></pre></div></p>
+
 <p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>p {
-	border-color: blue;
-	border-width: 1in;
-	border-style: dashed; }</code></pre>
-</div>
+<div class='highlight'><pre><code class='css'><span class='nt'>p</span> <span class='p'>{</span>
+	<span class='k'>border-color</span><span class='o'>:</span> <span class='nb'>blue</span><span class='p'>;</span>
+	<span class='k'>border-width</span><span class='o'>:</span> <span class='m'>1in</span><span class='p'>;</span>
+	<span class='k'>border-style</span><span class='o'>:</span> <span class='k'>dashed</span><span class='p'>;</span> <span class='p'>}</span>
+</code></pre></div>
 <p>混合指令也可以使用给变量赋值的方法给参数设定默认值，然后，当这个指令被引用的时候，如果没有给参数赋值，则自动使用默认值：</p>
-<div>
-  <pre data-line=''><code class='language-css'>@mixin sexy-border($color, $width: 1in) {
-	border: {
-		color: $color;
-		width: $width;
-		style: dashed;
-	}
-}
-p { @include sexy-border(blue); }
-h1 { @include sexy-border(blue, 2in); }</code></pre>
-</div>
-<p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>p {
-	border-color: blue;
-	border-width: 1in;
-	border-style: dashed; }
 
-h1 {
-	border-color: blue;
-	border-width: 2in;
-	border-style: dashed; }</code></pre>
-</div><h5 id='9_3_1'>9.3.1. 关键词参数 (Keyword Arguments)</h5>
+<p><div class='highlight'><pre><code class='scss'><span class='k'>@mixin</span><span class='nf'> sexy-border</span><span class='p'>(</span><span class='nv'>$color</span><span class='o'>,</span> <span class='nv'>$width</span><span class='o'>:</span> <span class='mi'>1</span><span class='kt'>in</span><span class='p'>)</span> <span class='p'>{</span>
+	<span class='na'>border</span><span class='o'>:</span> <span class='p'>{</span>
+		<span class='na'>color</span><span class='o'>:</span> <span class='nv'>$color</span><span class='p'>;</span>
+		<span class='na'>width</span><span class='o'>:</span> <span class='nv'>$width</span><span class='p'>;</span>
+		<span class='na'>style</span><span class='o'>:</span> <span class='no'>dashed</span><span class='p'>;</span>
+	<span class='p'>}</span>
+<span class='p'>}</span>
+<span class='nt'>p</span> <span class='p'>{</span> <span class='k'>@include</span><span class='nd'> sexy-border</span><span class='p'>(</span><span class='nb'>blue</span><span class='p'>);</span> <span class='p'>}</span>
+<span class='nt'>h1</span> <span class='p'>{</span> <span class='k'>@include</span><span class='nd'> sexy-border</span><span class='p'>(</span><span class='nb'>blue</span><span class='o'>,</span> <span class='mi'>2</span><span class='kt'>in</span><span class='p'>);</span> <span class='p'>}</span>
+</code></pre></div></p>
+
+<p>编译为</p>
+<div class='highlight'><pre><code class='css'><span class='nt'>p</span> <span class='p'>{</span>
+	<span class='k'>border-color</span><span class='o'>:</span> <span class='nb'>blue</span><span class='p'>;</span>
+	<span class='k'>border-width</span><span class='o'>:</span> <span class='m'>1in</span><span class='p'>;</span>
+	<span class='k'>border-style</span><span class='o'>:</span> <span class='k'>dashed</span><span class='p'>;</span> <span class='p'>}</span>
+
+<span class='nt'>h1</span> <span class='p'>{</span>
+	<span class='k'>border-color</span><span class='o'>:</span> <span class='nb'>blue</span><span class='p'>;</span>
+	<span class='k'>border-width</span><span class='o'>:</span> <span class='m'>2in</span><span class='p'>;</span>
+	<span class='k'>border-style</span><span class='o'>:</span> <span class='k'>dashed</span><span class='p'>;</span> <span class='p'>}</span>
+</code></pre></div><h4 id='9_3_1'>9.3.1. 关键词参数 (Keyword Arguments)</h4>
 <p>混合指令也可以使用关键词参数，上面的例子也可以写成：</p>
-<div>
-  <pre data-line=''><code class='language-css'>p { @include sexy-border($color: blue); }
-h1 { @include sexy-border($color: blue, $width: 2in); }</code></pre>
-</div>
+
+<p><div class='highlight'><pre><code class='scss'><span class='nt'>p</span> <span class='p'>{</span> <span class='k'>@include</span><span class='nd'> sexy-border</span><span class='p'>(</span><span class='nv'>$color</span><span class='o'>:</span> <span class='nb'>blue</span><span class='p'>);</span> <span class='p'>}</span>
+<span class='nt'>h1</span> <span class='p'>{</span> <span class='k'>@include</span><span class='nd'> sexy-border</span><span class='p'>(</span><span class='nv'>$color</span><span class='o'>:</span> <span class='nb'>blue</span><span class='o'>,</span> <span class='nv'>$width</span><span class='o'>:</span> <span class='mi'>2</span><span class='kt'>in</span><span class='p'>);</span> <span class='p'>}</span>
+</code></pre></div></p>
+
 <p>虽然不够简明，但是阅读起来会更方便。关键词参数给函数提供了更灵活的接口，以及容易调用的参数。关键词参数可以打乱顺序使用，如果使用默认值也可以省缺，另外，参数名被视为变量名，下划线、短横线可以互换使用。</p>
-<h5 id='9_3_2'>9.3.2. 参数变量 (Variable Arguments)</h5>
+<h4 id='9_3_2'>9.3.2. 参数变量 (Variable Arguments)</h4>
 <p>有时，不能确定混合指令需要使用多少个参数，比如一个关于 <code>box-shadow</code> 的混合指令不能确定有多少个 &#8216;shadow&#8217; 会被用到。这时，可以使用参数变量 <code>…</code> 声明（写在参数的最后方）告诉 Sass 将这些参数视为值列表处理：</p>
-<div>
-  <pre data-line=''><code class='language-css'>@mixin box-shadow($shadows...) {
-	-moz-box-shadow: $shadows;
-	-webkit-box-shadow: $shadows;
-	box-shadow: $shadows;
-}
 
-.shadows {
-	@include box-shadow(0px 4px 5px #666, 2px 6px 10px #999);
-}</code></pre>
-</div>
+<p><div class='highlight'><pre><code class='scss'><span class='k'>@mixin</span><span class='nf'> box-shadow</span><span class='p'>(</span><span class='nv'>$shadows</span><span class='o'>...</span><span class='p'>)</span> <span class='p'>{</span>
+	<span class='na'>-moz-box-shadow</span><span class='o'>:</span> <span class='nv'>$shadows</span><span class='p'>;</span>
+	<span class='na'>-webkit-box-shadow</span><span class='o'>:</span> <span class='nv'>$shadows</span><span class='p'>;</span>
+	<span class='na'>box-shadow</span><span class='o'>:</span> <span class='nv'>$shadows</span><span class='p'>;</span>
+<span class='p'>}</span>
+<span class='nc'>.shadows</span> <span class='p'>{</span>
+	<span class='k'>@include</span><span class='nd'> box-shadow</span><span class='p'>(</span><span class='mi'>0</span><span class='kt'>px</span> <span class='mi'>4</span><span class='kt'>px</span> <span class='mi'>5</span><span class='kt'>px</span> <span class='mh'>#666</span><span class='o'>,</span> <span class='mi'>2</span><span class='kt'>px</span> <span class='mi'>6</span><span class='kt'>px</span> <span class='mi'>10</span><span class='kt'>px</span> <span class='mh'>#999</span><span class='p'>);</span>
+<span class='p'>}</span>
+</code></pre></div></p>
+
 <p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>.shadowed {
-	-moz-box-shadow: 0px 4px 5px #666, 2px 6px 10px #999;
-	-webkit-box-shadow: 0px 4px 5px #666, 2px 6px 10px #999;
-	box-shadow: 0px 4px 5px #666, 2px 6px 10px #999;
-}</code></pre>
-</div>
+<div class='highlight'><pre><code class='css'><span class='nc'>.shadowed</span> <span class='p'>{</span>
+	<span class='o'>-</span><span class='n'>moz</span><span class='o'>-</span><span class='n'>box</span><span class='o'>-</span><span class='n'>shadow</span><span class='o'>:</span> <span class='m'>0px</span> <span class='m'>4px</span> <span class='m'>5px</span> <span class='m'>#666</span><span class='o'>,</span> <span class='m'>2px</span> <span class='m'>6px</span> <span class='m'>10px</span> <span class='m'>#999</span><span class='p'>;</span>
+	<span class='o'>-</span><span class='n'>webkit</span><span class='o'>-</span><span class='n'>box</span><span class='o'>-</span><span class='n'>shadow</span><span class='o'>:</span> <span class='m'>0px</span> <span class='m'>4px</span> <span class='m'>5px</span> <span class='m'>#666</span><span class='o'>,</span> <span class='m'>2px</span> <span class='m'>6px</span> <span class='m'>10px</span> <span class='m'>#999</span><span class='p'>;</span>
+	<span class='n'>box</span><span class='o'>-</span><span class='n'>shadow</span><span class='o'>:</span> <span class='m'>0px</span> <span class='m'>4px</span> <span class='m'>5px</span> <span class='m'>#666</span><span class='o'>,</span> <span class='m'>2px</span> <span class='m'>6px</span> <span class='m'>10px</span> <span class='m'>#999</span><span class='p'>;</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>参数变量也可以用在引用混合指令的时候 (<code>@include</code>)，与平时用法一样，将一串值列表中的值逐条作为参数引用：</p>
-<div>
-  <pre data-line=''><code class='language-css'>@mixin colors($text, $background, $border) {
-	color: $text;
-	background-color: $background;
-	border-color: $border;
-}
 
-$values: #ff0000, #00ff00, #0000ff;
-.primary {
-	@include colors($values...);
-}</code></pre>
-</div>
+<p><div class='highlight'><pre><code class='scss'><span class='k'>@mixin</span><span class='nf'> colors</span><span class='p'>(</span><span class='nv'>$text</span><span class='o'>,</span> <span class='nv'>$background</span><span class='o'>,</span> <span class='nv'>$border</span><span class='p'>)</span> <span class='p'>{</span>
+	<span class='na'>color</span><span class='o'>:</span> <span class='nv'>$text</span><span class='p'>;</span>
+	<span class='na'>background-color</span><span class='o'>:</span> <span class='nv'>$background</span><span class='p'>;</span>
+	<span class='na'>border-color</span><span class='o'>:</span> <span class='nv'>$border</span><span class='p'>;</span>
+<span class='p'>}</span>
+<span class='nv'>$values</span><span class='o'>:</span> <span class='mh'>#ff0000</span><span class='o'>,</span> <span class='mh'>#00ff00</span><span class='o'>,</span> <span class='mh'>#0000ff</span><span class='p'>;</span>
+<span class='nc'>.primary</span> <span class='p'>{</span>
+	<span class='k'>@include</span><span class='nd'> colors</span><span class='p'>(</span><span class='nv'>$values</span><span class='o'>...</span><span class='p'>);</span>
+<span class='p'>}</span>
+</code></pre></div></p>
+
 <p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>.primary {
-	color: #ff0000;
-	background-color: #00ff00;
-	border-color: #0000ff;
-}</code></pre>
-</div>
+<div class='highlight'><pre><code class='css'><span class='nc'>.primary</span> <span class='p'>{</span>
+	<span class='k'>color</span><span class='o'>:</span> <span class='m'>#ff0000</span><span class='p'>;</span>
+	<span class='k'>background-color</span><span class='o'>:</span> <span class='m'>#00ff00</span><span class='p'>;</span>
+	<span class='k'>border-color</span><span class='o'>:</span> <span class='m'>#0000ff</span><span class='p'>;</span>
+<span class='p'>}</span>
+</code></pre></div>
 <blockquote>
 <p>You can use variable arguments to wrap a mixin and add additional styles without changing the argument signature of the mixin. If you do so, even keyword arguments will get passed through to the wrapped mixin. For example:</p>
 </blockquote>
-<div>
-  <pre data-line=''><code class='language-css'>@mixin wrapped-stylish-mixin($args...) {
-	font-weight: bold;
-	@include stylish-mixin($args...);
-}
 
-.stylish {
-	// The $width argument will get passed on to &quot;stylish-mixin&quot; as a keyword
-	@include wrapped-stylish-mixin(#00ff00, $width: 100px);
-}</code></pre>
-</div>
+<p><div class='highlight'><pre><code class='scss'><span class='k'>@mixin</span><span class='nf'> wrapped-stylish-mixin</span><span class='p'>(</span><span class='nv'>$args</span><span class='o'>...</span><span class='p'>)</span> <span class='p'>{</span>
+	<span class='na'>font-weight</span><span class='o'>:</span> <span class='no'>bold</span><span class='p'>;</span>
+	<span class='k'>@include</span><span class='nd'> stylish-mixin</span><span class='p'>(</span><span class='nv'>$args</span><span class='o'>...</span><span class='p'>);</span>
+<span class='p'>}</span>
+<span class='nc'>.stylish</span> <span class='p'>{</span>
+	<span class='c1'>// The $width argument will get passed on to &quot;stylish-mixin&quot; as a keyword</span>
+	<span class='k'>@include</span><span class='nd'> wrapped-stylish-mixin</span><span class='p'>(</span><span class='mh'>#00ff00</span><span class='o'>,</span> <span class='nv'>$width</span><span class='o'>:</span> <span class='mi'>100</span><span class='kt'>px</span><span class='p'>);</span>
+<span class='p'>}</span>
+</code></pre></div></p>
+
 <p>上面注释内的意思是：<code>$width</code> 参数将会传递给 <code>stylish-mixin</code> 作为关键词。</p>
-<h4 id='9_4'>9.4. 向混合样式中导入内容 (Passing Content Blocks to a Mixin)</h4>
+<h3 id='9_4'>9.4. 向混合样式中导入内容 (Passing Content Blocks to a Mixin)</h3>
 <p>在引用混合样式的时候，可以先将一段代码导入到混合指令中，然后再输出混合样式，额外导入的部分将出现在 <code>@content</code> 标志的地方：</p>
-<div>
-  <pre data-line=''><code class='language-css'>@mixin apply-to-ie6-only {
-	* html {
-		@content;
-	}
-}
-@include apply-to-ie6-only {
-	#logo {
-		background-image: url(/logo.gif);
-	}
-}</code></pre>
-</div>
-<p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>* html #logo {
-	background-image: url(/logo.gif);
-}</code></pre>
-</div>
-<p><strong>为便于书写，<code>@mixin</code> 可以用 <code>=</code> 表示，而 <code>@include</code> 可以用 <code>+</code> 表示</strong>，所以上面的例子可以写成：</p>
-<div>
-  <pre data-line=''><code class='language-css'>=apply-to-ie6-only
-	* html
-		@content
 
-+apply-to-ie6-only
-	#logo
-		background-image: url(/logo.gif)</code></pre>
-</div>
+<p><div class='highlight'><pre><code class='scss'><span class='k'>@mixin</span><span class='nf'> apply-to-ie6-only</span> <span class='p'>{</span>
+	<span class='o'>*</span> <span class='nt'>html</span> <span class='p'>{</span>
+		<span class='k'>@content</span><span class='o'>;</span>
+	<span class='p'>}</span>
+<span class='p'>}</span>
+<span class='k'>@include</span><span class='nd'> apply-to-ie6-only</span> <span class='p'>{</span>
+	<span class='nn'>#logo</span> <span class='p'>{</span>
+		<span class='na'>background-image</span><span class='o'>:</span> <span class='sx'>url(/logo.gif)</span><span class='p'>;</span>
+	<span class='p'>}</span>
+<span class='p'>}</span>
+</code></pre></div></p>
+
+<p>编译为</p>
+<div class='highlight'><pre><code class='css'><span class='o'>*</span> <span class='nt'>html</span> <span class='nf'>#logo</span> <span class='p'>{</span>
+	<span class='k'>background-image</span><span class='o'>:</span> <span class='sx'>url(/logo.gif)</span><span class='p'>;</span>
+<span class='p'>}</span>
+</code></pre></div>
+<p><strong>为便于书写，<code>@mixin</code> 可以用 <code>=</code> 表示，而 <code>@include</code> 可以用 <code>+</code> 表示</strong>，所以上面的例子可以写成：</p>
+<div class='highlight'><pre><code class='sass'><span class='nf'>=apply-to-ie6-only</span>
+	<span class='o'>*</span> <span class='nt'>html</span>
+		<span class='k'>@content</span>
+
+<span class='nd'>+apply-to-ie6-only</span>
+	<span class='nn'>#logo</span>
+		<span class='na'>background-image</span><span class='o'>:</span> <span class='sx'>url(/logo.gif)</span>
+</code></pre></div>
 <p><strong>注意：</strong> 当 <code>@content</code> 在指令中出现过多次或者出现在循环中时，额外的代码将被导入到每一个地方。</p>
-<h5 id='9_4_1'>9.4.1. Variable Scope and Content Blocks</h5>
+<h4 id='9_4_1'>9.4.1. Variable Scope and Content Blocks</h4>
 <blockquote>
 <p>The block of content passed to a mixin are evaluated in the scope where the block is defined, not in the scope of the mixin. This means that variables local to the mixin cannot be used within the passed style block and variables will resolve to the global value:</p>
 </blockquote>
-<div>
-  <pre data-line=''><code class='language-css'>$color: white;
-@mixin colors($color: blue) {
-	background-color: $color;
-	@content;
-	border-color: $color;
-}
-.colors {
-	@include colors { color: $color; }
-}</code></pre>
-</div>
+<div class='highlight'><pre><code class='scss'><span class='nv'>$color</span><span class='o'>:</span> <span class='nb'>white</span><span class='p'>;</span>
+<span class='k'>@mixin</span><span class='nf'> colors</span><span class='p'>(</span><span class='nv'>$color</span><span class='o'>:</span> <span class='nb'>blue</span><span class='p'>)</span> <span class='p'>{</span>
+	<span class='na'>background-color</span><span class='o'>:</span> <span class='nv'>$color</span><span class='p'>;</span>
+	<span class='k'>@content</span><span class='o'>;</span>
+	<span class='nt'>border-color</span><span class='nd'>:</span> <span class='err'>$</span><span class='nt'>color</span><span class='o'>;</span>
+<span class='p'>}</span>
+<span class='nc'>.colors</span> <span class='p'>{</span>
+	<span class='k'>@include</span><span class='nd'> colors</span> <span class='p'>{</span> <span class='na'>color</span><span class='o'>:</span> <span class='nv'>$color</span><span class='p'>;</span> <span class='p'>}</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>编译为</p>
-<div>
-  <pre data-line=''><code class='language-css'>.colors {
-	background-color: blue;
-	color: white;
-	border-color: blue;
-}</code></pre>
-</div>
+<div class='highlight'><pre><code class='css'><span class='nc'>.colors</span> <span class='p'>{</span>
+	<span class='k'>background-color</span><span class='o'>:</span> <span class='nb'>blue</span><span class='p'>;</span>
+	<span class='k'>color</span><span class='o'>:</span> <span class='nb'>white</span><span class='p'>;</span>
+	<span class='k'>border-color</span><span class='o'>:</span> <span class='nb'>blue</span><span class='p'>;</span>
+<span class='p'>}</span>
+</code></pre></div>
 <blockquote>
 <p>Additionally, this makes it clear that the variables and mixins that are used within the passed block are related to the other styles around where the block is defined. For example:</p>
 </blockquote>
-<div>
-  <pre data-line=''><code class='language-css'>#sidebar {
-	$sidebar-width: 300px;
-	width: $sidebar-width;
-	@include smartphone {
-		width: $sidebar-width / 3;
-	}
-}</code></pre>
-</div><h3 id='10'>10. 函数指令 (Function Directives)</h3>
+<div class='highlight'><pre><code class='scss'><span class='nn'>#sidebar</span> <span class='p'>{</span>
+	<span class='na'>$sidebar-width</span><span class='o'>:</span> <span class='mi'>300</span><span class='kt'>px</span><span class='p'>;</span>
+	<span class='na'>width</span><span class='o'>:</span> <span class='nv'>$sidebar-width</span><span class='p'>;</span>
+	<span class='k'>@include</span><span class='nd'> smartphone</span> <span class='p'>{</span>
+		<span class='na'>width</span><span class='o'>:</span> <span class='nv'>$sidebar-width</span> <span class='o'>/</span> <span class='mi'>3</span><span class='p'>;</span>
+	<span class='p'>}</span>
+<span class='p'>}</span>
+</code></pre></div><h2 id='10'>10. 函数指令 (Function Directives)</h2>
 <p>Sass 允许自定义函数作用于任何值或者字符串，例如：</p>
-<div>
-  <pre data-line=''><code class='language-css'>$grid-width: 40px;
-$gutter-width: 10px;
+<div class='highlight'><pre><code class='scss'><span class='na'>$grid-width</span><span class='o'>:</span> <span class='mi'>40</span><span class='kt'>px</span><span class='p'>;</span>
+<span class='na'>$gutter-width</span><span class='o'>:</span> <span class='mi'>10</span><span class='kt'>px</span><span class='p'>;</span>
 
-@function grid-width($n) {
-	@return $n * $grid-width + ($n - 1) * $gutter-width;
-}
+<span class='k'>@function</span> <span class='nt'>grid-width</span><span class='o'>(</span><span class='err'>$</span><span class='nt'>n</span><span class='o'>)</span> <span class='p'>{</span>
+	<span class='k'>@return</span> <span class='err'>$</span><span class='nt'>n</span> <span class='o'>*</span> <span class='err'>$</span><span class='nt'>grid-width</span> <span class='o'>+</span> <span class='o'>(</span><span class='err'>$</span><span class='nt'>n</span> <span class='nt'>-</span> <span class='nt'>1</span><span class='o'>)</span> <span class='o'>*</span> <span class='err'>$</span><span class='nt'>gutter-width</span><span class='o'>;</span>
+<span class='p'>}</span>
 
-#sidebar { width: grid-width(5); }</code></pre>
-</div>
+<span class='nn'>#sidebar</span> <span class='p'>{</span> <span class='na'>width</span><span class='o'>:</span> <span class='nf'>grid-width</span><span class='p'>(</span><span class='mi'>5</span><span class='p'>);</span> <span class='p'>}</span>
+</code></pre></div>
 <p>结果是</p>
-<div>
-  <pre data-line=''><code class='language-css'>#sidebar {
-	width: 240px; }</code></pre>
-</div>
+<div class='highlight'><pre><code class='css'><span class='nf'>#sidebar</span> <span class='p'>{</span>
+	<span class='k'>width</span><span class='o'>:</span> <span class='m'>240px</span><span class='p'>;</span> <span class='p'>}</span>
+</code></pre></div>
 <p>函数可以使用任何变量，或者像混合指令一样使用参数。一个函数通常包含很多连结在一起的指令，通过 <code>@return</code> 设定函数的返回值。</p>
 
 <p>自定义的函数也可以使用关键词参数，上面的例子可以这样写：</p>
-<div>
-  <pre data-line=''><code class='language-css'>#sidebar { width: grid-width($n: 5); }</code></pre>
-</div>
+<div class='highlight'><pre><code class='scss'><span class='nn'>#sidebar</span> <span class='p'>{</span> <span class='na'>width</span><span class='o'>:</span> <span class='nf'>grid-width</span><span class='p'>(</span><span class='nv'>$n</span><span class='o'>:</span> <span class='mi'>5</span><span class='p'>);</span> <span class='p'>}</span>
+</code></pre></div>
 <p>建议在自定义函数前添加前缀，避免与 Sass 的默认函数冲突，也可以让其他人在阅读 Sass 文件时知道这是自定义函数。</p>
-<h3 id='11'>11. 输出样式 (Output Style)</h3>
+<h2 id='11'>11. 输出样式 (Output Style)</h2>
 <p>Sass 支持多种输出样式，满足不同的需求。通过 <code>:style</code> 选项设定输出样式，或者在命令行中使用 <code>--style</code> 命令。</p>
-<h4 id='11_1'>11.1. :nested</h4>
+<h3 id='11_1'>11.1. :nested</h3>
 <p>Nested （嵌套）样式是默认的 Sass 输出方式，这种样式清楚地反映了 CSS 与 HTML 的结构。选择器与属性等单独占用一行，缩进量与 Sass 文件中一致，每行的缩进量反映了其在嵌套规则内的层数。当阅读比较大的 CSS 文件时，这种样式可以很容易分析文件的结构。</p>
-<div>
-  <pre data-line=''><code class='language-css'>#main {
-	color: #fff;
-	background-color: #000; }
-	#main p {
-		width: 10em; }
+<div class='highlight'><pre><code class='css'><span class='nf'>#main</span> <span class='p'>{</span>
+	<span class='k'>color</span><span class='o'>:</span> <span class='m'>#fff</span><span class='p'>;</span>
+	<span class='k'>background-color</span><span class='o'>:</span> <span class='m'>#000</span><span class='p'>;</span> <span class='p'>}</span>
+	<span class='nf'>#main</span> <span class='nt'>p</span> <span class='p'>{</span>
+		<span class='k'>width</span><span class='o'>:</span> <span class='m'>10em</span><span class='p'>;</span> <span class='p'>}</span>
 
-.huge {
-	font-size: 10em;
-	font-weight: bold;
-	text-decoration: underline; }</code></pre>
-</div><h4 id='11_2'>11.2. :expanded</h4>
+<span class='nc'>.huge</span> <span class='p'>{</span>
+	<span class='k'>font-size</span><span class='o'>:</span> <span class='m'>10em</span><span class='p'>;</span>
+	<span class='k'>font-weight</span><span class='o'>:</span> <span class='k'>bold</span><span class='p'>;</span>
+	<span class='k'>text-decoration</span><span class='o'>:</span> <span class='k'>underline</span><span class='p'>;</span> <span class='p'>}</span>
+</code></pre></div><h3 id='11_2'>11.2. :expanded</h3>
 <p>Expanded 输出方式更像是手写的，选择器、属性等各占用一行，属性根据选择器缩进，而选择器不做任何缩进。</p>
-<div>
-  <pre data-line=''><code class='language-css'>#main {
-	color: #fff;
-	background-color: #000;
-}
-#main p {
-	width: 10em;
-}
+<div class='highlight'><pre><code class='css'><span class='nf'>#main</span> <span class='p'>{</span>
+	<span class='k'>color</span><span class='o'>:</span> <span class='m'>#fff</span><span class='p'>;</span>
+	<span class='k'>background-color</span><span class='o'>:</span> <span class='m'>#000</span><span class='p'>;</span>
+<span class='p'>}</span>
+<span class='nf'>#main</span> <span class='nt'>p</span> <span class='p'>{</span>
+	<span class='k'>width</span><span class='o'>:</span> <span class='m'>10em</span><span class='p'>;</span>
+<span class='p'>}</span>
 
-.huge {
-	font-size: 10em;
-	font-weight: bold;
-	text-decoration: underline;
-}</code></pre>
-</div><h4 id='11_3'>11.3. :compact</h4>
+<span class='nc'>.huge</span> <span class='p'>{</span>
+	<span class='k'>font-size</span><span class='o'>:</span> <span class='m'>10em</span><span class='p'>;</span>
+	<span class='k'>font-weight</span><span class='o'>:</span> <span class='k'>bold</span><span class='p'>;</span>
+	<span class='k'>text-decoration</span><span class='o'>:</span> <span class='k'>underline</span><span class='p'>;</span>
+<span class='p'>}</span>
+</code></pre></div><h3 id='11_3'>11.3. :compact</h3>
 <p>Compact 输出方式比起上面两种占用的空间更少，每条 CSS 规则只占一行，包含其下的所有属性。嵌套的选择器在输出时紧邻在一起，与其他组通过空白行分隔。</p>
-<div>
-  <pre data-line=''><code class='language-css'>#main { color: #fff; background-color: #000; }
-#main p { width: 10em; }
+<div class='highlight'><pre><code class='css'><span class='nf'>#main</span> <span class='p'>{</span> <span class='k'>color</span><span class='o'>:</span> <span class='m'>#fff</span><span class='p'>;</span> <span class='k'>background-color</span><span class='o'>:</span> <span class='m'>#000</span><span class='p'>;</span> <span class='p'>}</span>
+<span class='nf'>#main</span> <span class='nt'>p</span> <span class='p'>{</span> <span class='k'>width</span><span class='o'>:</span> <span class='m'>10em</span><span class='p'>;</span> <span class='p'>}</span>
 
-.huge { font-size: 10em; font-weight: bold; text-decoration: underline; }</code></pre>
-</div><h4 id='11_4'>11.4 :compressed</h4>
+<span class='nc'>.huge</span> <span class='p'>{</span> <span class='k'>font-size</span><span class='o'>:</span> <span class='m'>10em</span><span class='p'>;</span> <span class='k'>font-weight</span><span class='o'>:</span> <span class='k'>bold</span><span class='p'>;</span> <span class='k'>text-decoration</span><span class='o'>:</span> <span class='k'>underline</span><span class='p'>;</span> <span class='p'>}</span>
+</code></pre></div><h3 id='11_4'>11.4 :compressed</h3>
 <p>Compressed 输出方式删除无意义的空格与空白行，以及注释，将文件压缩到最小，同时也会做出其他调整，比如智能换用占空间最小的颜色表达方式。</p>
-<div>
-  <pre data-line=''><code class='language-css'>#main{color:#fff;background-color:#000}#main p{width:10em}.huge{font-size:10em;font-weight:bold;text-decoration:underline}</code></pre>
-</div><h3 id='12'>12. 拓展 Sass</h3>
+<div class='highlight'><pre><code class='css'><span class='nf'>#main</span><span class='p'>{</span><span class='k'>color</span><span class='o'>:</span><span class='m'>#fff</span><span class='p'>;</span><span class='k'>background-color</span><span class='o'>:</span><span class='m'>#000</span><span class='p'>}</span><span class='nf'>#main</span> <span class='nt'>p</span><span class='p'>{</span><span class='k'>width</span><span class='o'>:</span><span class='m'>10em</span><span class='p'>}</span><span class='nc'>.huge</span><span class='p'>{</span><span class='k'>font-size</span><span class='o'>:</span><span class='m'>10em</span><span class='p'>;</span><span class='k'>font-weight</span><span class='o'>:</span><span class='k'>bold</span><span class='p'>;</span><span class='k'>text-decoration</span><span class='o'>:</span><span class='k'>underline</span><span class='p'>}</span>
+</code></pre></div><h2 id='12'>12. 拓展 Sass</h2>
 <p>Sass 提供了很多高级自定义功能，使用这些功能需要有良好的 Ruby 基础。</p>
-<h4 id='12_1'>12.1. 自定义 Sass 函数</h4>
-<p>用户可以通过 Ruby API 自定义 Sass 函数，详细信息请查看 <a href='http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html#adding_custom_functions' target='_blank'>source documentation</a> 。</p>
+<h3 id='12_1'>12.1. 自定义 Sass 函数</h3>
+<p>用户可以通过 Ruby API 自定义 Sass 函数，详细信息请查看 <a href='http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html#adding_custom_functions'>source documentation</a>。</p>
 
 <blockquote>
-<p>以下关于 Sass 缓存与自定义导入设置的内容暂时未翻译，请查看 <a href='http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#cache_stores' target='_blank'>原文档</a></p>
+<p>以下关于 Sass 缓存与自定义导入设置的内容暂时未翻译，请查看 <a href='http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#cache_stores'>原文档</a></p>
 </blockquote>
 <!--
-<h4 id="12_2">12.2. Cache Stores</h4>
-<h4 id="12_3">12.3 Custom Importers</h4>
+<h3 id="12_2">12.2. Cache Stores</h3>
+<h3 id="12_3">12.3 Custom Importers</h3>
 --><div id='button'><a href='#contents'>目录</a></div>
-	<p class="noindent">全文完&nbsp;&nbsp;&nbsp;<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank"><img src="/images/cc_small.png" alt="creative commons"></a>
-		<script type="text/javascript" charset="utf-8">
-		(function(){
-		  var _w = 16 , _h = 16;
-		  var param = {
-		    url:location.href,
-		    type:'3',
-		    count:'', /**是否显示分享数，1显示(可选)*/
-		    appkey:'', /**您申请的应用appkey,显示分享来源(可选)*/
-		    title:'', /**分享的文字内容(可选，默认为所在页面的title)*/
-		    pic:'', /**分享图片的路径(可选)*/
-		    ralateUid:'', /**关联用户的UID，分享微博会@该用户(可选)*/
-			language:'zh_cn', /**设置语言，zh_cn|zh_tw(可选)*/
-		    rnd:new Date().valueOf()
-		  }
-		  var temp = [];
-		  for( var p in param ){
-		    temp.push(p + '=' + encodeURIComponent( param[p] || '' ) )
-		  }
-		  document.write('&nbsp;<iframe allowTransparency="true" frameborder="0" scrolling="no" src="http://hits.sinajs.cn/A1/weiboshare.html?' + temp.join('&') + '" width="'+ _w+'" height="'+_h+'"></iframe>')
-		})()
-		</script>
-	</p>
-	<div id="disqus_thread"></div>
-	<script type="text/javascript">
-		/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-		var disqus_shortname = 'p233'; // required: replace example with your forum shortname
+  </div>
+  <a id="cc" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/"></a>
+</article>
 
-		/* * * DON'T EDIT BELOW THIS LINE * * */
-		(function() {
-			var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-			dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-			(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-		})();
-	</script>
-	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-	<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-</div>
-		</div>
-		<script type="text/javascript" src="/js/meny.min.js"></script>
-		<script type="text/javascript" src="/js/prism.min.js"></script>
-		<script type="text/javascript">
-			if (navigator.appVersion.indexOf("Win")!=-1) document.body.style.fontSize = '18px';
+<div id="disqus_thread"></div>
 
-			var meny = Meny.create({
-				menuElement: document.querySelector( 'header' ),
-				contentsElement: document.querySelector( '#container' ),
-				position: Meny.getQuery().p || 'left',
-				height: 200,
-				width: 250,
-				threshold: 40
-			});
-		</script>
-	</body>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">Comments powered by <span class="logo-disqus">Disqus</span></a></div>
+    </div>
+
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/script.js"></script>
+  </body>
 </html>
