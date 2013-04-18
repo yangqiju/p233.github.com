@@ -75,6 +75,7 @@ $(document).ready(function() {
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
   }
+  $("#container").on("click", contentEffects);
 
   // ajax loading content
   // http://net.tutsplus.com/tutorials/javascript-ajax/how-to-load-in-and-animate-content-with-jquery/
@@ -99,7 +100,6 @@ $(document).ready(function() {
     }
     function showNewContent() {
       $('.ajax').fadeIn('normal',hideLoader());
-      $("#container").on("click", contentEffects);
     }
     function hideLoader() {
       $('#load').fadeOut('normal');
