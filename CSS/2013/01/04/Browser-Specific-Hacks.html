@@ -47,6 +47,12 @@
 
       <div id="post_list">
         
+          <a class="Mac cate1" href="/Mac/2013/04/20/sublime-test.html">Sublime Text 的个人设置<span>Apr 2013</span></a>
+        
+          <a class="Github cate1" href="/Github/2013/04/16/emmet-css-snippets.html">Emmet CSS Snippets<span>Apr 2013</span></a>
+        
+          <a class="CSS cate1" href="/CSS/2013/04/15/css-performance-2.html">关注 CSS 性能 (二)<span>Apr 2013</span></a>
+        
           <a class="Demo cate1" href="/Demo/2013/04/06/css3-slider-practice.html">CSS3 Slider 模仿练习<span>Apr 2013</span></a>
         
           <a class="Front_end cate1" href="/Front_end/2013/03/31/ie10-placeholder.html">IE10 的 placeholder 伪类问题<span>Mar 2013</span></a>
@@ -77,97 +83,108 @@
     </aside>
 
     <div id="container">
-      <div id="load"></div>
+      <div id="trigger"></div>
       <div class="ajax"><article id="post">
   <header id="header">
     <h1>CSS 判断浏览器方法整理</h1>
-    <button id="fullscreen" class="header_icon" title="部分浏览器不支持全屏模式"></button>
+    <button id="fullscreen" class="header_icon"></button>
     <button id="fontsize" class="header_icon"></button>
   </header>
   <div id="content">
     <p>整理几个常用的判断浏览器的方法，记录在这里方便查阅。不算全面，以后遇到问题了再来更新。</p>
 
-<h2 id='conditional_comments'>Conditional Comments</h2>
-<div class='highlight'><pre><code class='html'><span class='c'>&lt;!--[if IE]&gt;</span>
-<span class='c'>  According to the conditional comment this is IE</span>
-<span class='c'>&lt;![endif]--&gt;</span>
+<h2>Conditional Comments</h2>
 
-<span class='c'>&lt;!--[if IE 6]&gt;</span>
-<span class='c'>  According to the conditional comment this is IE 6</span>
-<span class='c'>&lt;![endif]--&gt;</span>
+<div class="highlight"><pre><code class="html"><span class="c">&lt;!--[if IE]&gt;</span>
+<span class="c">  According to the conditional comment this is IE</span>
+<span class="c">&lt;![endif]--&gt;</span>
 
-<span class='c'>&lt;!--[if IE 7]&gt;</span>
-<span class='c'>  According to the conditional comment this is IE 7</span>
-<span class='c'>&lt;![endif]--&gt;</span>
+<span class="c">&lt;!--[if IE 6]&gt;</span>
+<span class="c">  According to the conditional comment this is IE 6</span>
+<span class="c">&lt;![endif]--&gt;</span>
 
-<span class='c'>&lt;!--[if IE 8]&gt;</span>
-<span class='c'>  According to the conditional comment this is IE 8</span>
-<span class='c'>&lt;![endif]--&gt;</span>
+<span class="c">&lt;!--[if IE 7]&gt;</span>
+<span class="c">  According to the conditional comment this is IE 7</span>
+<span class="c">&lt;![endif]--&gt;</span>
 
-<span class='c'>&lt;!--[if IE 9]&gt;</span>
-<span class='c'>  According to the conditional comment this is IE 9</span>
-<span class='c'>&lt;![endif]--&gt;</span>
+<span class="c">&lt;!--[if IE 8]&gt;</span>
+<span class="c">  According to the conditional comment this is IE 8</span>
+<span class="c">&lt;![endif]--&gt;</span>
 
-<span class='c'>&lt;!--[if gte IE 8]&gt;</span>
-<span class='c'>  According to the conditional comment this is IE 8 or higher</span>
-<span class='c'>&lt;![endif]--&gt;</span>
+<span class="c">&lt;!--[if IE 9]&gt;</span>
+<span class="c">  According to the conditional comment this is IE 9</span>
+<span class="c">&lt;![endif]--&gt;</span>
 
-<span class='c'>&lt;!--[if lt IE 9]&gt;</span>
-<span class='c'>  According to the conditional comment this is IE lower than 9</span>
-<span class='c'>&lt;![endif]--&gt;</span>
+<span class="c">&lt;!--[if gte IE 8]&gt;</span>
+<span class="c">  According to the conditional comment this is IE 8 or higher</span>
+<span class="c">&lt;![endif]--&gt;</span>
 
-<span class='c'>&lt;!--[if lte IE 7]&gt;</span>
-<span class='c'>  According to the conditional comment this is IE lower or equal to 7</span>
-<span class='c'>&lt;![endif]--&gt;</span>
+<span class="c">&lt;!--[if lt IE 9]&gt;</span>
+<span class="c">  According to the conditional comment this is IE lower than 9</span>
+<span class="c">&lt;![endif]--&gt;</span>
 
-<span class='c'>&lt;!--[if gt IE 6]&gt;</span>
-<span class='c'>  According to the conditional comment this is IE greater than 6</span>
-<span class='c'>&lt;![endif]--&gt;</span>
+<span class="c">&lt;!--[if lte IE 7]&gt;</span>
+<span class="c">  According to the conditional comment this is IE lower or equal to 7</span>
+<span class="c">&lt;![endif]--&gt;</span>
 
-<span class='c'>&lt;!--[if !IE]&gt; --&gt;</span>
+<span class="c">&lt;!--[if gt IE 6]&gt;</span>
+<span class="c">  According to the conditional comment this is IE greater than 6</span>
+<span class="c">&lt;![endif]--&gt;</span>
+
+<span class="c">&lt;!--[if !IE]&gt; --&gt;</span>
   According to the conditional comment this is not IE
-<span class='c'>&lt;!-- &lt;![endif]--&gt;</span>
+<span class="c">&lt;!-- &lt;![endif]--&gt;</span>
 </code></pre></div>
-<p>Source: <a href='http://www.quirksmode.org/css/condcom.html'>http://www.quirksmode.org/css/condcom.html</a></p>
 
-<h2 id='target_ie'>Target IE</h2>
-<div class='highlight'><pre><code class='css'><span class='nt'>p</span> <span class='p'>{</span>
-  <span class='k'>color</span><span class='o'>:</span> <span class='nb'>red</span><span class='p'>;</span> <span class='c'>/* All browsers */</span>
-  <span class='k'>color</span><span class='o'>:</span> <span class='nb'>red</span><span class='err'>\</span><span class='m'>9</span><span class='p'>;</span> <span class='c'>/* IE8 and below */</span>
-  <span class='o'>*</span><span class='k'>color</span><span class='o'>:</span> <span class='nb'>red</span><span class='p'>;</span> <span class='c'>/* IE7 and below */</span>
-  <span class='n'>_color</span><span class='o'>:</span> <span class='nb'>red</span><span class='p'>;</span> <span class='c'>/* IE6 */</span>
-<span class='p'>}</span>
 
-<span class='c'>/* Target IE 10 */</span>
-<span class='k'>@media</span> <span class='nt'>screen</span> <span class='nt'>and</span> <span class='o'>(</span><span class='nt'>-ms-high-contrast</span><span class='o'>:</span> <span class='nt'>active</span><span class='o'>),</span> <span class='o'>(</span><span class='nt'>-ms-high-contrast</span><span class='o'>:</span> <span class='nt'>none</span><span class='o'>)</span> <span class='p'>{</span>
-  <span class='nt'>p</span> <span class='p'>{</span>
-    <span class='k'>color</span><span class='o'>:</span> <span class='nb'>red</span><span class='p'>;</span>
-  <span class='p'>}</span>
-<span class='p'>}</span>
+<p>Source: <a href="http://www.quirksmode.org/css/condcom.html">http://www.quirksmode.org/css/condcom.html</a></p>
+
+<h2>Target IE</h2>
+
+<div class="highlight"><pre><code class="css"><span class="nt">p</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="nb">red</span><span class="p">;</span> <span class="c">/* All browsers */</span>
+  <span class="k">color</span><span class="o">:</span> <span class="nb">red</span><span class="err">\</span><span class="m">9</span><span class="p">;</span> <span class="c">/* IE8 and below */</span>
+  <span class="o">*</span><span class="k">color</span><span class="o">:</span> <span class="nb">red</span><span class="p">;</span> <span class="c">/* IE7 and below */</span>
+  <span class="n">_color</span><span class="o">:</span> <span class="nb">red</span><span class="p">;</span> <span class="c">/* IE6 */</span>
+<span class="p">}</span>
+
+<span class="c">/* Target IE 10 */</span>
+<span class="k">@media</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">-ms-high-contrast</span><span class="o">:</span> <span class="nt">active</span><span class="o">),</span> <span class="o">(</span><span class="nt">-ms-high-contrast</span><span class="o">:</span> <span class="nt">none</span><span class="o">)</span> <span class="p">{</span>
+  <span class="nt">p</span> <span class="p">{</span>
+    <span class="k">color</span><span class="o">:</span> <span class="nb">red</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
-<h2 id='target_safari_and_chrome'>Target Safari and Chrome</h2>
 
-<p><div class='highlight'><pre><code class='css'><span class='k'>@media</span> <span class='nt'>screen</span> <span class='nt'>and</span> <span class='o'>(</span><span class='nt'>-webkit-min-device-pixel-ratio</span><span class='nd'>:0</span><span class='o'>)</span> <span class='p'>{</span>
-  <span class='nt'>p</span> <span class='p'>{</span>
-    <span class='k'>color</span><span class='o'>:</span> <span class='nb'>red</span><span class='p'>;</span>
-  <span class='p'>}</span>
-<span class='p'>}</span>
-</code></pre></div></p>
 
-<h2 id='target_firefox'>Target Firefox</h2>
+<h2>Target Safari and Chrome</h2>
 
-<p><div class='highlight'><pre><code class='css'><span class='k'>@-moz-document</span> <span class='nt'>url-prefix</span><span class='o'>()</span> <span class='p'>{</span>
-  <span class='nt'>p</span> <span class='p'>{</span>
-    <span class='k'>color</span><span class='o'>:</span> <span class='nb'>red</span><span class='p'>;</span>
-  <span class='p'>}</span>
-<span class='p'>}</span>
-</code></pre></div></p>
-
-<h2 id='target_opera'>Target Opera</h2>
-<div class='highlight'><pre><code class='css'><span class='nt'>x</span><span class='nd'>:-o-prefocus</span><span class='o'>,</span> <span class='nt'>p</span> <span class='p'>{</span>
-  <span class='k'>color</span><span class='o'>:</span> <span class='nb'>red</span><span class='p'>;</span>
-<span class='p'>}</span>
+<div class="highlight"><pre><code class="css"><span class="k">@media</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">-webkit-min-device-pixel-ratio</span><span class="nd">:0</span><span class="o">)</span> <span class="p">{</span>
+  <span class="nt">p</span> <span class="p">{</span>
+    <span class="k">color</span><span class="o">:</span> <span class="nb">red</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
+
+
+<h2>Target Firefox</h2>
+
+<div class="highlight"><pre><code class="css"><span class="k">@-moz-document</span> <span class="nt">url-prefix</span><span class="o">()</span> <span class="p">{</span>
+  <span class="nt">p</span> <span class="p">{</span>
+    <span class="k">color</span><span class="o">:</span> <span class="nb">red</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<h2>Target Opera</h2>
+
+<div class="highlight"><pre><code class="css"><span class="nt">x</span><span class="nd">:-o-prefocus</span><span class="o">,</span> <span class="nt">p</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="nb">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
   </div>
   <a id="cc" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/"></a>
 </article>
@@ -175,7 +192,7 @@
 <div id="disqus_thread"></div>
 
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">Comments powered by <span class="logo-disqus">Disqus</span></a></div>
+<a href="http://disqus.com" class="dsq-brlink" target="_blank">Wait to loading Disqus comments...</a></div>
     </div>
 
     <script type="text/javascript" src="/js/jquery.min.js"></script>

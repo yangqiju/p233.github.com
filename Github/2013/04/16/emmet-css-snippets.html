@@ -86,26 +86,51 @@
       <div id="trigger"></div>
       <div class="ajax"><article id="post">
   <header id="header">
-    <h1>关注 CSS 性能 (一)</h1>
+    <h1>Emmet CSS Snippets</h1>
     <button id="fullscreen" class="header_icon"></button>
     <button id="fontsize" class="header_icon"></button>
   </header>
   <div id="content">
-    <p>虽然自己只是入门水平会写简单的页面，但本着“取法乎上，得乎其中”的原则，一直关注 CSS 性能，读过几篇相关文章，准备逐步翻译出来当做总结与积累。第一篇 <a href="http://boagworld.com/dev/why-you-should-care-about-css-page-performance/">Why you should care about CSS page performance</a>
-由 Doug Stewart 发表于 2012 年 5 月。以下只摘录几点重要的信息，没有直接翻译，理解不当的地方还请大家指正。</p>
+    <p>介绍一下 <a href="https://github.com/P233/Emmet-Css-Snippets-for-Sublime-Text-2">Emmet CSS Snippets</a> 吧，半年前将 Zen Coding 的 CSS 缩写整理成为 Sublime Text 2 自动补完，400 多个非常琐碎，花了不少时间，刚整理完毕 Emmet 就发布了，所以也跟着改了名字。特色功能主要有以下几点：</p>
 
-<p>Doug 介绍了自己测试 CSS 性能的两个方法：缩放浏览器窗口与上下滚动页面。浏览器重绘页面可以反映很多关于性能的问题，未添加 CSS 的页面反应速度肯定是最快的。一般来说，<em>如果页面缩放时有明显延时，很可能是布局问题，比如浮动、流体宽度等等，而如果页面滚动时有明显延时，则可能是特效问题，比如说阴影与渐变。</em></p>
+<ul>
+<li>包含 CSS 值的 snippet 都会在“分号”后自动换行，但如果在属性之间插入 CSS 属性，也会在后面添加多余的一行。建议自上而下书写 CSS 属性，然后用 <a href="http://CSScomb.com">CSScomb 工具</a> 重新排列顺序；</li>
+<li>如果 snippet 中包含 "{ }" , 会在 "}" 后插入新的一行，方便通过 <kbd>Command</kbd> + <kbd>Down_Arrow</kbd> 快捷键（有时 <kbd>Tab</kbd> 键）让光标跳出 "{ }"，然后开始书写新的一段 CSS；</li>
+<li>基于 Sublime Text 2 的模糊搜索功能，不需要输入缩写中的“冒号”，部分缩写可以不输入完整，比如 <code>bdrsa =&gt; border-radius</code> 但输入 <code>bra</code> 就可以了。整理了一份缩写简化列表，请查看 <a href="http://p233.github.com/Emmet-Css-Snippets-for-Sublime-Text-2/">Snippets List</a>；</li>
+<li>Emmet 中只用到一个字母的缩写改为使用前三个字母作为缩写（例如, <code>mar =&gt; margin:</code>, <code>wid =&gt; width:</code>），<code>widows</code> 属性使用完整拼写，这样做是为了提高自动提示的准确度。更多变更请查看 <a href="http://p233.github.com/Emmet-Css-Snippets-for-Sublime-Text-2/">Snippets List</a>；</li>
+<li>缩写不能包含符号，所以做出以下更改：</li>
+</ul>
 
-<p>优化 CSS 性能，自然要先找到问题出在哪里。作者介绍了三款衡量页面性能的工具：<a href="https://github.com/andyedinborough/stress-css">CSS Stress Test</a>，Chrome Developer Tools 的 Profiles 与 Timeline。就不一一介绍这些工具了，原则上是找出最耗时间的地方，然后想办法优化。</p>
 
-<p>作者给出的 CSS 性能小提示：
-1. 大家都知道 id 选择器的表现效果要优于 class，事实虽然也如此，但仅仅是非常微小的差别，几乎可以不予考虑；
-2. CSS3 属性往往是影响页面性能的罪魁祸首，尤其是 <code>animation</code> 与 <code>@font-face</code>，谨慎地使用；
-3. 现代浏览器支持 Javascript 与 Flash 硬件加速，却不支持 CSS， 虽然 webkit 有优化功能，但还是受限的；
-4. 移动平台的情况是，即便现在最先进的手机也不及 10 年前最先进的电脑;
-5. 人脑有大约 80 毫秒的反应时间，优化页面性能时不要在一些细枝末节的地方花太多精力，专注于拖慢严重的地方。</p>
+<div class="highlight"><pre><code class="css"><span class="nt">imp</span>    <span class="o">=&gt;</span>    <span class="k">@import</span> <span class="nt">url</span><span class="o">()</span>
+<span class="nt">mp</span>     <span class="o">=&gt;</span>    <span class="k">@media</span> <span class="nt">print</span> <span class="p">{}</span>
+<span class="nt">ffa</span>    <span class="o">=&gt;</span>    <span class="k">@font-face</span> <span class="p">{}</span>
+<span class="nt">ffa</span><span class="o">+</span>   <span class="o">=&gt;</span>    <span class="k">@font-face</span> <span class="p">{}</span>    <span class="c">/* 同理，包含 &quot;+&quot; 的缩写不能直接输入，需要手动选择 */</span>
+<span class="nt">ipt</span>    <span class="o">=&gt;</span>    <span class="o">!</span><span class="nt">important</span>
+</code></pre></div>
 
-<p><strong>PS:</strong> 有读者回复 Javascript 其实没有硬件加速，Safari mobile 使用 GPU 运算 animations 与 3D 特效。</p>
+
+<ul>
+<li>某些 snippets 中可用 <kbd>Tab</kbd> 键切换光标位置。例如，编辑完注释后按下 <kbd>Tab</kbd> 键，光标跳出注释进入新的一行。按下 <kbd>Shift</kbd> + <kbd>Tab</kbd> 组合键，光标返回上一位置；</li>
+<li>部分 CSS 属性添加了浏览器前缀；</li>
+<li><strong>添加了额外的 snippets, 请查看 <a href="http://p233.github.com/Emmet-Css-Snippets-for-Sublime-Text-2/">Snippets List</a></strong>；</li>
+<li>增加了 Sass 函数自动完成提示，函数列表请查看 <a href="http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html">Sass 函数列表</a>；</li>
+</ul>
+
+
+<p>截止到目前下载量已超过两万六千多次，有点出乎意料，不过这个插件还不够完善，需要进一步提高书写 CSS 的准确度：</p>
+
+<ol>
+<li>自动换行，这是一把双刃剑，在写好的 CSS 中插入一段会产生多余的空行。Emmet 没有加入这个功能，因为想要一种流畅感，所以加入了，使用过程中会带来很多不必要的删除空行的操作，有时也的确方便，如何取舍呢；</li>
+<li>不再包含浏览器前缀？写 CSS 动画，尤其是使用 <code>@keyframes</code> 时，因为前缀的的关系整个文件会变得非常啰嗦，也不方便阅读，最近开始使用 <a href="http://leaverou.github.io/prefixfree/">Prefix free</a>，gzip 压缩后只有 2kb 算起来两个 <code>@keyframes</code> 就抵消掉了；</li>
+<li>进一步优化 snippets 的缩写，让每个 snippet 都能通过独一无二的缩写触发，不互相影响；</li>
+<li>Sublime Text 3 的原生 CSS 插件（可以影响到 LESS）在输入 id，class 时禁用任何 snippet，Syntax hightailing for Sass 也加入了这个功能，下一步，希望能令输入 property value 时不提示 property name 相关 snippets，暂时还没有想到实现的办法；</li>
+<li>加入 Compass 自动补完？</li>
+<li>待续。。。</li>
+</ol>
+
+
+<p>不过在 Snippets 层面上能够做到的终须有限，期待 Emmet 添加更多的功能，进一步提高 CSS 的书写效率。是否存在更好的办法呢？</p>
 
   </div>
   <a id="cc" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/"></a>

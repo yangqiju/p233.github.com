@@ -47,6 +47,12 @@
 
       <div id="post_list">
         
+          <a class="Mac cate1" href="/Mac/2013/04/20/sublime-test.html">Sublime Text 的个人设置<span>Apr 2013</span></a>
+        
+          <a class="Github cate1" href="/Github/2013/04/16/emmet-css-snippets.html">Emmet CSS Snippets<span>Apr 2013</span></a>
+        
+          <a class="CSS cate1" href="/CSS/2013/04/15/css-performance-2.html">关注 CSS 性能 (二)<span>Apr 2013</span></a>
+        
           <a class="Demo cate1" href="/Demo/2013/04/06/css3-slider-practice.html">CSS3 Slider 模仿练习<span>Apr 2013</span></a>
         
           <a class="Front_end cate1" href="/Front_end/2013/03/31/ie10-placeholder.html">IE10 的 placeholder 伪类问题<span>Mar 2013</span></a>
@@ -77,109 +83,127 @@
     </aside>
 
     <div id="container">
-      <div id="load"></div>
+      <div id="trigger"></div>
       <div class="ajax"><article id="post">
   <header id="header">
     <h1>关于 CSS Transition 的一切</h1>
-    <button id="fullscreen" class="header_icon" title="部分浏览器不支持全屏模式"></button>
+    <button id="fullscreen" class="header_icon"></button>
     <button id="fontsize" class="header_icon"></button>
   </header>
   <div id="content">
-    <p>刚刚读到的文章，非常不错，翻译出来与大家分享。原文 <a href='http://blog.alexmaccaw.com/css-transitions'>All you need to know about CSS Transitions</a> 由 Alex Maccaw 发表于 2013 年 1 月 3 日。不想花太多时间纠结于字面翻译，只专注最核心的信息，自己的 Javascript 只有入门水平，因此后半部分理解不深入，深入理解还请阅读原文，翻译不当的地方请大家指正。</p>
+    <p>刚刚读到的文章，非常不错，翻译出来与大家分享。原文 <a href="http://blog.alexmaccaw.com/css-transitions">All you need to know about CSS Transitions</a> 由 Alex Maccaw 发表于 2013 年 1 月 3 日。不想花太多时间纠结于字面翻译，只专注最核心的信息，自己的 Javascript 只有入门水平，因此后半部分理解不深入，深入理解还请阅读原文，翻译不当的地方请大家指正。</p>
 
-<h2 id='id2'>浏览器支持</h2>
+<h2>浏览器支持</h2>
 
 <p>目前，几乎所有版本的 Firefox, Safari, Chrome 包括最新的 IE10 都支持 transition 属性。动画与渐变特效在 Safari 和 Chrome 下仍然需要添加 <code>-webkit</code> 前缀，不过很快也会不需要了。</p>
 
-<h2 id='_transition_'>使用 transition 属性</h2>
+<h2>使用 transition 属性</h2>
 
 <p>Transition 属性使用最多的地方要数 CSS 伪类了，比如 <code>:hover</code>。使用时指定变化的属性名，变化时间，以及变化样式。例如</p>
-<div class='highlight'><pre><code class='css'><span class='nc'>.element</span> <span class='p'>{</span>
-  <span class='k'>height</span><span class='o'>:</span> <span class='m'>100px</span><span class='p'>;</span>
-  <span class='n'>transition</span><span class='o'>:</span> <span class='k'>height</span> <span class='m'>2s</span> <span class='n'>linear</span><span class='p'>;</span>
-<span class='p'>}</span>
 
-<span class='nc'>.element</span><span class='nd'>:hover</span> <span class='p'>{</span>
-  <span class='k'>height</span><span class='o'>:</span> <span class='m'>200px</span><span class='p'>;</span>
-<span class='p'>}</span>
+<div class="highlight"><pre><code class="css"><span class="nc">.element</span> <span class="p">{</span>
+  <span class="k">height</span><span class="o">:</span> <span class="m">100px</span><span class="p">;</span>
+  <span class="n">transition</span><span class="o">:</span> <span class="k">height</span> <span class="m">2s</span> <span class="n">linear</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.element</span><span class="nd">:hover</span> <span class="p">{</span>
+  <span class="k">height</span><span class="o">:</span> <span class="m">200px</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div>
+
+
 <p>当 <code>:hover</code> 伪类被激活时，<code>.element</code> 的高度在 2 秒钟的时间内从 <code>100px</code> 线性（linear）变化为 <code>200px</code>。</p>
 
 <p>浏览器默认变化属性为 <code>all</code> （全部属性），变化样式为 <code>ease</code>，因此如果没特殊要求，只需定义变化的时间。</p>
 
 <p>使用 js 添加、移除 class 要比使用伪类更方便，因为后者必须用户激活后才能触发。下面的例子里用到了两个变化效果，都是通过 js 触发的。</p>
-<div class='highlight'><pre><code class='css'><span class='nc'>.element</span> <span class='p'>{</span>
-  <span class='k'>opacity</span><span class='o'>:</span> <span class='m'>0</span><span class='o'>.</span><span class='m'>0</span><span class='p'>;</span>
-  <span class='n'>transform</span><span class='o'>:</span> <span class='n'>scale</span><span class='p'>(</span><span class='m'>0</span><span class='o'>.</span><span class='m'>95</span><span class='p'>)</span> <span class='n'>translate3d</span><span class='p'>(</span><span class='m'>0</span><span class='o'>,</span><span class='m'>100</span><span class='o'>%,</span><span class='m'>0</span><span class='p'>);</span>
-  <span class='n'>transition</span><span class='o'>:</span> <span class='n'>transform</span> <span class='m'>400</span><span class='n'>ms</span> <span class='n'>ease</span><span class='o'>,</span> <span class='k'>opacity</span> <span class='m'>400</span><span class='n'>ms</span> <span class='n'>ease</span><span class='p'>;</span>
-<span class='p'>}</span>
 
-<span class='nc'>.element.active</span> <span class='p'>{</span>
-  <span class='k'>opacity</span><span class='o'>:</span> <span class='m'>1</span><span class='o'>.</span><span class='m'>0</span><span class='p'>;</span>
-  <span class='n'>transform</span><span class='o'>:</span> <span class='n'>scale</span><span class='p'>(</span><span class='m'>1</span><span class='o'>.</span><span class='m'>0</span><span class='p'>)</span> <span class='n'>translate3d</span><span class='p'>(</span><span class='m'>0</span><span class='o'>,</span><span class='m'>0</span><span class='o'>,</span><span class='m'>0</span><span class='p'>);</span>
-<span class='p'>}</span>
+<div class="highlight"><pre><code class="css"><span class="nc">.element</span> <span class="p">{</span>
+  <span class="k">opacity</span><span class="o">:</span> <span class="m">0</span><span class="o">.</span><span class="m">0</span><span class="p">;</span>
+  <span class="n">transform</span><span class="o">:</span> <span class="n">scale</span><span class="p">(</span><span class="m">0</span><span class="o">.</span><span class="m">95</span><span class="p">)</span> <span class="n">translate3d</span><span class="p">(</span><span class="m">0</span><span class="o">,</span><span class="m">100</span><span class="o">%,</span><span class="m">0</span><span class="p">);</span>
+  <span class="n">transition</span><span class="o">:</span> <span class="n">transform</span> <span class="m">400</span><span class="n">ms</span> <span class="n">ease</span><span class="o">,</span> <span class="k">opacity</span> <span class="m">400</span><span class="n">ms</span> <span class="n">ease</span><span class="p">;</span>
+<span class="p">}</span>
 
-<span class='nc'>.element.inactive</span> <span class='p'>{</span>
-  <span class='k'>opacity</span><span class='o'>:</span> <span class='m'>0</span><span class='o'>.</span><span class='m'>0</span><span class='p'>;</span>
-  <span class='n'>transform</span><span class='o'>:</span> <span class='n'>scale</span><span class='p'>(</span><span class='m'>1</span><span class='p'>)</span> <span class='n'>translate3d</span><span class='p'>(</span><span class='m'>0</span><span class='o'>,</span><span class='m'>0</span><span class='o'>,</span><span class='m'>0</span><span class='p'>);</span>
-<span class='p'>}</span>
-</code></pre></div><div class='highlight'><pre><code class='javascript'><span class='kd'>var</span> <span class='nx'>active</span> <span class='o'>=</span> <span class='kd'>function</span><span class='p'>(){</span>
-  <span class='nx'>$</span><span class='p'>(</span><span class='s1'>&#39;.element&#39;</span><span class='p'>).</span><span class='nx'>removeClass</span><span class='p'>(</span><span class='s1'>&#39;inactive&#39;</span><span class='p'>).</span><span class='nx'>addClass</span><span class='p'>(</span><span class='s1'>&#39;active&#39;</span><span class='p'>);</span>
-<span class='p'>};</span>
+<span class="nc">.element.active</span> <span class="p">{</span>
+  <span class="k">opacity</span><span class="o">:</span> <span class="m">1</span><span class="o">.</span><span class="m">0</span><span class="p">;</span>
+  <span class="n">transform</span><span class="o">:</span> <span class="n">scale</span><span class="p">(</span><span class="m">1</span><span class="o">.</span><span class="m">0</span><span class="p">)</span> <span class="n">translate3d</span><span class="p">(</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="p">);</span>
+<span class="p">}</span>
 
-<span class='kd'>var</span> <span class='nx'>inactive</span> <span class='o'>=</span> <span class='kd'>function</span><span class='p'>(){</span>
-  <span class='nx'>$</span><span class='p'>(</span><span class='s1'>&#39;.element&#39;</span><span class='p'>).</span><span class='nx'>removeClass</span><span class='p'>(</span><span class='s1'>&#39;active&#39;</span><span class='p'>).</span><span class='nx'>addClass</span><span class='p'>(</span><span class='s1'>&#39;inactive&#39;</span><span class='p'>);</span>
-<span class='p'>};</span>
+<span class="nc">.element.inactive</span> <span class="p">{</span>
+  <span class="k">opacity</span><span class="o">:</span> <span class="m">0</span><span class="o">.</span><span class="m">0</span><span class="p">;</span>
+  <span class="n">transform</span><span class="o">:</span> <span class="n">scale</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">translate3d</span><span class="p">(</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="p">);</span>
+<span class="p">}</span>
 </code></pre></div>
-<h2 id='id3'>渐变背景的变化</h2>
 
-<p>不是所有的 CSS 属性都可以变化，而且只能从一个绝对值变化到另一个绝对值。比如，<code>height</code> 不能从 <code>0px</code> 变化到 <code>auto</code>（补充：不同单位之间也可以变化，比如从 <code>0px</code> 变化到 <code>10em</code>，但不可以从 <code>0px</code> 变化到 <code>10%</code>），可变化的属性列表请参考 <a href='http://oli.jp/2010/css-animatable-properties/'>http://oli.jp/2010/css-animatable-properties/</a>。</p>
+
+
+
+<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">active</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.element&#39;</span><span class="p">).</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">&#39;inactive&#39;</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">&#39;active&#39;</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">inactive</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.element&#39;</span><span class="p">).</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">&#39;active&#39;</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">&#39;inactive&#39;</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div>
+
+
+<h2>渐变背景的变化</h2>
+
+<p>不是所有的 CSS 属性都可以变化，而且只能从一个绝对值变化到另一个绝对值。比如，<code>height</code> 不能从 <code>0px</code> 变化到 <code>auto</code>（补充：不同单位之间也可以变化，比如从 <code>0px</code> 变化到 <code>10em</code>，但不可以从 <code>0px</code> 变化到 <code>10%</code>），可变化的属性列表请参考 <a href="http://oli.jp/2010/css-animatable-properties/">http://oli.jp/2010/css-animatable-properties/</a>。</p>
 
 <p>此外，只有纯色背景可以变化，带有渐变效果的背景却不可以，没有任何技术上的原因不支持，开发者需要更多时间支持这些特效。不过，还是有几种变通办法的：</p>
 
 <p>第一种，渐变颜色采用有透明度的 rgba，然后变化 <code>background-color</code> 背景颜色，如下：</p>
-<div class='highlight'><pre><code class='css'><span class='nc'>.panel</span> <span class='p'>{</span>
-  <span class='k'>background-color</span><span class='o'>:</span> <span class='m'>#000</span><span class='p'>;</span>
-  <span class='k'>background-image</span><span class='o'>:</span> <span class='n'>linear</span><span class='o'>-</span><span class='n'>gradient</span><span class='p'>(</span><span class='n'>rgba</span><span class='p'>(</span><span class='m'>255</span><span class='o'>,</span> <span class='m'>255</span><span class='o'>,</span> <span class='m'>0</span><span class='o'>,</span> <span class='m'>0</span><span class='o'>.</span><span class='m'>4</span><span class='p'>)</span><span class='o'>,</span> <span class='m'>#FAFAFA</span><span class='p'>);</span>
-  <span class='n'>transition</span><span class='o'>:</span> <span class='k'>background-color</span> <span class='m'>400</span><span class='n'>ms</span> <span class='n'>ease</span><span class='p'>;</span>
-<span class='p'>}</span>
 
-<span class='nc'>.panel</span><span class='nd'>:hover</span> <span class='p'>{</span>
-  <span class='k'>background-color</span><span class='o'>:</span> <span class='m'>#DDD</span><span class='p'>;</span>
-<span class='p'>}</span>
+<div class="highlight"><pre><code class="css"><span class="nc">.panel</span> <span class="p">{</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#000</span><span class="p">;</span>
+  <span class="k">background-image</span><span class="o">:</span> <span class="n">linear</span><span class="o">-</span><span class="n">gradient</span><span class="p">(</span><span class="n">rgba</span><span class="p">(</span><span class="m">255</span><span class="o">,</span> <span class="m">255</span><span class="o">,</span> <span class="m">0</span><span class="o">,</span> <span class="m">0</span><span class="o">.</span><span class="m">4</span><span class="p">)</span><span class="o">,</span> <span class="m">#FAFAFA</span><span class="p">);</span>
+  <span class="n">transition</span><span class="o">:</span> <span class="k">background-color</span> <span class="m">400</span><span class="n">ms</span> <span class="n">ease</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.panel</span><span class="nd">:hover</span> <span class="p">{</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#DDD</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div>
-<p>如果渐变样式是连续的，还可以通过 <code>background-position</code> 属性移动它，<a href='http://sapphion.com/2011/10/css3-gradient-transition-with-background-position/'>http://sapphion.com/2011/10/css3-gradient-transition-with-background-position/</a>。或者，创建两个元素叠加，控制上面一层的透明度。如下：</p>
-<div class='highlight'><pre><code class='css'><span class='nc'>.element</span> <span class='p'>{</span>
-  <span class='k'>width</span><span class='o'>:</span> <span class='m'>100px</span><span class='p'>;</span>
-  <span class='k'>height</span><span class='o'>:</span> <span class='m'>100px</span><span class='p'>;</span>
-  <span class='k'>position</span><span class='o'>:</span> <span class='k'>relative</span><span class='p'>;</span>
-  <span class='k'>background</span><span class='o'>:</span> <span class='n'>linear</span><span class='o'>-</span><span class='n'>gradient</span><span class='p'>(</span><span class='m'>#C7D3DC</span><span class='o'>,</span><span class='m'>#5B798E</span><span class='p'>);</span>
-<span class='p'>}</span>
 
-<span class='nc'>.element</span> <span class='nc'>.inner</span> <span class='p'>{</span>
-  <span class='k'>content</span><span class='o'>:</span> <span class='s1'>&#39;&#39;</span><span class='p'>;</span>
-  <span class='k'>position</span><span class='o'>:</span> <span class='k'>absolute</span><span class='p'>;</span>
-  <span class='k'>left</span><span class='o'>:</span> <span class='m'>0</span><span class='p'>;</span> <span class='k'>top</span><span class='o'>:</span> <span class='m'>0</span><span class='p'>;</span> <span class='k'>right</span><span class='o'>:</span> <span class='m'>0</span><span class='p'>;</span> <span class='k'>bottom</span><span class='o'>:</span> <span class='m'>0</span><span class='p'>;</span>
-  <span class='k'>background</span><span class='o'>:</span> <span class='n'>linear</span><span class='o'>-</span><span class='n'>gradient</span><span class='p'>(</span><span class='m'>#DDD</span><span class='o'>,</span> <span class='m'>#FAFAFA</span><span class='p'>);</span>
-  <span class='k'>opacity</span><span class='o'>:</span> <span class='m'>0</span><span class='p'>;</span>
-  <span class='n'>transition</span><span class='o'>:</span> <span class='k'>opacity</span> <span class='m'>1s</span> <span class='n'>linear</span><span class='p'>;</span>
-<span class='p'>}</span>
 
-<span class='nc'>.element</span><span class='nd'>:hover</span> <span class='nc'>.inner</span> <span class='p'>{</span>
-  <span class='k'>opacity</span><span class='o'>:</span> <span class='m'>1</span><span class='p'>;</span>
-<span class='p'>}</span>
+<p>如果渐变样式是连续的，还可以通过 <code>background-position</code> 属性移动它，<a href="http://sapphion.com/2011/10/css3-gradient-transition-with-background-position/">http://sapphion.com/2011/10/css3-gradient-transition-with-background-position/</a>。或者，创建两个元素叠加，控制上面一层的透明度。如下：</p>
+
+<div class="highlight"><pre><code class="css"><span class="nc">.element</span> <span class="p">{</span>
+  <span class="k">width</span><span class="o">:</span> <span class="m">100px</span><span class="p">;</span>
+  <span class="k">height</span><span class="o">:</span> <span class="m">100px</span><span class="p">;</span>
+  <span class="k">position</span><span class="o">:</span> <span class="k">relative</span><span class="p">;</span>
+  <span class="k">background</span><span class="o">:</span> <span class="n">linear</span><span class="o">-</span><span class="n">gradient</span><span class="p">(</span><span class="m">#C7D3DC</span><span class="o">,</span><span class="m">#5B798E</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nc">.element</span> <span class="nc">.inner</span> <span class="p">{</span>
+  <span class="k">content</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+  <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
+  <span class="k">left</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span> <span class="k">top</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span> <span class="k">right</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span> <span class="k">bottom</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="k">background</span><span class="o">:</span> <span class="n">linear</span><span class="o">-</span><span class="n">gradient</span><span class="p">(</span><span class="m">#DDD</span><span class="o">,</span> <span class="m">#FAFAFA</span><span class="p">);</span>
+  <span class="k">opacity</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="n">transition</span><span class="o">:</span> <span class="k">opacity</span> <span class="m">1s</span> <span class="n">linear</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.element</span><span class="nd">:hover</span> <span class="nc">.inner</span> <span class="p">{</span>
+  <span class="k">opacity</span><span class="o">:</span> <span class="m">1</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div>
+
+
 <p>但是，这样需要额外的标签，上一层的元素也会获取鼠标事件。所以，如果这里能用 <code>:before</code>，<code>:after</code> 伪类是最理想的，可惜目前只有 Firefox 支持伪类变化。Eliott Sprehn 正在努力让 webkit 也支持伪类变化，这一功能很快也会在 Safari Chrome 上实现。</p>
 
-<blockquote>
-<p><strong>更新：</strong>这个问题现在已经解决，目前 Firefox，Chrome 支持伪类变化，Safari 会在下一个版本中更新，Opera 目前还不支持，IE10 也支持，但有点奇葩，要用下面的方式 (Source: <a href='http://css-tricks.com/pseudo-element-animationstransitions-bug-fixed-in-webkit/'>CSS-Tricks</a>)</p>
-</blockquote>
-<div class='highlight'><pre><code class='css'><span class='nc'>.x</span><span class='nd'>:hover:before</span> <span class='p'>{</span> <span class='c'>/* By itself, doesn&#39;t work */</span> <span class='p'>}</span>
+<blockquote><p><strong>更新：</strong>这个问题现在已经解决，目前 Firefox，Chrome 支持伪类变化，Safari 会在下一个版本中更新，Opera 目前还不支持，IE10 也支持，但有点奇葩，要用下面的方式 (Source: <a href="http://css-tricks.com/pseudo-element-animationstransitions-bug-fixed-in-webkit/">CSS-Tricks</a>)</p></blockquote>
 
-<span class='nc'>.x</span><span class='nd'>:hover</span> <span class='p'>{}</span>
-<span class='nc'>.x</span><span class='nd'>:hover:before</span> <span class='p'>{</span> <span class='c'>/* This works (needs :hover declared) */</span> <span class='p'>}</span>
+<div class="highlight"><pre><code class="css"><span class="nc">.x</span><span class="nd">:hover:before</span> <span class="p">{</span> <span class="c">/* By itself, doesn&#39;t work */</span> <span class="p">}</span>
+
+<span class="nc">.x</span><span class="nd">:hover</span> <span class="p">{}</span>
+<span class="nc">.x</span><span class="nd">:hover:before</span> <span class="p">{</span> <span class="c">/* This works (needs :hover declared) */</span> <span class="p">}</span>
 </code></pre></div>
-<h2 id='id4'>硬件加速</h2>
+
+
+<h2>硬件加速</h2>
 
 <p>变化某些属性，比如 <code>left</code> ，<code>margin</code>，<em>浏览器会重新计算每一帧的显示效果</em>，这严重影响速度，尤其是在移动设备上。解决办法就是让 GPU 来做这些运算，简单的说，就是将元素转化为图片再制作变化效果，而不是重新计算每一帧的 CSS 样式。最简单的一个开启硬件加速的办法就是用 <code>transform: translate3d(0,0,0);</code> 属性。</p>
 
@@ -187,113 +211,147 @@
 
 <p>此外，不用的浏览器使用不同的硬件加速库，浏览器之间存在差异。如果遇到不同浏览器中显示的变化效果不同，不要使用通用的 <code>transform3d()</code> 设置，给不同浏览器不同的变化参数。</p>
 
-<h2 id='clipping'>Clipping</h2>
+<h2>Clipping</h2>
 
 <p>为了让 GPU 更好的运算变化效果，要避免使用像 <code>width</code> 这样需要重新计算每一帧样式的属性，而要用 clipping（术语，only drawing things that will be visible to the viewer）。下面的例子将一个搜索框拉宽，使用 <code>translate3d</code> 属性令元素在 X 轴上拉长，而不是用 <code>width</code>，这样每一帧都不会重新计算元素的宽度，速度更快，效果更流畅：</p>
-<div class='highlight'><pre><code class='css'><span class='nc'>.clipped</span> <span class='p'>{</span>
-  <span class='k'>overflow</span><span class='o'>:</span> <span class='k'>hidden</span><span class='p'>;</span>
-  <span class='k'>position</span><span class='o'>:</span> <span class='k'>relative</span><span class='p'>;</span>
-<span class='p'>}</span>
 
-<span class='nc'>.clipped</span> <span class='nc'>.clip</span> <span class='p'>{</span>
-  <span class='k'>right</span><span class='o'>:</span> <span class='m'>0px</span><span class='p'>;</span>
-  <span class='k'>width</span><span class='o'>:</span> <span class='m'>45px</span><span class='p'>;</span>
-  <span class='k'>height</span><span class='o'>:</span> <span class='m'>45px</span><span class='p'>;</span>
-  <span class='k'>background</span><span class='o'>:</span> <span class='sx'>url(/images/clip.png)</span> <span class='k'>no-repeat</span>
-<span class='p'>}</span>
+<div class="highlight"><pre><code class="css"><span class="nc">.clipped</span> <span class="p">{</span>
+  <span class="k">overflow</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span>
+  <span class="k">position</span><span class="o">:</span> <span class="k">relative</span><span class="p">;</span>
+<span class="p">}</span>
 
-<span class='nt'>input</span><span class='nd'>:focus</span> <span class='p'>{</span>
-  <span class='o'>-</span><span class='n'>webkit</span><span class='o'>-</span><span class='n'>transform</span><span class='o'>:</span> <span class='n'>translate3d</span><span class='p'>(</span><span class='m'>-50px</span><span class='o'>,</span> <span class='m'>0</span><span class='o'>,</span> <span class='m'>0</span><span class='p'>);</span>
-<span class='p'>}</span>
+<span class="nc">.clipped</span> <span class="nc">.clip</span> <span class="p">{</span>
+  <span class="k">right</span><span class="o">:</span> <span class="m">0px</span><span class="p">;</span>
+  <span class="k">width</span><span class="o">:</span> <span class="m">45px</span><span class="p">;</span>
+  <span class="k">height</span><span class="o">:</span> <span class="m">45px</span><span class="p">;</span>
+  <span class="k">background</span><span class="o">:</span> <span class="sx">url(/images/clip.png)</span> <span class="k">no-repeat</span>
+<span class="p">}</span>
+
+<span class="nt">input</span><span class="nd">:focus</span> <span class="p">{</span>
+  <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">transform</span><span class="o">:</span> <span class="n">translate3d</span><span class="p">(</span><span class="m">-50px</span><span class="o">,</span> <span class="m">0</span><span class="o">,</span> <span class="m">0</span><span class="p">);</span>
+<span class="p">}</span>
 </code></pre></div>
-<h2 id='id5'>时间函数</h2>
 
-<p>浏览器内置的时间函数包括 <code>linear, ease, ease-in, ease-out and ease-in-out</code>，复杂一点，可以用 cubic-bezier 曲线自定义时间函数，比如 <code>transition: -webkit-transform 1s cubic-bezier(.17,.67,.69,1.33);</code> 。两个帮你选择时间函数的工具 <a href='http://easings.net'>Pre-defined Curves</a> 和 <a href='http://cubic-bezier.com/#.17,.67,.83,.67'>Graphing Tool</a>。</p>
 
-<h2 id='id6'>用程序控制变化效果</h2>
+<h2>时间函数</h2>
+
+<p>浏览器内置的时间函数包括 <code>linear, ease, ease-in, ease-out and ease-in-out</code>，复杂一点，可以用 cubic-bezier 曲线自定义时间函数，比如 <code>transition: -webkit-transform 1s cubic-bezier(.17,.67,.69,1.33);</code> 。两个帮你选择时间函数的工具 <a href="http://easings.net">Pre-defined Curves</a> 和 <a href="http://cubic-bezier.com/#.17,.67,.83,.67">Graphing Tool</a>。</p>
+
+<h2>用程序控制变化效果</h2>
 
 <p>借助 js 可以更有效的控制变化的效果，例如将连续的变化做成动画。变化属性为 <code>all</code> 时意味着元素的所有属性都可以同时发生变化 （慎用 <code>all</code>），请看下面的例子</p>
-<div class='highlight'><pre><code class='javascript'><span class='kd'>var</span> <span class='nx'>defaults</span> <span class='o'>=</span> <span class='p'>{</span>
-  <span class='nx'>duration</span><span class='o'>:</span> <span class='mi'>400</span><span class='p'>,</span>
-  <span class='nx'>easing</span><span class='o'>:</span> <span class='s1'>&#39;&#39;</span>
-<span class='p'>};</span>
 
-<span class='nx'>$</span><span class='p'>.</span><span class='nx'>fn</span><span class='p'>.</span><span class='nx'>transition</span> <span class='o'>=</span> <span class='kd'>function</span> <span class='p'>(</span><span class='nx'>properties</span><span class='p'>,</span> <span class='nx'>options</span><span class='p'>)</span> <span class='p'>{</span>
-  <span class='nx'>options</span> <span class='o'>=</span> <span class='nx'>$</span><span class='p'>.</span><span class='nx'>extend</span><span class='p'>({},</span> <span class='nx'>defaults</span><span class='p'>,</span> <span class='nx'>options</span><span class='p'>);</span>
-  <span class='nx'>properties</span><span class='p'>[</span><span class='s1'>&#39;webkitTransition&#39;</span><span class='p'>]</span> <span class='o'>=</span> <span class='s1'>&#39;all &#39;</span> <span class='o'>+</span> <span class='nx'>options</span><span class='p'>.</span><span class='nx'>duration</span> <span class='o'>+</span> <span class='s1'>&#39;ms &#39;</span> <span class='o'>+</span> <span class='nx'>options</span><span class='p'>.</span><span class='nx'>easing</span><span class='p'>;</span>
-  <span class='nx'>$</span><span class='p'>(</span><span class='k'>this</span><span class='p'>).</span><span class='nx'>css</span><span class='p'>(</span><span class='nx'>properties</span><span class='p'>);</span>
-<span class='p'>};</span>
+<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">defaults</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">duration</span><span class="o">:</span> <span class="mi">400</span><span class="p">,</span>
+  <span class="nx">easing</span><span class="o">:</span> <span class="s1">&#39;&#39;</span>
+<span class="p">};</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">transition</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">properties</span><span class="p">,</span> <span class="nx">options</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">options</span> <span class="o">=</span> <span class="nx">$</span><span class="p">.</span><span class="nx">extend</span><span class="p">({},</span> <span class="nx">defaults</span><span class="p">,</span> <span class="nx">options</span><span class="p">);</span>
+  <span class="nx">properties</span><span class="p">[</span><span class="s1">&#39;webkitTransition&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;all &#39;</span> <span class="o">+</span> <span class="nx">options</span><span class="p">.</span><span class="nx">duration</span> <span class="o">+</span> <span class="s1">&#39;ms &#39;</span> <span class="o">+</span> <span class="nx">options</span><span class="p">.</span><span class="nx">easing</span><span class="p">;</span>
+  <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="nx">properties</span><span class="p">);</span>
+<span class="p">};</span>
 </code></pre></div>
+
+
 <p>然后用 jQuery 函数 <code>$.fn.transition</code> 调用变化样式</p>
-<div class='highlight'><pre><code class='javascript'><span class='nx'>$</span><span class='p'>(</span><span class='s1'>&#39;.element&#39;</span><span class='p'>).</span><span class='nx'>transition</span><span class='p'>({</span><span class='nx'>background</span><span class='o'>:</span> <span class='s1'>&#39;red&#39;</span><span class='p'>});</span>
-</code></pre></div>
-<h2 id='_callback'>获取变化结束的 callback</h2>
 
-<p>组合多个 transitions 首先要知道变化在什么时间结束，webkit 浏览器中可以监视 <code>webkitTransitionEnd</code> 事件，其他浏览器需要先用 <a href='https://gist.github.com/4414792'>https://gist.github.com/4414792</a> 找出事件名称。</p>
-<div class='highlight'><pre><code class='javascript'><span class='kd'>var</span> <span class='nx'>callback</span> <span class='o'>=</span> <span class='kd'>function</span> <span class='p'>()</span> <span class='p'>{</span>
-  <span class='c1'>// ...</span>
-<span class='p'>}</span>
-
-<span class='nx'>$</span><span class='p'>(</span><span class='k'>this</span><span class='p'>).</span><span class='nx'>one</span><span class='p'>(</span><span class='s1'>&#39;webkitTransitionEnd&#39;</span><span class='p'>,</span> <span class='nx'>callback</span><span class='p'>)</span>
-<span class='nx'>$</span><span class='p'>(</span><span class='k'>this</span><span class='p'>).</span><span class='nx'>css</span><span class='p'>(</span><span class='nx'>properties</span><span class='p'>);</span>
+<div class="highlight"><pre><code class="javascript"><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.element&#39;</span><span class="p">).</span><span class="nx">transition</span><span class="p">({</span><span class="nx">background</span><span class="o">:</span> <span class="s1">&#39;red&#39;</span><span class="p">});</span>
 </code></pre></div>
+
+
+<h2>获取变化结束的 callback</h2>
+
+<p>组合多个 transitions 首先要知道变化在什么时间结束，webkit 浏览器中可以监视 <code>webkitTransitionEnd</code> 事件，其他浏览器需要先用 <a href="https://gist.github.com/4414792">https://gist.github.com/4414792</a> 找出事件名称。</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">callback</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// ...</span>
+<span class="p">}</span>
+
+<span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">one</span><span class="p">(</span><span class="s1">&#39;webkitTransitionEnd&#39;</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span>
+<span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="nx">properties</span><span class="p">);</span>
+</code></pre></div>
+
+
 <p>有时也许不工作，比如属性没有变化，或者没有被激活，确保每次都能得到一个 callback，要设定 timeout 手动激活事件。</p>
-<div class='highlight'><pre><code class='javascript'><span class='nx'>$</span><span class='p'>.</span><span class='nx'>fn</span><span class='p'>.</span><span class='nx'>emulateTransitionEnd</span> <span class='o'>=</span> <span class='kd'>function</span><span class='p'>(</span><span class='nx'>duration</span><span class='p'>)</span> <span class='p'>{</span>
-  <span class='kd'>var</span> <span class='nx'>called</span> <span class='o'>=</span> <span class='kc'>false</span><span class='p'>,</span> <span class='nx'>$el</span> <span class='o'>=</span> <span class='k'>this</span><span class='p'>;</span>
-  <span class='nx'>$</span><span class='p'>(</span><span class='k'>this</span><span class='p'>).</span><span class='nx'>one</span><span class='p'>(</span><span class='s1'>&#39;webkitTransitionEnd&#39;</span><span class='p'>,</span> <span class='kd'>function</span><span class='p'>()</span> <span class='p'>{</span> <span class='nx'>called</span> <span class='o'>=</span> <span class='kc'>true</span><span class='p'>;</span> <span class='p'>});</span>
-  <span class='kd'>var</span> <span class='nx'>callback</span> <span class='o'>=</span> <span class='kd'>function</span><span class='p'>()</span> <span class='p'>{</span> <span class='k'>if</span> <span class='p'>(</span><span class='o'>!</span><span class='nx'>called</span><span class='p'>)</span> <span class='nx'>$</span><span class='p'>(</span><span class='nx'>$el</span><span class='p'>).</span><span class='nx'>trigger</span><span class='p'>(</span><span class='s1'>&#39;webkitTransitionEnd&#39;</span><span class='p'>);</span> <span class='p'>};</span>
-  <span class='nx'>setTimeout</span><span class='p'>(</span><span class='nx'>callback</span><span class='p'>,</span> <span class='nx'>duration</span><span class='p'>);</span>
-<span class='p'>};</span>
+
+<div class="highlight"><pre><code class="javascript"><span class="nx">$</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">emulateTransitionEnd</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">duration</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">called</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nx">$el</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+  <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">one</span><span class="p">(</span><span class="s1">&#39;webkitTransitionEnd&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="nx">called</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span> <span class="p">});</span>
+  <span class="kd">var</span> <span class="nx">callback</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">called</span><span class="p">)</span> <span class="nx">$</span><span class="p">(</span><span class="nx">$el</span><span class="p">).</span><span class="nx">trigger</span><span class="p">(</span><span class="s1">&#39;webkitTransitionEnd&#39;</span><span class="p">);</span> <span class="p">};</span>
+  <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">callback</span><span class="p">,</span> <span class="nx">duration</span><span class="p">);</span>
+<span class="p">};</span>
 </code></pre></div>
+
+
 <p>现在可以调用 <code>$.fn.emulateTransitionEnd()</code> 确保变化结束的 callback 被激活。</p>
 
-<h2 id='id7'>连续的变化</h2>
+<h2>连续的变化</h2>
 
 <p>熟悉用 js 调用变化，与获取变化结束的 callback 后，可以进一步将变化进行排列，做成连续的动画。jQuery 提供了两个对列相关的函数 <code>$.fn.queue(callback)</code> 与 <code>$.fn.dequeue()</code>。先将 CSS 变化样式写入 <code>$.fn.queue</code> callback 中，变化结束后调用 <code>$.fn.dequeue</code>。</p>
-<div class='highlight'><pre><code class='javascript'><span class='kd'>var</span> <span class='nx'>$el</span> <span class='o'>=</span> <span class='nx'>$</span><span class='p'>(</span><span class='k'>this</span><span class='p'>);</span>
-<span class='nx'>$el</span><span class='p'>.</span><span class='nx'>queue</span><span class='p'>(</span><span class='kd'>function</span><span class='p'>(){</span>
-  <span class='nx'>$el</span><span class='p'>.</span><span class='nx'>one</span><span class='p'>(</span><span class='s1'>&#39;webkitTransitionEnd&#39;</span><span class='p'>,</span> <span class='kd'>function</span><span class='p'>(){</span>
-    <span class='nx'>$el</span><span class='p'>.</span><span class='nx'>dequeue</span><span class='p'>();</span>
-  <span class='p'>});</span>
-  <span class='nx'>$el</span><span class='p'>.</span><span class='nx'>css</span><span class='p'>(</span><span class='nx'>properties</span><span class='p'>);</span>
-<span class='p'>});</span>
+
+<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">$el</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<span class="nx">$el</span><span class="p">.</span><span class="nx">queue</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+  <span class="nx">$el</span><span class="p">.</span><span class="nx">one</span><span class="p">(</span><span class="s1">&#39;webkitTransitionEnd&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">$el</span><span class="p">.</span><span class="nx">dequeue</span><span class="p">();</span>
+  <span class="p">});</span>
+  <span class="nx">$el</span><span class="p">.</span><span class="nx">css</span><span class="p">(</span><span class="nx">properties</span><span class="p">);</span>
+<span class="p">});</span>
 </code></pre></div>
+
+
 <p>这个例子很简单，再复杂一点，让我们用 <code>delay()</code> 做成一个连续在一起的动画效果。</p>
-<div class='highlight'><pre><code class='javascript'><span class='nx'>$</span><span class='p'>(</span><span class='s1'>&#39;.element&#39;</span><span class='p'>).</span><span class='nx'>transition</span><span class='p'>({</span><span class='nx'>left</span><span class='o'>:</span> <span class='s1'>&#39;20px&#39;</span><span class='p'>})</span>
-             <span class='p'>.</span><span class='nx'>delay</span><span class='p'>(</span><span class='mi'>200</span><span class='p'>)</span>
-             <span class='p'>.</span><span class='nx'>transition</span><span class='p'>({</span><span class='nx'>background</span><span class='o'>:</span> <span class='s1'>&#39;red&#39;</span><span class='p'>});</span>
+
+<div class="highlight"><pre><code class="javascript"><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.element&#39;</span><span class="p">).</span><span class="nx">transition</span><span class="p">({</span><span class="nx">left</span><span class="o">:</span> <span class="s1">&#39;20px&#39;</span><span class="p">})</span>
+             <span class="p">.</span><span class="nx">delay</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+             <span class="p">.</span><span class="nx">transition</span><span class="p">({</span><span class="nx">background</span><span class="o">:</span> <span class="s1">&#39;red&#39;</span><span class="p">});</span>
 </code></pre></div>
-<h2 id='id8'>重绘</h2>
+
+
+<h2>重绘</h2>
 
 <p>在使用 <code>transition</code> 属性时，要写两套 CSS 属性，初始样式与结束样式。</p>
-<div class='highlight'><pre><code class='javascript'><span class='nx'>$</span><span class='p'>(</span><span class='s1'>&#39;.element&#39;</span><span class='p'>).</span><span class='nx'>css</span><span class='p'>({</span><span class='nx'>left</span><span class='o'>:</span> <span class='s1'>&#39;10px&#39;</span><span class='p'>})</span>
-             <span class='p'>.</span><span class='nx'>transition</span><span class='p'>({</span><span class='nx'>left</span><span class='o'>:</span> <span class='s1'>&#39;20px&#39;</span><span class='p'>});</span>
+
+<div class="highlight"><pre><code class="javascript"><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.element&#39;</span><span class="p">).</span><span class="nx">css</span><span class="p">({</span><span class="nx">left</span><span class="o">:</span> <span class="s1">&#39;10px&#39;</span><span class="p">})</span>
+             <span class="p">.</span><span class="nx">transition</span><span class="p">({</span><span class="nx">left</span><span class="o">:</span> <span class="s1">&#39;20px&#39;</span><span class="p">});</span>
 </code></pre></div>
+
+
 <p>然而，如果同时设定了两套样式，紧连在一起，浏览器试着完善属性之间的变化，却会忽略初始样式并放弃变化。在后台，浏览器其实是分批更新变化样式的，这样会加快速度，但有时也有不利的影响（注，这一段没有经验，不保证翻译的准确度）。</p>
 
 <p>解决办法是利用 DOM 元素的 <code>offsetHeight</code> 属性让浏览器在两套样式之间重绘元素，例如：</p>
-<div class='highlight'><pre><code class='javascript'><span class='nx'>$</span><span class='p'>.</span><span class='nx'>fn</span><span class='p'>.</span><span class='nx'>redraw</span> <span class='o'>=</span> <span class='kd'>function</span><span class='p'>(){</span>
-  <span class='nx'>$</span><span class='p'>(</span><span class='k'>this</span><span class='p'>).</span><span class='nx'>each</span><span class='p'>(</span><span class='kd'>function</span><span class='p'>(){</span>
-    <span class='kd'>var</span> <span class='nx'>redraw</span> <span class='o'>=</span> <span class='k'>this</span><span class='p'>.</span><span class='nx'>offsetHeight</span><span class='p'>;</span>
-  <span class='p'>});</span>
-<span class='p'>};</span>
+
+<div class="highlight"><pre><code class="javascript"><span class="nx">$</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">redraw</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+  <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="kd">var</span> <span class="nx">redraw</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">offsetHeight</span><span class="p">;</span>
+  <span class="p">});</span>
+<span class="p">};</span>
 </code></pre></div>
+
+
 <p>这个方法在大多数浏览器下都工作正常，但在 Android 下还不够，使用 timeout 或者激活一个 class。</p>
-<div class='highlight'><pre><code class='javascript'><span class='nx'>$</span><span class='p'>(</span><span class='s1'>&#39;.element&#39;</span><span class='p'>).</span><span class='nx'>css</span><span class='p'>({</span><span class='nx'>left</span><span class='o'>:</span> <span class='s1'>&#39;10px&#39;</span><span class='p'>})</span>
-             <span class='p'>.</span><span class='nx'>redraw</span><span class='p'>()</span>
-             <span class='p'>.</span><span class='nx'>transition</span><span class='p'>({</span><span class='nx'>left</span><span class='o'>:</span> <span class='s1'>&#39;20px&#39;</span><span class='p'>});</span>
+
+<div class="highlight"><pre><code class="javascript"><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.element&#39;</span><span class="p">).</span><span class="nx">css</span><span class="p">({</span><span class="nx">left</span><span class="o">:</span> <span class="s1">&#39;10px&#39;</span><span class="p">})</span>
+             <span class="p">.</span><span class="nx">redraw</span><span class="p">()</span>
+             <span class="p">.</span><span class="nx">transition</span><span class="p">({</span><span class="nx">left</span><span class="o">:</span> <span class="s1">&#39;20px&#39;</span><span class="p">});</span>
 </code></pre></div>
-<h2 id='transition_'>Transition 的未来</h2>
 
-<p>W3C 的 <a href='https://dvcs.w3.org/hg/FXTF/raw-file/tip/web-anim/index.html'>新草案</a> 包含新的 Javascript API 应对现在的局限性，给开发者更灵活的空间。根据新的 API，可以同步动画，自定义时间函数，获取 callbacks，实在是令人期待的新功能。</p>
-<div class='highlight'><pre><code class='javascript'><span class='kd'>var</span> <span class='nx'>anim</span> <span class='o'>=</span> <span class='k'>new</span> <span class='nx'>Animation</span><span class='p'>(</span><span class='nx'>elem</span><span class='p'>,</span> <span class='p'>{</span> <span class='nx'>left</span><span class='o'>:</span> <span class='s1'>&#39;100px&#39;</span> <span class='p'>},</span> <span class='mi'>3</span><span class='p'>);</span>
-<span class='nx'>anim</span><span class='p'>.</span><span class='nx'>play</span><span class='p'>();</span>
+
+<h2>Transition 的未来</h2>
+
+<p>W3C 的 <a href="https://dvcs.w3.org/hg/FXTF/raw-file/tip/web-anim/index.html">新草案</a> 包含新的 Javascript API 应对现在的局限性，给开发者更灵活的空间。根据新的 API，可以同步动画，自定义时间函数，获取 callbacks，实在是令人期待的新功能。</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">anim</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Animation</span><span class="p">(</span><span class="nx">elem</span><span class="p">,</span> <span class="p">{</span> <span class="nx">left</span><span class="o">:</span> <span class="s1">&#39;100px&#39;</span> <span class="p">},</span> <span class="mi">3</span><span class="p">);</span>
+<span class="nx">anim</span><span class="p">.</span><span class="nx">play</span><span class="p">();</span>
 </code></pre></div>
-<p>另外，可以在 <a href='https://github.com/web-animations/web-animations-js'>https://github.com/web-animations/web-animations-js</a> 找到一些实现新 API 的变通法子。</p>
 
-<h2 id='id9'>结尾</h2>
 
-<p>目前为止，希望你已经深入的了解了 CSS 的 transition 属性，以及如何组合简单的 API 制作丰富的动画效果。文中大多数 js 例子来源于 <a href='https://github.com/maccman/gfx'>GFX</a>，这也是本文作者 Alex 写的一个 jQuery CSS transition 库。</p>
+<p>另外，可以在 <a href="https://github.com/web-animations/web-animations-js">https://github.com/web-animations/web-animations-js</a> 找到一些实现新 API 的变通法子。</p>
+
+<h2>结尾</h2>
+
+<p>目前为止，希望你已经深入的了解了 CSS 的 transition 属性，以及如何组合简单的 API 制作丰富的动画效果。文中大多数 js 例子来源于 <a href="https://github.com/maccman/gfx">GFX</a>，这也是本文作者 Alex 写的一个 jQuery CSS transition 库。</p>
+
   </div>
   <a id="cc" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/"></a>
 </article>
@@ -301,7 +359,7 @@
 <div id="disqus_thread"></div>
 
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">Comments powered by <span class="logo-disqus">Disqus</span></a></div>
+<a href="http://disqus.com" class="dsq-brlink" target="_blank">Wait to loading Disqus comments...</a></div>
     </div>
 
     <script type="text/javascript" src="/js/jquery.min.js"></script>

@@ -47,6 +47,12 @@
 
       <div id="post_list">
         
+          <a class="Mac cate1" href="/Mac/2013/04/20/sublime-test.html">Sublime Text 的个人设置<span>Apr 2013</span></a>
+        
+          <a class="Github cate1" href="/Github/2013/04/16/emmet-css-snippets.html">Emmet CSS Snippets<span>Apr 2013</span></a>
+        
+          <a class="CSS cate1" href="/CSS/2013/04/15/css-performance-2.html">关注 CSS 性能 (二)<span>Apr 2013</span></a>
+        
           <a class="Demo cate1" href="/Demo/2013/04/06/css3-slider-practice.html">CSS3 Slider 模仿练习<span>Apr 2013</span></a>
         
           <a class="Front_end cate1" href="/Front_end/2013/03/31/ie10-placeholder.html">IE10 的 placeholder 伪类问题<span>Mar 2013</span></a>
@@ -77,38 +83,51 @@
     </aside>
 
     <div id="container">
-      <div id="load"></div>
+      <div id="trigger"></div>
       <div class="ajax"><article id="post">
   <header id="header">
     <h1>IE10 的 placeholder 伪类问题</h1>
-    <button id="fullscreen" class="header_icon" title="部分浏览器不支持全屏模式"></button>
+    <button id="fullscreen" class="header_icon"></button>
     <button id="fontsize" class="header_icon"></button>
   </header>
   <div id="content">
     <p>从 HTML5 开始 <code>input</code> <code>textarea</code> 支持 <code>placeholder</code> 属性，除了 IE 浏览器，兼容性还算不错，以为 IE10 也可以友好兼容的，然后发现其实我是图样图森破。</p>
-<div class='highlight'><pre><code class='sass'><span class='na'>:</span><span class='o'>:-</span><span class='n'>webkit-input-placeholder</span>
-  <span class='na'>color</span><span class='o'>:</span> <span class='nf'>lighten</span><span class='p'>(</span><span class='nv'>$grey</span><span class='o'>,</span> <span class='mi'>10</span><span class='kt'>%</span><span class='p'>)</span>
-  <span class='na'>font-weight</span><span class='o'>:</span> <span class='no'>normal</span>
-<span class='na'>\</span><span class='o'>:-</span><span class='n'>moz-placeholder</span>
-  <span class='na'>color</span><span class='o'>:</span> <span class='nf'>lighten</span><span class='p'>(</span><span class='nv'>$grey</span><span class='o'>,</span> <span class='mi'>10</span><span class='kt'>%</span><span class='p'>)</span>
-  <span class='na'>font-weight</span><span class='o'>:</span> <span class='no'>normal</span>
+
+<div class="highlight"><pre><code class="sass"><span class="na">:</span><span class="o">:-</span><span class="n">webkit-input-placeholder</span>
+  <span class="na">color</span><span class="o">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="nv">$grey</span><span class="o">,</span> <span class="mi">10</span><span class="kt">%</span><span class="p">)</span>
+  <span class="na">font-weight</span><span class="o">:</span> <span class="no">normal</span>
+<span class="na">\</span><span class="o">:-</span><span class="n">moz-placeholder</span>
+  <span class="na">color</span><span class="o">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="nv">$grey</span><span class="o">,</span> <span class="mi">10</span><span class="kt">%</span><span class="p">)</span>
+  <span class="na">font-weight</span><span class="o">:</span> <span class="no">normal</span>
 </code></pre></div>
+
+
 <p>给主流浏览器设定 placeholder 样式没有任何问题，同样的方法在 IE10 下却不起作用：</p>
-<div class='highlight'><pre><code class='sass'><span class='na'>\</span><span class='o'>:-</span><span class='n'>ms-input-placeholder</span>
-  <span class='na'>color</span><span class='o'>:</span> <span class='nf'>lighten</span><span class='p'>(</span><span class='nv'>$grey</span><span class='o'>,</span> <span class='mi'>10</span><span class='kt'>%</span><span class='p'>)</span>
-  <span class='na'>font-weight</span><span class='o'>:</span> <span class='no'>normal</span>
+
+<div class="highlight"><pre><code class="sass"><span class="na">\</span><span class="o">:-</span><span class="n">ms-input-placeholder</span>
+  <span class="na">color</span><span class="o">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="nv">$grey</span><span class="o">,</span> <span class="mi">10</span><span class="kt">%</span><span class="p">)</span>
+  <span class="na">font-weight</span><span class="o">:</span> <span class="no">normal</span>
 </code></pre></div>
+
+
 <p>以为伪类在 IE10 下不能单独使用，添加了 <code>input</code> 标签同样无效：</p>
-<div class='highlight'><pre><code class='sass'><span class='na'>input</span><span class='o'>:-</span><span class='n'>ms-input-placeholder</span>
-  <span class='na'>color</span><span class='o'>:</span> <span class='nf'>lighten</span><span class='p'>(</span><span class='nv'>$grey</span><span class='o'>,</span> <span class='mi'>10</span><span class='kt'>%</span><span class='p'>)</span>
-  <span class='na'>font-weight</span><span class='o'>:</span> <span class='no'>normal</span>
+
+<div class="highlight"><pre><code class="sass"><span class="na">input</span><span class="o">:-</span><span class="n">ms-input-placeholder</span>
+  <span class="na">color</span><span class="o">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="nv">$grey</span><span class="o">,</span> <span class="mi">10</span><span class="kt">%</span><span class="p">)</span>
+  <span class="na">font-weight</span><span class="o">:</span> <span class="no">normal</span>
 </code></pre></div>
+
+
 <p>尝试 id 或 class，结果终于生效了，所以必须这样设定样式，很蛋疼：</p>
-<div class='highlight'><pre><code class='sass'><span class='na'>#name</span><span class='o'>:-</span><span class='n'>ms-input-placeholder</span><span class='o'>,</span> <span class='mh'>#phone</span><span class='o'>:-</span><span class='n'>ms-input-placeholder</span><span class='o'>,</span> <span class='mh'>#email</span><span class='o'>:-</span><span class='n'>ms-input-placeholder</span><span class='o'>,</span> <span class='mh'>#subjec</span><span class='n'>t</span><span class='o'>:-</span><span class='n'>ms-input-placeholder</span><span class='o'>,</span> <span class='mh'>#messag</span><span class='n'>e</span><span class='o'>:-</span><span class='n'>ms-input-placeholder</span>
-  <span class='na'>color</span><span class='o'>:</span> <span class='nf'>lighten</span><span class='p'>(</span><span class='nv'>$grey</span><span class='o'>,</span> <span class='mi'>10</span><span class='kt'>%</span><span class='p'>)</span>
-  <span class='na'>font-weight</span><span class='o'>:</span> <span class='no'>normal</span>
+
+<div class="highlight"><pre><code class="sass"><span class="na">#name</span><span class="o">:-</span><span class="n">ms-input-placeholder</span><span class="o">,</span> <span class="mh">#phone</span><span class="o">:-</span><span class="n">ms-input-placeholder</span><span class="o">,</span> <span class="mh">#email</span><span class="o">:-</span><span class="n">ms-input-placeholder</span><span class="o">,</span> <span class="mh">#subjec</span><span class="n">t</span><span class="o">:-</span><span class="n">ms-input-placeholder</span><span class="o">,</span> <span class="mh">#messag</span><span class="n">e</span><span class="o">:-</span><span class="n">ms-input-placeholder</span>
+  <span class="na">color</span><span class="o">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="nv">$grey</span><span class="o">,</span> <span class="mi">10</span><span class="kt">%</span><span class="p">)</span>
+  <span class="na">font-weight</span><span class="o">:</span> <span class="no">normal</span>
 </code></pre></div>
+
+
 <p>还没结束呢，使用 class 也不行，不过官网却用的 class 选择器举例子，不深究了，保险起见使用 id 选择器与 <code>:ms-input-placeholder</code> 伪类。看来前端的 IE 魔咒还没有破除，期待 IE11。。。</p>
+
   </div>
   <a id="cc" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/"></a>
 </article>
@@ -116,7 +135,7 @@
 <div id="disqus_thread"></div>
 
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">Comments powered by <span class="logo-disqus">Disqus</span></a></div>
+<a href="http://disqus.com" class="dsq-brlink" target="_blank">Wait to loading Disqus comments...</a></div>
     </div>
 
     <script type="text/javascript" src="/js/jquery.min.js"></script>

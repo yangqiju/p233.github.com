@@ -14,12 +14,12 @@ $(document).ready(function() {
       $(this).addClass('selected');
 
       $('.cate1').fadeOut(150);
-      window['cate'+k].delay(160).fadeIn(340);
+      window['cate'+k].delay(160).fadeIn('slow');
 
       $('#title_wrap, #post').removeClass();
       $('#title_wrap, #post').addClass('select'+k);
       $('.title').fadeOut(150);
-      $('#title'+k).delay(160).fadeIn(340);
+      $('#title'+k).delay(160).fadeIn('slow');
     };
   };
   for (var i = 1; i < 7; ++i) {
@@ -42,15 +42,26 @@ $(document).ready(function() {
     });
 
     // adjust font size
+    if ($('#container').hasClass('largefont')) {
+      $('#fontsize').addClass('return');
+    } else {
+      $('#fontsize').removeClass('return');
+    }
     $('#fontsize').click(function() {
-      $("#content").toggleClass("largefont");
+      $('#container').toggleClass("largefont");
       $(this).toggleClass("return");
     });
 
     // fullscreen
+    if ($('#trigger').hasClass('fullscreen_true')) {
+      $('#fullscreen').addClass('return');
+    } else {
+      $('#fullscreen').removeClass('return');
+    }
     $('#fullscreen').click(function() {
       $(document).toggleFullScreen();
       $(this).toggleClass("return");
+      $("#trigger").toggleClass("fullscreen_true");
     });
 
     // smooth scrolling
@@ -66,24 +77,37 @@ $(document).ready(function() {
     //   }
     // });
 
-    // Disqus
-    var disqus_shortname = 'p233';
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-  }
+    // Lazy loading Disqus
+    // http://jsfiddle.net/dragoncrew/SHGwe/1/
+    var ds_loaded = false,
+        top = $("#disqus_thread").offset().top;
+    window.disqus_developer = 1;
+    window.disqus_shortname = 'p233';
 
-  // ajax loading content
+    function check(){
+      if ( !ds_loaded && $('#container').scrollTop() + $('#container').height() > top ) {
+        $.ajax({
+          type: "GET",
+          url: "http://" + disqus_shortname + ".disqus.com/embed.js",
+          dataType: "script",
+          cache: true
+        });
+        ds_loaded = true;
+      }
+    }
+    $('#container').scroll(check);
+    check();
+  }
+  contentEffects();
+
+  // Ajax loading content
   // http://net.tutsplus.com/tutorials/javascript-ajax/how-to-load-in-and-animate-content-with-jquery/
   var hash = window.location.hash.substr(1);
   var href = $('.cate1, #about').each(function() {
     var href = $(this).attr('href');
     if(hash==href.substr(0,href.length-5)) {
       var toLoad = hash+'.html .ajax';
-      $('.ajax').load(toLoad)
+      $('.ajax').load(toLoad);
     }
   });
   $('.cate1, #about').click(function() {
@@ -92,6 +116,7 @@ $(document).ready(function() {
     var toLoad = $(this).attr('href')+' .ajax';
     $('.ajax').fadeOut('fast',loadContent);
     $('#load').remove();
+    $('#container').append('<div id="load">LOADING</div>');
     $('#load').fadeIn('normal');
     window.location.hash = $(this).attr('href').substr(0,$(this).attr('href').length-5);
     function loadContent() {
@@ -99,10 +124,14 @@ $(document).ready(function() {
     }
     function showNewContent() {
       $('.ajax').fadeIn('normal',hideLoader());
+<<<<<<< HEAD
       $("#container").on("click", contentEffects).click();
+=======
+      $("#trigger").on("click", contentEffects).click();
+>>>>>>> new site
     }
     function hideLoader() {
-      $('#load').fadeOut('normal');
+      $('#load').delay(160).fadeOut('normal');
     }
     return false;
   });

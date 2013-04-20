@@ -47,6 +47,12 @@
 
       <div id="post_list">
         
+          <a class="Mac cate1" href="/Mac/2013/04/20/sublime-test.html">Sublime Text 的个人设置<span>Apr 2013</span></a>
+        
+          <a class="Github cate1" href="/Github/2013/04/16/emmet-css-snippets.html">Emmet CSS Snippets<span>Apr 2013</span></a>
+        
+          <a class="CSS cate1" href="/CSS/2013/04/15/css-performance-2.html">关注 CSS 性能 (二)<span>Apr 2013</span></a>
+        
           <a class="Demo cate1" href="/Demo/2013/04/06/css3-slider-practice.html">CSS3 Slider 模仿练习<span>Apr 2013</span></a>
         
           <a class="Front_end cate1" href="/Front_end/2013/03/31/ie10-placeholder.html">IE10 的 placeholder 伪类问题<span>Mar 2013</span></a>
@@ -77,74 +83,86 @@
     </aside>
 
     <div id="container">
-      <div id="load"></div>
+      <div id="trigger"></div>
       <div class="ajax"><article id="post">
   <header id="header">
     <h1>CSS3 Slider 模仿练习</h1>
-    <button id="fullscreen" class="header_icon" title="部分浏览器不支持全屏模式"></button>
+    <button id="fullscreen" class="header_icon"></button>
     <button id="fontsize" class="header_icon"></button>
   </header>
   <div id="content">
-    <p>最近模仿了一个动画网站练习用 CSS 写 Slider: <a href='/playground/css3_slider_practice/index.html'>展示地址</a>，记录一点经验心得。</p>
-<div class='highlight'><pre><code class='sass'><span class='nt'>a</span>
-  <span class='na'>opacity</span><span class='o'>:</span> <span class='mi'>0</span>
-  <span class='na'>-webkit-transition</span><span class='o'>:</span> <span class='o'>-</span><span class='n'>webkit-transform</span> <span class='mi'>0</span><span class='mf'>.3</span><span class='kt'>s</span><span class='o'>,</span> <span class='no'>opacity</span> <span class='mi'>0</span><span class='mf'>.3</span><span class='kt'>s</span>
-  <span class='na'>-moz-transition</span><span class='o'>:</span> <span class='o'>-</span><span class='n'>moz-transform</span> <span class='mi'>0</span><span class='mf'>.3</span><span class='kt'>s</span><span class='o'>,</span> <span class='no'>opacity</span> <span class='mi'>0</span><span class='mf'>.3</span><span class='kt'>s</span>
-  <span class='na'>-o-transition</span><span class='o'>:</span> <span class='o'>-</span><span class='n'>o-transform</span> <span class='mi'>0</span><span class='mf'>.3</span><span class='kt'>s</span><span class='o'>,</span> <span class='no'>opacity</span> <span class='mi'>0</span><span class='mf'>.3</span><span class='kt'>s</span>
-  <span class='na'>-ms-transition</span><span class='o'>:</span> <span class='o'>-</span><span class='n'>ms-transform</span> <span class='mi'>0</span><span class='mf'>.3</span><span class='kt'>s</span><span class='o'>,</span> <span class='no'>opacity</span> <span class='mi'>0</span><span class='mf'>.3</span><span class='kt'>s</span>
-  <span class='na'>transition</span><span class='o'>:</span> <span class='n'>transform</span> <span class='mi'>0</span><span class='mf'>.3</span><span class='kt'>s</span><span class='o'>,</span> <span class='no'>opacity</span> <span class='mi'>0</span><span class='mf'>.3</span><span class='kt'>s</span>
-  <span class='na'>-webkit-transform</span><span class='o'>:</span> <span class='nf'>translate</span><span class='p'>(</span><span class='mi'>-10</span><span class='kt'>px</span><span class='o'>,</span> <span class='mi'>5</span><span class='kt'>px</span><span class='p'>)</span>
-  <span class='na'>-moz-transform</span><span class='o'>:</span> <span class='nf'>translate</span><span class='p'>(</span><span class='mi'>-10</span><span class='kt'>px</span><span class='o'>,</span> <span class='mi'>5</span><span class='kt'>px</span><span class='p'>)</span>
-  <span class='na'>-o-transform</span><span class='o'>:</span> <span class='nf'>translate</span><span class='p'>(</span><span class='mi'>-10</span><span class='kt'>px</span><span class='o'>,</span> <span class='mi'>5</span><span class='kt'>px</span><span class='p'>)</span>
-  <span class='na'>-ms-transform</span><span class='o'>:</span> <span class='nf'>translate</span><span class='p'>(</span><span class='mi'>-10</span><span class='kt'>px</span><span class='o'>,</span> <span class='mi'>5</span><span class='kt'>px</span><span class='p'>)</span>
-  <span class='na'>transform</span><span class='o'>:</span> <span class='nf'>translate</span><span class='p'>(</span><span class='mi'>-10</span><span class='kt'>px</span><span class='o'>,</span> <span class='mi'>5</span><span class='kt'>px</span><span class='p'>)</span>
-  <span class='k'>@for</span> <span class='nv'>$i</span> <span class='ow'>from</span> <span class='mi'>1</span> <span class='ow'>through</span> <span class='mi'>5</span>
-    <span class='k'>&amp;</span><span class='nd'>:nth-of-type</span><span class='o'>(</span><span class='nn'>#</span><span class='err'>{$</span><span class='nt'>i</span><span class='err'>}</span><span class='o'>)</span>
-      <span class='na'>-webkit-transition-delay</span><span class='o'>:</span> <span class='mi'>0</span><span class='mf'>.3</span><span class='kt'>s</span> <span class='o'>+</span> <span class='nv'>$i</span><span class='o'>*</span><span class='mi'>0</span><span class='mf'>.1</span><span class='kt'>s</span>
-      <span class='na'>-moz-transition-delay</span><span class='o'>:</span> <span class='mi'>0</span><span class='mf'>.3</span><span class='kt'>s</span> <span class='o'>+</span> <span class='nv'>$i</span><span class='o'>*</span><span class='mi'>0</span><span class='mf'>.1</span><span class='kt'>s</span>
-      <span class='na'>-o-transition-delay</span><span class='o'>:</span> <span class='mi'>0</span><span class='mf'>.3</span><span class='kt'>s</span> <span class='o'>+</span> <span class='nv'>$i</span><span class='o'>*</span><span class='mi'>0</span><span class='mf'>.1</span><span class='kt'>s</span>
-      <span class='na'>-ms-transition-delay</span><span class='o'>:</span> <span class='mi'>0</span><span class='mf'>.3</span><span class='kt'>s</span> <span class='o'>+</span> <span class='nv'>$i</span><span class='o'>*</span><span class='mi'>0</span><span class='mf'>.1</span><span class='kt'>s</span>
-      <span class='na'>transition-delay</span><span class='o'>:</span> <span class='mi'>0</span><span class='mf'>.3</span><span class='kt'>s</span> <span class='o'>+</span> <span class='nv'>$i</span><span class='o'>*</span><span class='mi'>0</span><span class='mf'>.1</span><span class='kt'>s</span>
-<span class='nc'>.parent</span><span class='nd'>:hover</span> <span class='nt'>a</span>
-  <span class='na'>opacity</span><span class='o'>:</span> <span class='mi'>1</span>
-  <span class='na'>-webkit-transform</span><span class='o'>:</span> <span class='nf'>translate</span><span class='p'>(</span><span class='mi'>0</span><span class='kt'>px</span><span class='o'>,</span> <span class='mi'>0</span><span class='kt'>px</span><span class='p'>)</span>
-  <span class='na'>-moz-transform</span><span class='o'>:</span> <span class='nf'>translate</span><span class='p'>(</span><span class='mi'>0</span><span class='kt'>px</span><span class='o'>,</span> <span class='mi'>0</span><span class='kt'>px</span><span class='p'>)</span>
-  <span class='na'>-o-transform</span><span class='o'>:</span> <span class='nf'>translate</span><span class='p'>(</span><span class='mi'>0</span><span class='kt'>px</span><span class='o'>,</span> <span class='mi'>0</span><span class='kt'>px</span><span class='p'>)</span>
-  <span class='na'>-ms-transform</span><span class='o'>:</span> <span class='nf'>translate</span><span class='p'>(</span><span class='mi'>0</span><span class='kt'>px</span><span class='o'>,</span> <span class='mi'>0</span><span class='kt'>px</span><span class='p'>)</span>
-  <span class='na'>transform</span><span class='o'>:</span> <span class='nf'>translate</span><span class='p'>(</span><span class='mi'>0</span><span class='kt'>px</span><span class='o'>,</span> <span class='mi'>0</span><span class='kt'>px</span><span class='p'>)</span>
+    <p>最近模仿了一个动画网站练习用 CSS 写 Slider: <a href="/playground/css3_slider_practice/index.html">展示地址</a>，记录一点经验心得。</p>
+
+<div class="highlight"><pre><code class="sass"><span class="nt">a</span>
+  <span class="na">opacity</span><span class="o">:</span> <span class="mi">0</span>
+  <span class="na">-webkit-transition</span><span class="o">:</span> <span class="o">-</span><span class="n">webkit-transform</span> <span class="mi">0</span><span class="mf">.3</span><span class="kt">s</span><span class="o">,</span> <span class="no">opacity</span> <span class="mi">0</span><span class="mf">.3</span><span class="kt">s</span>
+  <span class="na">-moz-transition</span><span class="o">:</span> <span class="o">-</span><span class="n">moz-transform</span> <span class="mi">0</span><span class="mf">.3</span><span class="kt">s</span><span class="o">,</span> <span class="no">opacity</span> <span class="mi">0</span><span class="mf">.3</span><span class="kt">s</span>
+  <span class="na">-o-transition</span><span class="o">:</span> <span class="o">-</span><span class="n">o-transform</span> <span class="mi">0</span><span class="mf">.3</span><span class="kt">s</span><span class="o">,</span> <span class="no">opacity</span> <span class="mi">0</span><span class="mf">.3</span><span class="kt">s</span>
+  <span class="na">-ms-transition</span><span class="o">:</span> <span class="o">-</span><span class="n">ms-transform</span> <span class="mi">0</span><span class="mf">.3</span><span class="kt">s</span><span class="o">,</span> <span class="no">opacity</span> <span class="mi">0</span><span class="mf">.3</span><span class="kt">s</span>
+  <span class="na">transition</span><span class="o">:</span> <span class="n">transform</span> <span class="mi">0</span><span class="mf">.3</span><span class="kt">s</span><span class="o">,</span> <span class="no">opacity</span> <span class="mi">0</span><span class="mf">.3</span><span class="kt">s</span>
+  <span class="na">-webkit-transform</span><span class="o">:</span> <span class="nf">translate</span><span class="p">(</span><span class="mi">-10</span><span class="kt">px</span><span class="o">,</span> <span class="mi">5</span><span class="kt">px</span><span class="p">)</span>
+  <span class="na">-moz-transform</span><span class="o">:</span> <span class="nf">translate</span><span class="p">(</span><span class="mi">-10</span><span class="kt">px</span><span class="o">,</span> <span class="mi">5</span><span class="kt">px</span><span class="p">)</span>
+  <span class="na">-o-transform</span><span class="o">:</span> <span class="nf">translate</span><span class="p">(</span><span class="mi">-10</span><span class="kt">px</span><span class="o">,</span> <span class="mi">5</span><span class="kt">px</span><span class="p">)</span>
+  <span class="na">-ms-transform</span><span class="o">:</span> <span class="nf">translate</span><span class="p">(</span><span class="mi">-10</span><span class="kt">px</span><span class="o">,</span> <span class="mi">5</span><span class="kt">px</span><span class="p">)</span>
+  <span class="na">transform</span><span class="o">:</span> <span class="nf">translate</span><span class="p">(</span><span class="mi">-10</span><span class="kt">px</span><span class="o">,</span> <span class="mi">5</span><span class="kt">px</span><span class="p">)</span>
+  <span class="k">@for</span> <span class="nv">$i</span> <span class="ow">from</span> <span class="mi">1</span> <span class="ow">through</span> <span class="mi">5</span>
+    <span class="k">&amp;</span><span class="nd">:nth-of-type</span><span class="o">(</span><span class="nn">#</span><span class="err">{$</span><span class="nt">i</span><span class="err">}</span><span class="o">)</span>
+      <span class="na">-webkit-transition-delay</span><span class="o">:</span> <span class="mi">0</span><span class="mf">.3</span><span class="kt">s</span> <span class="o">+</span> <span class="nv">$i</span><span class="o">*</span><span class="mi">0</span><span class="mf">.1</span><span class="kt">s</span>
+      <span class="na">-moz-transition-delay</span><span class="o">:</span> <span class="mi">0</span><span class="mf">.3</span><span class="kt">s</span> <span class="o">+</span> <span class="nv">$i</span><span class="o">*</span><span class="mi">0</span><span class="mf">.1</span><span class="kt">s</span>
+      <span class="na">-o-transition-delay</span><span class="o">:</span> <span class="mi">0</span><span class="mf">.3</span><span class="kt">s</span> <span class="o">+</span> <span class="nv">$i</span><span class="o">*</span><span class="mi">0</span><span class="mf">.1</span><span class="kt">s</span>
+      <span class="na">-ms-transition-delay</span><span class="o">:</span> <span class="mi">0</span><span class="mf">.3</span><span class="kt">s</span> <span class="o">+</span> <span class="nv">$i</span><span class="o">*</span><span class="mi">0</span><span class="mf">.1</span><span class="kt">s</span>
+      <span class="na">transition-delay</span><span class="o">:</span> <span class="mi">0</span><span class="mf">.3</span><span class="kt">s</span> <span class="o">+</span> <span class="nv">$i</span><span class="o">*</span><span class="mi">0</span><span class="mf">.1</span><span class="kt">s</span>
+<span class="nc">.parent</span><span class="nd">:hover</span> <span class="nt">a</span>
+  <span class="na">opacity</span><span class="o">:</span> <span class="mi">1</span>
+  <span class="na">-webkit-transform</span><span class="o">:</span> <span class="nf">translate</span><span class="p">(</span><span class="mi">0</span><span class="kt">px</span><span class="o">,</span> <span class="mi">0</span><span class="kt">px</span><span class="p">)</span>
+  <span class="na">-moz-transform</span><span class="o">:</span> <span class="nf">translate</span><span class="p">(</span><span class="mi">0</span><span class="kt">px</span><span class="o">,</span> <span class="mi">0</span><span class="kt">px</span><span class="p">)</span>
+  <span class="na">-o-transform</span><span class="o">:</span> <span class="nf">translate</span><span class="p">(</span><span class="mi">0</span><span class="kt">px</span><span class="o">,</span> <span class="mi">0</span><span class="kt">px</span><span class="p">)</span>
+  <span class="na">-ms-transform</span><span class="o">:</span> <span class="nf">translate</span><span class="p">(</span><span class="mi">0</span><span class="kt">px</span><span class="o">,</span> <span class="mi">0</span><span class="kt">px</span><span class="p">)</span>
+  <span class="na">transform</span><span class="o">:</span> <span class="nf">translate</span><span class="p">(</span><span class="mi">0</span><span class="kt">px</span><span class="o">,</span> <span class="mi">0</span><span class="kt">px</span><span class="p">)</span>
 </code></pre></div>
+
+
 <p>一，使用 <code>transition</code> 属性控制变化效果的时候，变化项也需要添加浏览器前缀，开始没有注意到这点多次尝试还以为做错了；</p>
 
 <p>二，<code>:nth-of-type()</code> 是个好东西，可玩性非常高，配合 <code>transition-delay</code> 不借助 js 就可以做出连续的动画效果；</p>
-<div class='highlight'><pre><code class='html'><span class='nt'>&lt;label</span> <span class='na'>for=</span><span class='s'>&quot;trigger1&quot;</span><span class='nt'>&gt;</span>Slide1<span class='nt'>&lt;/label&gt;</span>
-<span class='nt'>&lt;label</span> <span class='na'>for=</span><span class='s'>&quot;trigger2&quot;</span><span class='nt'>&gt;</span>Slide2<span class='nt'>&lt;/label&gt;</span>
-<span class='nt'>&lt;label</span> <span class='na'>for=</span><span class='s'>&quot;trigger3&quot;</span><span class='nt'>&gt;</span>Slide3<span class='nt'>&lt;/label&gt;</span>
-<span class='nt'>&lt;label</span> <span class='na'>for=</span><span class='s'>&quot;trigger4&quot;</span><span class='nt'>&gt;</span>Slide4<span class='nt'>&lt;/label&gt;</span>
 
-<span class='nt'>&lt;input</span> <span class='na'>type=</span><span class='s'>&quot;radio&quot;</span> <span class='na'>id=</span><span class='s'>&quot;trigger1&quot;</span> <span class='na'>name=</span><span class='s'>&quot;trigger&quot;</span> <span class='na'>checked=</span><span class='s'>&quot;&quot;</span><span class='nt'>&gt;</span>
-<span class='nt'>&lt;input</span> <span class='na'>type=</span><span class='s'>&quot;radio&quot;</span> <span class='na'>id=</span><span class='s'>&quot;trigger2&quot;</span> <span class='na'>name=</span><span class='s'>&quot;trigger&quot;</span><span class='nt'>&gt;</span>
-<span class='nt'>&lt;input</span> <span class='na'>type=</span><span class='s'>&quot;radio&quot;</span> <span class='na'>id=</span><span class='s'>&quot;trigger3&quot;</span> <span class='na'>name=</span><span class='s'>&quot;trigger&quot;</span><span class='nt'>&gt;</span>
-<span class='nt'>&lt;input</span> <span class='na'>type=</span><span class='s'>&quot;radio&quot;</span> <span class='na'>id=</span><span class='s'>&quot;trigger4&quot;</span> <span class='na'>name=</span><span class='s'>&quot;trigger&quot;</span><span class='nt'>&gt;</span>
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">&quot;trigger1&quot;</span><span class="nt">&gt;</span>Slide1<span class="nt">&lt;/label&gt;</span>
+<span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">&quot;trigger2&quot;</span><span class="nt">&gt;</span>Slide2<span class="nt">&lt;/label&gt;</span>
+<span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">&quot;trigger3&quot;</span><span class="nt">&gt;</span>Slide3<span class="nt">&lt;/label&gt;</span>
+<span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">&quot;trigger4&quot;</span><span class="nt">&gt;</span>Slide4<span class="nt">&lt;/label&gt;</span>
 
-<span class='nt'>&lt;div</span> <span class='na'>id=</span><span class='s'>&quot;wrapper&quot;</span><span class='nt'>&gt;</span>
-  <span class='nt'>&lt;div</span> <span class='na'>id=</span><span class='s'>&quot;slider&quot;</span><span class='nt'>&gt;</span>
-  <span class='nt'>&lt;/div&gt;</span>
-<span class='nt'>&lt;/div&gt;</span>
-</code></pre></div><div class='highlight'><pre><code class='sass'><span class='nn'>#slider</span>
-  <span class='na'>width</span><span class='o'>:</span> <span class='nv'>$width</span> <span class='o'>*</span> <span class='mi'>4</span>
-<span class='k'>@for</span> <span class='nv'>$i</span> <span class='ow'>from</span> <span class='mi'>1</span> <span class='ow'>through</span> <span class='mi'>4</span>
-  <span class='nn'>#trigger</span><span class='si'>#{</span><span class='nv'>$i</span><span class='si'>}</span><span class='nd'>:checked</span> <span class='o'>~</span> <span class='nn'>#wrapper</span> <span class='nn'>#slider</span>
-    <span class='na'>-webkit-transform</span><span class='o'>:</span> <span class='nf'>translateX</span><span class='p'>((</span><span class='nv'>$i</span> <span class='o'>-</span> <span class='mi'>1</span><span class='p'>)</span> <span class='o'>*</span> <span class='o'>-</span><span class='nv'>$width</span><span class='p'>)</span>
-    <span class='na'>-moz-transform</span><span class='o'>:</span> <span class='nf'>translateX</span><span class='p'>((</span><span class='nv'>$i</span> <span class='o'>-</span> <span class='mi'>1</span><span class='p'>)</span> <span class='o'>*</span> <span class='o'>-</span><span class='nv'>$width</span><span class='p'>)</span>
-    <span class='na'>-o-transform</span><span class='o'>:</span> <span class='nf'>translateX</span><span class='p'>((</span><span class='nv'>$i</span> <span class='o'>-</span> <span class='mi'>1</span><span class='p'>)</span> <span class='o'>*</span> <span class='o'>-</span><span class='nv'>$width</span><span class='p'>)</span>
-    <span class='na'>-ms-transform</span><span class='o'>:</span> <span class='nf'>translateX</span><span class='p'>((</span><span class='nv'>$i</span> <span class='o'>-</span> <span class='mi'>1</span><span class='p'>)</span> <span class='o'>*</span> <span class='o'>-</span><span class='nv'>$width</span><span class='p'>)</span>
-    <span class='na'>transform</span><span class='o'>:</span> <span class='nf'>translateX</span><span class='p'>((</span><span class='nv'>$i</span> <span class='o'>-</span> <span class='mi'>1</span><span class='p'>)</span> <span class='o'>*</span> <span class='o'>-</span><span class='nv'>$width</span><span class='p'>)</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;radio&quot;</span> <span class="na">id=</span><span class="s">&quot;trigger1&quot;</span> <span class="na">name=</span><span class="s">&quot;trigger&quot;</span> <span class="na">checked=</span><span class="s">&quot;&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;radio&quot;</span> <span class="na">id=</span><span class="s">&quot;trigger2&quot;</span> <span class="na">name=</span><span class="s">&quot;trigger&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;radio&quot;</span> <span class="na">id=</span><span class="s">&quot;trigger3&quot;</span> <span class="na">name=</span><span class="s">&quot;trigger&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;radio&quot;</span> <span class="na">id=</span><span class="s">&quot;trigger4&quot;</span> <span class="na">name=</span><span class="s">&quot;trigger&quot;</span><span class="nt">&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;wrapper&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;slider&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
 </code></pre></div>
-<p>三，利用单选框与 <code>:checked</code> 伪类存储用户的输入信息是一件很巧妙的做法，乍看上去有点麻烦但相信还是可以继续深度发掘出更多用法，比如这个纯 CSS 写的小游戏：<a href='http://jsdo.it/GeckoTang/4rXg'>CSS PANIC</a></p>
+
+
+
+
+<div class="highlight"><pre><code class="sass"><span class="nn">#slider</span>
+  <span class="na">width</span><span class="o">:</span> <span class="nv">$width</span> <span class="o">*</span> <span class="mi">4</span>
+<span class="k">@for</span> <span class="nv">$i</span> <span class="ow">from</span> <span class="mi">1</span> <span class="ow">through</span> <span class="mi">4</span>
+  <span class="nn">#trigger</span><span class="si">#{</span><span class="nv">$i</span><span class="si">}</span><span class="nd">:checked</span> <span class="o">~</span> <span class="nn">#wrapper</span> <span class="nn">#slider</span>
+    <span class="na">-webkit-transform</span><span class="o">:</span> <span class="nf">translateX</span><span class="p">((</span><span class="nv">$i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="o">-</span><span class="nv">$width</span><span class="p">)</span>
+    <span class="na">-moz-transform</span><span class="o">:</span> <span class="nf">translateX</span><span class="p">((</span><span class="nv">$i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="o">-</span><span class="nv">$width</span><span class="p">)</span>
+    <span class="na">-o-transform</span><span class="o">:</span> <span class="nf">translateX</span><span class="p">((</span><span class="nv">$i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="o">-</span><span class="nv">$width</span><span class="p">)</span>
+    <span class="na">-ms-transform</span><span class="o">:</span> <span class="nf">translateX</span><span class="p">((</span><span class="nv">$i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="o">-</span><span class="nv">$width</span><span class="p">)</span>
+    <span class="na">transform</span><span class="o">:</span> <span class="nf">translateX</span><span class="p">((</span><span class="nv">$i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="o">-</span><span class="nv">$width</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>三，利用单选框与 <code>:checked</code> 伪类存储用户的输入信息是一件很巧妙的做法，乍看上去有点麻烦但相信还是可以继续深度发掘出更多用法，比如这个纯 CSS 写的小游戏：<a href="http://jsdo.it/GeckoTang/4rXg">CSS PANIC</a></p>
 
 <p>四，同级选择器 <code>~</code> 与后代选择器连用，通过不同的单选框控制不同的偏移量。</p>
 
 <p>这是 CSS3 Slider 的一种写法，印象中还有另一种写法利用到了 <code>:target</code> 伪类，下次有时间再尝试一下。</p>
+
   </div>
   <a id="cc" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/"></a>
 </article>
@@ -152,7 +170,7 @@
 <div id="disqus_thread"></div>
 
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">Comments powered by <span class="logo-disqus">Disqus</span></a></div>
+<a href="http://disqus.com" class="dsq-brlink" target="_blank">Wait to loading Disqus comments...</a></div>
     </div>
 
     <script type="text/javascript" src="/js/jquery.min.js"></script>

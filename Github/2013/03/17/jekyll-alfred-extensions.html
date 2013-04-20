@@ -47,6 +47,12 @@
 
       <div id="post_list">
         
+          <a class="Mac cate1" href="/Mac/2013/04/20/sublime-test.html">Sublime Text 的个人设置<span>Apr 2013</span></a>
+        
+          <a class="Github cate1" href="/Github/2013/04/16/emmet-css-snippets.html">Emmet CSS Snippets<span>Apr 2013</span></a>
+        
+          <a class="CSS cate1" href="/CSS/2013/04/15/css-performance-2.html">关注 CSS 性能 (二)<span>Apr 2013</span></a>
+        
           <a class="Demo cate1" href="/Demo/2013/04/06/css3-slider-practice.html">CSS3 Slider 模仿练习<span>Apr 2013</span></a>
         
           <a class="Front_end cate1" href="/Front_end/2013/03/31/ie10-placeholder.html">IE10 的 placeholder 伪类问题<span>Mar 2013</span></a>
@@ -77,70 +83,81 @@
     </aside>
 
     <div id="container">
-      <div id="load"></div>
+      <div id="trigger"></div>
       <div class="ajax"><article id="post">
   <header id="header">
     <h1>Jekyll Alfred 2 Workflows</h1>
-    <button id="fullscreen" class="header_icon" title="部分浏览器不支持全屏模式"></button>
+    <button id="fullscreen" class="header_icon"></button>
     <button id="fontsize" class="header_icon"></button>
   </header>
   <div id="content">
-    <p>Alfred 2 将之前的 extension 功能改为现在的 workflow，所以将这三个 Jekyll 相关插件简单调整了一下，重新发布，欢迎大家使用，下载地址：<a href='https://github.com/P233/Jekyll-Alfred-Extensions'>https://github.com/P233/Jekyll-Alfred-Extensions</a></p>
+    <p>Alfred 2 将之前的 extension 功能改为现在的 workflow，所以将这三个 Jekyll 相关插件简单调整了一下，重新发布，欢迎大家使用，下载地址：<a href="https://github.com/P233/Jekyll-Alfred-Extensions">https://github.com/P233/Jekyll-Alfred-Extensions</a></p>
 
-<h2 id='create_new_jekyll_post'>Create new Jekyll Post</h2>
+<h2>Create new Jekyll Post</h2>
 
 <p>输入 <code>newpost [title]</code>创建一篇 Jekyll 文章，文件名前自动添加今天的日期作为前缀，<code>title</code> 中请输入 <code>-</code> 代替空格。需要替换成自己的 Jekyll 文件夹的路径，格式必须以 <code>/Users/user_name/</code> 开头。</p>
-<div class='highlight'><pre><code class='ruby'><span class='c1'># Please replace your own _posts folder path in the next line. The format should start with /Users/user_name/</span>
-<span class='no'>Dir</span><span class='o'>.</span><span class='n'>chdir</span> <span class='s2'>&quot;/Users/lpw/Dropbox/Websites/Jekyll/_posts/&quot;</span>
 
-<span class='n'>today</span> <span class='o'>=</span> <span class='no'>Time</span><span class='o'>.</span><span class='n'>now</span><span class='o'>.</span><span class='n'>strftime</span><span class='p'>(</span><span class='s1'>&#39;%Y-%m-%d&#39;</span><span class='p'>)</span>
-<span class='n'>input</span> <span class='o'>=</span> <span class='s1'>&#39;{query}&#39;</span>
+<div class="highlight"><pre><code class="ruby"><span class="c1"># Please replace your own _posts folder path in the next line. The format should start with /Users/user_name/</span>
+<span class="no">Dir</span><span class="o">.</span><span class="n">chdir</span> <span class="s2">&quot;/Users/lpw/Dropbox/Websites/Jekyll/_posts/&quot;</span>
 
-<span class='n'>filename</span> <span class='o'>=</span> <span class='o'>[</span><span class='n'>today</span><span class='p'>,</span> <span class='n'>input</span><span class='o'>].</span><span class='n'>join</span><span class='p'>(</span><span class='s1'>&#39;-&#39;</span><span class='p'>)</span>
-<span class='n'>extension</span> <span class='o'>=</span> <span class='s1'>&#39;md&#39;</span>
+<span class="n">today</span> <span class="o">=</span> <span class="no">Time</span><span class="o">.</span><span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-%d&#39;</span><span class="p">)</span>
+<span class="n">input</span> <span class="o">=</span> <span class="s1">&#39;{query}&#39;</span>
 
-<span class='n'>file</span> <span class='o'>=</span> <span class='o'>[</span><span class='n'>filename</span><span class='p'>,</span> <span class='n'>extension</span><span class='o'>].</span><span class='n'>join</span><span class='p'>(</span><span class='s1'>&#39;.&#39;</span><span class='p'>)</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="o">[</span><span class="n">today</span><span class="p">,</span> <span class="n">input</span><span class="o">].</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="n">extension</span> <span class="o">=</span> <span class="s1">&#39;md&#39;</span>
 
-<span class='nb'>system</span><span class='p'>(</span><span class='sx'>%[touch &quot;</span><span class='si'>#{</span><span class='n'>file</span><span class='si'>}</span><span class='sx'>&quot;]</span><span class='p'>)</span>
-<span class='nb'>system</span><span class='p'>(</span><span class='sx'>%[open &quot;</span><span class='si'>#{</span><span class='n'>file</span><span class='si'>}</span><span class='sx'>&quot;]</span><span class='p'>)</span>
+<span class="n">file</span> <span class="o">=</span> <span class="o">[</span><span class="n">filename</span><span class="p">,</span> <span class="n">extension</span><span class="o">].</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+
+<span class="nb">system</span><span class="p">(</span><span class="sx">%[touch &quot;</span><span class="si">#{</span><span class="n">file</span><span class="si">}</span><span class="sx">&quot;]</span><span class="p">)</span>
+<span class="nb">system</span><span class="p">(</span><span class="sx">%[open &quot;</span><span class="si">#{</span><span class="n">file</span><span class="si">}</span><span class="sx">&quot;]</span><span class="p">)</span>
 </code></pre></div>
-<h2 id='generate_jekyll_site'>Generate Jekyll site</h2>
+
+
+<h2>Generate Jekyll site</h2>
 
 <p>输入 <code>jekyll</code> 运行 <code>cd [path]</code> 与 <code>jekyll --server --auto</code> 两个命令，然后在浏览器中访问网站，需要在 applescript 中替换自己的 Jekyll 文件夹路径。</p>
-<div class='highlight'><pre><code class='applescript'><span class='k'>on</span> <span class='nv'>alfred_script</span><span class='p'>(</span><span class='nv'>q</span><span class='p'>)</span>
-  <span class='k'>tell</span> <span class='nb'>application</span> <span class='s2'>&quot;Terminal&quot;</span>
-    <span class='nb'>activate</span>
-    <span class='k'>if</span> <span class='p'>(</span><span class='nb'>count</span> <span class='k'>of</span> <span class='nb'>windows</span><span class='p'>)</span> <span class='ow'>is</span> <span class='mi'>0</span> <span class='k'>then</span>
-        <span class='k'>set</span> <span class='nv'>currentTab</span> <span class='k'>to</span> <span class='nv'>do</span> <span class='nv'>script</span> <span class='s2'>&quot;cd ~/dropbox/websites/jekyll/&quot;</span>
-    <span class='k'>else</span>
-        <span class='nv'>do</span> <span class='nv'>script</span> <span class='s2'>&quot;cd ~/dropbox/websites/jekyll/&quot;</span> <span class='k'>in</span> <span class='na'>window</span> <span class='mi'>1</span>
-    <span class='k'>end</span> <span class='k'>if</span>
-    <span class='nv'>do</span> <span class='nv'>script</span> <span class='s2'>&quot;jekyll --server --auto&quot;</span> <span class='k'>in</span> <span class='na'>window</span> <span class='mi'>1</span>
-    <span class='nb'>delay</span> <span class='mi'>2</span>
-    <span class='nb'>do shell script</span> <span class='s2'>&quot;open http://0.0.0.0:4000&quot;</span>
-  <span class='k'>end</span> <span class='k'>tell</span>
-<span class='k'>end</span> <span class='nv'>alfred_script</span>
+
+<div class="highlight"><pre><code class="applescript"><span class="k">on</span> <span class="nv">alfred_script</span><span class="p">(</span><span class="nv">q</span><span class="p">)</span>
+  <span class="k">tell</span> <span class="nb">application</span> <span class="s2">&quot;Terminal&quot;</span>
+    <span class="nb">activate</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">count</span> <span class="k">of</span> <span class="nb">windows</span><span class="p">)</span> <span class="ow">is</span> <span class="mi">0</span> <span class="k">then</span>
+        <span class="k">set</span> <span class="nv">currentTab</span> <span class="k">to</span> <span class="nv">do</span> <span class="nv">script</span> <span class="s2">&quot;cd ~/dropbox/websites/jekyll/&quot;</span>
+    <span class="k">else</span>
+        <span class="nv">do</span> <span class="nv">script</span> <span class="s2">&quot;cd ~/dropbox/websites/jekyll/&quot;</span> <span class="k">in</span> <span class="na">window</span> <span class="mi">1</span>
+    <span class="k">end</span> <span class="k">if</span>
+    <span class="nv">do</span> <span class="nv">script</span> <span class="s2">&quot;jekyll --server --auto&quot;</span> <span class="k">in</span> <span class="na">window</span> <span class="mi">1</span>
+    <span class="nb">delay</span> <span class="mi">2</span>
+    <span class="nb">do shell script</span> <span class="s2">&quot;open http://0.0.0.0:4000&quot;</span>
+  <span class="k">end</span> <span class="k">tell</span>
+<span class="k">end</span> <span class="nv">alfred_script</span>
 </code></pre></div>
-<h2 id='push_jekyll_to_github'>Push Jekyll to Github</h2>
+
+
+<h2>Push Jekyll to Github</h2>
 
 <p>输入 <code>pushjekyll</code> 将 Jekyll 生成的网站复制到新地址，并将新地址上传到 Github，之所以这样做是因为 Github Pages 不支持自定义插件，只好上传生成的静态网站。如果不需要这个步骤，可以将 <code>if</code> 部分删除。同样需要在 applescript 中替换自己的 Jekyll 文件夹路径，如果路径中有空格，需要在空格前添加 <code>\\</code>。</p>
-<div class='highlight'><pre><code class='applescript'><span class='k'>on</span> <span class='nv'>alfred_script</span><span class='p'>(</span><span class='nv'>message</span><span class='p'>)</span>
-  <span class='k'>tell</span> <span class='nb'>application</span> <span class='s2'>&quot;Terminal&quot;</span>
-    <span class='nb'>activate</span>
 
-    <span class='k'>if</span> <span class='p'>(</span><span class='nb'>count</span> <span class='k'>of</span> <span class='nb'>windows</span><span class='p'>)</span> <span class='ow'>is</span> <span class='mi'>0</span> <span class='k'>then</span>
-        <span class='k'>set</span> <span class='nv'>currentTab</span> <span class='k'>to</span> <span class='nv'>do</span> <span class='nv'>script</span> <span class='s2'>&quot;cp -a ~/dropbox/websites/jekyll/_site/. ~/dropbox/websites/p233.github.com/&quot;</span>
-    <span class='k'>else</span>
-        <span class='nv'>do</span> <span class='nv'>script</span> <span class='s2'>&quot;cp -a ~/dropbox/websites/jekyll/_site/. ~/dropbox/websites/p233.github.com/&quot;</span> <span class='k'>in</span> <span class='na'>window</span> <span class='mi'>1</span>
-    <span class='k'>end</span> <span class='k'>if</span>
+<div class="highlight"><pre><code class="applescript"><span class="k">on</span> <span class="nv">alfred_script</span><span class="p">(</span><span class="nv">message</span><span class="p">)</span>
+  <span class="k">tell</span> <span class="nb">application</span> <span class="s2">&quot;Terminal&quot;</span>
+    <span class="nb">activate</span>
 
-    <span class='nv'>do</span> <span class='nv'>script</span> <span class='s2'>&quot;cd ~/dropbox/websites/p233.github.com/&quot;</span> <span class='k'>in</span> <span class='na'>window</span> <span class='mi'>1</span>
-    <span class='nv'>do</span> <span class='nv'>script</span> <span class='s2'>&quot;git add .&quot;</span> <span class='k'>in</span> <span class='na'>window</span> <span class='mi'>1</span>
-    <span class='nv'>do</span> <span class='nv'>script</span> <span class='s2'>&quot;git commit -am &#39;&quot;</span> <span class='o'>&amp;</span> <span class='nv'>message</span> <span class='o'>&amp;</span> <span class='s2'>&quot;&#39;&quot;</span> <span class='k'>in</span> <span class='na'>window</span> <span class='mi'>1</span>
-    <span class='nv'>do</span> <span class='nv'>script</span> <span class='s2'>&quot;git push&quot;</span> <span class='k'>in</span> <span class='na'>window</span> <span class='mi'>1</span>
-  <span class='k'>end</span> <span class='k'>tell</span>
-<span class='k'>end</span> <span class='nv'>alfred_script</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">count</span> <span class="k">of</span> <span class="nb">windows</span><span class="p">)</span> <span class="ow">is</span> <span class="mi">0</span> <span class="k">then</span>
+        <span class="k">set</span> <span class="nv">currentTab</span> <span class="k">to</span> <span class="nv">do</span> <span class="nv">script</span> <span class="s2">&quot;cp -a ~/dropbox/websites/jekyll/_site/. ~/dropbox/websites/p233.github.com/&quot;</span>
+    <span class="k">else</span>
+        <span class="nv">do</span> <span class="nv">script</span> <span class="s2">&quot;cp -a ~/dropbox/websites/jekyll/_site/. ~/dropbox/websites/p233.github.com/&quot;</span> <span class="k">in</span> <span class="na">window</span> <span class="mi">1</span>
+    <span class="k">end</span> <span class="k">if</span>
+
+    <span class="nv">do</span> <span class="nv">script</span> <span class="s2">&quot;cd ~/dropbox/websites/p233.github.com/&quot;</span> <span class="k">in</span> <span class="na">window</span> <span class="mi">1</span>
+    <span class="nv">do</span> <span class="nv">script</span> <span class="s2">&quot;git add .&quot;</span> <span class="k">in</span> <span class="na">window</span> <span class="mi">1</span>
+    <span class="nv">do</span> <span class="nv">script</span> <span class="s2">&quot;git commit -am &#39;&quot;</span> <span class="o">&amp;</span> <span class="nv">message</span> <span class="o">&amp;</span> <span class="s2">&quot;&#39;&quot;</span> <span class="k">in</span> <span class="na">window</span> <span class="mi">1</span>
+    <span class="nv">do</span> <span class="nv">script</span> <span class="s2">&quot;git push&quot;</span> <span class="k">in</span> <span class="na">window</span> <span class="mi">1</span>
+  <span class="k">end</span> <span class="k">tell</span>
+<span class="k">end</span> <span class="nv">alfred_script</span>
 </code></pre></div>
+
+
+
+
   </div>
   <a id="cc" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/"></a>
 </article>
@@ -148,7 +165,7 @@
 <div id="disqus_thread"></div>
 
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">Comments powered by <span class="logo-disqus">Disqus</span></a></div>
+<a href="http://disqus.com" class="dsq-brlink" target="_blank">Wait to loading Disqus comments...</a></div>
     </div>
 
     <script type="text/javascript" src="/js/jquery.min.js"></script>
