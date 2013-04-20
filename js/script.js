@@ -124,11 +124,7 @@ $(document).ready(function() {
     }
     function showNewContent() {
       $('.ajax').fadeIn('normal',hideLoader());
-<<<<<<< HEAD
-      $("#container").on("click", contentEffects).click();
-=======
       $("#trigger").on("click", contentEffects).click();
->>>>>>> new site
     }
     function hideLoader() {
       $('#load').delay(160).fadeOut('normal');
