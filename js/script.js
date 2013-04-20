@@ -98,7 +98,7 @@ $(document).ready(function() {
     $('#container').scroll(check);
     check();
   }
-  contentEffects();
+  // contentEffects();
 
   // Ajax loading content
   // http://net.tutsplus.com/tutorials/javascript-ajax/how-to-load-in-and-animate-content-with-jquery/
