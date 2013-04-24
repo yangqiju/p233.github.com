@@ -1,0 +1,60 @@
+!!!
+html
+  head
+    title CSS3 模仿练习
+    meta(http-equiv="content-type", content="text/html; charset=UTF-8")
+    link(rel="stylesheet", href="style.css", type="text/css")
+
+  body
+    #nav
+      label(for="trigger1") Home
+      label(for="trigger2") Slide2
+      label(for="trigger3") Slide3
+      label(for="trigger4") Slide4
+
+    #container
+      header
+        h1#title CSS3 模仿练习
+
+      input(type="radio", name="trigger", id="trigger1", checked="")
+      input(type="radio", name="trigger", id="trigger2")
+      input(type="radio", name="trigger", id="trigger3")
+      input(type="radio", name="trigger", id="trigger4")
+
+      #wrapper
+        #slider
+          #slide1.slide
+            .third
+              a.button(href="#") About Us
+              .scroll
+                .left
+                .right
+                  a(href="#") link1
+                  a(href="#") link2
+                  a(href="#") link3
+                  a(href="#") link4
+                  a(href="#") link5
+            .third
+              a.button(href="#") Show Case
+              .scroll
+                .left
+                .right
+                  a(href="#") link1
+                  a(href="#") link2
+                  a(href="#") link3
+                  a(href="#") link4
+                  a(href="#") link5
+            .third
+              a.button(href="#") Store
+              .scroll
+                .left
+                .right
+                  a(href="#") link1
+                  a(href="#") link2
+                  a(href="#") link3
+                  a(href="#") link4
+                  a(href="#") link5
+          #slide2.slide Slide2
+          #slide3.slide Slide3
+          #slide4.slide Slide4
+        p#copyright 不支持 IE9 及以下浏览器 —— Brought to you by P233
