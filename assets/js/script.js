@@ -5,6 +5,7 @@ $(function(){
   //   $('#pjax').hide();
   // });
   $(document).on("pjax:end", function(){
+    $('#container').scrollTop(0);
     contentEffects();
     // $('#pjax').fadeIn('normal');
   });
