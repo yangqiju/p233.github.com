@@ -29,7 +29,8 @@ html, body {
   -webkit-font-smoothing: subpixel-antialiased;
   font: 16px/1.5 Colaborate, Arial, Helvetica, sans-serif;
   background: #f4f4f4;
-  overflow: hidden; }
+  overflow: hidden;
+  position: relative; }
 
 a {
   color: inherit;
@@ -282,7 +283,8 @@ a {
   margin-left: 620px;
   background: #fcfcfa;
   overflow-x: hidden;
-  overflow-y: auto; }
+  overflow-y: auto;
+  position: relative; }
   #container::-webkit-scrollbar {
     width: 12px; }
   #container::-webkit-scrollbar-thumb {
@@ -479,8 +481,8 @@ a#end_cc, a#twitter, a#weibo {
   padding: 10px;
   color: #777777;
   background: #f4f4f4;
-  position: fixed;
-  left: 620px;
+  position: absolute;
+  left: 0;
   right: 0;
   bottom: 0; }
   #copyright a {
@@ -527,6 +529,9 @@ a#end_cc, a#twitter, a#weibo {
 .dsq-brlink {
   padding: 0 0 40px 5%; }
 
+/* -------------------------------------
+ * import animation and pygments style
+ * ------------------------------------- */
 /*------- spin ------- */
 @-webkit-keyframes spin {
   from {
@@ -904,3 +909,27 @@ code {
   color: #2aa198; }
 
 /* Literal.Number.Integer.Long */
+/* -------------------------------------
+ * tablet
+ * ------------------------------------- */
+@media screen and (max-width: 1024px) {
+  #container {
+    margin-left: 0;
+    position: absolute;
+    left: 10px;
+    right: 0;
+    z-index: 999;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
+
+  #fullscreen {
+    display: none; }
+
+  .highlight {
+    overflow: hidden;
+    word-wrap: break-word;
+    word-break: break-all; } }
