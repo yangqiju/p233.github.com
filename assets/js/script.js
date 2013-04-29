@@ -27,6 +27,7 @@ $(function(){
     snapper.disable();
   } else {
     snapper.close();
+    $('#notice').delay(600).fadeOut('slow');
   };
   $(window).resize(function() {
     var windowSize = $(window).width();
@@ -35,6 +36,7 @@ $(function(){
       snapper.disable();
     } else {
       snapper.enable();
+      $('#notice').delay(600).fadeOut('slow');
     };
   });
 
