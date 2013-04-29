@@ -14,16 +14,15 @@ $(function(){
   var snapper = new Snap({
     element: document.getElementById('container'),
     disable: 'right',
-    maxPosition: 610,
+    maxPosition: 490,
     minPosition: 0,
-    tapToClose: false,
     slideIntent: 0,
     minDragDistance: 100,
   });
   snapper.open('left');
 
   var windowSize = $(window).width();
-  if (windowSize > 1024) {
+  if (windowSize > 1280) {
     snapper.close();
     snapper.disable();
   } else {
@@ -31,7 +30,7 @@ $(function(){
   };
   $(window).resize(function() {
     var windowSize = $(window).width();
-    if (windowSize > 1024) {
+    if (windowSize > 1280) {
       snapper.close();
       snapper.disable();
     } else {

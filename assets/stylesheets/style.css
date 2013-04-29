@@ -295,7 +295,7 @@ a {
 /*------- post header ------- */
 #header {
   color: white;
-  padding: 0 5%;
+  padding: 50px 5% 0;
   -webkit-transition: background 0.5s ease-in-out;
   -moz-transition: background 0.5s ease-in-out;
   -o-transition: background 0.5s ease-in-out;
@@ -305,7 +305,6 @@ a {
   #header h1 {
     height: 63px;
     margin: 0;
-    padding-top: 50px;
     font-size: 42px;
     line-height: 65px;
     font-weight: normal;
@@ -315,7 +314,7 @@ a {
 .header_icon {
   width: 40px;
   height: 40px;
-  margin: 63px 0 0 5px;
+  margin: 13px 0 9px 5px;
   color: white;
   background: transparent;
   border: 3px solid white;
@@ -912,7 +911,16 @@ code {
 /* -------------------------------------
  * tablet
  * ------------------------------------- */
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1440px) {
+  #sidebar {
+    width: 320px; }
+
+  .cate1 span {
+    display: none; }
+
+  #container {
+    margin-left: 500px; } }
+@media screen and (max-width: 1280px) {
   #container {
     margin-left: 0;
     position: absolute;
@@ -933,3 +941,12 @@ code {
     overflow: hidden;
     word-wrap: break-word;
     word-break: break-all; } }
+@media screen and (max-width: 480px) {
+  html:after {
+    content: "Will add support for mobile phones later.";
+    margin-top: 30px;
+    text-align: center;
+    display: block; }
+
+  body {
+    display: none; } }
