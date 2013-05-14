@@ -6,8 +6,8 @@
     <atom:link href="http://peters-playground.com/rss.xml" rel="self" type="application/rss+xml" />
     <description>专注前端技术</description>
     <language>zh_CN</language>
-    <pubDate>Fri, 10 May 2013 10:35:17 +0100</pubDate>
-    <lastBuildDate>Fri, 10 May 2013 10:35:17 +0100</lastBuildDate>
+    <pubDate>Tue, 14 May 2013 18:22:00 +0100</pubDate>
+    <lastBuildDate>Tue, 14 May 2013 18:22:00 +0100</lastBuildDate>
 
     
     <item>
@@ -16,7 +16,7 @@
       <pubDate>10 May 2013</pubDate>
       <author>Peter</author>
       <guid>http://peters-playground.com/2013/05/css3-timeline</guid>
-      <description>&lt;p&gt;用 CSS 写的 Timeline 效果，&lt;a href=&quot;/playground/css3_timeline/index.html&quot;&gt;展示地址&lt;/a&gt;。与上一个&lt;a href=&quot;/playground/css3_slider_practice/index.html&quot;&gt;CSS3 Slider 模仿练习&lt;/a&gt;使用的方法基本相同，额外记录一点经验心得：&lt;/p&gt;
+      <description>&lt;p&gt;用 CSS 写的 Timeline 效果，展示地址：&lt;a href=&quot;http://cdpn.io/lGewF&quot;&gt;http://cdpn.io/lGewF&lt;/a&gt;。与上一个&lt;a href=&quot;/playground/css3_slider_practice/index.html&quot;&gt;CSS3 Slider 模仿练习&lt;/a&gt;使用的方法基本相同，额外记录一点经验心得：&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sass&quot;&gt;&lt;span class=&quot;nt&quot;&gt;a&lt;/span&gt;
   &lt;span class=&quot;na&quot;&gt;-webkit-transition&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;color&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;.1&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;linear&lt;/span&gt;
@@ -226,7 +226,7 @@
       <pubDate>06 Apr 2013</pubDate>
       <author>Peter</author>
       <guid>http://peters-playground.com/2013/04/css3-slider-practice</guid>
-      <description>&lt;p&gt;最近模仿了一个动画网站练习用 CSS 写 Slider: &lt;a href=&quot;/playground/css3_slider_practice/index.html&quot;&gt;展示地址&lt;/a&gt;，记录一点经验心得。&lt;/p&gt;
+      <description>&lt;p&gt;最近模仿了一个动画网站练习用 CSS 写 Slider，展示地址：&lt;a href=&quot;http://cdpn.io/HGdir&quot;&gt;http://cdpn.io/HGdir&lt;/a&gt;，记录一点经验心得。&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sass&quot;&gt;&lt;span class=&quot;nt&quot;&gt;a&lt;/span&gt;
   &lt;span class=&quot;na&quot;&gt;opacity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
