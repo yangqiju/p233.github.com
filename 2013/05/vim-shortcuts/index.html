@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="Syntax Highlighting for Sass | Peter 的前端博客">
+    <meta name="description" content="VIM Keyboard Shortcuts | Peter 的前端博客">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Syntax Highlighting for Sass</title>
+    <title>VIM Keyboard Shortcuts</title>
     <!--[if lte IE 9]><meta http-equiv="refresh" content="0;url=/assets/ie.html"><![endif]-->
     <link rel="shortcut icon" href="/assets/images/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="/assets/stylesheets/style.css">
@@ -92,33 +92,22 @@
       <div id="pjax">
         <article id="post">
   <header id="header">
-    <h1 id="identifier">Syntax Highlighting for Sass</h1>
+    <h1 id="identifier">VIM Keyboard Shortcuts</h1>
     <button id="fullscreen" class="header_icon"></button>
     <button id="fontsize" class="header_icon"></button>
   </header>
   <div id="content">
-    <p>用过几套 Sass 代码高亮插件，效果都不理想，下决心自己写了一个，很多地方参考了 <a href="https://github.com/nathos/sass-textmate-bundle">nathos's sass-textmate-bundle</a> 与默认的 CSS 高亮包。经过几轮修改已经非常完美了，欢迎大家使用，在 Package Control 中搜索 <code>shs</code> 就可以发现这款插件了，特色功能包括：</p>
+    <p>开始学习 Vim，准确的说是学习使用 Sublime Text 的 vim 模式。做了一个页面收藏快捷键，展示地址：<a href="http://cdpn.io/jrxzE">http://cdpn.io/jrxzE</a></p>
 
-<ol>
-<li>采用匹配语句结构的方式代替匹配关键词，因此不会出现某些属性名、属性值无法高亮的情况，但有些根据 Scope Selector 的 snippets 可能会失效；</li>
-<li>支持属性选择器 (Attribute Selector) ；</li>
-<li>支持 Sass 专用语句，包括 Variable, Directive, Directive Shorthand (<code>=</code> <code>+</code>), Placeholder Selector, Build-in Function, Interpolation 等等；</li>
-<li>所有 <code>something(…)</code> 将当做 function 结构处理，包括某些 CSS 属性值，Sass 自带函数，Compass/Bourbon 函数，自定义函数等等，但排除了 <code>url()</code>, <code>format()</code>, <code>attr()</code>；</li>
-<li>优化了 <code>@media</code> 高亮效果；</li>
-<li>支持运算符高亮；</li>
-<li>输入 id，class，placeholder 选择器时禁用 snippets；</li>
-<li>独立支持 SCSS 与 Sass 两种语句结构；</li>
-<li>兼容大多数 color scheme。</li>
-</ol>
+<p>遇到两个比较费神的问题，一个是 <code>column-count</code> 属性在 Firefox 下不可将 <code>table</code> 元素拆分成多列，Stackoverflow 提问后得知 Gecko 不支持对 table 元素动态分页，只好用 hack 将宽度限制在 <code>1024px</code>。</p>
 
+<p>第二个问题还是与 Firefox 元有关，table 相关元素不支持 <code>position: relative</code>  <code>position: absolute</code> 等定位，解决办法是在 <code>td</code> 内创建一个 <code>position: relative</code> 的 div 包裹内容，详细解释请看 <a href="http://stackoverflow.com/questions/5148041/does-firefox-support-position-relative-on-table-elements">http://stackoverflow.com/questions/5148041/does-firefox-support-position-relative-on-table-elements</a>。</p>
 
-<p>更详细的解释请查看 <a href="https://github.com/P233/Syntax-highlighting-for-Sass">https://github.com/P233/Syntax-highlighting-for-Sass</a>，如果遇到问题欢迎提交 issues 或者 pull request。</p>
-
-<p>此外，基于 Syntax Highlighting for SCSS 制作了 Syntax Highlighting for CSS 用于替换 ST 默认的 CSS 高亮包，主要优点是完美高亮所有的属性值与属性名，下载地址：<a href="https://github.com/P233/Syntax-highlighting-for-CSS">https://github.com/P233/Syntax-highlighting-for-CSS</a></p>
+<p>第三点不太重要，其他浏览器虽然可以将 table 元素拆分成多列，如果表格 <code>tr</code> 的数量为奇数，中间的一项会被分裂，解决办法是在表格最后添加空白 <code>tr</code>，凑成偶数。</p>
 
     <a id="end_cc" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/"></a>
-    <a id="twitter" href="https://twitter.com/intent/tweet?url=http://peters-playground.com/2013/03/syntax-highlighting-for-sass&text=Syntax Highlighting for Sass"></a>
-    <a id="weibo" href="http://v.t.sina.com.cn/share/share.php?url=http://peters-playground.com/2013/03/syntax-highlighting-for-sass&title=Syntax Highlighting for Sass"></a>
+    <a id="twitter" href="https://twitter.com/intent/tweet?url=http://peters-playground.com/2013/05/vim-shortcuts&text=VIM Keyboard Shortcuts"></a>
+    <a id="weibo" href="http://v.t.sina.com.cn/share/share.php?url=http://peters-playground.com/2013/05/vim-shortcuts&title=VIM Keyboard Shortcuts"></a>
   </div>
 </article>
 

@@ -6,9 +6,25 @@
     <atom:link href="http://peters-playground.com/rss.xml" rel="self" type="application/rss+xml" />
     <description>专注前端技术</description>
     <language>zh_CN</language>
-    <pubDate>Tue, 14 May 2013 18:22:00 +0100</pubDate>
-    <lastBuildDate>Tue, 14 May 2013 18:22:00 +0100</lastBuildDate>
+    <pubDate>Wed, 22 May 2013 23:45:26 +0100</pubDate>
+    <lastBuildDate>Wed, 22 May 2013 23:45:26 +0100</lastBuildDate>
 
+    
+    <item>
+      <title>VIM Keyboard Shortcuts</title>
+      <link>http://peters-playground.com/2013/05/vim-shortcuts</link>
+      <pubDate>22 May 2013</pubDate>
+      <author>Peter</author>
+      <guid>http://peters-playground.com/2013/05/vim-shortcuts</guid>
+      <description>&lt;p&gt;开始学习 Vim，准确的说是学习使用 Sublime Text 的 vim 模式。做了一个页面收藏快捷键，展示地址：&lt;a href=&quot;http://cdpn.io/jrxzE&quot;&gt;http://cdpn.io/jrxzE&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;遇到两个比较费神的问题，一个是 &lt;code&gt;column-count&lt;/code&gt; 属性在 Firefox 下不可将 &lt;code&gt;table&lt;/code&gt; 元素拆分成多列，Stackoverflow 提问后得知 Gecko 不支持对 table 元素动态分页，只好用 hack 将宽度限制在 &lt;code&gt;1024px&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;第二个问题还是与 Firefox 元有关，table 相关元素不支持 &lt;code&gt;position: relative&lt;/code&gt;  &lt;code&gt;position: absolute&lt;/code&gt; 等定位，解决办法是在 &lt;code&gt;td&lt;/code&gt; 内创建一个 &lt;code&gt;position: relative&lt;/code&gt; 的 div 包裹内容，详细解释请看 &lt;a href=&quot;http://stackoverflow.com/questions/5148041/does-firefox-support-position-relative-on-table-elements&quot;&gt;http://stackoverflow.com/questions/5148041/does-firefox-support-position-relative-on-table-elements&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;第三点不太重要，其他浏览器虽然可以将 table 元素拆分成多列，如果表格 &lt;code&gt;tr&lt;/code&gt; 的数量为奇数，中间的一项会被分裂，解决办法是在表格最后添加空白 &lt;code&gt;tr&lt;/code&gt;，凑成偶数。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>CSS3 Timeline</title>
@@ -34,6 +50,16 @@
 
 
 &lt;p&gt;像上面这样设定 &lt;code&gt;transition&lt;/code&gt; 属性，当鼠标悬停在元素上时，使用 &lt;code&gt;a:hover&lt;/code&gt; 的变化样式，当鼠标离开时，使用 &lt;code&gt;a&lt;/code&gt; 的变化样式。如果 &lt;code&gt;a:hover&lt;/code&gt; 没有设定变化样式，鼠标悬停或离开都使用 &lt;code&gt;a&lt;/code&gt; 的样式。&lt;/p&gt;
+
+&lt;p&gt;补充，后来加入了横版效果，为了控制条目的宽度和美观，标题超出部分使用 &lt;code&gt;…&lt;/code&gt; 表示，代码片段为：&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sass&quot;&gt;&lt;span class=&quot;nt&quot;&gt;h1&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;white-space&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;nowrap&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;text-overflow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ellipsis&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;overflow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;hidden&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;block&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
 </description>
     </item>
     
@@ -523,33 +549,6 @@
 
 
 &lt;p&gt;不知道你是否也觉得这套系统很方便呢？作者正在制作 2.0 版，支持 responsive desgin 以及很多新功能，非常期待。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Syntax Highlighting for Sass</title>
-      <link>http://peters-playground.com/2013/03/syntax-highlighting-for-sass</link>
-      <pubDate>02 Mar 2013</pubDate>
-      <author>Peter</author>
-      <guid>http://peters-playground.com/2013/03/syntax-highlighting-for-sass</guid>
-      <description>&lt;p&gt;用过几套 Sass 代码高亮插件，效果都不理想，下决心自己写了一个，很多地方参考了 &lt;a href=&quot;https://github.com/nathos/sass-textmate-bundle&quot;&gt;nathos&#39;s sass-textmate-bundle&lt;/a&gt; 与默认的 CSS 高亮包。经过几轮修改已经非常完美了，欢迎大家使用，在 Package Control 中搜索 &lt;code&gt;shs&lt;/code&gt; 就可以发现这款插件了，特色功能包括：&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;采用匹配语句结构的方式代替匹配关键词，因此不会出现某些属性名、属性值无法高亮的情况，但有些根据 Scope Selector 的 snippets 可能会失效；&lt;/li&gt;
-&lt;li&gt;支持属性选择器 (Attribute Selector) ；&lt;/li&gt;
-&lt;li&gt;支持 Sass 专用语句，包括 Variable, Directive, Directive Shorthand (&lt;code&gt;=&lt;/code&gt; &lt;code&gt;+&lt;/code&gt;), Placeholder Selector, Build-in Function, Interpolation 等等；&lt;/li&gt;
-&lt;li&gt;所有 &lt;code&gt;something(…)&lt;/code&gt; 将当做 function 结构处理，包括某些 CSS 属性值，Sass 自带函数，Compass/Bourbon 函数，自定义函数等等，但排除了 &lt;code&gt;url()&lt;/code&gt;, &lt;code&gt;format()&lt;/code&gt;, &lt;code&gt;attr()&lt;/code&gt;；&lt;/li&gt;
-&lt;li&gt;优化了 &lt;code&gt;@media&lt;/code&gt; 高亮效果；&lt;/li&gt;
-&lt;li&gt;支持运算符高亮；&lt;/li&gt;
-&lt;li&gt;输入 id，class，placeholder 选择器时禁用 snippets；&lt;/li&gt;
-&lt;li&gt;独立支持 SCSS 与 Sass 两种语句结构；&lt;/li&gt;
-&lt;li&gt;兼容大多数 color scheme。&lt;/li&gt;
-&lt;/ol&gt;
-
-
-&lt;p&gt;更详细的解释请查看 &lt;a href=&quot;https://github.com/P233/Syntax-highlighting-for-Sass&quot;&gt;https://github.com/P233/Syntax-highlighting-for-Sass&lt;/a&gt;，如果遇到问题欢迎提交 issues 或者 pull request。&lt;/p&gt;
-
-&lt;p&gt;此外，基于 Syntax Highlighting for SCSS 制作了 Syntax Highlighting for CSS 用于替换 ST 默认的 CSS 高亮包，主要优点是完美高亮所有的属性值与属性名，下载地址：&lt;a href=&quot;https://github.com/P233/Syntax-highlighting-for-CSS&quot;&gt;https://github.com/P233/Syntax-highlighting-for-CSS&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

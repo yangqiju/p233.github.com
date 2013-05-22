@@ -47,6 +47,8 @@
 
       <div id="post_list">
       
+        <p class="Demo cate1"><a href="/2013/05/vim-shortcuts">VIM Keyboard Shortcuts</a><span>May 2013</span></p>
+      
         <p class="Demo cate1"><a href="/2013/05/css3-timeline">CSS3 Timeline</a><span>May 2013</span></p>
       
         <p class="CSS cate1"><a href="/2013/04/visited-selector">Visited 选择器的使用限制</a><span>Apr 2013</span></p>
@@ -113,6 +115,16 @@
 
 
 <p>像上面这样设定 <code>transition</code> 属性，当鼠标悬停在元素上时，使用 <code>a:hover</code> 的变化样式，当鼠标离开时，使用 <code>a</code> 的变化样式。如果 <code>a:hover</code> 没有设定变化样式，鼠标悬停或离开都使用 <code>a</code> 的样式。</p>
+
+<p>补充，后来加入了横版效果，为了控制条目的宽度和美观，标题超出部分使用 <code>…</code> 表示，代码片段为：</p>
+
+<div class="highlight"><pre><code class="sass"><span class="nt">h1</span>
+  <span class="na">white-space</span><span class="o">:</span> <span class="no">nowrap</span>
+  <span class="na">text-overflow</span><span class="o">:</span> <span class="n">ellipsis</span>
+  <span class="na">overflow</span><span class="o">:</span> <span class="no">hidden</span>
+  <span class="na">display</span><span class="o">:</span> <span class="no">block</span>
+</code></pre></div>
+
 
     <a id="end_cc" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/"></a>
     <a id="twitter" href="https://twitter.com/intent/tweet?url=http://peters-playground.com/2013/05/css3-timeline&text=CSS3 Timeline"></a>
