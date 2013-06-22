@@ -6,9 +6,90 @@
     <atom:link href="http://peters-playground.com/rss.xml" rel="self" type="application/rss+xml" />
     <description>专注前端技术</description>
     <language>zh_CN</language>
-    <pubDate>Wed, 22 May 2013 23:45:26 +0100</pubDate>
-    <lastBuildDate>Wed, 22 May 2013 23:45:26 +0100</lastBuildDate>
+    <pubDate>Sat, 22 Jun 2013 21:20:28 +0100</pubDate>
+    <lastBuildDate>Sat, 22 Jun 2013 21:20:28 +0100</lastBuildDate>
 
+    
+    <item>
+      <title>Symphony CMS debug bookmarklet</title>
+      <link>http://peters-playground.com/2013/06/symphony-cms-debug-bookmarklet</link>
+      <pubDate>22 Jun 2013</pubDate>
+      <author>Peter</author>
+      <guid>http://peters-playground.com/2013/06/symphony-cms-debug-bookmarklet</guid>
+      <description>&lt;p&gt;最近一个星期把时间都花在 Symphony CMS 上了，经常需要查看 &lt;code&gt;?debug&lt;/code&gt; 页面，所以写了个 bookmarklet 一键切换：&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;javascript&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;link&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;location&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;link&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;slice&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;?debug&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;location&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;href&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;link&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;?debug&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;location&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;href&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;link&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;substring&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;link&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})();&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;使用方法：将这个链接 &lt;a href=&quot;javascript:(function(){var e=location.toString();if(e.slice(-6)!=&#39;?debug&#39;){location.href=e+&#39;?debug&#39;}else{location.href=e.substring(0,e.length-6)}})()&quot;&gt;?debug&lt;/a&gt; 拖拽到浏览器收藏夹，或者新建 bookmark，拷贝下面的 code 作为地址。&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;javascript&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;location&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;slice&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;?debug&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;location&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;href&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;?debug&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;location&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;href&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;substring&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)}})()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;关于什么是 Bookmarklet？相信看完下面两篇文章就木有问题了：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.ruanyifeng.com/blog/2011/06/a_guide_for_writing_bookmarklet.html&quot;&gt;Bookmarklet 编写指南&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://net.tutsplus.com/tutorials/javascript-ajax/create-bookmarklets-the-right-way/&quot;&gt;Create Bookmarklets – The Right Way&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>3D walking robot</title>
+      <link>http://peters-playground.com/2013/06/3D-working-robot</link>
+      <pubDate>22 Jun 2013</pubDate>
+      <author>Peter</author>
+      <guid>http://peters-playground.com/2013/06/3D-working-robot</guid>
+      <description>&lt;p&gt;&lt;a href=&quot;http://cdpn.io/jrguI&quot;&gt;&lt;img src=&quot;/assets/images/codepen/walking-robot.png&quot; alt=&quot;3D walking robot&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;看到大家都在写 CSS 3D 特效，也跟着写了一个会走路的 3D 机器人，展示地址：&lt;a href=&quot;http://cdpn.io/jrguI&quot;&gt;http://cdpn.io/jrguI&lt;/a&gt;，点击页面左下角 &quot;Edit this Pen&quot; 查看源码。&lt;/p&gt;
+
+&lt;p&gt;一开始直接写 CSS 3D 效果结果越写越乱，只好推倒重来，先写完 2D 的机器人结构，主要使用的是 &lt;code&gt;position: absolute&lt;/code&gt; 定位，把需要使用的 div 都准备好，机器人每个部分的每一个面都是一个 div，也就是所使用的 &lt;code&gt;.front&lt;/code&gt; &lt;code&gt;.back&lt;/code&gt; &lt;code&gt;.left&lt;/code&gt; &lt;code&gt;.right&lt;/code&gt; &lt;code&gt;.top&lt;/code&gt; 与 &lt;code&gt;.bottom&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;第一步，给每个部位（包括最外层）添加 &lt;code&gt;transform-style: preserve-3d&lt;/code&gt; 属性激活 3D 模式（注：webkit 中这个属性可以继承，但 Firefox 中不行，所以保险的做法是给每个部位都添加这个属性）。然后配合使用 &lt;code&gt;transform: rotate3D()&lt;/code&gt; &lt;code&gt;transform: translate3D()&lt;/code&gt; 以及 &lt;code&gt;transform-origin&lt;/code&gt; 将刚刚提到的 6 个面旋转／偏移到指定位置，这样完整的 3D 机器人就成型了。&lt;/p&gt;
+
+&lt;p&gt;在使用 &lt;code&gt;transform-origin&lt;/code&gt; 时遇到一个问题，到目前还没找到合适的解决办法。Chrome 在同时处理 &lt;code&gt;transform-origin&lt;/code&gt; 与 &lt;code&gt;transform: translate3D()&lt;/code&gt; 时不考虑偏移量，以 div 的实际长宽（应该包含 &lt;code&gt;margin&lt;/code&gt;）计算，而 Safari 处理时将偏移量也增加到 div 的长宽中，所以这个机器人在两个浏览器中胳膊，大腿的甩动位置不一样。Firefox 的处理方式与 Chrome 是相同的，IE10 3D 模式无效，应该是我的问题，没有仔细研究。&lt;/p&gt;
+
+&lt;p&gt;然后，给机器人的每个部位都使用 &lt;code&gt;animation&lt;/code&gt; 属性设定旋转角度，四肢 X 轴，躯干和身体 Y 轴，同样需要配合 &lt;code&gt;transform-origin&lt;/code&gt;，时间函数使用 &lt;code&gt;ease-in-out&lt;/code&gt; 让动作看起来更自然，会走路的机器人就完成了。&lt;/p&gt;
+
+&lt;p&gt;自己也是一名 CSS 3D 新手，如果大家发现错误的地方，欢迎指正 :)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Pure CSS Happy Hacking Keyboard</title>
+      <link>http://peters-playground.com/2013/06/pure-css-keyboard</link>
+      <pubDate>21 Jun 2013</pubDate>
+      <author>Peter</author>
+      <guid>http://peters-playground.com/2013/06/pure-css-keyboard</guid>
+      <description>&lt;p&gt;&lt;a href=&quot;http://cdpn.io/qEagi&quot;&gt;&lt;img src=&quot;/assets/images/codepen/css-hhkb.png&quot; alt=&quot;Pure CSS Happy Hacking Keyboard&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;纯 CSS 写的 Happy Hacking Keyboard，展示地址：&lt;a href=&quot;http://cdpn.io/qEagi&quot;&gt;http://cdpn.io/qEagi&lt;/a&gt;，点击页面左下角 &quot;Edit this Pen&quot; 查看源码。&lt;/p&gt;
+
+&lt;p&gt;首先，键帽周围的效果是通过 &lt;code&gt;border&lt;/code&gt; 属性实现的，一般情况下会给 div 的四边相同的 &lt;code&gt;border&lt;/code&gt; 宽度与颜色，往往忽视了这个属性的工作方式，给四边不同的宽度与颜色就会发现一些玄机（理解 CSS 画三角形也就不复杂了）。为了让键盘看起来更自然一些，键帽中间的 div 使用了阴影，让 &lt;code&gt;border&lt;/code&gt; 看上去不再是纯色的而是能感受到深浅变化。&lt;/p&gt;
+
+&lt;p&gt;键帽侧面的字体通过 &lt;code&gt;transfrom: rotateX()&lt;/code&gt; 属性实现，此外，尝试给键盘使用 &lt;code&gt;transform: rotateX(15deg)&lt;/code&gt; 意外发现了浏览器在渲染时增加了一点点模糊效果，颜色的区分不再界限分明，看上去更舒服。不过 Firefox 渲染效果不太好，所以只保留了 &lt;code&gt;-webkit-transform&lt;/code&gt;， &lt;code&gt;-ms-transform&lt;/code&gt; 与 &lt;code&gt;-o-transform&lt;/code&gt; 三个属性，也算是一种 hack 方法吧。&lt;/p&gt;
+
+&lt;p&gt;为了制造键帽顶部凹陷下去的效果，使用了线性渐变 &lt;code&gt;linear-gradient&lt;/code&gt;，调颜色是关键，真的花了不少时间。&lt;/p&gt;
+
+&lt;p&gt;按键效果通过 &lt;code&gt;transform: scale()&lt;/code&gt; 缩小实现，每个按键都有独立的 class, 也就是是首字母 &lt;code&gt;k&lt;/code&gt; + 按键的 keycode，这样就可以通过 javascript 添加／删除 class 表现按下去的效果了。&lt;/p&gt;
+
+&lt;p&gt;因为多个特效重叠使用，这个页面的性能比较糟糕。&lt;/p&gt;
+
+&lt;p&gt;最后，感谢网友 &lt;a href=&quot;http://codepen.io/dehash&quot;&gt;dehash&lt;/a&gt; 在这个键盘的基础上添加了打字特效，欢迎大家查看 &lt;a href=&quot;http://codepen.io/dehash/pen/nEJyf&quot;&gt;http://codepen.io/dehash/pen/nEJyf&lt;/a&gt;。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>VIM Keyboard Shortcuts</title>
@@ -16,7 +97,9 @@
       <pubDate>22 May 2013</pubDate>
       <author>Peter</author>
       <guid>http://peters-playground.com/2013/05/vim-shortcuts</guid>
-      <description>&lt;p&gt;开始学习 Vim，准确的说是学习使用 Sublime Text 的 vim 模式。做了一个页面收藏快捷键，展示地址：&lt;a href=&quot;http://cdpn.io/jrxzE&quot;&gt;http://cdpn.io/jrxzE&lt;/a&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;a href=&quot;http://cdpn.io/jrxzE&quot;&gt;&lt;img src=&quot;/assets/images/codepen/vim-shortcuts.png&quot; alt=&quot;VIM Keyboard Shortcuts&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;开始学习 Vim，准确的说是学习使用 Sublime Text 的 vim 模式。做了一个页面收藏快捷键，展示地址：&lt;a href=&quot;http://cdpn.io/jrxzE&quot;&gt;http://cdpn.io/jrxzE&lt;/a&gt;，点击页面左下角 &quot;Edit this Pen&quot; 查看源码。&lt;/p&gt;
 
 &lt;p&gt;遇到两个比较费神的问题，一个是 &lt;code&gt;column-count&lt;/code&gt; 属性在 Firefox 下不可将 &lt;code&gt;table&lt;/code&gt; 元素拆分成多列，Stackoverflow 提问后得知 Gecko 不支持对 table 元素动态分页，只好用 hack 将宽度限制在 &lt;code&gt;1024px&lt;/code&gt;。&lt;/p&gt;
 
@@ -32,7 +115,9 @@
       <pubDate>10 May 2013</pubDate>
       <author>Peter</author>
       <guid>http://peters-playground.com/2013/05/css3-timeline</guid>
-      <description>&lt;p&gt;用 CSS 写的 Timeline 效果，展示地址：&lt;a href=&quot;http://cdpn.io/lGewF&quot;&gt;http://cdpn.io/lGewF&lt;/a&gt;。与上一个&lt;a href=&quot;/playground/css3_slider_practice/index.html&quot;&gt;CSS3 Slider 模仿练习&lt;/a&gt;使用的方法基本相同，额外记录一点经验心得：&lt;/p&gt;
+      <description>&lt;p&gt;&lt;a href=&quot;http://cdpn.io/lGewF&quot;&gt;&lt;img src=&quot;/assets/images/codepen/css-timeline.png&quot; alt=&quot;CSS3 Timeline&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;用 CSS 写的 Timeline 效果，展示地址：&lt;a href=&quot;http://cdpn.io/lGewF&quot;&gt;http://cdpn.io/lGewF&lt;/a&gt;，点击页面左下角 &quot;Edit this Pen&quot; 查看源码。与上一个&lt;a href=&quot;http://cdpn.io/HGdir&quot;&gt;CSS3 Slider 模仿练习&lt;/a&gt;使用的方法基本相同，额外记录一点经验心得：&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sass&quot;&gt;&lt;span class=&quot;nt&quot;&gt;a&lt;/span&gt;
   &lt;span class=&quot;na&quot;&gt;-webkit-transition&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;color&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;.1&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;linear&lt;/span&gt;
@@ -252,7 +337,9 @@
       <pubDate>06 Apr 2013</pubDate>
       <author>Peter</author>
       <guid>http://peters-playground.com/2013/04/css3-slider-practice</guid>
-      <description>&lt;p&gt;最近模仿了一个动画网站练习用 CSS 写 Slider，展示地址：&lt;a href=&quot;http://cdpn.io/HGdir&quot;&gt;http://cdpn.io/HGdir&lt;/a&gt;，记录一点经验心得。&lt;/p&gt;
+      <description>&lt;p&gt;&lt;a href=&quot;http://cdpn.io/HGdir&quot;&gt;&lt;img src=&quot;/assets/images/codepen/slider-practice.png&quot; alt=&quot;CSS3 Slider&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;最近模仿了一个动画网站练习用 CSS 写 Slider，展示地址：&lt;a href=&quot;http://cdpn.io/HGdir&quot;&gt;http://cdpn.io/HGdir&lt;/a&gt;，记录一点经验心得，点击页面左下角 &quot;Edit this Pen&quot; 查看源码。&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sass&quot;&gt;&lt;span class=&quot;nt&quot;&gt;a&lt;/span&gt;
   &lt;span class=&quot;na&quot;&gt;opacity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
@@ -323,232 +410,6 @@
 &lt;p&gt;四，同级选择器 &lt;code&gt;~&lt;/code&gt; 与后代选择器连用，通过不同的单选框控制不同的偏移量。&lt;/p&gt;
 
 &lt;p&gt;这是 CSS3 Slider 的一种写法，印象中还有另一种写法利用到了 &lt;code&gt;:target&lt;/code&gt; 伪类，下次有时间再尝试一下。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>IE10 的 placeholder 伪类问题</title>
-      <link>http://peters-playground.com/2013/03/ie10-placeholder</link>
-      <pubDate>31 Mar 2013</pubDate>
-      <author>Peter</author>
-      <guid>http://peters-playground.com/2013/03/ie10-placeholder</guid>
-      <description>&lt;p&gt;从 HTML5 开始 &lt;code&gt;input&lt;/code&gt; &lt;code&gt;textarea&lt;/code&gt; 支持 &lt;code&gt;placeholder&lt;/code&gt; 属性，除了 IE 浏览器，兼容性还算不错，以为 IE10 也可以友好兼容的，然后发现其实我是图样图森破。&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sass&quot;&gt;&lt;span class=&quot;na&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;webkit-input-placeholder&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;lighten&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$grey&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;font-weight&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;normal&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;moz-placeholder&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;lighten&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$grey&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;font-weight&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;normal&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;给主流浏览器设定 placeholder 样式没有任何问题，同样的方法在 IE10 下却不起作用：&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sass&quot;&gt;&lt;span class=&quot;na&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ms-input-placeholder&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;lighten&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$grey&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;font-weight&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;normal&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;以为伪类在 IE10 下不能单独使用，添加了 &lt;code&gt;input&lt;/code&gt; 标签同样无效：&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sass&quot;&gt;&lt;span class=&quot;na&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ms-input-placeholder&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;lighten&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$grey&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;font-weight&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;normal&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;尝试 id 或 class，结果终于生效了，所以必须这样设定样式，很蛋疼：&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sass&quot;&gt;&lt;span class=&quot;na&quot;&gt;#name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ms-input-placeholder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;#phone&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ms-input-placeholder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;#email&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ms-input-placeholder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;#subjec&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ms-input-placeholder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;#messag&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ms-input-placeholder&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;lighten&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$grey&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;font-weight&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;normal&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;还没结束呢，使用 class 也不行，不过官网却用的 class 选择器举例子，不深究了，保险起见使用 id 选择器与 &lt;code&gt;:ms-input-placeholder&lt;/code&gt; 伪类。看来前端的 IE 魔咒还没有破除，期待 IE11。。。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Jekyll Alfred 2 Workflows</title>
-      <link>http://peters-playground.com/2013/03/jekyll-alfred-extensions</link>
-      <pubDate>17 Mar 2013</pubDate>
-      <author>Peter</author>
-      <guid>http://peters-playground.com/2013/03/jekyll-alfred-extensions</guid>
-      <description>&lt;p&gt;Alfred 2 将之前的 extension 功能改为现在的 workflow，所以将这三个 Jekyll 相关插件简单调整了一下，重新发布，欢迎大家使用，下载地址：&lt;a href=&quot;https://github.com/P233/Jekyll-Alfred-Extensions&quot;&gt;https://github.com/P233/Jekyll-Alfred-Extensions&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;Create new Jekyll Post&lt;/h2&gt;
-
-&lt;p&gt;输入 &lt;code&gt;newpost [title]&lt;/code&gt;创建一篇 Jekyll 文章，文件名前自动添加今天的日期作为前缀，&lt;code&gt;title&lt;/code&gt; 中请输入 &lt;code&gt;-&lt;/code&gt; 代替空格。需要替换成自己的 Jekyll 文件夹的路径，格式必须以 &lt;code&gt;/Users/user_name/&lt;/code&gt; 开头。&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# Please replace your own _posts folder path in the next line. The format should start with /Users/user_name/&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;Dir&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;chdir&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;/Users/lpw/Dropbox/Websites/Jekyll/_posts/&amp;quot;&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;today&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;now&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strftime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;%Y-%m-%d&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;input&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;{query}&amp;#39;&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;today&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;-&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;extension&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;md&amp;#39;&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;file&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;extension&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;.&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;nb&quot;&gt;system&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;%[touch &amp;quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;&amp;quot;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;system&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;%[open &amp;quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;&amp;quot;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;Generate Jekyll site&lt;/h2&gt;
-
-&lt;p&gt;输入 &lt;code&gt;jekyll&lt;/code&gt; 运行 &lt;code&gt;cd [path]&lt;/code&gt; 与 &lt;code&gt;jekyll --server --auto&lt;/code&gt; 两个命令，然后在浏览器中访问网站，需要在 applescript 中替换自己的 Jekyll 文件夹路径。&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;applescript&quot;&gt;&lt;span class=&quot;k&quot;&gt;on&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;alfred_script&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;tell&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;application&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Terminal&amp;quot;&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;activate&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;count&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;windows&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;currentTab&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;cd ~/dropbox/websites/jekyll/&amp;quot;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
-        &lt;span class=&quot;nv&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;cd ~/dropbox/websites/jekyll/&amp;quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;window&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;
-    &lt;span class=&quot;nv&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;jekyll --server --auto&amp;quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;window&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;delay&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;do shell script&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;open http://0.0.0.0:4000&amp;quot;&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;tell&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;alfred_script&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;Push Jekyll to Github&lt;/h2&gt;
-
-&lt;p&gt;输入 &lt;code&gt;pushjekyll&lt;/code&gt; 将 Jekyll 生成的网站复制到新地址，并将新地址上传到 Github，之所以这样做是因为 Github Pages 不支持自定义插件，只好上传生成的静态网站。如果不需要这个步骤，可以将 &lt;code&gt;if&lt;/code&gt; 部分删除。同样需要在 applescript 中替换自己的 Jekyll 文件夹路径，如果路径中有空格，需要在空格前添加 &lt;code&gt;\\&lt;/code&gt;。&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;applescript&quot;&gt;&lt;span class=&quot;k&quot;&gt;on&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;alfred_script&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;tell&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;application&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Terminal&amp;quot;&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;activate&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;count&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;windows&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;currentTab&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;cp -a ~/dropbox/websites/jekyll/_site/. ~/dropbox/websites/p233.github.com/&amp;quot;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
-        &lt;span class=&quot;nv&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;cp -a ~/dropbox/websites/jekyll/_site/. ~/dropbox/websites/p233.github.com/&amp;quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;window&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;
-
-    &lt;span class=&quot;nv&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;cd ~/dropbox/websites/p233.github.com/&amp;quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;window&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-    &lt;span class=&quot;nv&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;git add .&amp;quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;window&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-    &lt;span class=&quot;nv&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;git commit -am &amp;#39;&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;message&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;#39;&amp;quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;window&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-    &lt;span class=&quot;nv&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;git push&amp;quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;window&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;tell&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;alfred_script&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-
-</description>
-    </item>
-    
-    <item>
-      <title>Blankwork 超好用的网格系统</title>
-      <link>http://peters-playground.com/2013/03/blankwork</link>
-      <pubDate>13 Mar 2013</pubDate>
-      <author>Peter</author>
-      <guid>http://peters-playground.com/2013/03/blankwork</guid>
-      <description>&lt;p&gt;最近有点忙，没有坚持写博客很不应该，今天与大家分享一款 SCSS Grid System —— Blankwork，这是我所有了解过的网格系统中最好用的一款，与其他相比不需要定义任何一个额外的 class，只需调用自定义函数与 mixin 给元素设定样式，所以强烈推荐所有 Sass 用户尝试一下。地址：&lt;a href=&quot;http://www.blankwork.net/&quot;&gt;http://www.blankwork.net/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;首先，导入 &lt;code&gt;blankwork.scss&lt;/code&gt; 文件，这个文件中有几个参数可以修改，默认宽度 960px，12列布局，间距 20px。&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;scss&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$_columns&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;!default&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;      &lt;span class=&quot;c1&quot;&gt;// Total number of columns&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;$_column-width&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;60&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;px&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;!default&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;// Width of a single column&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$_gutter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;px&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;!default&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;     &lt;span class=&quot;c1&quot;&gt;// Width of the gutter&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;导入后就可以在主文件中调用 Blankwork 的 function 与 mixin 了，主要包含 5 个功能，分别是 &lt;code&gt;wrapper&lt;/code&gt;, &lt;code&gt;container&lt;/code&gt;, &lt;code&gt;column&lt;/code&gt;, &lt;code&gt;get_width&lt;/code&gt;, 以及 &lt;code&gt;clearfix&lt;/code&gt;。接下来将会一一介绍，&lt;code&gt;+&lt;/code&gt; 是 &lt;code&gt;@includ&lt;/code&gt; 的简写 ( &lt;code&gt;@mixin&lt;/code&gt; 的简写是 &lt;code&gt;=&lt;/code&gt; )。&lt;/p&gt;
-
-&lt;h2&gt;1. &lt;code&gt;+wrapper($columns, $center, $subtract)&lt;/code&gt;&lt;/h2&gt;
-
-&lt;p&gt;Wrapper 定义最外层的宽度，有三个参数可用: 列数（默认：12），居中（默认：true），偏移量（默认 0）。以默认值为例：&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sass&quot;&gt;&lt;span class=&quot;nn&quot;&gt;#demo&lt;/span&gt;
-  &lt;span class=&quot;nd&quot;&gt;+wrapper&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;输出&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;css&quot;&gt;&lt;span class=&quot;nf&quot;&gt;#demo&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;960px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;margin-left&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;auto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;margin-right&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;auto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;zoom&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;nf&quot;&gt;#demo&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:before&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;#demo&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:after&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;table&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;nf&quot;&gt;#demo&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:after&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;clear&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;both&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;可以看到输出样式是 12 列的总宽度也就是 960px，居中效果，并且清除浮动。这里主要用到了前两个参数，第三个参数“偏移量”是为了简化给 column 设定 &lt;code&gt;border&lt;/code&gt; 与 &lt;code&gt;padding&lt;/code&gt; 时需要额外的处理而设计的，例如添加 1px 的边框，需要在总宽度上减去 2px ：&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sass&quot;&gt;&lt;span class=&quot;nn&quot;&gt;#demo&lt;/span&gt;
-  &lt;span class=&quot;nd&quot;&gt;+wrapper&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n-Pseudo&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;border&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;px&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;solid&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;black&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;或者:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sass&quot;&gt;&lt;span class=&quot;nn&quot;&gt;#demo&lt;/span&gt;
-  &lt;span class=&quot;nd&quot;&gt;+wrapper&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n-Pseudo&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;22&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;px&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;border&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;px&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;solid&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;black&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;输出宽度是 960px 减去“偏移量”，算上 &lt;code&gt;padding&lt;/code&gt; 与 &lt;code&gt;border&lt;/code&gt; 总宽度还是 960px。另外，建议在 &lt;code&gt;blankwork.scss&lt;/code&gt; 文件中调整一下偏移量与居中的顺序，不然要多打一次 true。&lt;/p&gt;
-
-&lt;h2&gt;2. &lt;code&gt;+container($columns, $subtract)&lt;/code&gt;&lt;/h2&gt;
-
-&lt;p&gt;Container 使用两个参数：列数（默认：12），偏移量（默认：0），作用是对 column 进行嵌套。最外层 wrapper 中需要继续向下嵌套列时，就要用这个 mixin 了，而且使用 container 就不需要再使用 &lt;code&gt;alpha&lt;/code&gt;, &lt;code&gt;omega&lt;/code&gt; 了，编译效果如下：&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sass&quot;&gt;&lt;span class=&quot;nn&quot;&gt;#demo&lt;/span&gt;
-  &lt;span class=&quot;nd&quot;&gt;+container&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;输出：&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;css&quot;&gt;&lt;span class=&quot;nf&quot;&gt;#demo&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;inline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;960px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;3. &lt;code&gt;column($columns, $subtract, $margin-override)&lt;/code&gt;&lt;/h2&gt;
-
-&lt;p&gt;Column 使用三个参数：列数（默认：12），偏移量（默认：0），间距（默认：20px，每侧各 10px）。第一个参数并不一定要输入整数，带小数也可以，相加之和等于 12 即可，非常灵活。第三个参数调整左右的 &lt;code&gt;margin&lt;/code&gt; 值，与 960 的 &lt;code&gt;prefix&lt;/code&gt; &lt;code&gt;suffix&lt;/code&gt; 单向 &lt;code&gt;padding&lt;/code&gt; 不同，参数值除以二平均分配给两侧，应该不会经常用到。&lt;/p&gt;
-
-&lt;h2&gt;4. &lt;code&gt;get_width($columns, $onlyInnerWidth)&lt;/code&gt;&lt;/h2&gt;
-
-&lt;p&gt;Get_width 是个自定义函数，用于提取宽度给其他元素使用。第一个参数设定列数（默认：12），第二参数决定提取的宽度是否不包含间距，默认：true，也就是不包含。用法如下：&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sass&quot;&gt;&lt;span class=&quot;nn&quot;&gt;#demo&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;get_width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;marging-left&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;get_width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n-Pseudo&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;5. &lt;code&gt;clearfix&lt;/code&gt;&lt;/h2&gt;
-
-&lt;p&gt;清除浮动：&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sass&quot;&gt;&lt;span class=&quot;nn&quot;&gt;#demo&lt;/span&gt;
-  &lt;span class=&quot;nd&quot;&gt;+clearfix&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;不知道你是否也觉得这套系统很方便呢？作者正在制作 2.0 版，支持 responsive desgin 以及很多新功能，非常期待。&lt;/p&gt;
 </description>
     </item>
     

@@ -1,147 +1,138 @@
 $(function(){
-  // Pjax
-  $(document).pjax('.cate1 a, #about', '#pjax', { fragment: "#pjax" });
-  // $(document).on("pjax:start", function(){
-  //   $('#pjax').hide();
-  // });
-  $(document).on("pjax:end", function(){
-    $('#container').scrollTop(0);
-    contentEffects();
-    // $('#pjax').fadeIn('normal');
-  });
+	// Pjax
+	$(document).pjax('.cate1 a, #about', '#pjax', { fragment: "#pjax", timeout: 5000 });
+	$(document).on("pjax:start", function(){
+	  $('#pjax').hide();
+	});
+	$(document).on("pjax:end", function(){
+		$('#container').scrollTop(0);
+		contentEffects();
+		$('#pjax').fadeIn('500');
+	});
 
-  // Snap
-  var snapper = new Snap({
-    element: document.getElementById('container'),
-    disable: 'right',
-    maxPosition: 490,
-    minPosition: 0,
-    slideIntent: 0,
-    minDragDistance: 100,
-  });
-  snapper.open('left');
+	// Snap
+	var snapper = new Snap({
+		element: document.getElementById('container'),
+		disable: 'right',
+		maxPosition: 490,
+		minPosition: 0,
+		slideIntent: 0,
+		minDragDistance: 100,
+	});
+	snapper.open('left');
 
-  var windowSize = $(window).width();
-  if (windowSize > 1200) {
-    snapper.close();
-    snapper.disable();
-  } else {
-    snapper.close();
-    $('#notice').delay(600).fadeOut('slow');
-  };
-  $(window).resize(function() {
-    var windowSize = $(window).width();
-    if (windowSize > 1200) {
-      snapper.close();
-      snapper.disable();
-    } else {
-      snapper.enable();
-      $('#notice').delay(600).fadeOut('slow');
-    };
-  });
+	var windowSize = $(window).width();
+	if (windowSize > 1200) {
+		snapper.close();
+		snapper.disable();
+	} else {
+		snapper.close();
+		$('#notice').delay(600).fadeOut('slow');
+	};
+	$(window).resize(function() {
+		var windowSize = $(window).width();
+		if (windowSize > 1200) {
+			snapper.close();
+			snapper.disable();
+		} else {
+			snapper.enable();
+			$('#notice').delay(600).fadeOut('slow');
+		};
+	});
 
-  // get post link
-  cate1 = $('.cate1');
-  cate2 = $('.CSS');
-  cate3 = $('.Front_end');
-  cate4 = $('.Mac');
-  cate5 = $('.Demo');
-  cate6 = $('.Github');
+	// get post link
+	cate1 = $('.cate1');
+	cate2 = $('.CSS');
+	cate3 = $('.Front_end');
+	cate4 = $('.Mac');
+	cate5 = $('.Codepen');
+	cate6 = $('.Github');
 
-  // switch
-  var clickHandler = function(k) {
-    return function() {
-      $('.label').removeClass('selected');
-      $(this).addClass('selected');
+	// switch
+	var clickHandler = function(k) {
+		return function() {
+			$(this).addClass('selected').siblings().removeClass('selected');
 
-      $('.cate1').fadeOut(150);
-      window['cate'+k].delay(160).fadeIn('slow');
+			$('.cate1').fadeOut(150);
+			window['cate'+k].delay(160).fadeIn('slow');
 
-      $('#title_wrap, #post').removeClass();
-      $('#title_wrap, #post').addClass('select'+k);
-      $('.title').fadeOut(150);
-      $('#title'+k).delay(160).fadeIn('slow');
-    };
-  };
-  for (var i = 1; i < 7; ++i) {
-    $('#label' + i).click(clickHandler(i));
-  }
+			$('#title_wrap, #post').removeClass().addClass('select'+k);
+			$('#title'+k).delay(160).fadeIn('slow').siblings().fadeOut(150);
+		};
+	};
+	for (var i = 1; i < 7; ++i) {
+		$('#label' + i).on('click', clickHandler(i));
+	}
 
-  // click effects
-  $('.cate1 a').click(function() {
-    $('.cate1').removeClass("actived");
-    $(this).parent().addClass("visited actived");
-    snapper.close();
-  });
-  $('#about').click(function(){
-    snapper.close();
-  });
+	// link effects
+	$('.cate1 a').on('click', function() {
+		$('.cate1').removeClass("actived");
+		$(this).parent().addClass("visited actived");
+		snapper.close();
+	});
+	$('#about').on('click', function(){
+		snapper.close();
+	});
 
-  contentEffects();
+	contentEffects();
 });
 
 // Ajax content effects
 function contentEffects() {
-  // add color scheme to post
-  var currentClass = $('#title_wrap').attr("class");
-  $('#post').removeClass();
-  $('#post').addClass(currentClass);
+	// add color scheme to post
+	var currentClass = $('#title_wrap').attr("class");
+	$('#post').removeClass().addClass(currentClass);
 
-  // Open Markdown links in new window
-  $('#content a').attr('target','_blank');
+	// Open Markdown links in new window
+	$('#content a').attr('target','_blank');
 
-  // Auto wrap images with <a/> tag
-  $('#content img').wrap(function(){
-    return '<a class="img" target="_blank" href="' + $(this).attr('src') + '"/>';
-  });
+	// adjust font size
+	if ($('#container').hasClass('largefont')) {
+		$('#fontsize').addClass('return');
+	} else {
+		$('#fontsize').removeClass('return');
+	}
+	$('#fontsize').on('click', function() {
+		$('#container').toggleClass("largefont");
+		$(this).toggleClass("return");
+	});
 
-  // adjust font size
-  if ($('#container').hasClass('largefont')) {
-    $('#fontsize').addClass('return');
-  } else {
-    $('#fontsize').removeClass('return');
-  }
-  $('#fontsize').click(function() {
-    $('#container').toggleClass("largefont");
-    $(this).toggleClass("return");
-  });
+	// fullscreen
+	if ($.fullScreen("state") == 'fullscreen') {
+		$('#fullscreen').addClass('return');
+	} else {
+		$('#fullscreen').removeClass('return');
+	}
+	$('#fullscreen').on('click', function() {
+		if (!$.fullScreen()) {
+			alert("Your browser does not support Full Screen API");
+		} else {
+			$.fullScreen("toggle");
+			$(this).toggleClass("return");
+		}
+	});
 
-  // fullscreen
-  if ($.fullScreen("state") == 'fullscreen') {
-    $('#fullscreen').addClass('return');
-  } else {
-    $('#fullscreen').removeClass('return');
-  }
-  $('#fullscreen').click(function() {
-    if (!$.fullScreen()) {
-      alert("Your browser does not support Full Screen API");
-    } else {
-      $.fullScreen("toggle");
-      $(this).toggleClass("return");
-    }
-  });
+	// Lazy loading Disqus
+	// http://jsfiddle.net/dragoncrew/SHGwe/1/
+	var ds_loaded = false,
+			top = $("#disqus_thread").offset().top;
+			identifier = $('#identifier').text();
+	window.disqus_shortname = 'p233';
+	window.disqus_identifier = identifier;
 
-  // Lazy loading Disqus
-  // http://jsfiddle.net/dragoncrew/SHGwe/1/
-  var ds_loaded = false,
-      top = $("#disqus_thread").offset().top;
-      identifier = $('#identifier').text();
-  window.disqus_shortname = 'p233';
-  window.disqus_identifier = identifier;
-
-  function check(){
-    if ( !ds_loaded && $('#container').scrollTop() + $('#container').height() > top ) {
-      $.ajax({
-        type: "GET",
-        url: "http://" + disqus_shortname + ".disqus.com/embed.js",
-        dataType: "script",
-        cache: true
-      });
-      ds_loaded = true;
-    }
-  }
-  $('#container').scroll(check);
-  check();
+	function check(){
+		if ( !ds_loaded && $('#container').scrollTop() + $('#container').height() > top ) {
+			$.ajax({
+				type: "GET",
+				url: "http://" + disqus_shortname + ".disqus.com/embed.js",
+				dataType: "script",
+				cache: true
+			});
+			ds_loaded = true;
+		}
+	}
+	$('#container').scroll(check);
+	check();
 }
 
 /**

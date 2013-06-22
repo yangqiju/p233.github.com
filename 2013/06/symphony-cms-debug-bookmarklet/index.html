@@ -2,9 +2,9 @@
 <html>
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<meta name="description" content="Sublime Text 的个人设置 | Peter 的前端博客">
+		<meta name="description" content="Symphony CMS debug bookmarklet | Peter 的前端博客">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-		<title>Sublime Text 的个人设置</title>
+		<title>Symphony CMS debug bookmarklet</title>
 		<!--[if lte IE 9]><meta http-equiv="refresh" content="0;url=/assets/ie.html"><![endif]-->
 		<link rel="shortcut icon" href="/assets/images/favicon.ico" />
 		<link rel="stylesheet" type="text/css" href="/assets/stylesheets/style.css">
@@ -98,69 +98,43 @@
 			<div id="pjax">
 				<article id="post">
 	<header id="header">
-		<h1 id="identifier">Sublime Text 的个人设置</h1>
+		<h1 id="identifier">Symphony CMS debug bookmarklet</h1>
 		<button id="fullscreen" class="header_icon"></button>
 		<button id="fontsize" class="header_icon"></button>
 	</header>
 	<div id="content">
-		<h2>自定义设置</h2>
+		<p>最近一个星期把时间都花在 Symphony CMS 上了，经常需要查看 <code>?debug</code> 页面，所以写了个 bookmarklet 一键切换：</p>
 
-<p>以下是 Peter 用着比较顺手的 Sublime Text 设置，其中 <code>wide_caret</code> 是个隐藏属性，大尺寸光标视觉效果更好。</p>
-
-<div class="highlight"><pre><code class="json"><span class="p">{</span>
-  <span class="nt">&quot;caret_style&quot;</span><span class="p">:</span> <span class="s2">&quot;phase&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;close_windows_when_empty&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nt">&quot;color_scheme&quot;</span><span class="p">:</span> <span class="s2">&quot;Packages/Syntax highlighting for Sass/Color Scheme/Solarized (Light).tmTheme&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;dictionary&quot;</span><span class="p">:</span> <span class="s2">&quot;Packages/Language - English/en_GB.dic&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;drag_text&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-  <span class="nt">&quot;draw_white_space&quot;</span><span class="p">:</span> <span class="s2">&quot;all&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;font_face&quot;</span><span class="p">:</span> <span class="s2">&quot;Consolas&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;font_size&quot;</span><span class="p">:</span> <span class="mf">18.0</span><span class="p">,</span>
-  <span class="nt">&quot;highlight_line&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nt">&quot;ignored_packages&quot;</span><span class="p">:</span>
-  <span class="p">[</span>
-    <span class="s2">&quot;Vintage&quot;</span>
-  <span class="p">],</span>
-  <span class="nt">&quot;indent_to_bracket&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nt">&quot;soda_classic_tabs&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nt">&quot;tab_size&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-  <span class="nt">&quot;theme&quot;</span><span class="p">:</span> <span class="s2">&quot;Soda Light.sublime-theme&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;translate_tabs_to_spaces&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nt">&quot;trim_trailing_white_space_on_save&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nt">&quot;wide_caret&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nt">&quot;word_wrap&quot;</span><span class="p">:</span> <span class="kc">true</span>
-<span class="p">}</span>
+<div class="highlight"><pre><code class="javascript"><span class="nx">javascript</span><span class="o">:</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">link</span> <span class="o">=</span> <span class="nx">location</span><span class="p">.</span><span class="nx">toString</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">link</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">)</span> <span class="o">!=</span> <span class="s2">&quot;?debug&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">location</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="nx">link</span> <span class="o">+</span> <span class="s2">&quot;?debug&quot;</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">location</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="nx">link</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nx">link</span><span class="p">.</span><span class="nx">length</span><span class="o">-</span><span class="mi">6</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">})();</span>
 </code></pre></div>
 
 
-<h2>自定义 Soda 主题的侧边栏与 Minimap</h2>
+<p>使用方法：将这个链接 <a href="javascript:(function(){var e=location.toString();if(e.slice(-6)!='?debug'){location.href=e+'?debug'}else{location.href=e.substring(0,e.length-6)}})()">?debug</a> 拖拽到浏览器收藏夹，或者新建 bookmark，拷贝下面的 code 作为地址。</p>
 
-<p>这个主题好用没的说，美中不足的是侧边栏字体太小，研究了一下自定义的方法：在 User 文件夹中 (Packages 文件夹内) 创建名为 <code>Soda Light.sublime-theme</code> 或者 <code>Soda Dark.sublime-theme</code> 的文件，然后输入以下代码：</p>
-
-<div class="highlight"><pre><code class="json"><span class="p">[</span>
-  <span class="p">{</span>
-    <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;sidebar_tree&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;row_padding&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">]</span>
-  <span class="p">},</span>
-  <span class="p">{</span>
-    <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;sidebar_label&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;font.size&quot;</span><span class="p">:</span> <span class="mf">13.5</span>
-  <span class="p">},</span>
-  <span class="p">{</span>
-    <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;minimap_control&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;viewport_color&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">35</span><span class="p">]</span>
-  <span class="p">}</span>
-<span class="p">]</span>
+<div class="highlight"><pre><code class="javascript"><span class="nx">javascript</span><span class="o">:</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span><span class="kd">var</span><span class="o">%</span><span class="mi">20</span><span class="nx">e</span><span class="o">=</span><span class="nx">location</span><span class="p">.</span><span class="nx">toString</span><span class="p">();</span><span class="k">if</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">)</span><span class="o">!=</span><span class="s2">&quot;?debug&quot;</span><span class="p">){</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="o">=</span><span class="nx">e</span><span class="o">+</span><span class="s2">&quot;?debug&quot;</span><span class="p">}</span><span class="k">else</span><span class="p">{</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="o">=</span><span class="nx">e</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nx">e</span><span class="p">.</span><span class="nx">length</span><span class="o">-</span><span class="mi">6</span><span class="p">)}})()</span>
 </code></pre></div>
 
 
-<p>第一条调整侧边栏条目的间距，第二条调整字体大小。第三条用于调整 Minimap 窗口的颜色，使用深色系的 Color Scheme 时窗口通常不容易分辨，修改这一条就可以了（RGBA 格式）。其他设置可以在 Soda 文件夹内找到，选中需要修改的项目复制粘贴到这个文件里，即使 Soda 更新也不担心丢失设置。</p>
+<p>关于什么是 Bookmarklet？相信看完下面两篇文章就木有问题了：</p>
+
+<ul>
+<li><a href="http://www.ruanyifeng.com/blog/2011/06/a_guide_for_writing_bookmarklet.html">Bookmarklet 编写指南</a></li>
+<li><a href="http://net.tutsplus.com/tutorials/javascript-ajax/create-bookmarklets-the-right-way/">Create Bookmarklets – The Right Way</a></li>
+</ul>
+
 
 
 		<div id="social">
-			<a id="twitter" href="https://twitter.com/intent/tweet?url=http://peters-playground.com/2013/04/sublime-test&text=Sublime Text 的个人设置"></a>
+			<a id="twitter" href="https://twitter.com/intent/tweet?url=http://peters-playground.com/2013/06/symphony-cms-debug-bookmarklet&text=Symphony CMS debug bookmarklet"></a>
 			<a id="end_cc" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/"></a>
-			<a id="weibo" href="http://v.t.sina.com.cn/share/share.php?url=http://peters-playground.com/2013/04/sublime-test&title=Sublime Text 的个人设置"></a>
+			<a id="weibo" href="http://v.t.sina.com.cn/share/share.php?url=http://peters-playground.com/2013/06/symphony-cms-debug-bookmarklet&title=Symphony CMS debug bookmarklet"></a>
 		</div>
 	</div>
 </article>

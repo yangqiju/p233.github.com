@@ -2,9 +2,9 @@
 <html>
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<meta name="description" content="Sublime Text 的个人设置 | Peter 的前端博客">
+		<meta name="description" content="3D walking robot | Peter 的前端博客">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-		<title>Sublime Text 的个人设置</title>
+		<title>3D walking robot</title>
 		<!--[if lte IE 9]><meta http-equiv="refresh" content="0;url=/assets/ie.html"><![endif]-->
 		<link rel="shortcut icon" href="/assets/images/favicon.ico" />
 		<link rel="stylesheet" type="text/css" href="/assets/stylesheets/style.css">
@@ -98,69 +98,30 @@
 			<div id="pjax">
 				<article id="post">
 	<header id="header">
-		<h1 id="identifier">Sublime Text 的个人设置</h1>
+		<h1 id="identifier">3D walking robot</h1>
 		<button id="fullscreen" class="header_icon"></button>
 		<button id="fontsize" class="header_icon"></button>
 	</header>
 	<div id="content">
-		<h2>自定义设置</h2>
+		<p><a href="http://cdpn.io/jrguI"><img src="/assets/images/codepen/walking-robot.png" alt="3D walking robot" /></a></p>
 
-<p>以下是 Peter 用着比较顺手的 Sublime Text 设置，其中 <code>wide_caret</code> 是个隐藏属性，大尺寸光标视觉效果更好。</p>
+<p>看到大家都在写 CSS 3D 特效，也跟着写了一个会走路的 3D 机器人，展示地址：<a href="http://cdpn.io/jrguI">http://cdpn.io/jrguI</a>，点击页面左下角 "Edit this Pen" 查看源码。</p>
 
-<div class="highlight"><pre><code class="json"><span class="p">{</span>
-  <span class="nt">&quot;caret_style&quot;</span><span class="p">:</span> <span class="s2">&quot;phase&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;close_windows_when_empty&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nt">&quot;color_scheme&quot;</span><span class="p">:</span> <span class="s2">&quot;Packages/Syntax highlighting for Sass/Color Scheme/Solarized (Light).tmTheme&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;dictionary&quot;</span><span class="p">:</span> <span class="s2">&quot;Packages/Language - English/en_GB.dic&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;drag_text&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-  <span class="nt">&quot;draw_white_space&quot;</span><span class="p">:</span> <span class="s2">&quot;all&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;font_face&quot;</span><span class="p">:</span> <span class="s2">&quot;Consolas&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;font_size&quot;</span><span class="p">:</span> <span class="mf">18.0</span><span class="p">,</span>
-  <span class="nt">&quot;highlight_line&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nt">&quot;ignored_packages&quot;</span><span class="p">:</span>
-  <span class="p">[</span>
-    <span class="s2">&quot;Vintage&quot;</span>
-  <span class="p">],</span>
-  <span class="nt">&quot;indent_to_bracket&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nt">&quot;soda_classic_tabs&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nt">&quot;tab_size&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-  <span class="nt">&quot;theme&quot;</span><span class="p">:</span> <span class="s2">&quot;Soda Light.sublime-theme&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;translate_tabs_to_spaces&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nt">&quot;trim_trailing_white_space_on_save&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nt">&quot;wide_caret&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nt">&quot;word_wrap&quot;</span><span class="p">:</span> <span class="kc">true</span>
-<span class="p">}</span>
-</code></pre></div>
+<p>一开始直接写 CSS 3D 效果结果越写越乱，只好推倒重来，先写完 2D 的机器人结构，主要使用的是 <code>position: absolute</code> 定位，把需要使用的 div 都准备好，机器人每个部分的每一个面都是一个 div，也就是所使用的 <code>.front</code> <code>.back</code> <code>.left</code> <code>.right</code> <code>.top</code> 与 <code>.bottom</code>。</p>
 
+<p>第一步，给每个部位（包括最外层）添加 <code>transform-style: preserve-3d</code> 属性激活 3D 模式（注：webkit 中这个属性可以继承，但 Firefox 中不行，所以保险的做法是给每个部位都添加这个属性）。然后配合使用 <code>transform: rotate3D()</code> <code>transform: translate3D()</code> 以及 <code>transform-origin</code> 将刚刚提到的 6 个面旋转／偏移到指定位置，这样完整的 3D 机器人就成型了。</p>
 
-<h2>自定义 Soda 主题的侧边栏与 Minimap</h2>
+<p>在使用 <code>transform-origin</code> 时遇到一个问题，到目前还没找到合适的解决办法。Chrome 在同时处理 <code>transform-origin</code> 与 <code>transform: translate3D()</code> 时不考虑偏移量，以 div 的实际长宽（应该包含 <code>margin</code>）计算，而 Safari 处理时将偏移量也增加到 div 的长宽中，所以这个机器人在两个浏览器中胳膊，大腿的甩动位置不一样。Firefox 的处理方式与 Chrome 是相同的，IE10 3D 模式无效，应该是我的问题，没有仔细研究。</p>
 
-<p>这个主题好用没的说，美中不足的是侧边栏字体太小，研究了一下自定义的方法：在 User 文件夹中 (Packages 文件夹内) 创建名为 <code>Soda Light.sublime-theme</code> 或者 <code>Soda Dark.sublime-theme</code> 的文件，然后输入以下代码：</p>
+<p>然后，给机器人的每个部位都使用 <code>animation</code> 属性设定旋转角度，四肢 X 轴，躯干和身体 Y 轴，同样需要配合 <code>transform-origin</code>，时间函数使用 <code>ease-in-out</code> 让动作看起来更自然，会走路的机器人就完成了。</p>
 
-<div class="highlight"><pre><code class="json"><span class="p">[</span>
-  <span class="p">{</span>
-    <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;sidebar_tree&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;row_padding&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">]</span>
-  <span class="p">},</span>
-  <span class="p">{</span>
-    <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;sidebar_label&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;font.size&quot;</span><span class="p">:</span> <span class="mf">13.5</span>
-  <span class="p">},</span>
-  <span class="p">{</span>
-    <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;minimap_control&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;viewport_color&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">35</span><span class="p">]</span>
-  <span class="p">}</span>
-<span class="p">]</span>
-</code></pre></div>
-
-
-<p>第一条调整侧边栏条目的间距，第二条调整字体大小。第三条用于调整 Minimap 窗口的颜色，使用深色系的 Color Scheme 时窗口通常不容易分辨，修改这一条就可以了（RGBA 格式）。其他设置可以在 Soda 文件夹内找到，选中需要修改的项目复制粘贴到这个文件里，即使 Soda 更新也不担心丢失设置。</p>
+<p>自己也是一名 CSS 3D 新手，如果大家发现错误的地方，欢迎指正 :)</p>
 
 
 		<div id="social">
-			<a id="twitter" href="https://twitter.com/intent/tweet?url=http://peters-playground.com/2013/04/sublime-test&text=Sublime Text 的个人设置"></a>
+			<a id="twitter" href="https://twitter.com/intent/tweet?url=http://peters-playground.com/2013/06/3D-working-robot&text=3D walking robot"></a>
 			<a id="end_cc" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/"></a>
-			<a id="weibo" href="http://v.t.sina.com.cn/share/share.php?url=http://peters-playground.com/2013/04/sublime-test&title=Sublime Text 的个人设置"></a>
+			<a id="weibo" href="http://v.t.sina.com.cn/share/share.php?url=http://peters-playground.com/2013/06/3D-working-robot&title=3D walking robot"></a>
 		</div>
 	</div>
 </article>

@@ -1,10 +1,8 @@
 /* -------------------------------------
  * http://peters-playground.com
- * @author P233
+ * author: Peiwen Lu (P233)
+ * E-mail: 40132147@qq.com
  * ------------------------------------- */
-#nav, #sidebar, #container {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.13); }
-
 /*------- fonts ------- */
 @font-face {
   font-family: "Colaborate";
@@ -26,8 +24,9 @@ html, body {
   height: 100%;
   margin: 0;
   color: #555555;
-  -webkit-font-smoothing: subpixel-antialiased;
   font: 16px/1.5 Colaborate, Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-text-size-adjust: none;
   background: #f4f4f4;
   overflow: hidden;
   position: relative; }
@@ -45,13 +44,13 @@ a {
   margin-right: 10px;
   color: white;
   background: #2b2c31;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.13);
   position: relative;
   float: left;
   -webkit-user-select: none;
-  -khtml-user-select: none;
   -moz-user-select: none;
-  -o-user-select: none;
   -ms-user-select: none;
+  -o-user-select: none;
   user-select: none; }
 
 #profile {
@@ -62,8 +61,8 @@ a {
   #profile:hover {
     -webkit-animation: spin 0.3s linear infinite;
     -moz-animation: spin 0.3s linear infinite;
-    -o-animation: spin 0.3s linear infinite;
     -ms-animation: spin 0.3s linear infinite;
+    -o-animation: spin 0.3s linear infinite;
     animation: spin 0.3s linear infinite; }
 
 #menu {
@@ -78,8 +77,8 @@ a {
   display: block;
   -webkit-transition: background 0.1s ease-in-out;
   -moz-transition: background 0.1s ease-in-out;
-  -o-transition: background 0.1s ease-in-out;
   -ms-transition: background 0.1s ease-in-out;
+  -o-transition: background 0.1s ease-in-out;
   transition: background 0.1s ease-in-out; }
 
 #about {
@@ -111,8 +110,8 @@ a {
   color: #737582;
   -webkit-transition: color 0.15s ease-in-out;
   -moz-transition: color 0.15s ease-in-out;
-  -o-transition: color 0.15s ease-in-out;
   -ms-transition: color 0.15s ease-in-out;
+  -o-transition: color 0.15s ease-in-out;
   transition: color 0.15s ease-in-out; }
   #contact_me:hover, #rss:hover {
     color: white; }
@@ -138,13 +137,13 @@ a {
   width: 440px;
   height: 100%;
   background: #fafaf6;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.13);
   position: relative;
   float: left;
   -webkit-user-select: none;
-  -khtml-user-select: none;
   -moz-user-select: none;
-  -o-user-select: none;
   -ms-user-select: none;
+  -o-user-select: none;
   user-select: none; }
 
 /*------- titles ------- */
@@ -156,8 +155,8 @@ a {
   border-bottom-style: solid;
   -webkit-transition: border-bottom-color 0.6s;
   -moz-transition: border-bottom-color 0.6s;
-  -o-transition: border-bottom-color 0.6s;
   -ms-transition: border-bottom-color 0.6s;
+  -o-transition: border-bottom-color 0.6s;
   transition: border-bottom-color 0.6s; }
 
 #title_wrap.select1 {
@@ -214,13 +213,13 @@ a {
   left: 0;
   right: 9px; }
   #post_list::-webkit-scrollbar {
-    width: 5px; }
+    width: 3px; }
   #post_list::-webkit-scrollbar-track {
     background: #f4f4f4; }
   #post_list::-webkit-scrollbar-thumb {
     background: #e7e7e7; }
     #post_list::-webkit-scrollbar-thumb:hover {
-      background: #dbdbdb; }
+      background: #cecece; }
 
 /*------- post links ------- */
 .cate1 {
@@ -255,7 +254,7 @@ a {
 .Mac:before {
   color: #56a61c; }
 
-.Demo:before {
+.Codepen:before {
   color: #14baa5; }
 
 .Github:before {
@@ -282,6 +281,7 @@ a {
   height: 100%;
   margin-left: 620px;
   background: #fcfcfa;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.13);
   overflow-x: hidden;
   overflow-y: auto;
   position: relative; }
@@ -290,12 +290,12 @@ a {
 #header {
   color: white;
   padding: 50px 5% 0;
+  overflow: hidden;
   -webkit-transition: background 0.5s ease-in-out;
   -moz-transition: background 0.5s ease-in-out;
-  -o-transition: background 0.5s ease-in-out;
   -ms-transition: background 0.5s ease-in-out;
-  transition: background 0.5s ease-in-out;
-  overflow: hidden; }
+  -o-transition: background 0.5s ease-in-out;
+  transition: background 0.5s ease-in-out; }
   #header h1 {
     height: 63px;
     margin: 0;
@@ -318,8 +318,8 @@ a {
   float: right;
   -webkit-transition: color, background 0.15s ease-in-out;
   -moz-transition: color, background 0.15s ease-in-out;
-  -o-transition: color, background 0.15s ease-in-out;
   -ms-transition: color, background 0.15s ease-in-out;
+  -o-transition: color, background 0.15s ease-in-out;
   transition: color, background 0.15s ease-in-out; }
   .header_icon:before {
     width: 20px;
@@ -345,11 +345,11 @@ a {
 
 /*------- post content sytle ------- */
 #content {
-  margin: 2.5em 5% 0;
-  line-height: 1.6; }
+  margin: 2.5em 5% 0; }
   #content a {
     color: #5b5d67;
-    border-bottom: 1px dashed #dbdbdb; }
+    border-bottom: 1px dashed #dbdbdb;
+    word-break: break-all; }
     #content a:hover {
       color: #9b9da7; }
   #content h2, #content h3, #content h4, #content h5, #content h6 {
@@ -357,7 +357,8 @@ a {
     margin: 2em 0 0.5em; }
   #content p {
     margin: 0 0 1.5em;
-    text-align: justify; }
+    text-align: justify;
+    word-break: break-word; }
   #content blockquote {
     margin: 1.5em 0 1.5em 2.5em;
     padding-left: 10px;
@@ -375,6 +376,18 @@ a {
     font-style: italic; }
   #content h2 + h3, #content h3 + h4, #content h4 + h5, #content h5 + h6 {
     margin-top: 0; }
+  #content img {
+    max-width: 100%;
+    max-height: 500px;
+    margin: 50px auto;
+    border: 10px solid white;
+    box-shadow: 0 0 5px #dbdbdb;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    display: block;
+    cursor: pointer; }
 
 #content p > code,
 #content li > code,
@@ -392,17 +405,13 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
   text-shadow: 0 1px white;
   background: #f7f7f7; }
 
-#content .img {
-  border-bottom: none; }
-  #content .img img {
-    width: 45em;
-    max-width: 100%;
-    margin: 30px auto;
-    box-shadow: 0 0 5px #f4f4f4;
-    display: block; }
+/*------- social ------- */
+#social {
+  padding-top: 50px;
+  text-align: center; }
 
 a#end_cc, a#twitter, a#weibo {
-  margin-right: 5px;
+  margin: 0 5px;
   border-bottom: none; }
   a#end_cc:before, a#twitter:before, a#weibo:before {
     font-size: 24px;
@@ -516,7 +525,7 @@ a#end_cc, a#twitter, a#weibo {
 
 /*------- disqus_thread ------- */
 #disqus_thread {
-  margin-top: 50px;
+  margin-top: 30px;
   padding: 40px 5% 0;
   border-top: 2px solid #eaedf0; }
 
@@ -529,77 +538,37 @@ a#end_cc, a#twitter, a#weibo {
 /*------- spin ------- */
 @-webkit-keyframes spin {
   from {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg); }
+    -webkit-transform: rotate(0deg); }
 
   to {
-    -webkit-transform: rotate(359deg);
-    -moz-transform: rotate(359deg);
-    -o-transform: rotate(359deg);
-    -ms-transform: rotate(359deg);
-    transform: rotate(359deg); } }
+    -webkit-transform: rotate(359deg); } }
 
 @-moz-keyframes spin {
   from {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg); }
+    -moz-transform: rotate(0deg); }
 
   to {
-    -webkit-transform: rotate(359deg);
-    -moz-transform: rotate(359deg);
-    -o-transform: rotate(359deg);
-    -ms-transform: rotate(359deg);
-    transform: rotate(359deg); } }
+    -moz-transform: rotate(359deg); } }
 
 @-o-keyframes spin {
   from {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg); }
+    -o-transform: rotate(0deg); }
 
   to {
-    -webkit-transform: rotate(359deg);
-    -moz-transform: rotate(359deg);
-    -o-transform: rotate(359deg);
-    -ms-transform: rotate(359deg);
-    transform: rotate(359deg); } }
+    -o-transform: rotate(359deg); } }
 
 @-ms-keyframes spin {
   from {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg); }
+    -ms-transform: rotate(0deg); }
 
   to {
-    -webkit-transform: rotate(359deg);
-    -moz-transform: rotate(359deg);
-    -o-transform: rotate(359deg);
-    -ms-transform: rotate(359deg);
-    transform: rotate(359deg); } }
+    -ms-transform: rotate(359deg); } }
 
 @keyframes spin {
   from {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
     transform: rotate(0deg); }
 
   to {
-    -webkit-transform: rotate(359deg);
-    -moz-transform: rotate(359deg);
-    -o-transform: rotate(359deg);
-    -ms-transform: rotate(359deg);
     transform: rotate(359deg); } }
 
 /* -------------------------------------
@@ -942,10 +911,9 @@ code {
     right: 0;
     z-index: 999;
     -webkit-user-select: none;
-    -khtml-user-select: none;
     -moz-user-select: none;
-    -o-user-select: none;
     -ms-user-select: none;
+    -o-user-select: none;
     user-select: none; }
 
   .highlight {
