@@ -1,13 +1,13 @@
 $(function(){
 	// Pjax
-	$(document).pjax('.cate1 a, #about', '#pjax', { fragment: "#pjax", timeout: 5000 });
-	$(document).on("pjax:start", function(){
-	  $('#pjax').hide();
-	});
+	$(document).pjax('.cate1 a, #about', '#pjax', { fragment: "#pjax", timeout: 10000 });
+	// $(document).on("pjax:start", function(){
+	//   $('#pjax').hide();
+	// });
 	$(document).on("pjax:end", function(){
 		$('#container').scrollTop(0);
 		contentEffects();
-		$('#pjax').fadeIn('500');
+		// $('#pjax').fadeIn('500');
 	});
 
 	// Snap
