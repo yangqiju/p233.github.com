@@ -1,13 +1,9 @@
 $(function(){
 	// Pjax
-	$(document).pjax('.cate1 a, #about', '#pjax', { fragment: "#pjax", timeout: 10000 });
-	// $(document).on("pjax:start", function(){
-	//   $('#pjax').hide();
-	// });
-	$(document).on("pjax:end", function(){
+	$(document).pjax('.cate1, #about', '#pjax', { fragment: "#pjax", timeout: 10000 });
+	$(document).on("pjax:end", function() {
 		$('#container').scrollTop(0);
 		contentEffects();
-		// $('#pjax').fadeIn('500');
 	});
 
 	// Snap
@@ -65,9 +61,8 @@ $(function(){
 	}
 
 	// link effects
-	$('.cate1 a').on('click', function() {
-		$('.cate1').removeClass("actived");
-		$(this).parent().addClass("visited actived");
+	$('.cate1').on('click', function() {
+		$(this).addClass("actived").siblings().removeClass("actived");
 		snapper.close();
 	});
 	$('#about').on('click', function(){

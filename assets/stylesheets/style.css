@@ -205,12 +205,12 @@ a {
 
 /*------- post list ------- */
 #post_list {
-  padding: 0 11px 20px 20px;
+  padding-right: 11px;
   overflow-y: auto;
   position: absolute;
   top: 140px;
   bottom: 10px;
-  left: 0;
+  left: 20px;
   right: 9px; }
   #post_list::-webkit-scrollbar {
     width: 3px; }
@@ -224,55 +224,54 @@ a {
 /*------- post links ------- */
 .cate1 {
   margin: 0 0 5px;
-  padding: 5px 5px 5px 24px;
+  padding: 5px;
   font-size: 15px;
   border-bottom: 1px dashed #efefef;
-  display: block;
-  position: relative; }
-  .cate1:before {
-    content: "\f111";
-    font-family: "fontello";
-    font-size: 10px;
-    position: absolute;
-    top: 8px;
-    left: 8px; }
-  .cate1:hover:before {
-    font-size: 12px;
-    top: 7px;
-    left: 7px; }
-  .cate1 span {
-    color: #9b9b9b;
-    font-size: 14px;
-    float: right; }
+  display: block; }
+  .cate1:hover {
+    color: #777777 !important; }
+  .cate1:visited {
+    color: #9b9da7; }
+    .cate1:visited .circle_icon {
+      background: #fafaf6; }
+  .cate1.actived {
+    color: #2b2c31; }
+    .cate1.actived:hover {
+      color: #2b2c31 !important; }
 
-.CSS:before {
-  color: #ed3324; }
+.circle_icon {
+  width: 6px;
+  height: 6px;
+  margin-right: 5px;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 50%;
+  display: inline-block; }
 
-.Front_end:before {
-  color: #fba418; }
+.date {
+  color: #9b9b9b;
+  font-size: 14px;
+  float: right; }
 
-.Mac:before {
-  color: #56a61c; }
+.CSS .circle_icon {
+  background: #ed3324;
+  border-color: #ed3324; }
 
-.Codepen:before {
-  color: #14baa5; }
+.Front_end .circle_icon {
+  background: #fba418;
+  border-color: #fba418; }
 
-.Github:before {
-  color: #3f9cca; }
+.Mac .circle_icon {
+  background: #56a61c;
+  border-color: #56a61c; }
 
-/*------- click effects ------- */
-.visited {
-  color: #9b9da7; }
+.Codepen .circle_icon {
+  background: #14baa5;
+  border-color: #14baa5; }
 
-.visited:before {
-  content: "\f10c"; }
-
-.actived {
-  color: #2b2c31; }
-  .actived:before {
-    font-size: 12px;
-    top: 7px;
-    left: 7px; }
+.Github .circle_icon {
+  background: #3f9cca;
+  border-color: #3f9cca; }
 
 /* -------------------------------------
  * container
@@ -898,7 +897,7 @@ code {
   #sidebar {
     width: 320px; }
 
-  .cate1 span {
+  .date {
     display: none; }
 
   #container {
