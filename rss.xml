@@ -6,9 +6,62 @@
     <atom:link href="http://peters-playground.com/rss.xml" rel="self" type="application/rss+xml" />
     <description>专注前端技术</description>
     <language>zh_CN</language>
-    <pubDate>Sun, 23 Jun 2013 10:39:39 +0100</pubDate>
-    <lastBuildDate>Sun, 23 Jun 2013 10:39:39 +0100</lastBuildDate>
+    <pubDate>Wed, 03 Jul 2013 00:52:25 +0100</pubDate>
+    <lastBuildDate>Wed, 03 Jul 2013 00:52:25 +0100</lastBuildDate>
 
+    
+    <item>
+      <title>Stay-focused App</title>
+      <link>http://peters-playground.com/2013/07/stay-focused-app</link>
+      <pubDate>02 Jul 2013</pubDate>
+      <author>Peter</author>
+      <guid>http://peters-playground.com/2013/07/stay-focused-app</guid>
+      <description>&lt;p&gt;Stay-focused App 是一款使用 HTML CSS Javascript 编写的 Mac 系统下的开源效率软件, 通过 &lt;a href=&quot;http://www.sentenzadesktop.com/&quot;&gt;Sentenza Desktop&lt;/a&gt; 封装。制作这款软件的初衷是因为发现最适合自己的工作方法是用笔记本将一个任务拆分成多个子任务，列出先后顺序把大脑中的思路清晰化，不盲目干活，同时利用计时器辅助执行，避免浪费时间或者在一个地方纠缠太久。试用过很多软件都不顺手，自己动手写一个，todo list 使用的是 &lt;a href=&quot;http://web.koesbong.com&quot;&gt;Koes Bong&lt;/a&gt; 写过的 &lt;a href=&quot;http://web.koesbong.com/2011/01/24/sortable-and-editable-to-do-list-using-html5s-localstorage/&quot;&gt;Sortable and Editable To-do List&lt;/a&gt;，其他部分是自己折腾的，需要功能大部分都已经实现，发布出来与大家分享。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/P233/Stay-focused-App&quot;&gt;&lt;img src=&quot;http://peters-playground.com/Stay-focused-App/stay-focused-app.png&quot; alt=&quot;Stay-focused App&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Github: &lt;a href=&quot;https://github.com/P233/Stay-focused-App&quot;&gt;https://github.com/P233/Stay-focused-App&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;下载地址：&lt;a href=&quot;http://peters-playground.com/Stay-focused-App/stay-focused-app.zip&quot;&gt;http://peters-playground.com/Stay-focused-App/stay-focused-app.zip&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Peter 的 Javascript 是菜鸟水平，一边学一边写，处理不当的地方请不要客气指出来，这对我来说是难得的学习机会。如果大家发现问题，或者有想法建议，请 feel free &lt;a href=&quot;https://github.com/P233/Stay-focused-App/issues/new&quot;&gt;提交 issues&lt;/a&gt; 或者 pull request。&lt;/p&gt;
+
+&lt;h2&gt;使用说明&lt;/h2&gt;
+
+&lt;h3&gt;偏好设置&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;点击顶部的 Project bar 开启／关闭 Preferences 面板，可设置项目名称、截止时间等等；&lt;/li&gt;
+&lt;li&gt;Date Format, Time Format 用于配置 date &amp;amp; time picker 的时间格式，需要重启软件才可生效；&lt;/li&gt;
+&lt;li&gt;开启 Voice Notice 后，当剩余时间是 5 的倍数时系统报时提醒，比如 &quot;15 minutes left&quot;，&quot;Only 5 minutes left&quot;；&lt;/li&gt;
+&lt;li&gt;开启 Metronome 后，每间隔一段时间有滴嗒声提醒，3 Mins 的意思是“当剩余时间是 3 的倍数时提醒”，而不是从计时后的第 3 分钟开始；&lt;/li&gt;
+&lt;li&gt;Clear All Data 清除所有 local storage 数据，包括偏好设置；&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h3&gt;使用&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Project bar 背景显示项目的剩余时间／进度条，每隔 10 分钟更新一次（所以项目截止提醒会有误差）；&lt;/li&gt;
+&lt;li&gt;可输入的倒计时时间为 1 - 60 分钟；&lt;/li&gt;
+&lt;li&gt;上下拖拽 task 条目变更顺序；&lt;/li&gt;
+&lt;li&gt;向右拖拽 task 条目超过窗口一半时删除此条目；&lt;/li&gt;
+&lt;li&gt;点击 task 条目编辑此条目；&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h3&gt;Credits&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Sortable and Editable To-do List &lt;a href=&quot;http://web.koesbong.com/2011/01/24/sortable-and-editable-to-do-list-using-html5s-localstorage/&quot;&gt;http://web.koesbong.com/2011/01/24/sortable-and-editable-to-do-list-using-html5s-localstorage/&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Mobiscroll Datetime Picker &lt;a href=&quot;http://demo.mobiscroll.com/datetime&quot;&gt;http://demo.mobiscroll.com/datetime&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Metronome Sound &lt;a href=&quot;http://soundbible.com/914-Metronome.html&quot;&gt;http://soundbible.com/914-Metronome.html&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Cuckoo Clock Sound &lt;a href=&quot;http://soundbible.com/1261-Cuckoo-Clock.html&quot;&gt;http://soundbible.com/1261-Cuckoo-Clock.html&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Titillium Text Font &lt;a href=&quot;http://www.fontsquirrel.com/fonts/TitilliumText&quot;&gt;http://www.fontsquirrel.com/fonts/TitilliumText&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+</description>
+    </item>
     
     <item>
       <title>Symphony CMS debug bookmarklet</title>
@@ -328,88 +381,6 @@
 &lt;p&gt;第六，重新思考一下为什么要这样写，是不是还有优化的可能呢？比如利用元素的继承性可以省下很多不必要的设定。&lt;/p&gt;
 
 &lt;p&gt;第七，如果很在意性能，尽量少用 CSS3 选择器。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>CSS3 Slider 模仿练习</title>
-      <link>http://peters-playground.com/2013/04/css3-slider-practice</link>
-      <pubDate>06 Apr 2013</pubDate>
-      <author>Peter</author>
-      <guid>http://peters-playground.com/2013/04/css3-slider-practice</guid>
-      <description>&lt;p&gt;&lt;a href=&quot;http://cdpn.io/HGdir&quot;&gt;&lt;img src=&quot;/assets/images/codepen/slider-practice.png&quot; alt=&quot;CSS3 Slider&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;最近模仿了一个动画网站练习用 CSS 写 Slider，展示地址：&lt;a href=&quot;http://cdpn.io/HGdir&quot;&gt;http://cdpn.io/HGdir&lt;/a&gt;，记录一点经验心得，点击页面左下角 &quot;Edit this Pen&quot; 查看源码。&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sass&quot;&gt;&lt;span class=&quot;nt&quot;&gt;a&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;opacity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;-webkit-transition&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;webkit-transform&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;.3&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;opacity&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;.3&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;s&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;-moz-transition&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;moz-transform&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;.3&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;opacity&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;.3&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;s&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;-o-transition&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;o-transform&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;.3&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;opacity&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;.3&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;s&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;-ms-transition&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ms-transform&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;.3&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;opacity&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;.3&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;s&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;transition&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;transform&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;.3&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;opacity&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;.3&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;s&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;-webkit-transform&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;translate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;-10&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;px&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;-moz-transform&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;translate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;-10&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;px&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;-o-transform&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;translate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;-10&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;px&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;-ms-transform&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;translate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;-10&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;px&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;translate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;-10&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;px&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;@for&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;through&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:nth-of-type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nn&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;{$&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;-webkit-transition-delay&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;.3&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;.1&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;s&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;-moz-transition-delay&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;.3&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;.1&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;s&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;-o-transition-delay&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;.3&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;.1&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;s&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;-ms-transition-delay&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;.3&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;.1&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;s&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;transition-delay&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;.3&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;.1&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;s&lt;/span&gt;
-&lt;span class=&quot;nc&quot;&gt;.parent&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:hover&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;a&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;opacity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;-webkit-transform&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;translate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;px&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;-moz-transform&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;translate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;px&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;-o-transform&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;translate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;px&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;-ms-transform&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;translate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;px&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;translate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;px&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;一，使用 &lt;code&gt;transition&lt;/code&gt; 属性控制变化效果的时候，变化项也需要添加浏览器前缀，开始没有注意到这点多次尝试还以为做错了；&lt;/p&gt;
-
-&lt;p&gt;二，&lt;code&gt;:nth-of-type()&lt;/code&gt; 是个好东西，可玩性非常高，配合 &lt;code&gt;transition-delay&lt;/code&gt; 不借助 js 就可以做出连续的动画效果；&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;label&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;for=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;trigger1&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Slide1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/label&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;label&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;for=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;trigger2&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Slide2&lt;span class=&quot;nt&quot;&gt;&amp;lt;/label&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;label&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;for=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;trigger3&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Slide3&lt;span class=&quot;nt&quot;&gt;&amp;lt;/label&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;label&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;for=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;trigger4&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Slide4&lt;span class=&quot;nt&quot;&gt;&amp;lt;/label&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;radio&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;trigger1&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;trigger&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;checked=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;radio&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;trigger2&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;trigger&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;radio&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;trigger3&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;trigger&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;radio&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;trigger4&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;trigger&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;wrapper&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;slider&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sass&quot;&gt;&lt;span class=&quot;nn&quot;&gt;#slider&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$width&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;@for&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;through&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;
-  &lt;span class=&quot;nn&quot;&gt;#trigger&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:checked&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;~&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;#wrapper&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;#slider&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;-webkit-transform&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;translateX&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;-moz-transform&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;translateX&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;-o-transform&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;translateX&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;-ms-transform&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;translateX&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;translateX&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;三，利用单选框与 &lt;code&gt;:checked&lt;/code&gt; 伪类存储用户的输入信息是一件很巧妙的做法，乍看上去有点麻烦但相信还是可以继续深度发掘出更多用法，比如这个纯 CSS 写的小游戏：&lt;a href=&quot;http://jsdo.it/GeckoTang/4rXg&quot;&gt;CSS PANIC&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;四，同级选择器 &lt;code&gt;~&lt;/code&gt; 与后代选择器连用，通过不同的单选框控制不同的偏移量。&lt;/p&gt;
-
-&lt;p&gt;这是 CSS3 Slider 的一种写法，印象中还有另一种写法利用到了 &lt;code&gt;:target&lt;/code&gt; 伪类，下次有时间再尝试一下。&lt;/p&gt;
 </description>
     </item>
     

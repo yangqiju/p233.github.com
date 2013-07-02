@@ -368,8 +368,8 @@ a {
     margin: -1em 0 1.5em; }
   #content ul li {
     margin-bottom: 0; }
-  #content ol li {
-    margin-bottom: 1em; }
+  #content ol li, #content ol p {
+    margin-bottom: 0.5em; }
   #content em {
     font-family: Arial, Helvetica, sans-serif;
     font-style: italic; }
