@@ -6,13 +6,15 @@
 /*------- fonts ------- */
 @font-face {
   font-family: "Colaborate";
-  src: url("font/ColabLig-webfont.eot"), url("font/ColabLig-webfont.eot?#iefix") format("embedded-opentype"), url("font/ColabLig-webfont.woff") format("woff"), url("font/ColabLig-webfont.ttf") format("truetype"), url("font/ColabLig-webfont.svg#ColaborateLightRegular") format("svg");
+  src: url("font/ColabLig-webfont.eot");
+  src: url("font/ColabLig-webfont.eot?#iefix") format("embedded-opentype"), url("font/ColabLig-webfont.woff") format("woff"), url("font/ColabLig-webfont.ttf") format("truetype"), url("font/ColabLig-webfont.svg#ColaborateLightRegular") format("svg");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: "fontello";
-  src: url("font/fontello.eot?39431446"), url("font/fontello.eot?39431446#iefix") format("embedded-opentype"), url("font/fontello.woff?39431446") format("woff"), url("font/fontello.ttf?39431446") format("truetype"), url("font/fontello.svg?39431446#fontello") format("svg");
+  src: url("font/fontello.eot");
+  src: url("font/fontello.eot#iefix") format("embedded-opentype"), url("font/fontello.woff") format("woff"), url("font/fontello.ttf") format("truetype"), url("font/fontello.svg#fontello") format("svg");
   font-weight: normal;
   font-style: normal; }
 
@@ -24,7 +26,7 @@ html, body {
   height: 100%;
   margin: 0;
   color: #444444;
-  font: 16px/1.5 Colaborate, Arial, Helvetica, sans-serif;
+  font: 16px/1.5 Colaborate, STHeiti, Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: subpixel-antialiased;
   -webkit-text-size-adjust: none;
   background: #f4f4f4;
@@ -44,6 +46,7 @@ a {
   margin-right: 10px;
   color: white;
   background: #2b2c31;
+  text-shadow: -1px 1px 0 rgba(43, 44, 49, 0.7);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.13);
   position: relative;
   float: left;
@@ -149,7 +152,7 @@ a {
 /*------- titles ------- */
 #title_wrap {
   height: 60px;
-  margin: 0 20px;
+  margin: 0 15px;
   padding-top: 50px;
   border-bottom-width: 3px;
   border-bottom-style: solid;
@@ -182,6 +185,7 @@ a {
   padding-left: 5px;
   font-size: 42px;
   font-weight: normal;
+  text-shadow: -2px 2px 0 rgba(43, 44, 49, 0.07);
   display: none; }
 
 #title1 {
@@ -205,13 +209,15 @@ a {
 
 /*------- post list ------- */
 #post_list {
-  padding-right: 11px;
-  overflow-y: auto;
+  padding-right: 14px;
+  overflow-y: hidden;
   position: absolute;
   top: 140px;
   bottom: 10px;
   left: 20px;
-  right: 9px; }
+  right: 6px; }
+  #post_list:hover {
+    overflow-y: auto; }
   #post_list::-webkit-scrollbar {
     width: 3px; }
   #post_list::-webkit-scrollbar-track {
@@ -289,6 +295,7 @@ a {
 #header {
   color: white;
   padding: 50px 5% 0;
+  box-shadow: 0 2px 1px -1px rgba(43, 44, 49, 0.15);
   overflow: hidden;
   -webkit-transition: background 0.5s ease-in-out;
   -moz-transition: background 0.5s ease-in-out;
@@ -301,6 +308,7 @@ a {
     font-size: 42px;
     line-height: 65px;
     font-weight: normal;
+    text-shadow: -2px 2px 0 rgba(43, 44, 49, 0.2);
     float: left; }
 
 /*------- header icons ------- */
@@ -309,9 +317,11 @@ a {
   height: 40px;
   margin: 13px 0 9px 5px;
   color: white;
+  text-shadow: -1px 1px 0 rgba(43, 44, 49, 0.2);
   background: transparent;
   border: 3px solid white;
   border-radius: 50%;
+  box-shadow: -1px 1px 0 rgba(43, 44, 49, 0.2);
   position: relative;
   cursor: pointer;
   float: right;
@@ -351,6 +361,8 @@ a {
     word-break: break-all; }
     #content a:hover {
       color: #9b9da7; }
+      #content a:hover img {
+        box-shadow: 0 0 10px #cecece; }
   #content h2, #content h3, #content h4, #content h5, #content h6 {
     font-weight: normal;
     margin: 2em 0 0.5em; }
@@ -403,6 +415,11 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
   font-size: 0.95em;
   text-shadow: 0 1px white;
   background: #f7f7f7; }
+
+/*------- large font ------- */
+#container.largefont {
+  font-size: 17px;
+  line-height: 1.55; }
 
 /*------- social ------- */
 #social {
@@ -473,10 +490,6 @@ a#end_cc, a#twitter, a#weibo {
 #post.select6 .header_icon:hover {
   color: #3f9cca;
   background: white; }
-
-/*------- large font ------- */
-#container.largefont {
-  font-size: 17px; }
 
 /*------- index page ------- */
 #copyright {
@@ -875,21 +888,20 @@ code {
  * tablet
  * ------------------------------------- */
 #notice {
-  width: 200px;
-  height: 60px;
+  width: 160px;
+  height: 50px;
   color: #777777;
   font-size: 30px;
-  line-height: 65px;
+  line-height: 55px;
   text-align: center;
   text-shadow: 0 1px white;
   background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
-  border-radius: 5px;
-  display: block;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
   position: fixed;
   left: 50%;
   top: 350px;
-  margin-left: -100px;
+  margin-left: -80px;
   z-index: 9999;
   display: none; }
 
@@ -952,17 +964,20 @@ code {
   #title_wrap {
     margin: 0;
     padding: 30px 0 0 20px;
-    background: #f8632e; }
-
-  #title1 {
-    color: transparent; }
-    #title1:before {
-      content: "Peter's Playgorund";
-      color: white;
-      font-size: 30px; }
+    background: #f8632e;
+    border-bottom-color: #f8632e !important;
+    box-shadow: 0 2px 1px -1px rgba(43, 44, 49, 0.15); }
+    #title_wrap .title {
+      color: transparent;
+      text-shadow: none !important; }
+      #title_wrap .title:before {
+        content: "Peter's Playgorund";
+        color: white;
+        font-size: 30px;
+        text-shadow: -2px 2px 0 rgba(43, 44, 49, 0.2); }
 
   #post_list {
-    padding-top: 20px;
+    padding: 20px 10px;
     position: static; }
 
   #container {

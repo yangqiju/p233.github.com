@@ -2,9 +2,9 @@
 <html>
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<meta name="description" content="IE10 的 placeholder 伪类问题 | Peter 的前端博客">
+		<meta name="description" content="XSLT 学习笔记 | Peter 的前端博客">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-		<title>IE10 的 placeholder 伪类问题</title>
+		<title>XSLT 学习笔记</title>
 		<!--[if lte IE 9]><meta http-equiv="refresh" content="0;url=/assets/ie.html"><![endif]-->
 		<link rel="shortcut icon" href="/assets/images/favicon.ico" />
 		<link rel="stylesheet" type="text/css" href="/assets/stylesheets/style.css">
@@ -104,53 +104,145 @@
 			<div id="pjax">
 				<article id="post">
 	<header id="header">
-		<h1 id="identifier">IE10 的 placeholder 伪类问题</h1>
+		<h1 id="identifier">XSLT 学习笔记</h1>
 		<button id="fullscreen" class="header_icon"></button>
 		<button id="fontsize" class="header_icon"></button>
 	</header>
 	<div id="content">
-		<p>从 HTML5 开始 <code>input</code> <code>textarea</code> 支持 <code>placeholder</code> 属性，除了 IE 浏览器，兼容性还算不错，以为 IE10 也可以友好兼容的，然后发现其实我是图样图森破。</p>
+		<p>XSLT 初学者，整理一些用法，加深记忆：</p>
 
-<div class="highlight"><pre><code class="sass"><span class="na">:</span><span class="o">:-</span><span class="n">webkit-input-placeholder</span>
-  <span class="na">color</span><span class="o">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="nv">$grey</span><span class="o">,</span> <span class="mi">10</span><span class="kt">%</span><span class="p">)</span>
-  <span class="na">font-weight</span><span class="o">:</span> <span class="no">normal</span>
-<span class="na">\</span><span class="o">:-</span><span class="n">moz-placeholder</span>
-  <span class="na">color</span><span class="o">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="nv">$grey</span><span class="o">,</span> <span class="mi">10</span><span class="kt">%</span><span class="p">)</span>
-  <span class="na">font-weight</span><span class="o">:</span> <span class="no">normal</span>
+<h2>普通语法</h2>
+
+<h3>1. 创建变量</h3>
+
+<div class="highlight"><pre><code class="xslt"><span class="k">&lt;xsl:variable</span> <span class="na">name=</span><span class="s">&quot;variable_name&quot;</span><span class="nt">&gt;</span> <span class="k">&lt;/xsl:variable&gt;</span>
+
+<span class="k">&lt;xsl:variable</span> <span class="na">name=</span><span class="s">&quot;variable_name&quot;</span> <span class="na">select=</span><span class="s">&quot; &quot;</span> <span class="nt">/&gt;</span>
 </code></pre></div>
 
 
-<p>给主流浏览器设定 placeholder 样式没有任何问题，同样的方法在 IE10 下却不起作用：</p>
+<p>调用变量：<code>$variable_name</code></p>
 
-<div class="highlight"><pre><code class="sass"><span class="na">\</span><span class="o">:-</span><span class="n">ms-input-placeholder</span>
-  <span class="na">color</span><span class="o">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="nv">$grey</span><span class="o">,</span> <span class="mi">10</span><span class="kt">%</span><span class="p">)</span>
-  <span class="na">font-weight</span><span class="o">:</span> <span class="no">normal</span>
+<p>Emmet 缩写 <code>val</code></p>
+
+<h3>2. 创建模板与调用模板</h3>
+
+<div class="highlight"><pre><code class="xslt"><span class="k">&lt;xsl:template</span> <span class="na">name=</span><span class="s">&quot;&quot;</span><span class="nt">&gt;</span><span class="k">&lt;/xsl:template&gt;</span>
 </code></pre></div>
 
 
-<p>以为伪类在 IE10 下不能单独使用，添加了 <code>input</code> 标签同样无效：</p>
+<p>Emmet 缩写 <code>tn</code></p>
 
-<div class="highlight"><pre><code class="sass"><span class="na">input</span><span class="o">:-</span><span class="n">ms-input-placeholder</span>
-  <span class="na">color</span><span class="o">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="nv">$grey</span><span class="o">,</span> <span class="mi">10</span><span class="kt">%</span><span class="p">)</span>
-  <span class="na">font-weight</span><span class="o">:</span> <span class="no">normal</span>
+<div class="highlight"><pre><code class="xslt"><span class="k">&lt;xsl:call-template</span> <span class="na">name=</span><span class="s">&quot;&quot;</span><span class="nt">/&gt;</span>
 </code></pre></div>
 
 
-<p>尝试 id 或 class，结果终于生效了，所以必须这样设定样式，很蛋疼：</p>
+<p>Emmet 缩写 <code>call</code></p>
 
-<div class="highlight"><pre><code class="sass"><span class="na">#name</span><span class="o">:-</span><span class="n">ms-input-placeholder</span><span class="o">,</span> <span class="mh">#phone</span><span class="o">:-</span><span class="n">ms-input-placeholder</span><span class="o">,</span> <span class="mh">#email</span><span class="o">:-</span><span class="n">ms-input-placeholder</span><span class="o">,</span> <span class="mh">#subjec</span><span class="n">t</span><span class="o">:-</span><span class="n">ms-input-placeholder</span><span class="o">,</span> <span class="mh">#messag</span><span class="n">e</span><span class="o">:-</span><span class="n">ms-input-placeholder</span>
-  <span class="na">color</span><span class="o">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="nv">$grey</span><span class="o">,</span> <span class="mi">10</span><span class="kt">%</span><span class="p">)</span>
-  <span class="na">font-weight</span><span class="o">:</span> <span class="no">normal</span>
+<h3>3. <code>value-of</code> 与 <code>copy-of</code></h3>
+
+<div class="highlight"><pre><code class="xslt"><span class="k">&lt;xsl:value-of</span> <span class="na">select=</span><span class="s">&quot; &quot;</span> <span class="nt">/&gt;</span>
+
+<span class="k">&lt;xsl:copy-of</span> <span class="na">select=</span><span class="s">&quot; &quot;</span> <span class="nt">/&gt;</span>
 </code></pre></div>
 
 
-<p>还没结束呢，使用 class 也不行，不过官网却用的 class 选择器举例子，不深究了，保险起见使用 id 选择器与 <code>:ms-input-placeholder</code> 伪类。看来前端的 IE 魔咒还没有破除，期待 IE11。。。</p>
+<p>后者包含 HTML 标签</p>
+
+<p>Emmet 缩写 <code>val</code> <code>co</code></p>
+
+<h3>4. 条件选择</h3>
+
+<div class="highlight"><pre><code class="xslt"><span class="k">&lt;xsl:choose</span><span class="nt">&gt;</span>
+  <span class="k">&lt;xsl:when</span> <span class="na">test=</span><span class="s">&quot;&quot;</span><span class="nt">&gt;</span><span class="k">&lt;/xsl:when&gt;</span>
+  <span class="k">&lt;xsl:otherwise</span><span class="nt">&gt;</span><span class="k">&lt;/xsl:otherwise&gt;</span>
+<span class="k">&lt;/xsl:choose&gt;</span>
+</code></pre></div>
+
+
+<p>Emmet 缩写 <code>ch</code> <code>wh</code> <code>ot</code></p>
+
+<h3>5. <code>if</code> 语句</h3>
+
+<div class="highlight"><pre><code class="xslt"><span class="k">&lt;xsl:if</span> <span class="na">test=</span><span class="s">&quot;&quot;</span><span class="nt">&gt;</span><span class="k">&lt;/xsl:if&gt;</span>
+</code></pre></div>
+
+
+<p>Emmet 缩写 <code>if</code></p>
+
+<h3>6. <code>for-each</code></h3>
+
+<div class="highlight"><pre><code class="xslt"><span class="k">&lt;xsl:for-each</span> <span class="na">select=</span><span class="s">&quot;&quot;</span><span class="nt">&gt;</span><span class="k">&lt;/xsl:for-each&gt;</span>
+</code></pre></div>
+
+
+<p>Emmet 缩写 <code>each</code></p>
+
+<h3>7. 修改属性</h3>
+
+<div class="highlight"><pre><code class="xslt"><span class="k">&lt;xsl:attribute</span> <span class="na">name=</span><span class="s">&quot;&quot;</span><span class="nt">&gt;</span><span class="k">&lt;/xsl:attribute&gt;</span>
+</code></pre></div>
+
+
+<p>例如, for-each 输出的第一项添加 <code>offset1</code> class</p>
+
+<div class="highlight"><pre><code class="xslt"><span class="k">&lt;xsl:for-each</span> <span class="na">select=</span><span class="s">&quot;&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;span4&quot;</span><span class="nt">&gt;</span>
+    <span class="k">&lt;xsl:choose</span><span class="nt">&gt;</span>
+      <span class="k">&lt;xsl:when</span> <span class="na">test=</span><span class="s">&quot;positon() = 1&quot;</span><span class="nt">&gt;</span>
+        <span class="k">&lt;xsl:attribute</span> <span class="na">name=</span><span class="s">&quot;class&quot;</span><span class="nt">&gt;</span>span4 offset1<span class="k">&lt;/xsl:attribute&gt;</span>
+      <span class="k">&lt;/xsl:when&gt;</span>
+    <span class="k">&lt;/xsl:choose&gt;</span>
+
+    <span class="c">&lt;!-- code --&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="k">&lt;/xsl:for-each&gt;</span>
+</code></pre></div>
+
+
+<p>Emmet 缩写 <code>attr</code></p>
+
+<h3>8. 获取 handle 值</h3>
+
+<div class="highlight"><pre><code class="xslt"><span class="k">&lt;xsl:value-of</span> <span class="na">select=</span><span class="s">&quot;entry/@handle&quot;</span><span class="nt">/&gt;</span>
+</code></pre></div>
+
+
+<h3>9. 选择 handle 是某个具体值的条目</h3>
+
+<div class="highlight"><pre><code class="xslt"><span class="k">&lt;xsl:value-of</span> <span class="na">select=</span><span class="s">&quot;entry[@handle=&#39;yes&#39;]&quot;</span><span class="nt">/&gt;</span>
+</code></pre></div>
+
+
+<h2>XSLT 函数</h2>
+
+<p>XSLT 1.0 函数列表 <a href="http://zvon.org/xxl/XSLTreference/Output/xpathFunctionIndex.html">http://zvon.org/xxl/XSLTreference/Output/xpathFunctionIndex.html</a></p>
+
+<h3>1. 第几个节点</h3>
+
+<div class="highlight"><pre><code class="xslt">position()
+</code></pre></div>
+
+
+<h3>2. 选择节点本身</h3>
+
+<div class="highlight"><pre><code class="xslt">self::node()
+</code></pre></div>
+
+
+<h3>3. 截取内容</h3>
+
+<div class="highlight"><pre><code class="xslt">substring(string, start, length)
+</code></pre></div>
+
+
+<h2>未完待续...</h2>
 
 
 		<div id="social">
-			<a id="twitter" href="https://twitter.com/intent/tweet?url=http://peters-playground.com/2013/03/ie10-placeholder&text=IE10 的 placeholder 伪类问题"></a>
+			<a id="twitter" href="https://twitter.com/intent/tweet?url=http://peters-playground.com/2013/07/learning-with-xslt&text=XSLT 学习笔记"></a>
 			<a id="end_cc" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/"></a>
-			<a id="weibo" href="http://v.t.sina.com.cn/share/share.php?url=http://peters-playground.com/2013/03/ie10-placeholder&title=IE10 的 placeholder 伪类问题"></a>
+			<a id="weibo" href="http://v.t.sina.com.cn/share/share.php?url=http://peters-playground.com/2013/07/learning-with-xslt&title=XSLT 学习笔记"></a>
 		</div>
 	</div>
 </article>

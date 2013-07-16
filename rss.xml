@@ -6,9 +6,275 @@
     <atom:link href="http://peters-playground.com/rss.xml" rel="self" type="application/rss+xml" />
     <description>专注前端技术</description>
     <language>zh_CN</language>
-    <pubDate>Wed, 03 Jul 2013 00:52:25 +0100</pubDate>
-    <lastBuildDate>Wed, 03 Jul 2013 00:52:25 +0100</lastBuildDate>
+    <pubDate>Tue, 16 Jul 2013 23:51:14 +0100</pubDate>
+    <lastBuildDate>Tue, 16 Jul 2013 23:51:14 +0100</lastBuildDate>
 
+    
+    <item>
+      <title>XSLT 学习笔记</title>
+      <link>http://peters-playground.com/2013/07/learning-with-xslt</link>
+      <pubDate>16 Jul 2013</pubDate>
+      <author>Peter</author>
+      <guid>http://peters-playground.com/2013/07/learning-with-xslt</guid>
+      <description>&lt;p&gt;XSLT 初学者，整理一些用法，加深记忆：&lt;/p&gt;
+
+&lt;h2&gt;普通语法&lt;/h2&gt;
+
+&lt;h3&gt;1. 创建变量&lt;/h3&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;xslt&quot;&gt;&lt;span class=&quot;k&quot;&gt;&amp;lt;xsl:variable&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;variable_name&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;&amp;lt;/xsl:variable&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;&amp;lt;xsl:variable&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;variable_name&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;select=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot; &amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;调用变量：&lt;code&gt;$variable_name&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Emmet 缩写 &lt;code&gt;val&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3&gt;2. 创建模板与调用模板&lt;/h3&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;xslt&quot;&gt;&lt;span class=&quot;k&quot;&gt;&amp;lt;xsl:template&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;&amp;lt;/xsl:template&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Emmet 缩写 &lt;code&gt;tn&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;xslt&quot;&gt;&lt;span class=&quot;k&quot;&gt;&amp;lt;xsl:call-template&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Emmet 缩写 &lt;code&gt;call&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3&gt;3. &lt;code&gt;value-of&lt;/code&gt; 与 &lt;code&gt;copy-of&lt;/code&gt;&lt;/h3&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;xslt&quot;&gt;&lt;span class=&quot;k&quot;&gt;&amp;lt;xsl:value-of&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;select=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot; &amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;&amp;lt;xsl:copy-of&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;select=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot; &amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;后者包含 HTML 标签&lt;/p&gt;
+
+&lt;p&gt;Emmet 缩写 &lt;code&gt;val&lt;/code&gt; &lt;code&gt;co&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3&gt;4. 条件选择&lt;/h3&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;xslt&quot;&gt;&lt;span class=&quot;k&quot;&gt;&amp;lt;xsl:choose&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;&amp;lt;xsl:when&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;test=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;&amp;lt;/xsl:when&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;&amp;lt;xsl:otherwise&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;&amp;lt;/xsl:otherwise&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;&amp;lt;/xsl:choose&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Emmet 缩写 &lt;code&gt;ch&lt;/code&gt; &lt;code&gt;wh&lt;/code&gt; &lt;code&gt;ot&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3&gt;5. &lt;code&gt;if&lt;/code&gt; 语句&lt;/h3&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;xslt&quot;&gt;&lt;span class=&quot;k&quot;&gt;&amp;lt;xsl:if&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;test=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;&amp;lt;/xsl:if&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Emmet 缩写 &lt;code&gt;if&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3&gt;6. &lt;code&gt;for-each&lt;/code&gt;&lt;/h3&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;xslt&quot;&gt;&lt;span class=&quot;k&quot;&gt;&amp;lt;xsl:for-each&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;select=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;&amp;lt;/xsl:for-each&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Emmet 缩写 &lt;code&gt;each&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3&gt;7. 修改属性&lt;/h3&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;xslt&quot;&gt;&lt;span class=&quot;k&quot;&gt;&amp;lt;xsl:attribute&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;&amp;lt;/xsl:attribute&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;例如, for-each 输出的第一项添加 &lt;code&gt;offset1&lt;/code&gt; class&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;xslt&quot;&gt;&lt;span class=&quot;k&quot;&gt;&amp;lt;xsl:for-each&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;select=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;span4&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;&amp;lt;xsl:choose&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;&amp;lt;xsl:when&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;test=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;positon() = 1&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;&amp;lt;xsl:attribute&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;class&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;span4 offset1&lt;span class=&quot;k&quot;&gt;&amp;lt;/xsl:attribute&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;&amp;lt;/xsl:when&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;&amp;lt;/xsl:choose&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- code --&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;&amp;lt;/xsl:for-each&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Emmet 缩写 &lt;code&gt;attr&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3&gt;8. 获取 handle 值&lt;/h3&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;xslt&quot;&gt;&lt;span class=&quot;k&quot;&gt;&amp;lt;xsl:value-of&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;select=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;entry/@handle&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;9. 选择 handle 是某个具体值的条目&lt;/h3&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;xslt&quot;&gt;&lt;span class=&quot;k&quot;&gt;&amp;lt;xsl:value-of&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;select=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;entry[@handle=&amp;#39;yes&amp;#39;]&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;XSLT 函数&lt;/h2&gt;
+
+&lt;p&gt;XSLT 1.0 函数列表 &lt;a href=&quot;http://zvon.org/xxl/XSLTreference/Output/xpathFunctionIndex.html&quot;&gt;http://zvon.org/xxl/XSLTreference/Output/xpathFunctionIndex.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;1. 第几个节点&lt;/h3&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;xslt&quot;&gt;position()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;2. 选择节点本身&lt;/h3&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;xslt&quot;&gt;self::node()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;3. 截取内容&lt;/h3&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;xslt&quot;&gt;substring(string, start, length)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;未完待续...&lt;/h2&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>如何管理 Sass 文件结构</title>
+      <link>http://peters-playground.com/2013/07/how-to-structure-a-sass-project</link>
+      <pubDate>15 Jul 2013</pubDate>
+      <author>Peter</author>
+      <guid>http://peters-playground.com/2013/07/how-to-structure-a-sass-project</guid>
+      <description>&lt;p&gt;原文作者 &lt;a href=&quot;http://wiseheartdesign.com&quot;&gt;John W.Long&lt;/a&gt; 在 &lt;a href=&quot;http://thesassway.com/beginner/how-to-structure-a-sass-project&quot;&gt;The Sass Way&lt;/a&gt; 分享了他管理 Sass 项目的一些经验心得，简单翻译了一下以便深入学习理解。&lt;/p&gt;
+
+&lt;h2&gt;文件结构&lt;/h2&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;xslt&quot;&gt;stylesheets/
+|
+|-- modules/              # Common modules
+|   |-- _all.scss         # Include to get all modules
+|   |-- _utility.scss     # Module name
+|   |-- _colors.scss      # Etc...
+|   ...
+|
+|-- partials/             # Partials
+|   |-- _base.sass        # imports for all mixins + global project variables
+|   |-- _buttons.scss     # buttons
+|   |-- _figures.scss     # figures
+|   |-- _grids.scss       # grids
+|   |-- _typography.scss  # typography
+|   |-- _reset.scss       # reset
+|   ...
+|
+|-- vendor/               # CSS or Sass from other projects
+|   |-- _colorpicker.scss
+|   |-- _jquery.ui.core.scss
+|   ...
+|
+`-- main.scss            # primary Sass file
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;主样式文件&lt;/h2&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;scss&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// Modules and Variables&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;@import&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;partials/base&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Partials&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;@import&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;partials/reset&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;@import&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;partials/typography&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;@import&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;partials/buttons&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;@import&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;partials/figures&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;@import&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;partials/grids&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// ...&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Third-party&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;@import&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;vendor/colorpicker&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;@import&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;vendor/jquery.ui.core&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Modules, partials, and vendor&lt;/h2&gt;
+
+&lt;p&gt;模块 (modules) 包含不直接输出为 CSS 的 Sass 样式，比如 mixin, function, and variables 等。&lt;/p&gt;
+
+&lt;p&gt;Partials （分音？一直不知道这个词中文怎么翻译）包含主样式，很多人喜欢根据 header, content, sidebar, footer 等管理文件，不过作者更偏向于通过 categories 管理，比如 typography, buttons, textboxes, selectboxes 等等。&lt;/p&gt;
+
+&lt;p&gt;Vendor 包括第三方 CSS 样式，例如 jQuery UI，colorpicker，lightbox 等插件，不建议直接修改这部分，而是在主文件中 override 需要修改的样式，方便以后更新。&lt;/p&gt;
+
+&lt;h2&gt;载入样式 (Using a base partial)&lt;/h2&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;scss&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// Use Compass (&amp;#39;cause it rocks!)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;@import&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;compass&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Font weights&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$light&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$regular&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;400&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$bold&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;600&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Base Font&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;$base-font-family&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;sans-serif&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;$base-font-weight&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$regular&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;$base-font-size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;13&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;$base-line-height&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Fixed Font&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;$fixed-font-family&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;monospace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;$fixed-font-size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;85&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;$fixed-line-height&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$base-line-height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Headings&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;$header-font-weight&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$bold&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;@import&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;modules/all&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;刚刚提到 modules 应该包含不直接输出为 CSS 的 Sass 样式，创建一个 base 文件载入全局变量，modules 等，可以方便地在任何一个文件中使用全局样式，或者在一个大项目中整理不同的样式模板。&lt;/p&gt;
+
+&lt;h2&gt;更进一步&lt;/h2&gt;
+
+&lt;p&gt;假如一个 Rails app 中包含多个子项目，可以将每个子项目分别放入同级文件夹中，完整的项目结构看起来像下面这样：&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;xslt&quot;&gt;stylesheets/
+|
+|-- admin/           # Admin sub-project
+|   |-- modules/
+|   |-- partials/
+|   `-- _base.scss
+|
+|-- account/         # Account sub-project
+|   |-- modules/
+|   |-- partials/
+|   `-- _base.scss
+|
+|-- site/            # Site sub-project
+|   |-- modules/
+|   |-- partials/
+|   `-- _base.scss
+|
+|-- vendor/          # CSS or Sass from other projects
+|   |-- _colorpicker-1.1.scss
+|   |-- _jquery.ui.core-1.9.1.scss
+|   ...
+|
+|-- admin.scss       # Primary stylesheets for each project
+|-- account.scss
+`-- site.scss
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;每个子项目都拥有独立的 主样式文件，modules，partials 等等，而第三方样式统一存入同一个目录。这对大型 Sass 项目来说，是一种非常有效的管理方式。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Stay-focused App</title>
@@ -295,92 +561,6 @@
 
 
 &lt;p&gt;第一条调整侧边栏条目的间距，第二条调整字体大小。第三条用于调整 Minimap 窗口的颜色，使用深色系的 Color Scheme 时窗口通常不容易分辨，修改这一条就可以了（RGBA 格式）。其他设置可以在 Soda 文件夹内找到，选中需要修改的项目复制粘贴到这个文件里，即使 Soda 更新也不担心丢失设置。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Emmet CSS Snippets</title>
-      <link>http://peters-playground.com/2013/04/emmet-css-snippets</link>
-      <pubDate>16 Apr 2013</pubDate>
-      <author>Peter</author>
-      <guid>http://peters-playground.com/2013/04/emmet-css-snippets</guid>
-      <description>&lt;p&gt;介绍一下 &lt;a href=&quot;https://github.com/P233/Emmet-Css-Snippets-for-Sublime-Text-2&quot;&gt;Emmet CSS Snippets&lt;/a&gt; 吧，半年前将 Zen Coding 的 CSS 缩写整理成为 Sublime Text 2 自动补完，400 多个非常琐碎，花了不少时间，刚整理完毕 Emmet 就发布了，所以也跟着改了名字。特色功能主要有以下几点：&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;包含 CSS 值的 snippet 都会在“分号”后自动换行，但如果在属性之间插入 CSS 属性，也会在后面添加多余的一行。建议自上而下书写 CSS 属性，然后用 &lt;a href=&quot;http://CSScomb.com&quot;&gt;CSScomb 工具&lt;/a&gt; 重新排列顺序；&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;如果 snippet 中包含 &quot;{ }&quot; , 会在 &quot;}&quot; 后插入新的一行，方便通过 &lt;kbd&gt;Command&lt;/kbd&gt; + &lt;kbd&gt;Down_Arrow&lt;/kbd&gt; 快捷键（有时 &lt;kbd&gt;Tab&lt;/kbd&gt; 键）让光标跳出 &quot;{ }&quot;，然后开始书写新的一段 CSS；&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;基于 Sublime Text 2 的模糊搜索功能，不需要输入缩写中的“冒号”，部分缩写可以不输入完整，比如 &lt;code&gt;bdrsa =&amp;gt; border-radius&lt;/code&gt; 但输入 &lt;code&gt;bra&lt;/code&gt; 就可以了。整理了一份缩写简化列表，请查看 &lt;a href=&quot;http://p233.github.com/Emmet-Css-Snippets-for-Sublime-Text-2/&quot;&gt;Snippets List&lt;/a&gt;；&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Emmet 中只用到一个字母的缩写改为使用前三个字母作为缩写（例如, &lt;code&gt;mar =&amp;gt; margin:&lt;/code&gt;, &lt;code&gt;wid =&amp;gt; width:&lt;/code&gt;），&lt;code&gt;widows&lt;/code&gt; 属性使用完整拼写，这样做是为了提高自动提示的准确度。更多变更请查看 &lt;a href=&quot;http://p233.github.com/Emmet-Css-Snippets-for-Sublime-Text-2/&quot;&gt;Snippets List&lt;/a&gt;；&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;缩写不能包含符号，所以做出以下更改：&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;css&quot;&gt;&lt;span class=&quot;nt&quot;&gt;imp&lt;/span&gt;    &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;@import&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;mp&lt;/span&gt;     &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;@media&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;ffa&lt;/span&gt;    &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;@font-face&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;ffa&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;   &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;@font-face&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;    &lt;span class=&quot;c&quot;&gt;/* 同理，包含 &amp;quot;+&amp;quot; 的缩写不能直接输入，需要手动选择 */&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;ipt&lt;/span&gt;    &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;    &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;important&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;某些 snippets 中可用 &lt;kbd&gt;Tab&lt;/kbd&gt; 键切换光标位置。例如，编辑完注释后按下 &lt;kbd&gt;Tab&lt;/kbd&gt; 键，光标跳出注释进入新的一行。按下 &lt;kbd&gt;Shift&lt;/kbd&gt; + &lt;kbd&gt;Tab&lt;/kbd&gt; 组合键，光标返回上一位置；&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;部分 CSS 属性添加了浏览器前缀；&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;添加了额外的 snippets, 请查看 &lt;a href=&quot;http://p233.github.com/Emmet-Css-Snippets-for-Sublime-Text-2/&quot;&gt;Snippets List&lt;/a&gt;&lt;/strong&gt;；&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;增加了 Sass 函数自动完成提示，函数列表请查看 &lt;a href=&quot;http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html&quot;&gt;Sass 函数列表&lt;/a&gt;；&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-
-&lt;p&gt;截止到目前下载量已超过两万六千多次，有点出乎意料，不过这个插件还不够完善，需要进一步提高书写 CSS 的准确度：&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;自动换行，这是一把双刃剑，在写好的 CSS 中插入一段会产生多余的空行。Emmet 没有加入这个功能，因为想要一种流畅感，所以加入了，使用过程中会带来很多不必要的删除空行的操作，有时也的确方便，如何取舍呢；&lt;/li&gt;
-&lt;li&gt;不再包含浏览器前缀？写 CSS 动画，尤其是使用 &lt;code&gt;@keyframes&lt;/code&gt; 时，因为前缀的的关系整个文件会变得非常啰嗦，也不方便阅读，最近开始使用 &lt;a href=&quot;http://leaverou.github.io/prefixfree/&quot;&gt;Prefix free&lt;/a&gt;，gzip 压缩后只有 2kb 算起来两个 &lt;code&gt;@keyframes&lt;/code&gt; 就抵消掉了；&lt;/li&gt;
-&lt;li&gt;进一步优化 snippets 的缩写，让每个 snippet 都能通过独一无二的缩写触发，不互相影响；&lt;/li&gt;
-&lt;li&gt;Sublime Text 3 的原生 CSS 插件（可以影响到 LESS）在输入 id，class 时禁用任何 snippet，Syntax hightailing for Sass 也加入了这个功能，下一步，希望能令输入 property value 时不提示 property name 相关 snippets，暂时还没有想到实现的办法；&lt;/li&gt;
-&lt;li&gt;加入 Compass 自动补完？&lt;/li&gt;
-&lt;li&gt;待续。。。&lt;/li&gt;
-&lt;/ol&gt;
-
-
-&lt;p&gt;不过在 Snippets 层面上能够做到的终须有限，期待 Emmet 添加更多的功能，进一步提高 CSS 的书写效率。是否存在更好的办法呢？&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>关注 CSS 性能 (二)</title>
-      <link>http://peters-playground.com/2013/04/css-performance-2</link>
-      <pubDate>15 Apr 2013</pubDate>
-      <author>Peter</author>
-      <guid>http://peters-playground.com/2013/04/css-performance-2</guid>
-      <description>&lt;p&gt;如何写 CSS 令浏览器的执行效率最高呢？翻译一篇 Chris Coyier 的 &lt;a href=&quot;http://css-tricks.com/efficiently-rendering-css/&quot;&gt;Efficiently Rendering CSS&lt;/a&gt; 帮助理清思路。此外，Google 也有一篇更详细的讲解文章 &lt;a href=&quot;https://developers.google.com/speed/docs/best-practices/rendering&quot;&gt;Optimize browser rendering&lt;/a&gt;。&lt;/p&gt;
-
-&lt;p&gt;第一，浏览器读 CSS 的顺序是&lt;strong&gt;从右往左&lt;/strong&gt;，比如  &lt;code&gt;ul &amp;gt; li a[title=&quot;home&quot;]&lt;/code&gt;，最先被读到的第一部分是 &lt;code&gt;a[title=&quot;home&quot;]&lt;/code&gt;。&lt;/p&gt;
-
-&lt;p&gt;第二，效率由高到低的选择器依次是 ID, class, tag, universal ：&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;css&quot;&gt;&lt;span class=&quot;nf&quot;&gt;#main-navigation&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;      &lt;span class=&quot;c&quot;&gt;/* ID (Fastest) */&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;.home&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;#page-wrap&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;  &lt;span class=&quot;c&quot;&gt;/* ID */&lt;/span&gt;
-&lt;span class=&quot;nc&quot;&gt;.main-navigation&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;      &lt;span class=&quot;c&quot;&gt;/* Class */&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;ul&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;li&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;.current&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;       &lt;span class=&quot;c&quot;&gt;/* Class *&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;ul {   }                    /* Tag */&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;ul&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;li&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;                &lt;span class=&quot;c&quot;&gt;/* Tag */&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;                     &lt;span class=&quot;c&quot;&gt;/* Universal (Slowest) */&lt;/span&gt;
-&lt;span class=&quot;nf&quot;&gt;#content&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;home&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;     &lt;span class=&quot;c&quot;&gt;/* Universal */&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;因为浏览器从右往左读，&lt;code&gt;#main-nav &amp;gt; li {}&lt;/code&gt; 这一句即使用到了 id 选择器，实际效率却不会提升多少。&lt;/p&gt;
-
-&lt;p&gt;第三，不需要这样写 &lt;code&gt;ul#main-navigation {}&lt;/code&gt;，因为 ID 已经是独一无二的了，同理，tag 也要尽可能地避免与 class 一同使用。&lt;/p&gt;
-
-&lt;p&gt;第四，后代选择器是性能最差的，尤其是后代中包含 tag 或者 universal 选择器，比如 &lt;code&gt;html body ul li a {}&lt;/code&gt; 简直是一场灾难。&lt;/p&gt;
-
-&lt;p&gt;第五，浏览器如果发现某个选择器不能匹配任何元素，将会立即终止尝试，开始匹配下一个选择器，从而提高执行效率。&lt;/p&gt;
-
-&lt;p&gt;第六，重新思考一下为什么要这样写，是不是还有优化的可能呢？比如利用元素的继承性可以省下很多不必要的设定。&lt;/p&gt;
-
-&lt;p&gt;第七，如果很在意性能，尽量少用 CSS3 选择器。&lt;/p&gt;
 </description>
     </item>
     
