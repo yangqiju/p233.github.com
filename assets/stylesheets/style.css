@@ -209,23 +209,21 @@ a {
 
 /*------- post list ------- */
 #post_list {
-  padding-right: 14px;
-  overflow-y: hidden;
+  padding-right: 9px;
+  overflow-y: auto;
   position: absolute;
   top: 140px;
   bottom: 10px;
   left: 20px;
   right: 6px; }
-  #post_list:hover {
-    overflow-y: auto; }
   #post_list::-webkit-scrollbar {
     width: 3px; }
-  #post_list::-webkit-scrollbar-track {
-    background: #f4f4f4; }
   #post_list::-webkit-scrollbar-thumb {
+    background: #fafaf6; }
+  #post_list:hover::-webkit-scrollbar-thumb {
     background: #e7e7e7; }
-    #post_list::-webkit-scrollbar-thumb:hover {
-      background: #cecece; }
+  #post_list::-webkit-scrollbar-thumb:hover {
+    background: #cecece; }
 
 /*------- post links ------- */
 .cate1 {
@@ -400,11 +398,10 @@ a {
     display: block;
     cursor: pointer; }
 
-#content p > code,
-#content li > code,
-#content blockquote > code {
+code {
   padding: 0 5px;
   color: black;
+  font-family: monospace;
   font-size: 0.95em;
   text-shadow: 0 1px white;
   background: #f7f7f7; }
@@ -589,10 +586,8 @@ a#end_cc, a#twitter, a#weibo {
 .highlight {
   margin: 1.5em 0;
   padding: 15px;
-  font-size: 16px;
   line-height: 1.4;
-  text-shadow: 0 1px white;
-  background-color: #f7f7f7;
+  background: #f7f7f7;
   overflow-x: auto; }
   .highlight::-webkit-scrollbar {
     height: 10px; }
@@ -600,15 +595,15 @@ a#end_cc, a#twitter, a#weibo {
     background: #e7e7e7; }
     .highlight::-webkit-scrollbar-thumb:hover {
       background: #dbdbdb; }
-
-pre {
-  margin: 0; }
-
-code {
-  font-family: monospace;
-  -moz-tab-size: 2;
-  -o-tab-size: 2;
-  tab-size: 2; }
+  .highlight pre {
+    margin: 0; }
+  .highlight code {
+    padding: 0;
+    font-size: 16px;
+    background: none;
+    -moz-tab-size: 2;
+    -o-tab-size: 2;
+    tab-size: 2; }
 
 .highlight .c {
   color: #586e75; }
